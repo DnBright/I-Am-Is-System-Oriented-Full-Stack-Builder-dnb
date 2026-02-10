@@ -15,6 +15,7 @@ export default function Navbar() {
     const router = useRouter();
     const pathname = usePathname();
     const [isOpen, setIsOpen] = useState(false);
+    const [isScrolled, setIsScrolled] = useState(false);
 
     const links = [
         { href: '/', label: t('home') },
@@ -24,6 +25,15 @@ export default function Navbar() {
         { href: '/try', label: t('try') },
         { href: '/about', label: t('about') },
     ];
+
+    // Handle scroll for navbar transparency
+    useEffect(() => {
+        const handleScroll = () => {
+            setIsScrolled(window.scrollY > 20);
+        };
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
 
     // Close mobile menu when route changes
     useEffect(() => {
@@ -45,7 +55,12 @@ export default function Navbar() {
     };
 
     return (
-        <nav className="fixed top-0 w-full z-50 glass border-b border-primary/10">
+        <nav className={cn(
+            "fixed top-0 w-full z-50 transition-all duration-300",
+            isScrolled || isOpen
+                ? "glass border-b border-primary/10 py-3"
+                : "bg-transparent border-transparent py-5"
+        )}>
             <div className="container mx-auto px-4 py-3">
                 <div className="flex items-center justify-between">
                     {/* Logo */}
