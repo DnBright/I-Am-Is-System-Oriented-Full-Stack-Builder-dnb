@@ -58,16 +58,20 @@ export default function LivePage() {
     };
 
     return (
-        <div className="pt-32 pb-20">
-            <div className="container mx-auto px-4">
+        <div className="py-24 relative overflow-hidden">
+            <div className="container mx-auto px-4 relative z-10">
                 {/* Header */}
-                <div className="max-w-6xl mx-auto mb-12">
-                    <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
-                        <div>
+                <div className="flex flex-col items-center text-center mb-16">
+                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-sm bg-primary/10 border border-primary/20 mb-4">
+                        <span className="text-[10px] font-mono font-bold tracking-[0.2em] text-primary uppercase">Command_Center // Live_Stream_Active</span>
+                    </div>
+                    <div className="flex flex-col md:flex-row md:items-end justify-between w-full max-w-6xl gap-8">
+                        <div className="text-left">
                             <motion.h1
                                 initial={{ opacity: 0, x: -20 }}
-                                animate={{ opacity: 1, x: 0 }}
-                                className="text-5xl font-bold mb-4"
+                                whileInView={{ opacity: 1, x: 0 }}
+                                viewport={{ once: true }}
+                                className="text-4xl md:text-6xl font-black mb-6 tracking-tighter uppercase"
                             >
                                 {t.rich('title', {
                                     span: (children) => <span className="text-primary">{children}</span>
@@ -75,95 +79,114 @@ export default function LivePage() {
                             </motion.h1>
                             <motion.p
                                 initial={{ opacity: 0, x: -20 }}
-                                animate={{ opacity: 1, x: 0 }}
+                                whileInView={{ opacity: 1, x: 0 }}
+                                viewport={{ once: true }}
                                 transition={{ delay: 0.1 }}
-                                className="text-text-secondary text-lg"
+                                className="text-text-muted text-lg font-mono uppercase tracking-widest opacity-60"
                             >
                                 {t('subtitle')}
                             </motion.p>
                         </div>
 
-                        <div className="flex items-center gap-4">
+                        <div className="flex items-center gap-6">
                             <div className="text-right hidden sm:block">
-                                <p className="text-xs text-text-muted uppercase tracking-widest mb-1">Last Synced</p>
-                                <p className="text-sm font-mono text-text-secondary">
-                                    {lastUpdated ? formatRelativeTime(lastUpdated) : 'Never'}
+                                <p className="text-[10px] text-text-muted uppercase tracking-[0.2em] mb-1 opacity-40">System_Clock</p>
+                                <p className="text-sm font-mono text-primary font-bold">
+                                    {lastUpdated ? formatDate(lastUpdated) : 'NOT_SYNCED'}
                                 </p>
                             </div>
                             <button
                                 onClick={() => fetchData(true)}
                                 disabled={refreshing}
                                 className={cn(
-                                    "p-3 rounded-lg border border-border bg-surface hover:bg-surface-elevated transition-all flex items-center gap-2 px-4",
-                                    refreshing && "animate-spin"
+                                    "px-6 py-3 rounded-sm border border-primary/10 bg-primary/5 hover:bg-primary/10 transition-all flex items-center gap-3 font-mono text-[10px] uppercase tracking-[0.2em]",
+                                    refreshing && "opacity-50"
                                 )}
                             >
-                                <FaSyncAlt className={refreshing ? "text-primary" : "text-text-secondary"} />
-                                <span className="text-sm font-medium">
-                                    {refreshing ? 'Refreshing...' : t('auto_refresh.on')}
-                                </span>
+                                <FaSyncAlt className={cn("text-primary", refreshing && "animate-spin")} />
+                                <span>{refreshing ? 'Refreshing...' : t('auto_refresh.on')}</span>
                             </button>
                         </div>
                     </div>
                 </div>
 
-                <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-12">
                     {/* Main Timeline */}
                     <div className="lg:col-span-2 space-y-8">
-                        <Card className="p-0 overflow-hidden">
-                            <div className="p-6 border-b border-border flex items-center gap-3">
-                                <FaHistory className="text-primary" />
-                                <h2 className="text-xl font-bold">Activity Timeline</h2>
+                        <Card className="p-0 overflow-hidden border-primary/5 bg-surface/40">
+                            <div className="p-6 border-b border-white/5 flex items-center justify-between">
+                                <div className="flex items-center gap-3">
+                                    <FaHistory className="text-primary text-sm" />
+                                    <h2 className="text-xs font-mono font-bold uppercase tracking-[0.2em]">Activity_Stream</h2>
+                                </div>
+                                <div className="flex items-center gap-4">
+                                    <span className="text-[10px] font-mono text-text-muted opacity-40">AUTO_LOG: ON</span>
+                                    <div className="flex gap-1">
+                                        {[...Array(3)].map((_, i) => (
+                                            <div key={i} className="w-1 h-3 bg-primary/20" />
+                                        ))}
+                                    </div>
+                                </div>
                             </div>
 
-                            <div className="p-6">
+                            <div className="p-8">
                                 {loading ? (
-                                    <div className="space-y-6">
-                                        {[...Array(6)].map((_, i) => (
-                                            <div key={i} className="flex gap-4">
+                                    <div className="space-y-8">
+                                        {[...Array(5)].map((_, i) => (
+                                            <div key={i} className="flex gap-6">
                                                 <Skeleton variant="circular" className="w-10 h-10 flex-shrink-0" />
-                                                <div className="flex-1 space-y-2">
-                                                    <Skeleton className="h-5 w-1/2" />
-                                                    <Skeleton className="h-4 w-full" />
+                                                <div className="flex-1 space-y-3">
+                                                    <Skeleton className="h-4 w-1/3" />
+                                                    <Skeleton className="h-10 w-full" />
                                                 </div>
                                             </div>
                                         ))}
                                     </div>
                                 ) : (
-                                    <div className="relative space-y-8 before:absolute before:inset-0 before:left-5 before:w-0.5 before:bg-border">
+                                    <div className="relative space-y-10 before:absolute before:inset-0 before:left-5 before:w-[1px] before:bg-primary/10">
                                         <AnimatePresence mode="popLayout">
                                             {events.map((event, index) => (
                                                 <motion.div
                                                     key={event.id}
-                                                    initial={{ opacity: 0, y: 10 }}
-                                                    animate={{ opacity: 1, y: 0 }}
+                                                    initial={{ opacity: 0, x: -10 }}
+                                                    whileInView={{ opacity: 1, x: 0 }}
+                                                    viewport={{ once: true }}
                                                     transition={{ delay: index * 0.05 }}
-                                                    className="relative flex gap-6 group"
+                                                    className="relative flex gap-8 group"
                                                 >
-                                                    <div className="relative z-10 w-10 h-10 rounded-full bg-surface border-2 border-border flex items-center justify-center flex-shrink-0 group-hover:border-primary transition-colors">
+                                                    <div className="relative z-10 w-10 h-10 rounded-sm bg-background border border-primary/20 flex items-center justify-center flex-shrink-0 group-hover:border-primary transition-all shadow-[0_0_15px_rgba(16,185,129,0)] group-hover:shadow-[0_0_15px_rgba(16,185,129,0.1)]">
                                                         {getEventIcon(event.type)}
+                                                        <div className="absolute -inset-1 bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity -z-10" />
                                                     </div>
 
-                                                    <div className="flex-1 pb-8 border-b border-border last:border-0 last:pb-0">
-                                                        <div className="flex flex-wrap items-center justify-between gap-2 mb-2">
-                                                            <h3 className="font-bold text-text-primary">
-                                                                {event.repo.name.split('/')[1]}
-                                                            </h3>
-                                                            <Badge variant="info" className="text-[10px] uppercase font-mono">
+                                                    <div className="flex-1 pb-10 border-b border-white/5 last:border-0 last:pb-0">
+                                                        <div className="flex flex-wrap items-center justify-between gap-4 mb-4">
+                                                            <div className="flex items-center gap-3">
+                                                                <h3 className="font-mono font-black text-text-primary tracking-tighter uppercase group-hover:text-primary transition-colors">
+                                                                    {event.repo.name.split('/')[1]}
+                                                                </h3>
+                                                                <span className="text-[10px] font-mono text-text-muted opacity-30">0x{event.id.slice(-4)}</span>
+                                                            </div>
+                                                            <div className="px-2 py-0.5 rounded-sm bg-primary/5 border border-primary/10 text-[9px] font-mono font-bold text-primary tracking-widest uppercase">
                                                                 {event.type.replace('Event', '')}
-                                                            </Badge>
+                                                            </div>
                                                         </div>
 
-                                                        <p className="text-text-secondary text-sm mb-3">
-                                                            {event.type === 'PushEvent'
-                                                                ? event.payload.commits?.[0]?.message || t('fallback_desc', { repo: event.repo.name.split('/')[1] })
-                                                                : `Activity: ${event.type.replace('Event', '')}`}
-                                                        </p>
+                                                        <div className="p-4 bg-white/[0.02] border border-white/5 rounded-sm mb-4 group-hover:bg-white/[0.04] transition-colors">
+                                                            <p className="text-text-muted text-sm leading-relaxed font-mono opacity-80 italic">
+                                                                {event.type === 'PushEvent'
+                                                                    ? event.payload.commits?.[0]?.message || t('fallback_desc', { repo: event.repo.name.split('/')[1] })
+                                                                    : `Activity: ${event.type.replace('Event', '')}`}
+                                                            </p>
+                                                        </div>
 
-                                                        <div className="flex items-center gap-4 text-xs text-text-muted">
-                                                            <span>{formatDate(event.created_at)}</span>
-                                                            <span>•</span>
-                                                            <span>{formatRelativeTime(event.created_at)}</span>
+                                                        <div className="flex items-center gap-4 text-[9px] font-mono text-text-muted uppercase tracking-widest opacity-40">
+                                                            <span className="flex items-center gap-2">
+                                                                <FaClock className="text-info/50" />
+                                                                {formatRelativeTime(event.created_at)}
+                                                            </span>
+                                                            <span>//</span>
+                                                            <span>STAMP: {formatDate(event.created_at)}</span>
                                                         </div>
                                                     </div>
                                                 </motion.div>
@@ -177,36 +200,45 @@ export default function LivePage() {
 
                     {/* Sidebar Stats */}
                     <div className="space-y-8">
-                        <Card className="p-6">
-                            <h3 className="text-lg font-bold mb-6 flex items-center gap-2">
-                                <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-                                {t('heatmap.title')}
-                            </h3>
-                            <div className="overflow-hidden">
+                        <Card className="p-0 border-primary/5 bg-surface/40 overflow-hidden">
+                            <div className="p-6 border-b border-white/5 flex items-center justify-between">
+                                <div className="flex items-center gap-3">
+                                    <div className="w-2 h-2 rounded-full bg-primary animate-pulse" />
+                                    <h3 className="text-xs font-mono font-bold uppercase tracking-[0.2em]">{t('heatmap.title')}</h3>
+                                </div>
+                                <span className="text-[9px] font-mono text-text-muted px-2 py-1 bg-white/5">FREQ_MAP</span>
+                            </div>
+                            <div className="p-6 overflow-hidden">
                                 {loading ? (
                                     <Skeleton className="h-40 w-full" />
                                 ) : (
                                     <ContributionHeatmap data={heatmap} />
                                 )}
+                                <p className="text-[10px] font-mono text-text-muted mt-8 leading-relaxed uppercase tracking-wider opacity-60">
+                                    {t('heatmap.description')}
+                                </p>
                             </div>
-                            <p className="text-xs text-text-muted mt-6 leading-relaxed">
-                                {t('heatmap.description')}
-                            </p>
                         </Card>
 
-                        <Card className="p-6">
-                            <h3 className="text-lg font-bold mb-4">Work Principles</h3>
-                            <ul className="space-y-4">
+                        <Card className="p-10 border-primary/10 relative overflow-hidden group">
+                            <div className="absolute top-0 right-0 p-4 opacity-10">
+                                <FaGitAlt className="text-4xl text-primary" />
+                            </div>
+                            <h3 className="text-xl font-black mb-8 uppercase tracking-tighter">Work_Primitives</h3>
+                            <ul className="space-y-6">
                                 {[
-                                    { title: "Transparency", desc: "Every commit is visible activity." },
-                                    { title: "Consistency", desc: "Long-term output > Short-term bursts." },
-                                    { title: "Atomicity", desc: "Small, meaningful system updates." }
+                                    { title: "Transparency", desc: "Every commit is visible activity.", code: "TRP_01" },
+                                    { title: "Consistency", desc: "Long-term output > Short-term bursts.", code: "CNS_02" },
+                                    { title: "Atomicity", desc: "Small, meaningful system updates.", code: "ATM_03" }
                                 ].map((p, i) => (
-                                    <li key={i} className="flex gap-3">
-                                        <div className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
+                                    <li key={i} className="flex gap-4 group/item">
+                                        <div className="w-1 h-10 bg-primary/10 group-hover/item:bg-primary transition-all flex-shrink-0" />
                                         <div>
-                                            <p className="text-sm font-bold text-text-primary">{p.title}</p>
-                                            <p className="text-xs text-text-secondary">{p.desc}</p>
+                                            <div className="flex items-center gap-2 mb-1">
+                                                <p className="text-xs font-mono font-bold text-text-primary uppercase tracking-widest">{p.title}</p>
+                                                <span className="text-[8px] font-mono text-text-muted opacity-30">{p.code}</span>
+                                            </div>
+                                            <p className="text-[10px] font-mono text-text-muted uppercase tracking-wider opacity-60">{p.desc}</p>
                                         </div>
                                     </li>
                                 ))}
