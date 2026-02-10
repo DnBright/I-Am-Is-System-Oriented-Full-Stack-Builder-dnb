@@ -6,10 +6,12 @@ import Badge from '@/components/ui/Badge';
 import Skeleton from '@/components/ui/Skeleton';
 import { formatRelativeTime } from '@/lib/utils';
 import { GitHubEvent } from '@/types/github';
-import Link from 'next/link';
+import { Link } from '@/navigation';
 import { FaGithub, FaCodeBranch, FaGitAlt } from 'react-icons/fa';
+import { useTranslations } from 'next-intl';
 
 export default function LiveActivityPreview() {
+    const t = useTranslations('LiveActivity');
     const [events, setEvents] = useState<GitHubEvent[]>([]);
     const [loading, setLoading] = useState(true);
 
@@ -50,7 +52,7 @@ export default function LiveActivityPreview() {
             case 'CreateEvent':
                 return `Created ${event.payload.ref_type} in ${event.repo.name}`;
             default:
-                return `Activity in ${event.repo.name}`;
+                return t('fallback_desc', { repo: event.repo.name });
         }
     };
 
@@ -60,11 +62,11 @@ export default function LiveActivityPreview() {
                 <div className="max-w-4xl mx-auto">
                     <div className="flex items-center justify-between mb-8">
                         <div>
-                            <h2 className="text-4xl font-bold mb-2 text-text-primary">Live GitHub Activity</h2>
-                            <p className="text-text-secondary">Real-time updates from my repositories</p>
+                            <h2 className="text-4xl font-bold mb-2 text-text-primary">{t('title')}</h2>
+                            <p className="text-text-secondary">{t('subtitle')}</p>
                         </div>
                         <Link href="/live">
-                            <Badge variant="info">View All</Badge>
+                            <Badge variant="info">{t('view_all')}</Badge>
                         </Link>
                     </div>
 

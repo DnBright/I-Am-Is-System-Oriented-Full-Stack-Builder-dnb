@@ -1,23 +1,27 @@
 'use client';
 
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import { Link, usePathname, useRouter } from '@/navigation';
 import { cn } from '@/lib/utils';
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { HiMenuAlt3, HiX } from 'react-icons/hi';
+import { useTranslations, useLocale } from 'next-intl';
+import { FaGlobe } from 'react-icons/fa';
 
 export default function Navbar() {
+    const t = useTranslations('Navbar');
+    const locale = useLocale();
+    const router = useRouter();
     const pathname = usePathname();
     const [isOpen, setIsOpen] = useState(false);
 
     const links = [
-        { href: '/', label: 'Home' },
-        { href: '/projects', label: 'Projects' },
-        { href: '/live', label: 'Live' },
-        { href: '/analytics', label: 'Analytics' },
-        { href: '/try', label: 'Try' },
-        { href: '/about', label: 'About' },
+        { href: '/', label: t('home') },
+        { href: '/projects', label: t('projects') },
+        { href: '/live', label: t('live') },
+        { href: '/analytics', label: t('analytics') },
+        { href: '/try', label: t('try') },
+        { href: '/about', label: t('about') },
     ];
 
     // Close mobile menu when route changes
@@ -33,6 +37,11 @@ export default function Navbar() {
             document.body.style.overflow = 'unset';
         }
     }, [isOpen]);
+
+    const toggleLanguage = () => {
+        const nextLocale = locale === 'en' ? 'id' : 'en';
+        router.replace(pathname, { locale: nextLocale });
+    };
 
     return (
         <nav className="fixed top-0 w-full z-50 glass border-b border-border">
@@ -67,22 +76,41 @@ export default function Navbar() {
                         ))}
                     </div>
 
-                    {/* CTA Button (Desktop) */}
-                    <Link
-                        href="/try"
-                        className="hidden md:inline-flex px-6 py-2 bg-primary text-background rounded-lg text-sm font-bold hover:bg-primary-hover transition-all duration-200 shadow-[0_0_20px_rgba(16,185,129,0.3)]"
-                    >
-                        Try My Work
-                    </Link>
+                    <div className="hidden md:flex items-center gap-4">
+                        {/* Language Switcher */}
+                        <button
+                            onClick={toggleLanguage}
+                            className="flex items-center gap-2 px-3 py-2 rounded-lg text-xs font-bold text-text-secondary hover:text-primary hover:bg-primary/5 border border-border transition-all uppercase tracking-widest"
+                        >
+                            <FaGlobe />
+                            {locale === 'en' ? 'EN' : 'ID'}
+                        </button>
+
+                        {/* CTA Button (Desktop) */}
+                        <Link
+                            href="/try"
+                            className="inline-flex px-6 py-2 bg-primary text-background rounded-lg text-sm font-bold hover:bg-primary-hover transition-all duration-200 shadow-[0_0_20px_rgba(16,185,129,0.3)]"
+                        >
+                            {t('cta')}
+                        </Link>
+                    </div>
 
                     {/* Mobile Menu Button */}
-                    <button
-                        className="md:hidden text-text-primary p-2 focus:outline-none"
-                        onClick={() => setIsOpen(!isOpen)}
-                        aria-label="Toggle Menu"
-                    >
-                        {isOpen ? <HiX size={24} /> : <HiMenuAlt3 size={24} />}
-                    </button>
+                    <div className="flex items-center gap-2 md:hidden">
+                        <button
+                            onClick={toggleLanguage}
+                            className="p-2 text-text-secondary hover:text-primary transition-colors uppercase font-bold text-xs"
+                        >
+                            {locale === 'en' ? 'EN' : 'ID'}
+                        </button>
+                        <button
+                            className="text-text-primary p-2 focus:outline-none"
+                            onClick={() => setIsOpen(!isOpen)}
+                            aria-label="Toggle Menu"
+                        >
+                            {isOpen ? <HiX size={24} /> : <HiMenuAlt3 size={24} />}
+                        </button>
+                    </div>
                 </div>
             </div>
 
@@ -116,7 +144,7 @@ export default function Navbar() {
                         <div className="mt-auto pb-10">
                             <Link href="/try" className="w-full">
                                 <button className="w-full py-4 bg-primary text-background rounded-xl font-black text-lg uppercase tracking-widest shadow-[0_0_30px_rgba(16,185,129,0.2)]">
-                                    Initiate System Trial
+                                    {t('cta')}
                                 </button>
                             </Link>
                             <p className="text-center text-text-muted text-[10px] mt-6 tracking-widest uppercase opacity-50 font-mono">

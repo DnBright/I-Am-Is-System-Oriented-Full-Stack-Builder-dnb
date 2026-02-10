@@ -1,0 +1,56 @@
+{
+  "Navbar": {
+    "home": "Home",
+    "projects": "Projects",
+    "live": "Live",
+    "analytics": "Analytics",
+    "try": "Try",
+    "about": "About",
+    "cta": "Try My Work"
+  },
+  "Hero": {
+    "badge": "Pushing code now...",
+    "title_primary": "System-Oriented",
+    "title_secondary": "Full-Stack Engineer",
+    "subtitle_1": "Building scalable systems with measurable impact.",
+    "subtitle_2": "Transparent work through real-time GitHub activity.",
+    "stats": {
+      "commits": "Commits",
+      "repositories": "Repositories",
+      "experience": "Years Experience"
+    },
+    "buttons": {
+      "projects": "View Projects",
+      "live": "See Live Activity"
+    }
+  },
+  "LiveActivity": {
+    "title": "Live GitHub Activity",
+    "subtitle": "Real-time updates from my repositories",
+    "view_all": "View All",
+    "fallback_desc": "Activity in {repo}"
+  },
+  "Analytics": {
+    "title": "Coding Analytics",
+    "subtitle": "Measurable work, transparent progress",
+    "view_detailed": "View Detailed Analytics",
+    "stats": {
+      "totalCommits": "Total Commits",
+      "avgCommits": "Avg Commits/Day",
+      "consistency": "Consistency Score",
+      "streak": "Current Streak",
+      "days": "days"
+    }
+  },
+  "Projects": {
+    "title": "Featured Projects",
+    "subtitle": "Real systems solving real problems",
+    "view_all": "View All Projects"
+  },
+  "CTA": {
+    "title": "Ready to see what I've built?",
+    "subtitle": "Explore interactive demos, dive into case studies, or check out my live GitHub activity.",
+    "button_try": "Try My Work",
+    "button_cases": "View Case Studies"
+  }
+}

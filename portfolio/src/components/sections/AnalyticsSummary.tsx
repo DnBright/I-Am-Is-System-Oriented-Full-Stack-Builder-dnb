@@ -3,8 +3,9 @@
 import { useEffect, useState } from 'react';
 import Card from '@/components/ui/Card';
 import Skeleton from '@/components/ui/Skeleton';
-import Link from 'next/link';
+import { Link } from '@/navigation';
 import { FaClock, FaFire, FaCode, FaTrophy } from 'react-icons/fa';
+import { useTranslations } from 'next-intl';
 
 interface AnalyticsSummary {
     totalCommits: number;
@@ -14,6 +15,7 @@ interface AnalyticsSummary {
 }
 
 export default function AnalyticsSummary() {
+    const t = useTranslations('Analytics');
     const [analytics, setAnalytics] = useState<AnalyticsSummary | null>(null);
     const [loading, setLoading] = useState(true);
 
@@ -41,26 +43,26 @@ export default function AnalyticsSummary() {
     const stats = [
         {
             icon: <FaCode className="text-2xl" />,
-            label: 'Total Commits',
+            label: t('stats.totalCommits'),
             value: analytics?.totalCommits || 0,
             color: 'text-primary'
         },
         {
             icon: <FaClock className="text-2xl" />,
-            label: 'Avg Commits/Day',
+            label: t('stats.avgCommits'),
             value: analytics?.averageCommitsPerDay.toFixed(1) || '0',
             color: 'text-info'
         },
         {
             icon: <FaTrophy className="text-2xl" />,
-            label: 'Consistency Score',
+            label: t('stats.consistency'),
             value: `${analytics?.consistencyScore || 0}%`,
             color: 'text-warning'
         },
         {
             icon: <FaFire className="text-2xl" />,
-            label: 'Current Streak',
-            value: `${analytics?.currentStreak || 0} days`,
+            label: t('stats.streak'),
+            value: `${analytics?.currentStreak || 0} ${t('stats.days')}`,
             color: 'text-error'
         }
     ];
@@ -70,9 +72,9 @@ export default function AnalyticsSummary() {
             <div className="container mx-auto px-4">
                 <div className="max-w-6xl mx-auto">
                     <div className="text-center mb-12">
-                        <h2 className="text-4xl font-bold mb-4 text-text-primary">Coding Analytics</h2>
+                        <h2 className="text-4xl font-bold mb-4 text-text-primary">{t('title')}</h2>
                         <p className="text-text-secondary">
-                            Measurable work, transparent progress
+                            {t('subtitle')}
                         </p>
                     </div>
 
@@ -107,7 +109,7 @@ export default function AnalyticsSummary() {
                             href="/analytics"
                             className="text-primary hover:text-primary-hover transition-colors inline-flex items-center gap-2"
                         >
-                            View Detailed Analytics
+                            {t('view_detailed')}
                             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                             </svg>

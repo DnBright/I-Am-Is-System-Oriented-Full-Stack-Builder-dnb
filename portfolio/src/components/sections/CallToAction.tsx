@@ -2,9 +2,12 @@
 
 import { motion } from 'framer-motion';
 import Button from '@/components/ui/Button';
-import Link from 'next/link';
+import { Link } from '@/navigation';
+import { useTranslations } from 'next-intl';
 
 export default function CallToAction() {
+    const t = useTranslations('CTA');
+
     return (
         <section className="py-20 relative overflow-hidden">
             {/* Background gradient */}
@@ -19,21 +22,21 @@ export default function CallToAction() {
                         viewport={{ once: true }}
                     >
                         <h2 className="text-4xl md:text-5xl font-bold mb-6 text-text-primary">
-                            Ready to see what I've built?
+                            {t('title')}
                         </h2>
                         <p className="text-xl text-text-secondary mb-8 max-w-2xl mx-auto">
-                            Explore interactive demos, dive into case studies, or check out my live GitHub activity.
+                            {t('subtitle')}
                         </p>
 
                         <div className="flex flex-col sm:flex-row gap-4 justify-center">
                             <Link href="/try">
                                 <Button size="lg" className="w-full sm:w-auto">
-                                    Try My Work
+                                    {t('button_try')}
                                 </Button>
                             </Link>
                             <Link href="/projects">
                                 <Button variant="outline" size="lg" className="w-full sm:w-auto">
-                                    View Case Studies
+                                    {t('button_cases')}
                                 </Button>
                             </Link>
                         </div>

@@ -1,0 +1,56 @@
+{
+    "Navbar": {
+        "home": "Beranda",
+        "projects": "Proyek",
+        "live": "Live",
+        "analytics": "Analitik",
+        "try": "Coba",
+        "about": "Tentang",
+        "cta": "Coba Hasil Kerja"
+    },
+    "Hero": {
+        "badge": "Sedang push kode...",
+        "title_primary": "System-Oriented",
+        "title_secondary": "Full-Stack Engineer",
+        "subtitle_1": "Membangun sistem terukur dengan dampak yang nyata.",
+        "subtitle_2": "Transparansi kerja melalui aktivitas GitHub real-time.",
+        "stats": {
+            "commits": "Commit",
+            "repositories": "Repositori",
+            "experience": "Tahun Pengalaman"
+        },
+        "buttons": {
+            "projects": "Lihat Proyek",
+            "live": "Lihat Aktivitas Live"
+        }
+    },
+    "LiveActivity": {
+        "title": "Aktivitas GitHub Live",
+        "subtitle": "Update real-time dari repositori saya",
+        "view_all": "Lihat Semua",
+        "fallback_desc": "Aktivitas di {repo}"
+    },
+    "Analytics": {
+        "title": "Analitik Coding",
+        "subtitle": "Kerja terukur, progres transparan",
+        "view_detailed": "Lihat Analitik Detail",
+        "stats": {
+            "totalCommits": "Total Commit",
+            "avgCommits": "Rata-rata Commit/Hari",
+            "consistency": "Skor Konsistensi",
+            "streak": "Streak Saat Ini",
+            "days": "hari"
+        }
+    },
+    "Projects": {
+        "title": "Proyek Unggulan",
+        "subtitle": "Sistem nyata menyelesaikan masalah nyata",
+        "view_all": "Lihat Semua Proyek"
+    },
+    "CTA": {
+        "title": "Siap melihat apa yang saya bangun?",
+        "subtitle": "Jelajahi demo interaktif, pelajari studi kasus, atau cek aktivitas GitHub live saya.",
+        "button_try": "Coba Hasil Kerja",
+        "button_cases": "Lihat Studi Kasus"
+    }
+}

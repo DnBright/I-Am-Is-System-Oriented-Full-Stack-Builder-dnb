@@ -3,10 +3,13 @@
 import { motion } from 'framer-motion';
 import Button from '@/components/ui/Button';
 import Badge from '@/components/ui/Badge';
-import Link from 'next/link';
+import { Link } from '@/navigation';
 import { FaGithub, FaCode, FaChartLine } from 'react-icons/fa';
+import { useTranslations } from 'next-intl';
 
 export default function Hero() {
+    const t = useTranslations('Hero');
+
     return (
         <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
             {/* Animated background grid */}
@@ -23,7 +26,7 @@ export default function Hero() {
                     >
                         <Badge variant="success" className="animate-pulse-slow">
                             <span className="inline-block w-2 h-2 bg-success rounded-full mr-2" />
-                            Pushing code now...
+                            {t('badge')}
                         </Badge>
                     </motion.div>
 
@@ -34,9 +37,9 @@ export default function Hero() {
                         transition={{ duration: 0.5, delay: 0.1 }}
                         className="text-5xl md:text-7xl font-bold mb-6"
                     >
-                        <span className="text-primary">System-Oriented</span>
+                        <span className="text-primary">{t('title_primary')}</span>
                         <br />
-                        <span className="text-text-primary">Full-Stack Engineer</span>
+                        <span className="text-text-primary">{t('title_secondary')}</span>
                     </motion.h1>
 
                     {/* Subtitle */}
@@ -46,9 +49,9 @@ export default function Hero() {
                         transition={{ duration: 0.5, delay: 0.2 }}
                         className="text-xl md:text-2xl text-text-secondary mb-12 max-w-2xl mx-auto"
                     >
-                        Building scalable systems with measurable impact.
+                        {t('subtitle_1')}
                         <br />
-                        Transparent work through real-time GitHub activity.
+                        {t('subtitle_2')}
                     </motion.p>
 
                     {/* Stats */}
@@ -63,21 +66,21 @@ export default function Hero() {
                                 <FaGithub className="text-primary text-2xl" />
                             </div>
                             <div className="text-3xl font-bold text-text-primary">1.2K+</div>
-                            <div className="text-sm text-text-secondary">Commits</div>
+                            <div className="text-sm text-text-secondary">{t('stats.commits')}</div>
                         </div>
                         <div className="text-center">
                             <div className="flex items-center justify-center mb-2">
                                 <FaCode className="text-primary text-2xl" />
                             </div>
                             <div className="text-3xl font-bold text-text-primary">28</div>
-                            <div className="text-sm text-text-secondary">Repositories</div>
+                            <div className="text-sm text-text-secondary">{t('stats.repositories')}</div>
                         </div>
                         <div className="text-center">
                             <div className="flex items-center justify-center mb-2">
                                 <FaChartLine className="text-primary text-2xl" />
                             </div>
                             <div className="text-3xl font-bold text-text-primary">8+</div>
-                            <div className="text-sm text-text-secondary">Years Experience</div>
+                            <div className="text-sm text-text-secondary">{t('stats.experience')}</div>
                         </div>
                     </motion.div>
 
@@ -90,12 +93,12 @@ export default function Hero() {
                     >
                         <Link href="/projects">
                             <Button size="lg" className="w-full sm:w-auto">
-                                View Projects
+                                {t('buttons.projects')}
                             </Button>
                         </Link>
                         <Link href="/live">
                             <Button variant="outline" size="lg" className="w-full sm:w-auto">
-                                See Live Activity
+                                {t('buttons.live')}
                             </Button>
                         </Link>
                     </motion.div>

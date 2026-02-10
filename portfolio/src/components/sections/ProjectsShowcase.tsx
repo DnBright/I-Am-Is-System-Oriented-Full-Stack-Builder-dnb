@@ -2,8 +2,9 @@
 
 import Card from '@/components/ui/Card';
 import Badge from '@/components/ui/Badge';
-import Link from 'next/link';
+import { Link } from '@/navigation';
 import Image from 'next/image';
+import { useTranslations } from 'next-intl';
 
 const projects = [
     {
@@ -36,14 +37,16 @@ const projects = [
 ];
 
 export default function ProjectsShowcase() {
+    const t = useTranslations('Projects');
+
     return (
         <section className="py-20 bg-surface">
             <div className="container mx-auto px-4">
                 <div className="max-w-6xl mx-auto">
                     <div className="text-center mb-12">
-                        <h2 className="text-4xl font-bold mb-4 text-text-primary">Featured Projects</h2>
+                        <h2 className="text-4xl font-bold mb-4 text-text-primary">{t('title')}</h2>
                         <p className="text-text-secondary">
-                            Real systems solving real problems
+                            {t('subtitle')}
                         </p>
                     </div>
 
@@ -97,7 +100,7 @@ export default function ProjectsShowcase() {
                             href="/projects"
                             className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-background rounded-lg font-medium hover:bg-primary-hover transition-all duration-200 glow-primary"
                         >
-                            View All Projects
+                            {t('view_all')}
                             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                             </svg>
