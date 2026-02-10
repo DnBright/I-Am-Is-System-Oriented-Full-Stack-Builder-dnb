@@ -56,12 +56,12 @@ export default function Navbar() {
 
     return (
         <nav className={cn(
-            "fixed top-0 w-full z-50 transition-all duration-300",
-            isScrolled || isOpen
-                ? "glass border-b border-primary/10 py-3"
-                : "bg-transparent border-transparent py-5"
+            "fixed top-0 w-full z-50 transition-all duration-500",
+            isScrolled
+                ? "glass border-b border-primary/10 py-3 backdrop-blur-xl"
+                : "bg-transparent border-transparent py-8 backdrop-blur-none"
         )}>
-            <div className="container mx-auto px-4 py-3">
+            <div className="container mx-auto px-4">
                 <div className="flex items-center justify-between">
                     {/* Logo */}
                     <Link href="/" className="group flex items-center gap-3">
@@ -148,12 +148,13 @@ export default function Navbar() {
             <AnimatePresence>
                 {isOpen && (
                     <motion.div
-                        initial={{ opacity: 0, scale: 0.95 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        exit={{ opacity: 0, scale: 0.95 }}
-                        transition={{ duration: 0.2 }}
-                        className="fixed inset-0 top-[65px] bg-background/95 backdrop-blur-xl z-40 md:hidden flex flex-col p-6 border-t border-primary/10"
+                        initial={{ opacity: 0, y: -10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -10 }}
+                        transition={{ duration: 0.3, ease: "easeOut" }}
+                        className="fixed inset-0 bg-background/60 backdrop-blur-2xl z-40 md:hidden flex flex-col p-8 pt-32"
                     >
+                        <div className="absolute inset-0 tech-grid opacity-10 pointer-events-none" />
                         <div className="relative mb-8 p-4 border border-primary/10 bg-primary/5 rounded-sm">
                             <div className="flex items-center justify-between mb-4">
                                 <span className="text-[10px] font-mono text-primary uppercase tracking-[0.2em]">User_Access // Authentication_Ready</span>
