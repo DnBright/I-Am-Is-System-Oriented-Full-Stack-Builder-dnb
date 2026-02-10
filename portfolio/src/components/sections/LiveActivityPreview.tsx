@@ -8,7 +8,7 @@ import Skeleton from '@/components/ui/Skeleton';
 import { formatRelativeTime } from '@/lib/utils';
 import { GitHubEvent } from '@/types/github';
 import { Link } from '@/navigation';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { FaGithub, FaCodeBranch, FaGitAlt, FaHistory } from 'react-icons/fa';
 import { useTranslations } from 'next-intl';
 
