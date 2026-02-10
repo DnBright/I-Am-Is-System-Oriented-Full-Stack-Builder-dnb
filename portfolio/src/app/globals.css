@@ -1,88 +1,89 @@
 @import "tailwindcss";
 
---color-background: rgb(5 5 5);
---color-surface: rgb(12 12 12);
---color-surface-elevated: rgb(18 18 18);
---color-border: rgb(24 24 24);
+@theme {
+  --color-background: rgb(5 5 5);
+  --color-surface: rgb(12 12 12);
+  --color-surface-elevated: rgb(18 18 18);
+  --color-border: rgb(24 24 24);
 
---color-primary: rgb(16 185 129);
---color-primary-hover: rgb(5 150 105);
---color-primary-soft: rgba(16, 185, 129, 0.1);
+  --color-primary: rgb(16 185 129);
+  --color-primary-hover: rgb(5 150 105);
+  --color-primary-soft: rgba(16, 185, 129, 0.1);
 
---color-text-primary: rgb(245 245 245);
---color-text-secondary: rgb(163 163 163);
---color-text-muted: rgb(82 82 82);
+  --color-text-primary: rgb(245 245 245);
+  --color-text-secondary: rgb(163 163 163);
+  --color-text-muted: rgb(82 82 82);
 
---color-success: rgb(34 197 94);
---color-warning: rgb(251 191 36);
---color-error: rgb(239 68 68);
---color-info: rgb(59 130 246);
+  --color-success: rgb(34 197 94);
+  --color-warning: rgb(251 191 36);
+  --color-error: rgb(239 68 68);
+  --color-info: rgb(59 130 246);
 
---font-sans: var(--font-geist-sans),
-"Inter",
-"system-ui",
-"-apple-system",
-sans-serif;
---font-mono: var(--font-geist-mono),
-"JetBrains Mono",
-"Fira Code",
-monospace;
+  --font-sans: var(--font-geist-sans),
+    "Inter",
+    "system-ui",
+    "-apple-system",
+    sans-serif;
+  --font-mono: var(--font-geist-mono),
+    "JetBrains Mono",
+    "Fira Code",
+    monospace;
 
-@keyframes scanline {
-  from {
-    transform: translateY(-100%);
+  @keyframes scanline {
+    from {
+      transform: translateY(-100%);
+    }
+
+    to {
+      transform: translateY(100%);
+    }
   }
 
-  to {
-    transform: translateY(100%);
-  }
-}
+  @keyframes grid-pulse {
 
-@keyframes grid-pulse {
+    0%,
+    100% {
+      opacity: 0.3;
+    }
 
-  0%,
-  100% {
-    opacity: 0.3;
-  }
-
-  50% {
-    opacity: 0.5;
-  }
-}
-
-@keyframes glitch {
-  0% {
-    transform: translate(0);
+    50% {
+      opacity: 0.5;
+    }
   }
 
-  20% {
-    transform: translate(-2px, 2px);
+  @keyframes glitch {
+    0% {
+      transform: translate(0);
+    }
+
+    20% {
+      transform: translate(-2px, 2px);
+    }
+
+    40% {
+      transform: translate(-2px, -2px);
+    }
+
+    60% {
+      transform: translate(2px, 2px);
+    }
+
+    80% {
+      transform: translate(2px, -2px);
+    }
+
+    100% {
+      transform: translate(0);
+    }
   }
 
-  40% {
-    transform: translate(-2px, -2px);
-  }
-
-  60% {
-    transform: translate(2px, 2px);
-  }
-
-  80% {
-    transform: translate(2px, -2px);
-  }
-
-  100% {
-    transform: translate(0);
-  }
-}
-
---animate-scanline: scanline 8s linear infinite;
---animate-grid-pulse: grid-pulse 4s ease-in-out infinite;
---animate-glitch: glitch 0.3s ease-in-out infinite;
---animate-fade-in: fade-in 0.5s ease-in-out;
---animate-slide-up: slide-up 0.5s ease-out;
---animate-slide-down: slide-down 0.5s ease-out;
---animate-pulse-slow: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  --animate-scanline: scanline 8s linear infinite;
+  --animate-grid-pulse: grid-pulse 4s ease-in-out infinite;
+  --animate-glitch: glitch 0.3s ease-in-out infinite;
+  --animate-fade-in: fade-in 0.5s ease-in-out;
+  --animate-slide-up: slide-up 0.5s ease-out;
+  --animate-slide-down: slide-down 0.5s ease-out;
+  --animate-pulse-slow: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
 
 @layer base {
