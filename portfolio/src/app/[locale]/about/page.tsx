@@ -4,25 +4,26 @@ import { motion } from 'framer-motion';
 import Card from '@/components/ui/Card';
 import Badge from '@/components/ui/Badge';
 import { FaGraduationCap, FaBrain, FaDraftingCompass, FaTools, FaQuoteLeft } from 'react-icons/fa';
-
-
+import { useTranslations } from 'next-intl';
 
 export default function AboutPage() {
+    const t = useTranslations('About');
+
     const values = [
         {
-            title: 'System First',
+            title: t('values.system_first.title'),
             icon: <FaBrain />,
-            desc: "I don't just write code; I design systems. Every component must justify its existence in the broader architecture."
+            desc: t('values.system_first.desc')
         },
         {
-            title: 'Decomposition',
+            title: t('values.decomposition.title'),
             icon: <FaDraftingCompass />,
-            desc: 'Breaking complex problems into atomic, manageable services is the core of sustainable engineering.'
+            desc: t('values.decomposition.desc')
         },
         {
-            title: 'Measurability',
+            title: t('values.measurability.title'),
             icon: <FaTools />,
-            desc: 'If a solution is not measurable, its success is purely subjective. I rely on data to drive architectural decisions.'
+            desc: t('values.measurability.desc')
         },
     ];
 
@@ -38,7 +39,7 @@ export default function AboutPage() {
                     >
                         <FaQuoteLeft className="text-primary mb-4 mx-auto" size={32} />
                         <h2 className="text-3xl md:text-4xl font-bold italic text-text-primary leading-tight px-8">
-                            "Logic is the foundation, but systems are the execution. A great engineer builds both."
+                            {t('quote')}
                         </h2>
                     </motion.div>
 
@@ -48,7 +49,9 @@ export default function AboutPage() {
                         transition={{ delay: 0.2 }}
                         className="text-5xl md:text-7xl font-bold mb-6"
                     >
-                        Engineering <span className="text-primary">Philosophy</span>
+                        {t.rich('title', {
+                            span: (children) => <span className="text-primary">{children}</span>
+                        })}
                     </motion.h1>
                 </div>
 
@@ -60,17 +63,19 @@ export default function AboutPage() {
                         viewport={{ once: true }}
                         className="space-y-6"
                     >
-                        <h3 className="text-3xl font-bold text-text-primary">The System-Oriented Mindset</h3>
+                        <h3 className="text-3xl font-bold text-text-primary">{t('mindset.title')}</h3>
                         <p className="text-lg text-text-secondary leading-relaxed">
-                            Based in Indonesia, I operate at the intersection of robust backend orchestration and reactive frontend delivery. My approach is rooted in the belief that software is a living system that requires balance between intensive feature delivery and long-term architectural stability.
+                            {t('mindset.desc1')}
                         </p>
                         <p className="text-lg text-text-secondary leading-relaxed">
-                            With 8+ years of experience navigating full-stack environments, I've developed a methodology focused on <strong>atomic decomposition</strong>. Whether it's an ERP system, a high-frequency CRM, or an analytics engine—the goal is always to build for observability and scale.
+                            {t.rich('mindset.desc2', {
+                                strong: (children) => <strong>{children}</strong>
+                            })}
                         </p>
                         <div className="pt-4 flex flex-wrap gap-4">
-                            <Badge variant="info">Full-Stack</Badge>
-                            <Badge variant="success">System Architect</Badge>
-                            <Badge variant="warning">Data Specialist</Badge>
+                            <Badge variant="info">{t('badges.full_stack')}</Badge>
+                            <Badge variant="success">{t('badges.architect')}</Badge>
+                            <Badge variant="warning">{t('badges.specialist')}</Badge>
                         </div>
                     </motion.div>
 
@@ -87,14 +92,14 @@ export default function AboutPage() {
                                         <FaGraduationCap size={24} />
                                     </div>
                                     <div>
-                                        <p className="text-xs text-text-muted uppercase tracking-widest">Academic Base</p>
-                                        <p className="text-lg font-bold">Comp. Science & Eng.</p>
+                                        <p className="text-xs text-text-muted uppercase tracking-widest">{t('academic.label')}</p>
+                                        <p className="text-lg font-bold">{t('academic.title')}</p>
                                     </div>
                                 </div>
                                 <div className="space-y-4">
-                                    <p className="text-sm font-bold uppercase tracking-widest text-text-muted">Core Focus</p>
+                                    <p className="text-sm font-bold uppercase tracking-widest text-text-muted">{t('focus.label')}</p>
                                     <ul className="grid grid-cols-2 gap-4">
-                                        {['Distributed Systems', 'Cloud Native', 'Reactive UI', 'Data Pipelines'].map(f => (
+                                        {(t.raw('focus.items') as string[]).map(f => (
                                             <li key={f} className="flex items-center gap-2 text-sm text-text-secondary">
                                                 <div className="w-1.5 h-1.5 rounded-full bg-primary" />
                                                 {f}
@@ -110,8 +115,8 @@ export default function AboutPage() {
                 {/* Values Section */}
                 <div className="max-w-6xl mx-auto mb-32">
                     <div className="text-center mb-16">
-                        <h3 className="text-3xl font-bold mb-4">Core Operating Values</h3>
-                        <p className="text-text-secondary">The principles that govern every line of code I push.</p>
+                        <h3 className="text-3xl font-bold mb-4">{t('values.title')}</h3>
+                        <p className="text-text-secondary">{t('values.subtitle')}</p>
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-8">

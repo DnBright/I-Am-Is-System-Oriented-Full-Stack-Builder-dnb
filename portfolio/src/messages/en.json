@@ -25,27 +25,209 @@
     }
   },
   "LiveActivity": {
-    "title": "Live GitHub Activity",
-    "subtitle": "Real-time updates from my repositories",
+    "title": "Live <span>Activity</span>",
+    "subtitle": "Real-time synchronized data from system repositories.",
     "view_all": "View All",
-    "fallback_desc": "Activity in {repo}"
+    "auto_refresh": {
+      "on": "Auto-refreshing",
+      "off": "Click to sync"
+    },
+    "heatmap": {
+      "title": "Contribution Heatmap",
+      "description": "This heatmap visualizes the frequency and intensity of system updates over the last 365 days. Every cell represents a production-ready iteration."
+    },
+    "fallback_desc": "System update pushed to {repo}"
+  },
+  "ProjectDetail": {
+    "back_link": "BACK TO SYSTEMS",
+    "id_label": "ID",
+    "live_preview": "LIVE PREVIEW",
+    "status": "Project Status",
+    "production_ready": "Production Ready",
+    "sections": {
+      "problem": "01. THE PROBLEM",
+      "system": "02. THE SYSTEM",
+      "solution": "03. THE SOLUTION",
+      "architecture": "Architecture"
+    },
+    "projects": {
+      "lpk-management-system": {
+        "title": "LPK Management System",
+        "category": "Web Application",
+        "problem": "Vocational training centers (LPK) in Indonesia traditionally face fragmentation in student data, payroll, and government reporting compliance. Manual processes lead to high error rates and delayed certification.",
+        "system": "A distributed system architecture designed for multi-tenant LPK management. Features an event-driven payroll engine, atomic student data tracking (from enrollment to placement), and an automated reporting layer that interfaces with regulatory formats.",
+        "solution": "Reduced administrative overhead by 65%. Centralized repository for 2,000+ students. Zero-error payroll computation for staff and instructors. 100% compliance with digital certification standards.",
+        "architecture": [
+          "Atomic Data Layer",
+          "Reactive Frontend Orchestration",
+          "Stateless API Layer",
+          "Relational Integrity Guards"
+        ]
+      },
+      "analytics-dashboard": {
+        "title": "Real-time Analytics Dashboard",
+        "category": "Data Visualization",
+        "problem": "High-frequency GitHub events are difficult to visualize in a way that provides actionable engineering insights. Standard dashboards focus on activity quantity rather than quality and consistency.",
+        "system": "A high-throughput ingestion pipeline using Go to process GitHub webhooks. Data is aggregated and cached using Redis, then streamed to a React frontend using server-sent events. Custom SVG charts provide non-standard visualizations of work intensity.",
+        "solution": "Real-time observability of developer velocity. 99.9% accurate coding-hour estimations based on inter-commit temporal analysis. Instant feedback loop for system-wide engineering performance.",
+        "architecture": [
+          "Streaming Ingestion Pipe",
+          "Temporal Analysis Engine",
+          "Vector Chart Rendering",
+          "In-memory Cache Layer"
+        ]
+      },
+      "crm-system": {
+        "title": "Enterprise CRM Architecture",
+        "category": "Enterprise",
+        "problem": "Traditional CRM systems often struggle with high-volume lead ingestion and complex multi-tenant partitioning, leading to latency in sales pipelines.",
+        "system": "Scale-oriented CRM system with automated lead scoring, multi-tenant database partitioning, and real-time activity tracking using Prisma and tRPC.",
+        "solution": "Optimized lead conversion rates by 40% and removed architectural bottlenecks for 10k+ daily concurrent users.",
+        "architecture": [
+          "Lead Scoring Engine",
+          "Partitioned Database",
+          "Real-time Activity Stream",
+          "tRPC Orchestration"
+        ]
+      },
+      "cloud-orchestrator": {
+        "title": "Cloud Orchestrator",
+        "category": "System Tool",
+        "problem": "Managing distributed microservices across multiple environments without centralized observability leads to frequent downtime and slow incident response.",
+        "system": "System-level tool for managing distributed microservices. Focuses on observability, container orchestration, and self-healing mechanisms via gRPC.",
+        "solution": "99.99% system availability and 80% faster deployment cycles for cross-regional infrastructure.",
+        "architecture": [
+          "gRPC Communication",
+          "Self-healing Engine",
+          "Observability Layer",
+          "Resource Manager"
+        ]
+      },
+      "fallback": {
+        "title": "System Prototype",
+        "category": "Full-Stack",
+        "problem": "This system is currently undergoing architectural review.",
+        "system": "Details on the decomposition of this system will be available shortly.",
+        "solution": "Coming soon.",
+        "architecture": [
+          "Pending Review"
+        ]
+      }
+    }
   },
   "Analytics": {
-    "title": "Coding Analytics",
-    "subtitle": "Measurable work, transparent progress",
+    "title": "System <span>Analytics</span>",
+    "subtitle": "Quantifying logic, intensity, and technical patterns over time. Because if it's not measurable, it's not observable.",
     "view_detailed": "View Detailed Analytics",
     "stats": {
-      "totalCommits": "Total Commits",
-      "avgCommits": "Avg Commits/Day",
-      "consistency": "Consistency Score",
-      "streak": "Current Streak",
+      "totalCommits": "Total Activity",
+      "avgCommits": "Avg Capacity",
+      "consistency": "Consistency",
+      "streak": "Pulse Streak",
       "days": "days"
+    },
+    "charts": {
+      "commits": "Commit Intensity",
+      "hours": "Temporal Distribution",
+      "focus": "Architectural Focus",
+      "impact": "System Reach"
     }
   },
   "Projects": {
-    "title": "Featured Projects",
-    "subtitle": "Real systems solving real problems",
-    "view_all": "View All Projects"
+    "title": "Case <span>Studies</span>",
+    "subtitle": "System-driven decomposition of real-world problems. No prototypes—only production-grade assets and architectural depth.",
+    "view_all": "View All Projects",
+    "categories": {
+      "all": "All Systems",
+      "web": "Web App",
+      "data": "Analytics",
+      "enterprise": "Enterprise",
+      "tool": "System Tool"
+    },
+    "search": "Search by system or tech...",
+    "explore": "EXPLORE SYSTEM"
+  },
+  "About": {
+    "title": "Engineering <span>Philosophy</span>",
+    "quote": "\"Logic is the foundation, but systems are the execution. A great engineer builds both.\"",
+    "mindset": {
+      "title": "The System-Oriented Mindset",
+      "desc1": "Based in Indonesia, I operate at the intersection of robust backend orchestration and reactive frontend delivery. My approach is rooted in the belief that software is a living system that requires balance between intensive feature delivery and long-term architectural stability.",
+      "desc2": "With 8+ years of experience navigating full-stack environments, I've developed a methodology focused on <strong>atomic decomposition</strong>. Whether it's an ERP system, a high-frequency CRM, or an analytics engine—the goal is always to build for observability and scale."
+    },
+    "badges": {
+      "full_stack": "Full-Stack",
+      "architect": "System Architect",
+      "specialist": "Data Specialist"
+    },
+    "academic": {
+      "label": "Academic Base",
+      "title": "Comp. Science & Eng."
+    },
+    "focus": {
+      "label": "Core Focus",
+      "items": [
+        "Distributed Systems",
+        "Cloud Native",
+        "Reactive UI",
+        "Data Pipelines"
+      ]
+    },
+    "values": {
+      "title": "Core Operating Values",
+      "subtitle": "The principles that govern every line of code I push.",
+      "system_first": {
+        "title": "System First",
+        "desc": "I don't just write code; I design systems. Every component must justify its existence in the broader architecture."
+      },
+      "decomposition": {
+        "title": "Decomposition",
+        "desc": "Breaking complex problems into atomic, manageable services is the core of sustainable engineering."
+      },
+      "measurability": {
+        "title": "Measurability",
+        "desc": "If a solution is not measurable, its success is purely subjective. I rely on data to drive architectural decisions."
+      }
+    }
+  },
+  "Try": {
+    "title": "System <span>Trial</span>",
+    "subtitle": "Don't take my word for it. Initiate a trial connection to see the architecture in motion. All environments are sandboxed.",
+    "security_note": {
+      "title": "Security Note",
+      "desc": "Persistent access requires an authorized PEM key. Contact for administrative credentials if deep structural auditing is required."
+    },
+    "terminal": {
+      "root_at": "root@system",
+      "access_rejected": "ACCESS_REJECTED",
+      "connected_ready": "CONNECTED_READY",
+      "pii_warning": "This environment contains sensitive PII data. Direct trial is disabled for public users. Request a personalized walkthrough.",
+      "request_access": "REQUEST ACCESS",
+      "open_preview": "OPEN PREVIEW",
+      "secure_layer": "SECURE_LAYER_V2",
+      "latency": "LATENCY",
+      "buffer": "BUFFER"
+    },
+    "stations": {
+      "lpk-demo": {
+        "title": "LPK Engine Console",
+        "desc": "Direct interactive access to the management system core. View how atomic transactions are handled in real-time.",
+        "status": "Restricted",
+        "type": "Management API"
+      },
+      "analytics-demo": {
+        "title": "Analytics Data Stream",
+        "desc": "Raw WebSocket stream of GitHub events being processed by the system dashboard.",
+        "status": "Live",
+        "type": "WebSocket Stream"
+      },
+      "crm-demo": {
+        "title": "CRM Pipeline Sandbox",
+        "desc": "A sandboxed environment to test the multi-tenant CRM orchestration logic.",
+        "status": "Available",
+        "type": "Sandbox UI"
+      }
+    }
   },
   "CTA": {
     "title": "Ready to see what I've built?",

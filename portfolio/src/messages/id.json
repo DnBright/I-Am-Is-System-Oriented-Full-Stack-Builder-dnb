@@ -25,27 +25,209 @@
         }
     },
     "LiveActivity": {
-        "title": "Aktivitas GitHub Live",
-        "subtitle": "Update real-time dari repositori saya",
+        "title": "Aktivitas <span>Langsung</span>",
+        "subtitle": "Data tersinkronisasi secara real-time dari repositori sistem.",
         "view_all": "Lihat Semua",
-        "fallback_desc": "Aktivitas di {repo}"
+        "auto_refresh": {
+            "on": "Menyegarkan Otomatis",
+            "off": "Klik untuk sinkronisasi"
+        },
+        "heatmap": {
+            "title": "Peta Panas Kontribusi",
+            "description": "Peta panas ini memvisualisasikan frekuensi dan intensitas pembaruan sistem selama 365 hari terakhir. Setiap sel mewakili iterasi yang siap produksi."
+        },
+        "fallback_desc": "Pembaruan sistem dikirim ke {repo}"
+    },
+    "ProjectDetail": {
+        "back_link": "KEMBALI KE SISTEM",
+        "id_label": "ID",
+        "live_preview": "PRATINJAU LANGSUNG",
+        "status": "Status Proyek",
+        "production_ready": "Siap Produksi",
+        "sections": {
+            "problem": "01. MASALAH",
+            "system": "02. SISTEM",
+            "solution": "03. SOLUSI",
+            "architecture": "Arsitektur"
+        },
+        "projects": {
+            "lpk-management-system": {
+                "title": "Sistem Manajemen LPK",
+                "category": "Aplikasi Web",
+                "problem": "Lembaga Pelatihan Kerja (LPK) di Indonesia secara tradisional menghadapi fragmentasi dalam data siswa, penggajian, dan kepatuhan pelaporan pemerintah. Proses manual menyebabkan tingkat kesalahan yang tinggi dan keterlambatan sertifikasi.",
+                "system": "Arsitektur sistem terdistribusi yang dirancang untuk manajemen LPK multi-tenant. Memiliki mesin penggajian berbasis event, pelacakan data siswa atomik (dari pendaftaran hingga penempatan), dan lapisan pelaporan otomatis yang terhubung dengan format regulasi.",
+                "solution": "Mengurangi beban administratif sebesar 65%. Repositori terpusat untuk 2.000+ siswa. Perhitungan gaji tanpa kesalahan untuk staf dan instruktur. Kepatuhan 100% dengan standar sertifikasi digital.",
+                "architecture": [
+                    "Lapisan Data Atomik",
+                    "Orkestrasi Frontend Reaktif",
+                    "Lapisan API Tanpa Status",
+                    "Pelindung Integritas Relasional"
+                ]
+            },
+            "analytics-dashboard": {
+                "title": "Dashboard Analitik Real-time",
+                "category": "Visualisasi Data",
+                "problem": "Event GitHub berfrekuensi tinggi sulit untuk divisualisasikan dengan cara yang memberikan wawasan teknik yang dapat ditindaklanujuti. Dashboard standar berfokus pada kuantitas aktivitas daripada kualitas dan konsistensi.",
+                "system": "Pipeline penyerapan throughput tinggi menggunakan Go untuk memproses webhook GitHub. Data diagregasi dan disimpan di cache menggunakan Redis, kemudian dikirim ke frontend React menggunakan server-sent events. Bagan SVG khusus memberikan visualisasi intensitas kerja non-standar.",
+                "solution": "Observabilitas real-time dari kecepatan pengembang. Estimasi jam kerja 99,9% akurat berdasarkan analisis temporal antar-commit. Loop umpan balik instan untuk kinerja teknik seluruh sistem.",
+                "architecture": [
+                    "Pipa Penyerapan Streaming",
+                    "Mesin Analisis Temporal",
+                    "Perenderan Bagan Vektor",
+                    "Lapisan Cache Dalam Memori"
+                ]
+            },
+            "crm-system": {
+                "title": "Arsitektur CRM Perusahaan",
+                "category": "Perusahaan",
+                "problem": "Sistem CRM tradisional sering kesulitan dengan penyerapan prospek volume tinggi dan pemisahan multi-tenant yang kompleks, menyebabkan latensi dalam pipeline penjualan.",
+                "system": "Sistem CRM berorientasi skala dengan penilaian prospek otomatis, pemisahan database multi-tenant, dan pelacakan aktivitas real-time menggunakan Prisma dan tRPC.",
+                "solution": "Mengoptimalkan tingkat konversi prospek sebesar 40% dan menghapus hambatan arsitektur untuk 10rb+ pengguna bersamaan setiap hari.",
+                "architecture": [
+                    "Mesin Penilaian Prospek",
+                    "Database Terpartisi",
+                    "Aliran Aktivitas Real-time",
+                    "Orkestrasi tRPC"
+                ]
+            },
+            "cloud-orchestrator": {
+                "title": "Orkestrator Cloud",
+                "category": "Alat Sistem",
+                "problem": "Mengelola microservices terdistribusi di beberapa lingkungan tanpa observabilitas terpusat menyebabkan downtime yang sering dan respons insiden yang lambat.",
+                "system": "Alat tingkat sistem untuk mengelola microservices terdistribusi. Berfokus pada observabilitas, orkestrasi kontainer, dan mekanisme perbaikan mandiri melalui gRPC.",
+                "solution": "99,99% ketersediaan sistem dan siklus penerapan 80% lebih cepat untuk infrastruktur lintas-wilayah.",
+                "architecture": [
+                    "Komunikasi gRPC",
+                    "Mesin Perbaikan Mandiri",
+                    "Lapisan Observabilitas",
+                    "Manajer Sumber Daya"
+                ]
+            },
+            "fallback": {
+                "title": "Prototipe Sistem",
+                "category": "Full-Stack",
+                "problem": "Sistem ini saat ini sedang menjalani tinjauan arsitektur.",
+                "system": "Detail tentang dekomposisi sistem ini akan segera tersedia.",
+                "solution": "Segera hadir.",
+                "architecture": [
+                    "Menunggu Tinjauan"
+                ]
+            }
+        }
     },
     "Analytics": {
-        "title": "Analitik Coding",
-        "subtitle": "Kerja terukur, progres transparan",
+        "title": "Analitik <span>Sistem</span>",
+        "subtitle": "Mengukur logika, intensitas, dan pola teknis dari waktu ke waktu. Karena jika tidak dapat diukur, itu tidak dapat diobservasi.",
         "view_detailed": "Lihat Analitik Detail",
         "stats": {
-            "totalCommits": "Total Commit",
-            "avgCommits": "Rata-rata Commit/Hari",
-            "consistency": "Skor Konsistensi",
-            "streak": "Streak Saat Ini",
+            "totalCommits": "Aktivitas Total",
+            "avgCommits": "Kapasitas Rata-rata",
+            "consistency": "Konsistensi",
+            "streak": "Streak Pulse",
             "days": "hari"
+        },
+        "charts": {
+            "commits": "Intensitas Commit",
+            "hours": "Distribus Temporal",
+            "focus": "Fokus Arsitektur",
+            "impact": "Jangkauan Sistem"
         }
     },
     "Projects": {
-        "title": "Proyek Unggulan",
-        "subtitle": "Sistem nyata menyelesaikan masalah nyata",
-        "view_all": "Lihat Semua Proyek"
+        "title": "Studi <span>Kasus</span>",
+        "subtitle": "Dekomposisi berorientasi sistem dari masalah dunia nyata. Bukan prototipe—hanya aset kelas produksi dan kedalaman arsitektur.",
+        "view_all": "Lihat Semua Proyek",
+        "categories": {
+            "all": "Semua Sistem",
+            "web": "Aplikasi Web",
+            "data": "Analitik",
+            "enterprise": "Perusahaan",
+            "tool": "Alat Sistem"
+        },
+        "search": "Cari berdasarkan sistem atau teknologi...",
+        "explore": "JELAJAHI SISTEM"
+    },
+    "About": {
+        "title": "Filosofi <span>Teknik</span>",
+        "quote": "\"Logika adalah fondasi, tetapi sistem adalah eksekusi. Insinyur hebat membangun keduanya.\"",
+        "mindset": {
+            "title": "Pola Pikir Berorientasi Sistem",
+            "desc1": "Berbasis di Indonesia, saya beroperasi di persimpangan antara orkestrasi backend yang kuat dan pengiriman frontend yang reaktif. Pendekatan saya berakar pada keyakinan bahwa perangkat lunak adalah sistem yang hidup yang membutuhkan keseimbangan antara pengiriman fitur intensif dan stabilitas arsitektur jangka panjang.",
+            "desc2": "Dengan pengalaman 8+ tahun menavigasi lingkungan full-stack, saya telah mengembangkan metodologi yang berfokus pada <strong>dekomposisi atomik</strong>. Baik itu sistem ERP, CRM berfrekuensi tinggi, atau mesin analitik—tujuannya adalah selalu membangun untuk observabilitas dan skala."
+        },
+        "badges": {
+            "full_stack": "Full-Stack",
+            "architect": "Arsitek Sistem",
+            "specialist": "Spesialis Data"
+        },
+        "academic": {
+            "label": "Basis Akademik",
+            "title": "Ilmu Komp. & Teknik"
+        },
+        "focus": {
+            "label": "Fokus Utama",
+            "items": [
+                "Sistem Terdistribusi",
+                "Cloud Native",
+                "UI Reaktif",
+                "Pipeline Data"
+            ]
+        },
+        "values": {
+            "title": "Nilai Operasi Inti",
+            "subtitle": "Prinsip-prinsip yang mengatur setiap baris kode yang saya kirim.",
+            "system_first": {
+                "title": "Sistem Utama",
+                "desc": "Saya tidak hanya menulis kode; saya merancang sistem. Setiap komponen harus membenarkan keberadaannya dalam arsitektur yang lebih luas."
+            },
+            "decomposition": {
+                "title": "Dekomposisi",
+                "desc": "Memecah masalah kompleks menjadi layanan atomik yang dapat dikelola adalah inti dari teknik berkelanjutan."
+            },
+            "measurability": {
+                "title": "Keterukuran",
+                "desc": "Jika suatu solusi tidak dapat diukur, keberhasilannya murni subjektif. Saya mengandalkan data untuk mendorong keputusan arsitektur."
+            }
+        }
+    },
+    "Try": {
+        "title": "Uji Coba <span>Sistem</span>",
+        "subtitle": "Jangan hanya percaya kata-kata saya. Inisiasi koneksi uji coba untuk melihat arsitektur dalam beraksi. Semua lingkungan berada dalam sandbox.",
+        "security_note": {
+            "title": "Catatan Keamanan",
+            "desc": "Akses persisten memerlukan kunci PEM resmi. Hubungi untuk kredensial administratif jika audit struktural mendalam diperlukan."
+        },
+        "terminal": {
+            "root_at": "root@system",
+            "access_rejected": "AKSES_DITOLAK",
+            "connected_ready": "TERHUBUNG_SIAP",
+            "pii_warning": "Lingkungan ini berisi data PII sensitif. Uji coba langsung dinonaktifkan untuk pengguna publik. Minta panduan personal.",
+            "request_access": "MINTA AKSES",
+            "open_preview": "BUKA PRATINJAU",
+            "secure_layer": "LAPISAN_AMAN_V2",
+            "latency": "LATENSI",
+            "buffer": "BUFFER"
+        },
+        "stations": {
+            "lpk-demo": {
+                "title": "Konsol Mesin LPK",
+                "desc": "Akses interaktif langsung ke inti sistem manajemen. Lihat bagaimana transaksi atomik ditangani secara real-time.",
+                "status": "Dibatasi",
+                "type": "API Manajemen"
+            },
+            "analytics-demo": {
+                "title": "Aliran Data Analitik",
+                "desc": "Aliran WebSocket mentah dari event GitHub yang sedang diproses oleh dashboard sistem.",
+                "status": "Langsung",
+                "type": "Aliran WebSocket"
+            },
+            "crm-demo": {
+                "title": "Sandbox Pipeline CRM",
+                "desc": "Lingkungan sandbox untuk menguji logika orkestrasi CRM multi-tenant.",
+                "status": "Tersedia",
+                "type": "UI Sandbox"
+            }
+        }
     },
     "CTA": {
         "title": "Siap melihat apa yang saya bangun?",

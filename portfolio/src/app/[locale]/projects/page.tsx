@@ -5,8 +5,9 @@ import { motion, AnimatePresence } from 'framer-motion';
 import Card from '@/components/ui/Card';
 import Badge from '@/components/ui/Badge';
 import Button from '@/components/ui/Button';
-import Link from 'next/link';
+import { Link } from '@/navigation';
 import { FaLayerGroup, FaSearch, FaFilter } from 'react-icons/fa';
+import { useTranslations } from 'next-intl';
 
 const categories = ['All', 'Web Application', 'Data Visualization', 'Enterprise', 'System Tool'];
 
@@ -47,6 +48,7 @@ const projectsData = [
 
 
 export default function ProjectsPage() {
+    const t = useTranslations('Projects');
     const [filter, setFilter] = useState('All');
     const [search, setSearch] = useState('');
 
@@ -67,7 +69,9 @@ export default function ProjectsPage() {
                         animate={{ opacity: 1, y: 0 }}
                         className="text-5xl font-bold mb-4"
                     >
-                        Case <span className="text-primary">Studies</span>
+                        {t.rich('title', {
+                            span: (children) => <span className="text-primary">{children}</span>
+                        })}
                     </motion.h1>
                     <motion.p
                         initial={{ opacity: 0, y: 20 }}
@@ -75,8 +79,7 @@ export default function ProjectsPage() {
                         transition={{ delay: 0.1 }}
                         className="text-text-secondary text-lg max-w-2xl"
                     >
-                        System-driven decomposition of real-world problems.
-                        No prototypes—only production-grade assets and architectural depth.
+                        {t('subtitle')}
                     </motion.p>
                 </div>
 
@@ -94,7 +97,10 @@ export default function ProjectsPage() {
                                         : "bg-surface border border-border text-text-secondary hover:text-text-primary hover:border-primary/50"
                                 )}
                             >
-                                {cat}
+                                {cat === 'All' ? t('categories.all') :
+                                    cat === 'Web Application' ? t('categories.web') :
+                                        cat === 'Data Visualization' ? t('categories.data') :
+                                            cat === 'Enterprise' ? t('categories.enterprise') : cat}
                             </button>
                         ))}
                     </div>
@@ -103,7 +109,7 @@ export default function ProjectsPage() {
                         <FaSearch className="absolute left-4 top-1/2 -translate-y-1/2 text-text-muted" />
                         <input
                             type="text"
-                            placeholder="Search by system or tech..."
+                            placeholder="..."
                             value={search}
                             onChange={(e) => setSearch(e.target.value)}
                             className="w-full bg-surface border border-border rounded-lg py-3 pl-12 pr-4 text-sm focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all"

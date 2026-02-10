@@ -10,9 +10,10 @@ import { formatRelativeTime, formatDate } from '@/lib/utils';
 import { GitHubEvent } from '@/types/github';
 import { ContributionDay } from '@/types/analytics';
 import { FaGithub, FaGitAlt, FaCodeBranch, FaHistory, FaSyncAlt } from 'react-icons/fa';
-
+import { useTranslations } from 'next-intl';
 
 export default function LivePage() {
+    const t = useTranslations('LiveActivity');
     const [events, setEvents] = useState<GitHubEvent[]>([]);
     const [heatmap, setHeatmap] = useState<ContributionDay[]>([]);
     const [loading, setLoading] = useState(true);
@@ -68,7 +69,9 @@ export default function LivePage() {
                                 animate={{ opacity: 1, x: 0 }}
                                 className="text-5xl font-bold mb-4"
                             >
-                                Live <span className="text-primary">Activity</span>
+                                {t.rich('title', {
+                                    span: (children) => <span className="text-primary">{children}</span>
+                                })}
                             </motion.h1>
                             <motion.p
                                 initial={{ opacity: 0, x: -20 }}
@@ -76,7 +79,7 @@ export default function LivePage() {
                                 transition={{ delay: 0.1 }}
                                 className="text-text-secondary text-lg"
                             >
-                                Real-time synchronized data from system repositories.
+                                {t('subtitle')}
                             </motion.p>
                         </div>
 
@@ -91,11 +94,14 @@ export default function LivePage() {
                                 onClick={() => fetchData(true)}
                                 disabled={refreshing}
                                 className={cn(
-                                    "p-3 rounded-lg border border-border bg-surface hover:bg-surface-elevated transition-all",
+                                    "p-3 rounded-lg border border-border bg-surface hover:bg-surface-elevated transition-all flex items-center gap-2 px-4",
                                     refreshing && "animate-spin"
                                 )}
                             >
                                 <FaSyncAlt className={refreshing ? "text-primary" : "text-text-secondary"} />
+                                <span className="text-sm font-medium">
+                                    {refreshing ? 'Refreshing...' : t('auto_refresh.on')}
+                                </span>
                             </button>
                         </div>
                     </div>
@@ -150,7 +156,7 @@ export default function LivePage() {
 
                                                         <p className="text-text-secondary text-sm mb-3">
                                                             {event.type === 'PushEvent'
-                                                                ? event.payload.commits?.[0]?.message || 'Pushed updates'
+                                                                ? event.payload.commits?.[0]?.message || t('fallback_desc', { repo: event.repo.name.split('/')[1] })
                                                                 : `Activity: ${event.type.replace('Event', '')}`}
                                                         </p>
 
@@ -174,7 +180,7 @@ export default function LivePage() {
                         <Card className="p-6">
                             <h3 className="text-lg font-bold mb-6 flex items-center gap-2">
                                 <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-                                Contribution Heatmap
+                                {t('heatmap.title')}
                             </h3>
                             <div className="overflow-hidden">
                                 {loading ? (
@@ -184,7 +190,7 @@ export default function LivePage() {
                                 )}
                             </div>
                             <p className="text-xs text-text-muted mt-6 leading-relaxed">
-                                This heatmap visualizes the frequency and intensity of system updates over the last 365 days. Every cell represents a production-ready iteration.
+                                {t('heatmap.description')}
                             </p>
                         </Card>
 

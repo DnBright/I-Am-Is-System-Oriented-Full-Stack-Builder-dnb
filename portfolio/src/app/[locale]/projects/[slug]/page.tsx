@@ -5,40 +5,26 @@ import { motion } from 'framer-motion';
 import Card from '@/components/ui/Card';
 import Badge from '@/components/ui/Badge';
 import Button from '@/components/ui/Button';
-import Link from 'next/link';
+import { Link } from '@/navigation';
 import { FaArrowLeft, FaCogs, FaProjectDiagram, FaCheckCircle, FaExternalLinkAlt } from 'react-icons/fa';
-
-const projectsContent: Record<string, any> = {
-    'lpk-management-system': {
-        title: 'LPK Management System',
-        category: 'Web Application',
-        tags: ['Next.js', 'PostgreSQL', 'Tailwind', 'Real-time'],
-        problem: 'Vocational training centers (LPK) in Indonesia traditionally face fragmentation in student data, payroll, and government reporting compliance. Manual processes lead to high error rates and delayed certification.',
-        system: 'A distributed system architecture designed for multi-tenant LPK management. Features an event-driven payroll engine, atomic student data tracking (from enrollment to placement), and an automated reporting layer that interfaces with regulatory formats.',
-        solution: 'Reduced administrative overhead by 65%. Centralized repository for 2,000+ students. Zero-error payroll computation for staff and instructors. 100% compliance with digital certification standards.',
-        architecture: ['Atomic Data Layer', 'Reactive Frontend Orchestration', 'Stateless API Layer', 'Relational Integrity Guards']
-    },
-    'analytics-dashboard': {
-        title: 'Real-time Analytics Dashboard',
-        category: 'Data Visualization',
-        tags: ['React', 'D3.js', 'WebSockets', 'Go'],
-        problem: 'High-frequency GitHub events are difficult to visualize in a way that provides actionable engineering insights. Standard dashboards focus on activity quantity rather than quality and consistency.',
-        system: 'A high-throughput ingestion pipeline using Go to process GitHub webhooks. Data is aggregated and cached using Redis, then streamed to a React frontend using server-sent events. Custom SVG charts provide non-standard visualizations of work intensity.',
-        solution: 'Real-time observability of developer velocity. 99.9% accurate coding-hour estimations based on inter-commit temporal analysis. Instant feedback loop for system-wide engineering performance.',
-        architecture: ['Streaming Ingestion Pipe', 'Temporal Analysis Engine', 'Vector Chart Rendering', 'In-memory Cache Layer']
-    },
-}
+import { useTranslations } from 'next-intl';
 
 export default function ProjectDetailPage({ params }: { params: Promise<{ slug: string }> }) {
     const { slug } = use(params);
-    const project = projectsContent[slug] || {
-        title: 'System Prototype',
-        category: 'Full-Stack',
-        tags: ['Under Development'],
-        problem: 'This system is currently undergoing architectural review.',
-        system: 'Details on the decomposition of this system will be available shortly.',
-        solution: 'Coming soon.',
-        architecture: ['Pending Review']
+    const t = useTranslations('ProjectDetail');
+
+    // Attempt to get project data from translations, fallback to system prototype
+    const hasProject = t.has(`projects.${slug}`);
+    const projectKey = hasProject ? `projects.${slug}` : 'projects.fallback';
+
+    const project = {
+        title: t(`${projectKey}.title`),
+        category: t(`${projectKey}.category`),
+        problem: t(`${projectKey}.problem`),
+        system: t(`${projectKey}.system`),
+        solution: t(`${projectKey}.solution`),
+        // We'll use the raw architecture list from the translations
+        architecture: t.raw(`${projectKey}.architecture`) as string[]
     };
 
     return (
@@ -48,20 +34,21 @@ export default function ProjectDetailPage({ params }: { params: Promise<{ slug: 
                     {/* Back button */}
                     <Link href="/projects" className="inline-flex items-center gap-2 text-text-muted hover:text-primary transition-colors mb-8 text-sm group">
                         <FaArrowLeft className="group-hover:-translate-x-1 transition-transform" />
-                        BACK TO SYSTEMS
+                        {t('back_link')}
                     </Link>
 
                     {/* Header */}
                     <div className="mb-12">
                         <div className="flex items-center gap-4 mb-4">
                             <Badge variant="default" className="uppercase text-[10px] tracking-widest">{project.category}</Badge>
-                            <span className="text-text-muted text-xs font-mono">ID: {slug.toUpperCase()}</span>
+                            <span className="text-text-muted text-xs font-mono">{t('id_label')}: {slug.toUpperCase()}</span>
                         </div>
                         <h1 className="text-5xl md:text-6xl font-bold text-text-primary mb-6">{project.title}</h1>
                         <div className="flex flex-wrap gap-2">
-                            {project.tags.map((t: string) => (
-                                <span key={t} className="px-3 py-1 bg-surface-elevated rounded-full text-xs font-medium text-text-secondary border border-border">
-                                    {t}
+                            {/* Assuming tags might remain technical or are part of project data if needed */}
+                            {['System', 'Architecture', 'Logic'].map((tag) => (
+                                <span key={tag} className="px-3 py-1 bg-surface-elevated rounded-full text-xs font-medium text-text-secondary border border-border">
+                                    {tag}
                                 </span>
                             ))}
                         </div>
@@ -77,7 +64,7 @@ export default function ProjectDetailPage({ params }: { params: Promise<{ slug: 
                             <div className="absolute bottom-6 right-6">
                                 <Button size="sm" variant="outline" className="gap-2">
                                     <FaExternalLinkAlt size={12} />
-                                    LIVE PREVIEW
+                                    {t('live_preview')}
                                 </Button>
                             </div>
                         </Card>
@@ -87,7 +74,7 @@ export default function ProjectDetailPage({ params }: { params: Promise<{ slug: 
                             <div className="md:col-span-2 space-y-12">
                                 <section>
                                     <h2 className="text-xl font-bold mb-4 flex items-center gap-3">
-                                        <span className="text-primary tracking-tighter">01.</span> THE PROBLEM
+                                        {t('sections.problem')}
                                     </h2>
                                     <p className="text-text-secondary leading-relaxed text-lg">
                                         {project.problem}
@@ -96,7 +83,7 @@ export default function ProjectDetailPage({ params }: { params: Promise<{ slug: 
 
                                 <section>
                                     <h2 className="text-xl font-bold mb-4 flex items-center gap-3">
-                                        <span className="text-primary tracking-tighter">02.</span> THE SYSTEM
+                                        {t('sections.system')}
                                     </h2>
                                     <p className="text-text-secondary leading-relaxed text-lg">
                                         {project.system}
@@ -105,7 +92,7 @@ export default function ProjectDetailPage({ params }: { params: Promise<{ slug: 
 
                                 <section>
                                     <h2 className="text-xl font-bold mb-4 flex items-center gap-3">
-                                        <span className="text-primary tracking-tighter">03.</span> THE SOLUTION
+                                        {t('sections.solution')}
                                     </h2>
                                     <p className="text-text-secondary leading-relaxed text-lg italic border-l-2 border-primary pl-6 py-2 bg-primary/5">
                                         {project.solution}
@@ -117,7 +104,7 @@ export default function ProjectDetailPage({ params }: { params: Promise<{ slug: 
                                 <Card className="p-8">
                                     <h3 className="text-sm font-bold uppercase tracking-widest text-text-muted mb-6 flex items-center gap-2">
                                         <FaProjectDiagram className="text-primary" />
-                                        Architecture
+                                        {t('sections.architecture')}
                                     </h3>
                                     <ul className="space-y-4">
                                         {project.architecture.map((item: string, i: number) => (
@@ -130,10 +117,10 @@ export default function ProjectDetailPage({ params }: { params: Promise<{ slug: 
                                 </Card>
 
                                 <Card className="p-8 bg-primary/10 border-primary/20">
-                                    <h3 className="text-sm font-bold uppercase tracking-widest text-primary mb-4">Project Status</h3>
+                                    <h3 className="text-sm font-bold uppercase tracking-widest text-primary mb-4">{t('status')}</h3>
                                     <div className="flex items-center gap-3 text-text-primary">
                                         <div className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-                                        <span className="text-sm font-bold uppercase">Production Ready</span>
+                                        <span className="text-sm font-bold uppercase">{t('production_ready')}</span>
                                     </div>
                                 </Card>
                             </div>

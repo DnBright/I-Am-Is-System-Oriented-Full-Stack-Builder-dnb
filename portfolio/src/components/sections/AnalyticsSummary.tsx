@@ -72,7 +72,11 @@ export default function AnalyticsSummary() {
             <div className="container mx-auto px-4">
                 <div className="max-w-6xl mx-auto">
                     <div className="text-center mb-12">
-                        <h2 className="text-4xl font-bold mb-4 text-text-primary">{t('title')}</h2>
+                        <h2 className="text-4xl font-bold mb-4 text-text-primary">
+                            {t.rich('title', {
+                                span: (chunks) => <span className="text-primary">{chunks}</span>
+                            })}
+                        </h2>
                         <p className="text-text-secondary">
                             {t('subtitle')}
                         </p>

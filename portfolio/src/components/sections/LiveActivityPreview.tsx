@@ -62,7 +62,11 @@ export default function LiveActivityPreview() {
                 <div className="max-w-4xl mx-auto">
                     <div className="flex items-center justify-between mb-8">
                         <div>
-                            <h2 className="text-4xl font-bold mb-2 text-text-primary">{t('title')}</h2>
+                            <h2 className="text-4xl font-bold mb-2 text-text-primary">
+                                {t.rich('title', {
+                                    span: (chunks) => <span className="text-primary">{chunks}</span>
+                                })}
+                            </h2>
                             <p className="text-text-secondary">{t('subtitle')}</p>
                         </div>
                         <Link href="/live">

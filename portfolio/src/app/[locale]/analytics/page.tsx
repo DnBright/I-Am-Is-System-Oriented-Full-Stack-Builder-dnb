@@ -10,9 +10,10 @@ import CodingHoursChart from '@/components/charts/CodingHoursChart';
 import FocusAreaChart from '@/components/charts/FocusAreaChart';
 import { AnalyticsData } from '@/types/analytics';
 import { FaChartBar, FaBullseye, FaCalendarAlt, FaFire, FaClock } from 'react-icons/fa';
-
+import { useTranslations } from 'next-intl';
 
 export default function AnalyticsPage() {
+    const t = useTranslations('Analytics');
     const [data, setData] = useState<AnalyticsData | null>(null);
     const [loading, setLoading] = useState(true);
 
@@ -32,9 +33,9 @@ export default function AnalyticsPage() {
     }, []);
 
     const statsCards = [
-        { label: 'Consistency', value: data ? `${data.consistencyScore}%` : '0%', icon: <FaBullseye />, color: 'text-primary' },
+        { label: t('stats.consistency'), value: data ? `${data.consistencyScore}%` : '0%', icon: <FaBullseye />, color: 'text-primary' },
         { label: 'Avg Hours', value: data ? `${Math.round(data.totalCommits / 20 * 10) / 10}h` : '0h', icon: <FaClock />, color: 'text-info' },
-        { label: 'Streak', value: data ? `${data.currentStreak}d` : '0d', icon: <FaFire />, color: 'text-error' },
+        { label: t('stats.streak'), value: data ? `${data.currentStreak}d` : '0d', icon: <FaFire />, color: 'text-error' },
         { label: 'Activity', value: data ? `${data.totalCommits}` : '0', icon: <FaCalendarAlt />, color: 'text-warning' },
     ];
 
@@ -48,7 +49,9 @@ export default function AnalyticsPage() {
                         animate={{ opacity: 1, y: 0 }}
                         className="text-5xl font-bold mb-4"
                     >
-                        System <span className="text-primary">Analytics</span>
+                        {t.rich('title', {
+                            span: (children) => <span className="text-primary">{children}</span>
+                        })}
                     </motion.h1>
                     <motion.p
                         initial={{ opacity: 0, y: 20 }}
@@ -56,8 +59,7 @@ export default function AnalyticsPage() {
                         transition={{ delay: 0.1 }}
                         className="text-text-secondary text-lg max-w-2xl"
                     >
-                        Quantifying logic, intensity, and technical patterns over time.
-                        Because if it's not measurable, it's not observable.
+                        {t('subtitle')}
                     </motion.p>
                 </div>
 
@@ -90,7 +92,10 @@ export default function AnalyticsPage() {
                             {loading ? (
                                 <Skeleton className="h-[400px] w-full rounded-xl" />
                             ) : (
-                                <CommitTrendChart data={data?.commitFrequency || []} />
+                                <div className="space-y-4">
+                                    <h3 className="text-lg font-bold text-text-primary px-2">{t('charts.commits')}</h3>
+                                    <CommitTrendChart data={data?.commitFrequency || []} />
+                                </div>
                             )}
                         </motion.div>
 
@@ -103,7 +108,10 @@ export default function AnalyticsPage() {
                             {loading ? (
                                 <Skeleton className="h-[400px] w-full rounded-xl" />
                             ) : (
-                                <CodingHoursChart data={data?.codingHours || []} />
+                                <div className="space-y-4">
+                                    <h3 className="text-lg font-bold text-text-primary px-2">{t('charts.hours')}</h3>
+                                    <CodingHoursChart data={data?.codingHours || []} />
+                                </div>
                             )}
                         </motion.div>
                     </div>
@@ -119,7 +127,10 @@ export default function AnalyticsPage() {
                             {loading ? (
                                 <Skeleton className="h-[400px] w-full rounded-xl" />
                             ) : (
-                                <FocusAreaChart data={data?.focusAreas || []} />
+                                <div className="space-y-4">
+                                    <h3 className="text-lg font-bold text-text-primary px-2">{t('charts.focus')}</h3>
+                                    <FocusAreaChart data={data?.focusAreas || []} />
+                                </div>
                             )}
                         </motion.div>
 

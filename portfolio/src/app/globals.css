@@ -1,64 +1,88 @@
 @import "tailwindcss";
 
-@theme {
-  --color-background: rgb(10 10 10);
-  --color-surface: rgb(17 17 17);
-  --color-surface-elevated: rgb(23 23 23);
-  --color-border: rgb(31 31 31);
+--color-background: rgb(5 5 5);
+--color-surface: rgb(12 12 12);
+--color-surface-elevated: rgb(18 18 18);
+--color-border: rgb(24 24 24);
 
-  --color-primary: rgb(16 185 129);
-  --color-primary-hover: rgb(5 150 105);
+--color-primary: rgb(16 185 129);
+--color-primary-hover: rgb(5 150 105);
+--color-primary-soft: rgba(16, 185, 129, 0.1);
 
-  --color-text-primary: rgb(229 229 229);
-  --color-text-secondary: rgb(163 163 163);
-  --color-text-muted: rgb(82 82 82);
+--color-text-primary: rgb(245 245 245);
+--color-text-secondary: rgb(163 163 163);
+--color-text-muted: rgb(82 82 82);
 
-  --color-success: rgb(34 197 94);
-  --color-warning: rgb(251 191 36);
-  --color-error: rgb(239 68 68);
-  --color-info: rgb(59 130 246);
+--color-success: rgb(34 197 94);
+--color-warning: rgb(251 191 36);
+--color-error: rgb(239 68 68);
+--color-info: rgb(59 130 246);
 
-  --font-sans: var(--font-geist-sans), "Inter", "system-ui", "-apple-system", sans-serif;
-  --font-mono: var(--font-geist-mono), "JetBrains Mono", "Fira Code", monospace;
+--font-sans: var(--font-geist-sans),
+"Inter",
+"system-ui",
+"-apple-system",
+sans-serif;
+--font-mono: var(--font-geist-mono),
+"JetBrains Mono",
+"Fira Code",
+monospace;
 
-  @keyframes fade-in {
-    from {
-      opacity: 0;
-    }
-
-    to {
-      opacity: 1;
-    }
+@keyframes scanline {
+  from {
+    transform: translateY(-100%);
   }
 
-  @keyframes slide-up {
-    from {
-      transform: translateY(20px);
-      opacity: 0;
-    }
+  to {
+    transform: translateY(100%);
+  }
+}
 
-    to {
-      transform: translateY(0);
-      opacity: 1;
-    }
+@keyframes grid-pulse {
+
+  0%,
+  100% {
+    opacity: 0.3;
   }
 
-  @keyframes slide-down {
-    from {
-      transform: translateY(-20px);
-      opacity: 0;
-    }
+  50% {
+    opacity: 0.5;
+  }
+}
 
-    to {
-      transform: translateY(0);
-      opacity: 1;
-    }
+@keyframes glitch {
+  0% {
+    transform: translate(0);
   }
 
-  --animate-fade-in: fade-in 0.5s ease-in-out;
-  --animate-slide-up: slide-up 0.5s ease-out;
-  --animate-slide-down: slide-down 0.5s ease-out;
-  --animate-pulse-slow: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  20% {
+    transform: translate(-2px, 2px);
+  }
+
+  40% {
+    transform: translate(-2px, -2px);
+  }
+
+  60% {
+    transform: translate(2px, 2px);
+  }
+
+  80% {
+    transform: translate(2px, -2px);
+  }
+
+  100% {
+    transform: translate(0);
+  }
+}
+
+--animate-scanline: scanline 8s linear infinite;
+--animate-grid-pulse: grid-pulse 4s ease-in-out infinite;
+--animate-glitch: glitch 0.3s ease-in-out infinite;
+--animate-fade-in: fade-in 0.5s ease-in-out;
+--animate-slide-up: slide-up 0.5s ease-out;
+--animate-slide-down: slide-down 0.5s ease-out;
+--animate-pulse-slow: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
 
 @layer base {
@@ -94,15 +118,43 @@
 }
 
 @utility glass {
-  @apply bg-surface/50 backdrop-blur-xl border border-border;
+  @apply bg-surface/40 backdrop-blur-xl border border-white/5;
 }
 
 @utility glow-primary {
-  box-shadow: 0 0 20px rgba(16, 185, 129, 0.3);
+  box-shadow: 0 0 25px rgba(16, 185, 129, 0.2);
 }
 
 @utility glow-primary-strong {
-  box-shadow: 0 0 40px rgba(16, 185, 129, 0.5);
+  box-shadow: 0 0 50px rgba(16, 185, 129, 0.4);
+}
+
+@utility tech-grid {
+  background-size: 40px 40px;
+  background-image:
+    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+}
+
+@utility scanline {
+  background: linear-gradient(to bottom,
+      transparent 0%,
+      rgba(16, 185, 129, 0.03) 50%,
+      transparent 100%);
+}
+
+@utility tech-corner {
+  position: relative;
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-color: var(--color-primary);
+    opacity: 0.5;
+  }
 }
 
 /* Custom scrollbar */
