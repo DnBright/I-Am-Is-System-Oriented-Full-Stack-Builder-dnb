@@ -9,7 +9,7 @@ import ContributionHeatmap from '@/components/charts/ContributionHeatmap';
 import { formatRelativeTime, formatDate } from '@/lib/utils';
 import { GitHubEvent } from '@/types/github';
 import { ContributionDay } from '@/types/analytics';
-import { FaGithub, FaGitAlt, FaCodeBranch, FaHistory, FaSyncAlt } from 'react-icons/fa';
+import { FaGithub, FaGitAlt, FaCodeBranch, FaHistory, FaSyncAlt, FaClock } from 'react-icons/fa';
 import { useTranslations } from 'next-intl';
 
 export default function LivePage() {

@@ -60,14 +60,18 @@ export default function ProjectsPage() {
     });
 
     return (
-        <div className="pt-32 pb-20">
-            <div className="container mx-auto px-4">
+        <div className="py-24 relative overflow-hidden">
+            <div className="container mx-auto px-4 relative z-10">
                 {/* Header */}
-                <div className="max-w-6xl mx-auto mb-12">
+                <div className="flex flex-col items-center text-center mb-16">
+                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-sm bg-primary/10 border border-primary/20 mb-4">
+                        <span className="text-[10px] font-mono font-bold tracking-[0.2em] text-primary uppercase">Portfolio_Access // Repository_v2.4</span>
+                    </div>
                     <motion.h1
                         initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        className="text-5xl font-bold mb-4"
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        className="text-4xl md:text-6xl font-black mb-6 tracking-tighter uppercase"
                     >
                         {t.rich('title', {
                             span: (children) => <span className="text-primary">{children}</span>
@@ -75,26 +79,27 @@ export default function ProjectsPage() {
                     </motion.h1>
                     <motion.p
                         initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
                         transition={{ delay: 0.1 }}
-                        className="text-text-secondary text-lg max-w-2xl"
+                        className="text-text-muted text-lg font-mono uppercase tracking-widest opacity-60 max-w-2xl"
                     >
                         {t('subtitle')}
                     </motion.p>
                 </div>
 
-                {/* Filters */}
-                <div className="max-w-6xl mx-auto mb-12 flex flex-col md:flex-row gap-6 justify-between items-center">
+                {/* Filters & Search */}
+                <div className="max-w-6xl mx-auto mb-16 flex flex-col lg:flex-row gap-8 justify-between items-center">
                     <div className="flex flex-wrap gap-2 justify-center">
                         {categories.map((cat) => (
                             <button
                                 key={cat}
                                 onClick={() => setFilter(cat)}
                                 className={cn(
-                                    "px-4 py-2 rounded-lg text-sm font-medium transition-all",
+                                    "px-4 py-1.5 rounded-sm text-[10px] font-mono font-bold uppercase tracking-[0.2em] transition-all border",
                                     filter === cat
-                                        ? "bg-primary text-background"
-                                        : "bg-surface border border-border text-text-secondary hover:text-text-primary hover:border-primary/50"
+                                        ? "bg-primary border-primary text-background"
+                                        : "bg-surface/40 border-primary/10 text-text-muted hover:text-primary hover:border-primary/40"
                                 )}
                             >
                                 {cat === 'All' ? t('categories.all') :
@@ -105,64 +110,83 @@ export default function ProjectsPage() {
                         ))}
                     </div>
 
-                    <div className="relative w-full md:w-80">
-                        <FaSearch className="absolute left-4 top-1/2 -translate-y-1/2 text-text-muted" />
+                    <div className="relative w-full lg:w-96 group">
+                        <div className="absolute inset-0 bg-primary/5 opacity-0 group-focus-within:opacity-100 transition-opacity rounded-sm" />
+                        <FaSearch className="absolute left-4 top-1/2 -translate-y-1/2 text-primary/40 group-focus-within:text-primary transition-colors" />
                         <input
                             type="text"
-                            placeholder="..."
+                            placeholder="QUERY_SYSTEM_ID..."
                             value={search}
                             onChange={(e) => setSearch(e.target.value)}
-                            className="w-full bg-surface border border-border rounded-lg py-3 pl-12 pr-4 text-sm focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all"
+                            className="w-full bg-surface/40 border border-primary/10 rounded-sm py-3 pl-12 pr-4 text-[11px] font-mono font-bold uppercase tracking-[0.2em] focus:border-primary/40 outline-none transition-all placeholder:opacity-30"
                         />
+                        <div className="absolute right-4 top-1/2 -translate-y-1/2 text-[10px] font-mono text-text-muted opacity-20 group-focus-within:opacity-40">INPUT_REQ</div>
                     </div>
                 </div>
 
                 {/* Project Grid */}
-                <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10">
                     <AnimatePresence mode="popLayout">
                         {filteredProjects.map((project, index) => (
                             <motion.div
                                 key={project.id}
                                 layout
-                                initial={{ opacity: 0, scale: 0.9 }}
+                                initial={{ opacity: 0, scale: 0.98 }}
                                 animate={{ opacity: 1, scale: 1 }}
-                                exit={{ opacity: 0, scale: 0.9 }}
+                                exit={{ opacity: 0, scale: 0.98 }}
                                 transition={{ duration: 0.3 }}
                             >
                                 <Link href={`/projects/${project.slug}`}>
-                                    <Card hover className="p-0 h-full flex flex-col group overflow-hidden border-border/40 hover:border-primary/40">
-                                        <div className="h-2 bg-gradient-to-r from-primary/50 to-info/50 opacity-0 group-hover:opacity-100 transition-opacity" />
+                                    <Card hover className="p-0 h-full flex flex-col group overflow-hidden border-primary/5 bg-surface/40">
+                                        {/* Status Header */}
+                                        <div className="px-6 py-3 border-b border-white/5 flex items-center justify-between bg-white/[0.02]">
+                                            <div className="flex items-center gap-2">
+                                                <div className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
+                                                <span className="text-[10px] font-mono font-bold text-primary tracking-widest uppercase">Operational</span>
+                                            </div>
+                                            <span className="text-[9px] font-mono text-text-muted opacity-30 tracking-widest uppercase">ID: 0x{project.id.toString().padStart(3, '0')}</span>
+                                        </div>
 
-                                        <div className="p-8 flex-1">
-                                            <div className="flex items-center justify-between mb-4">
-                                                <Badge variant="default" className="text-[10px] tracking-wider uppercase">
-                                                    {project.category}
-                                                </Badge>
-                                                <FaLayerGroup className="text-text-muted group-hover:text-primary transition-colors" />
+                                        <div className="p-10 flex-1">
+                                            <div className="flex items-center justify-between mb-6">
+                                                <div className="px-3 py-1 bg-primary/10 border border-primary/20 rounded-sm">
+                                                    <span className="text-[9px] font-mono font-bold text-primary tracking-[0.2em] uppercase">
+                                                        {project.category}
+                                                    </span>
+                                                </div>
+                                                <FaLayerGroup className="text-primary/20 group-hover:text-primary transition-all group-hover:rotate-12" />
                                             </div>
 
-                                            <h3 className="text-2xl font-bold mb-3 text-text-primary group-hover:text-primary transition-colors">
+                                            <h3 className="text-3xl font-black mb-6 text-text-primary group-hover:text-primary transition-colors tracking-tighter uppercase">
                                                 {project.title}
                                             </h3>
 
-                                            <p className="text-text-secondary leading-relaxed mb-6">
+                                            <p className="text-text-muted leading-relaxed mb-8 font-mono text-xs uppercase tracking-wider opacity-60 group-hover:opacity-100 transition-opacity">
                                                 {project.description}
                                             </p>
                                         </div>
 
-                                        <div className="p-8 bg-surface-elevated/30 border-t border-border mt-auto">
-                                            <div className="flex flex-wrap gap-2 mb-6">
+                                        <div className="p-10 bg-white/[0.02] border-t border-white/5 mt-auto">
+                                            <div className="flex flex-wrap gap-2 mb-8">
                                                 {project.tech.map(t => (
-                                                    <span key={t} className="px-2 py-1 bg-surface-elevated rounded text-[10px] font-mono text-text-secondary uppercase border border-border">
+                                                    <span key={t} className="px-3 py-1 bg-white/5 text-[9px] font-mono font-bold text-text-muted uppercase border border-white/5 group-hover:border-primary/20 transition-colors">
                                                         {t}
                                                     </span>
                                                 ))}
                                             </div>
 
                                             <div className="flex items-center justify-between">
-                                                <span className="text-xs font-bold text-primary group-hover:translate-x-1 transition-transform">
-                                                    EXPLORE SYSTEM →
-                                                </span>
+                                                <div className="flex items-center gap-3 group/link">
+                                                    <span className="text-[10px] font-mono font-black text-primary tracking-[0.3em] uppercase group-hover/link:tracking-[0.4em] transition-all">
+                                                        EXPLORE_SYSTEM
+                                                    </span>
+                                                    <div className="w-8 h-[1px] bg-primary/30 group-hover/link:w-12 transition-all" />
+                                                </div>
+                                                <div className="flex gap-1 opacity-20 group-hover:opacity-100 transition-opacity">
+                                                    {[...Array(3)].map((_, i) => (
+                                                        <div key={i} className="w-1 h-3 bg-primary" />
+                                                    ))}
+                                                </div>
                                             </div>
                                         </div>
                                     </Card>
@@ -173,9 +197,20 @@ export default function ProjectsPage() {
                 </div>
 
                 {filteredProjects.length === 0 && (
-                    <div className="text-center py-40">
-                        <p className="text-text-muted text-lg">No systems found matching your search parameters.</p>
-                    </div>
+                    <Card className="max-w-6xl mx-auto p-20 flex flex-col items-center text-center bg-surface/20 border-primary/5">
+                        <div className="w-16 h-16 rounded-sm border border-primary/20 flex items-center justify-center mb-8 opacity-40">
+                            <FaSearch className="text-3xl text-primary/40" />
+                        </div>
+                        <p className="text-sm font-mono text-text-muted uppercase tracking-[0.3em] opacity-60">
+                            No matching system protocols found in current matrix.
+                        </p>
+                        <button
+                            onClick={() => { setSearch(''); setFilter('All'); }}
+                            className="mt-8 text-[10px] font-mono text-primary font-bold uppercase tracking-[0.3em] hover:tracking-[0.4em] transition-all underline underline-offset-8"
+                        >
+                            Reset_Parameters
+                        </button>
+                    </Card>
                 )}
             </div>
         </div>

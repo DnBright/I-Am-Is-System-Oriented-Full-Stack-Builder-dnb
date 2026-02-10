@@ -29,32 +29,40 @@ export default function TryPage() {
     };
 
     return (
-        <div className="pt-32 pb-20">
-            <div className="container mx-auto px-4">
+        <div className="py-24 relative overflow-hidden">
+            <div className="container mx-auto px-4 relative z-10">
                 {/* Header */}
-                <div className="max-w-6xl mx-auto mb-12">
+                <div className="flex flex-col items-center text-center mb-16">
+                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-sm bg-primary/10 border border-primary/20 mb-4">
+                        <span className="text-[10px] font-mono font-bold tracking-[0.2em] text-primary uppercase">Simulation_Module // Sandbox_v0.8-Alpha</span>
+                    </div>
                     <motion.h1
-                        initial={{ opacity: 0, scale: 0.9 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        className="text-5xl font-bold mb-4"
+                        initial={{ opacity: 0, scale: 0.98 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
+                        className="text-4xl md:text-7xl font-black mb-6 tracking-tighter uppercase"
                     >
                         {t.rich('title', {
                             span: (children) => <span className="text-primary">{children}</span>
                         })}
                     </motion.h1>
                     <motion.p
-                        initial={{ opacity: 0, scale: 0.9 }}
-                        animate={{ opacity: 1, scale: 1 }}
+                        initial={{ opacity: 0, scale: 0.98 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
+                        viewport={{ once: true }}
                         transition={{ delay: 0.1 }}
-                        className="text-text-secondary text-lg max-w-2xl"
+                        className="text-text-muted text-lg font-mono uppercase tracking-widest opacity-60 max-w-2xl"
                     >
                         {t('subtitle')}
                     </motion.p>
                 </div>
 
-                <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-4 gap-8">
+                <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-4 gap-12">
                     {/* Station Selector */}
-                    <div className="lg:col-span-1 space-y-4">
+                    <div className="lg:col-span-1 space-y-6">
+                        <div className="flex items-center gap-3 px-2 mb-4">
+                            <div className="w-1 h-4 bg-primary" />
+                            <span className="text-[10px] font-mono font-bold uppercase tracking-[0.3em] text-text-muted opacity-40">STATION_SELECT</span>
+                        </div>
                         {demoStations.map((demo) => {
                             const d = {
                                 title: t(`stations.${demo.id}.title`),
@@ -66,32 +74,47 @@ export default function TryPage() {
                                     key={demo.id}
                                     onClick={() => setActiveId(demo.id)}
                                     className={cn(
-                                        "w-full text-left p-6 rounded-xl border transition-all flex flex-col gap-2",
+                                        "w-full text-left p-6 rounded-sm border transition-all flex flex-col gap-4 group relative overflow-hidden",
                                         activeId === demo.id
-                                            ? "bg-surface border-primary glow-primary ring-1 ring-primary/20"
-                                            : "bg-surface/50 border-border hover:border-text-muted"
+                                            ? "bg-primary/10 border-primary shadow-[0_0_20px_rgba(16,185,129,0.1)]"
+                                            : "bg-surface/40 border-primary/10 hover:border-primary/40"
                                     )}
                                 >
-                                    <div className="flex items-center justify-between">
-                                        <Badge variant={d.status === 'Restricted' || d.status === 'Dibatasi' ? 'error' : 'success'} className="text-[10px] py-0 px-2">
+                                    <div className="flex items-center justify-between relative z-10">
+                                        <div className={cn(
+                                            "px-2 py-0.5 rounded-sm text-[8px] font-mono font-black uppercase tracking-widest",
+                                            d.status === 'Restricted' || d.status === 'Dibatasi'
+                                                ? "bg-error/20 text-error border border-error/20"
+                                                : "bg-primary/20 text-primary border border-primary/20"
+                                        )}>
                                             {d.status}
-                                        </Badge>
-                                        <FaTerminal className={activeId === demo.id ? "text-primary" : "text-text-muted"} size={12} />
+                                        </div>
+                                        <FaTerminal className={cn("transition-colors", activeId === demo.id ? "text-primary" : "text-text-muted opacity-20")} size={14} />
                                     </div>
-                                    <h3 className={cn("font-bold text-sm", activeId === demo.id ? "text-primary" : "text-text-primary")}>
-                                        {d.title}
-                                    </h3>
-                                    <p className="text-[10px] text-text-muted uppercase tracking-widest">{d.type}</p>
+                                    <div className="relative z-10">
+                                        <h3 className={cn("font-black text-sm uppercase tracking-tighter transition-colors", activeId === demo.id ? "text-primary" : "text-text-primary")}>
+                                            {d.title}
+                                        </h3>
+                                        <p className="text-[9px] font-mono text-text-muted uppercase tracking-[0.2em] opacity-40 mt-1">{d.type}</p>
+                                    </div>
+                                    {activeId === demo.id && (
+                                        <motion.div
+                                            layoutId="station-active"
+                                            className="absolute left-0 top-0 w-1 h-full bg-primary"
+                                        />
+                                    )}
                                 </button>
                             );
                         })}
 
-                        <Card className="p-6 bg-surface-elevated/50 mt-8">
-                            <div className="flex items-center gap-3 text-warning mb-3">
-                                <FaShieldAlt />
-                                <span className="text-xs font-bold uppercase">{t('security_note.title')}</span>
+                        <Card className="p-8 border-warning/10 bg-warning/[0.02] mt-12 relative overflow-hidden group">
+                            <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:scale-110 transition-transform">
+                                <FaShieldAlt className="text-3xl text-warning" />
                             </div>
-                            <p className="text-[10px] text-text-secondary leading-relaxed">
+                            <div className="flex items-center gap-3 text-warning mb-4">
+                                <span className="text-[10px] font-mono font-black uppercase tracking-[0.2em]">{t('security_note.title')}</span>
+                            </div>
+                            <p className="text-[10px] font-mono text-text-muted uppercase tracking-widest leading-relaxed opacity-60">
                                 {t('security_note.desc')}
                             </p>
                         </Card>
@@ -99,52 +122,66 @@ export default function TryPage() {
 
                     {/* Interactive Console */}
                     <div className="lg:col-span-3">
-                        <Card className="p-0 border-border/60 bg-black overflow-hidden aspect-video flex flex-col relative">
+                        <Card className="p-0 border-primary/10 bg-background overflow-hidden aspect-video flex flex-col relative group">
                             {/* Terminal Header */}
-                            <div className="bg-surface-elevated/80 px-4 py-3 border-b border-border flex items-center justify-between">
+                            <div className="bg-white/[0.02] px-6 py-4 border-b border-white/5 flex items-center justify-between">
                                 <div className="flex gap-2">
-                                    <div className="w-3 h-3 rounded-full bg-error/50" />
-                                    <div className="w-3 h-3 rounded-full bg-warning/50" />
-                                    <div className="w-3 h-3 rounded-full bg-success/50" />
+                                    <div className="w-2.5 h-2.5 rounded-full bg-error/30 group-hover:bg-error/50 transition-colors" />
+                                    <div className="w-2.5 h-2.5 rounded-full bg-warning/30 group-hover:bg-warning/50 transition-colors" />
+                                    <div className="w-2.5 h-2.5 rounded-full bg-success/30 group-hover:bg-success/50 transition-colors" />
                                 </div>
-                                <div className="text-[10px] font-mono text-text-muted uppercase tracking-tighter">
-                                    {t('terminal.root_at')}:~/{activeDemo.id}
+                                <div className="flex items-center gap-4">
+                                    <div className="text-[9px] font-mono text-text-muted uppercase tracking-[0.2em] opacity-40">
+                                        AUTH: SESSION_SYMMETRIC
+                                    </div>
+                                    <div className="text-[10px] font-mono font-bold text-primary group-hover:text-primary transition-colors tracking-tighter uppercase">
+                                        {t('terminal.root_at')}:~/{activeDemo.id}
+                                    </div>
                                 </div>
                             </div>
 
                             {/* Console Body */}
-                            <div className="flex-1 p-8 font-mono text-sm overflow-hidden flex flex-col items-center justify-center text-center">
+                            <div className="flex-1 p-12 font-mono overflow-hidden flex flex-col items-center justify-center text-center relative">
+                                {/* Grid Background inside terminal */}
+                                <div className="absolute inset-0 bg-[linear-gradient(rgba(16,185,129,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(16,185,129,0.02)_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none" />
+
                                 <AnimatePresence mode="wait">
                                     <motion.div
                                         key={activeDemo.id}
                                         initial={{ opacity: 0, y: 10 }}
                                         animate={{ opacity: 1, y: 0 }}
                                         exit={{ opacity: 0, y: -10 }}
-                                        className="max-w-md"
+                                        className="max-w-md relative z-10"
                                     >
                                         {activeDemo.status === 'Restricted' || activeDemo.status === 'Dibatasi' ? (
-                                            <div className="flex flex-col items-center gap-6">
-                                                <div className="w-20 h-20 rounded-full bg-error/10 flex items-center justify-center border border-error/50">
-                                                    <FaLock className="text-error text-3xl" />
+                                            <div className="flex flex-col items-center gap-10">
+                                                <div className="relative">
+                                                    <div className="w-24 h-24 rounded-sm bg-error/5 flex items-center justify-center border border-error/30 group/lock">
+                                                        <FaLock className="text-error text-4xl group-hover:scale-110 transition-transform" />
+                                                    </div>
+                                                    <div className="absolute -inset-4 border border-error/10 animate-pulse" />
                                                 </div>
-                                                <div>
-                                                    <p className="text-error font-bold mb-2">{t('terminal.access_rejected')}</p>
-                                                    <p className="text-text-secondary text-xs">{t('terminal.pii_warning')}</p>
+                                                <div className="space-y-4">
+                                                    <p className="text-error font-black text-xl uppercase tracking-tighter">{t('terminal.access_rejected')}</p>
+                                                    <p className="text-text-muted text-[10px] font-mono uppercase tracking-[0.2em] opacity-60 leading-relaxed px-8">{t('terminal.pii_warning')}</p>
                                                 </div>
-                                                <Button variant="outline" size="sm" className="border-error/50 text-error hover:bg-error/10">
+                                                <Button variant="outline" size="sm" className="border-error/30 text-error hover:bg-error/10 font-mono text-[10px] uppercase tracking-[0.3em] px-8 rounded-sm">
                                                     {t('terminal.request_access')}
                                                 </Button>
                                             </div>
                                         ) : (
-                                            <div className="flex flex-col items-center gap-6">
-                                                <div className="w-20 h-20 rounded-full bg-primary/10 flex items-center justify-center border border-primary/50">
-                                                    <FaPlay className="text-primary text-3xl translate-x-1" />
+                                            <div className="flex flex-col items-center gap-10">
+                                                <div className="relative">
+                                                    <div className="w-24 h-24 rounded-sm bg-primary/5 flex items-center justify-center border border-primary/30">
+                                                        <FaPlay className="text-primary text-4xl translate-x-1" />
+                                                    </div>
+                                                    <div className="absolute -inset-4 border border-primary/10 animate-pulse" />
                                                 </div>
-                                                <div>
-                                                    <p className="text-primary font-bold mb-2">{t('terminal.connected_ready')}</p>
-                                                    <p className="text-text-secondary text-xs">{activeDemo.description}</p>
+                                                <div className="space-y-4">
+                                                    <p className="text-primary font-black text-xl uppercase tracking-tighter">{t('terminal.connected_ready')}</p>
+                                                    <p className="text-text-muted text-[10px] font-mono uppercase tracking-[0.2em] opacity-60 leading-relaxed px-8">{activeDemo.description}</p>
                                                 </div>
-                                                <Button size="sm" className="gap-2">
+                                                <Button size="sm" className="gap-3 font-mono text-[10px] uppercase tracking-[0.3em] px-8 rounded-sm shadow-[0_0_20px_rgba(16,185,129,0.2)]">
                                                     <FaExternalLinkAlt size={12} />
                                                     {t('terminal.open_preview')}
                                                 </Button>
@@ -152,22 +189,29 @@ export default function TryPage() {
                                         )}
                                     </motion.div>
                                 </AnimatePresence>
+
+                                {/* Scanline inside terminal */}
+                                <div className="absolute inset-0 pointer-events-none bg-gradient-to-b from-transparent via-primary/[0.03] to-transparent h-20 w-full top-[-100%] animate-[scan_4s_linear_infinite]" />
                             </div>
 
                             {/* Status Bar */}
-                            <div className="bg-surface-elevated/40 px-6 py-2 border-t border-border flex items-center justify-between">
-                                <div className="flex items-center gap-4">
-                                    <span className="flex items-center gap-2 text-[10px] text-text-muted">
-                                        <div className="w-1.5 h-1.5 rounded-full bg-success" />
-                                        {t('terminal.latency')}: 24ms
-                                    </span>
-                                    <span className="flex items-center gap-2 text-[10px] text-text-muted">
+                            <div className="bg-white/[0.03] px-8 py-3 border-t border-white/5 flex items-center justify-between">
+                                <div className="flex items-center gap-8">
+                                    <div className="flex items-center gap-3">
+                                        <div className="w-1.5 h-1.5 rounded-full bg-success shadow-[0_0_8px_rgba(16,185,129,0.5)]" />
+                                        <span className="text-[10px] font-mono text-text-muted uppercase tracking-widest opacity-60">
+                                            {t('terminal.latency')}: 24ms
+                                        </span>
+                                    </div>
+                                    <div className="flex items-center gap-3">
                                         <div className="w-1.5 h-1.5 rounded-full bg-info" />
-                                        {t('terminal.buffer')}: 100%
-                                    </span>
+                                        <span className="text-[10px] font-mono text-text-muted uppercase tracking-widest opacity-60">
+                                            {t('terminal.buffer')}: 100%
+                                        </span>
+                                    </div>
                                 </div>
-                                <div className="text-[10px] text-primary font-bold font-mono">
-                                    {t('terminal.secure_layer')}
+                                <div className="text-[10px] text-primary font-black font-mono tracking-[0.2em] uppercase">
+                                    {t('terminal.secure_layer')} // AES-256
                                 </div>
                             </div>
                         </Card>
