@@ -3,7 +3,7 @@ import { githubClient } from '@/lib/github';
 import { cacheService } from '@/services/cache';
 
 const CACHE_KEY = 'github:activity';
-const CACHE_TTL = 300; // 5 minutes
+const CACHE_TTL = 60; // 1 minute for "real-time" feel
 
 export async function GET() {
     try {

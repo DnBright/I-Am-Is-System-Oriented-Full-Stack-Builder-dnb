@@ -31,7 +31,15 @@ export default function LivePage() {
             const activityData = await activityRes.json();
             const analyticsData = await analyticsRes.json();
 
-            setEvents(activityData.events);
+            // Filter out PushEvents with 0 commits
+            const filteredEvents = (activityData.events as GitHubEvent[]).filter(event => {
+                if (event.type === 'PushEvent') {
+                    return (event.payload.commits?.length || 0) > 0;
+                }
+                return true;
+            });
+
+            setEvents(filteredEvents);
             setHeatmap(analyticsData.contributionHeatmap);
             setLastUpdated(new Date().toISOString());
         } catch (error) {
