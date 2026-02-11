@@ -10,10 +10,10 @@
     },
     "Hero": {
         "badge": "Sedang push kode...",
-        "title_primary": "System-Oriented",
-        "title_secondary": "Full-Stack Engineer",
-        "subtitle_1": "Membangun sistem terukur dengan dampak yang nyata.",
-        "subtitle_2": "Transparansi kerja melalui aktivitas GitHub real-time.",
+        "title_primary": "Anak Ganang Jaya",
+        "title_secondary": "System Architect",
+        "subtitle_1": "S1 Sistem Informasi @ Amikom Yogyakarta.",
+        "subtitle_2": "Mentransformasi logika visual menjadi arsitektur sistem yang skalabel.",
         "stats": {
             "commits": "Commit",
             "repositories": "Repositori",
@@ -152,8 +152,8 @@
         "quote": "\"Logika adalah fondasi, tetapi sistem adalah eksekusi. Insinyur hebat membangun keduanya.\"",
         "mindset": {
             "title": "Pola Pikir Berorientasi Sistem",
-            "desc1": "Berbasis di Indonesia, saya beroperasi di persimpangan antara orkestrasi backend yang kuat dan pengiriman frontend yang reaktif. Pendekatan saya berakar pada keyakinan bahwa perangkat lunak adalah sistem yang hidup yang membutuhkan keseimbangan antara pengiriman fitur intensif dan stabilitas arsitektur jangka panjang.",
-            "desc2": "Dengan pengalaman 8+ tahun menavigasi lingkungan full-stack, saya telah mengembangkan metodologi yang berfokus pada <strong>dekomposisi atomik</strong>. Baik itu sistem ERP, CRM berfrekuensi tinggi, atau mesin analitik—tujuannya adalah selalu membangun untuk observabilitas dan skala."
+            "desc1": "Berbasis di Yogyakarta, saya adalah seorang System Architect yang berada di titik temu antara logika visual yang presisi dan teknik yang skalabel. Saat ini saya sedang menempuh pendidikan S1 Sistem Informasi di Universitas Amikom Yogyakarta.",
+            "desc2": "Perjalanan saya dimulai dari desain grafis berkualitas tinggi, yang kini menjadi bahan bakar metodologi saya dalam <strong>Dekomposisi Atomik</strong>. Saya tidak hanya membangun sistem; saya merancang jembatan antara presisi estetika dan integritas teknis."
         },
         "badges": {
             "full_stack": "Full-Stack",
@@ -162,7 +162,7 @@
         },
         "academic": {
             "label": "Basis Akademik",
-            "title": "Ilmu Komp. & Teknik"
+            "title": "S1 Sistem Informasi"
         },
         "focus": {
             "label": "Fokus Utama",

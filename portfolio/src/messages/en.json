@@ -10,10 +10,10 @@
   },
   "Hero": {
     "badge": "Pushing code now...",
-    "title_primary": "System-Oriented",
-    "title_secondary": "Full-Stack Engineer",
-    "subtitle_1": "Building scalable systems with measurable impact.",
-    "subtitle_2": "Transparent work through real-time GitHub activity.",
+    "title_primary": "Anak Ganang Jaya",
+    "title_secondary": "System Architect",
+    "subtitle_1": "S1 Information Systems @ Amikom Yogyakarta.",
+    "subtitle_2": "Transforming high-fidelity visual logic into scalable system architecture.",
     "stats": {
       "commits": "Commits",
       "repositories": "Repositories",
@@ -152,8 +152,8 @@
     "quote": "\"Logic is the foundation, but systems are the execution. A great engineer builds both.\"",
     "mindset": {
       "title": "The System-Oriented Mindset",
-      "desc1": "Based in Indonesia, I operate at the intersection of robust backend orchestration and reactive frontend delivery. My approach is rooted in the belief that software is a living system that requires balance between intensive feature delivery and long-term architectural stability.",
-      "desc2": "With 8+ years of experience navigating full-stack environments, I've developed a methodology focused on <strong>atomic decomposition</strong>. Whether it's an ERP system, a high-frequency CRM, or an analytics engine—the goal is always to build for observability and scale."
+      "desc1": "Based in Yogyakarta, I am a System Architect at the crossroads of precise visual logic and scalable engineering. Currently pursuing S1 Information Systems at Universitas Amikom Yogyakarta.",
+      "desc2": "My journey began in high-fidelity Graphic Design, which now fuels my methodology in <strong>Atomic Decomposition</strong>. I don't just build systems; I engineer the bridge between aesthetic precision and technical integrity."
     },
     "badges": {
       "full_stack": "Full-Stack",
@@ -162,7 +162,7 @@
     },
     "academic": {
       "label": "Academic Base",
-      "title": "Comp. Science & Eng."
+      "title": "B.S. Information Systems"
     },
     "focus": {
       "label": "Core Focus",
