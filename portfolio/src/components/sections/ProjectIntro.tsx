@@ -2,35 +2,107 @@
 
 import { motion } from 'framer-motion';
 import { useTranslations } from 'next-intl';
-import { Link } from '@/navigation';
-import Button from '@/components/ui/Button';
+import Badge from '@/components/ui/Badge';
+
+const featuredProjects = [
+    {
+        id: 'rfid_attendance',
+        image: '/projects/rfid-attendance.jpg',
+    },
+    {
+        id: 'sima_pertamina',
+        image: '/projects/sima-pertamina.jpg',
+    },
+    {
+        id: 'brightgas',
+        image: '/projects/brightgas.jpg',
+    },
+    {
+        id: 'spop',
+        image: '/projects/spop.jpg',
+    }
+];
 
 export default function ProjectIntro() {
     const t = useTranslations('ProjectIntro');
 
     return (
-        <section className="py-24 relative overflow-hidden bg-background">
+        <section className="py-24 relative overflow-hidden bg-gradient-to-br from-purple-900/20 via-background to-background">
             <div className="container mx-auto px-4 relative z-10">
-                <div className="max-w-4xl mx-auto text-center">
+                <div className="max-w-7xl mx-auto">
+                    {/* Header */}
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.6 }}
-                        className="space-y-8"
+                        className="text-center mb-16"
                     >
-                        <h2 className="text-3xl md:text-5xl font-bold text-white tracking-tight leading-tight">
+                        <h2 className="text-3xl md:text-5xl font-bold text-white tracking-tight leading-tight mb-4">
                             {t('text_1')}
                             <br />
                             <span className="text-primary">{t('text_2')}</span>
                         </h2>
-
-                        <Link href="/projects" className="inline-block pt-4">
-                            <Button variant="outline" className="border-primary/20 text-primary hover:bg-primary/5 rounded-full px-10 h-14 font-bold uppercase tracking-widest text-xs transition-all">
-                                {t('button')}
-                            </Button>
-                        </Link>
                     </motion.div>
+
+                    {/* Project Cards Grid */}
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                        {featuredProjects.map((project, index) => {
+                            // eslint-disable-next-line react-hooks/rules-of-hooks
+                            const tProject = useTranslations(`ProjectIntro.projects.${project.id}`);
+
+                            return (
+                                <motion.div
+                                    key={project.id}
+                                    initial={{ opacity: 0, y: 30 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    viewport={{ once: true }}
+                                    transition={{ delay: index * 0.1, duration: 0.5 }}
+                                    className="group"
+                                >
+                                    <div className="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 h-full flex flex-col">
+                                        {/* Project Image */}
+                                        <div className="h-48 bg-gradient-to-br from-purple-100 to-blue-100 relative overflow-hidden">
+                                            <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 to-blue-500/10" />
+                                            <div className="absolute inset-0 flex items-center justify-center">
+                                                <div className="text-6xl font-bold text-purple-200/30 group-hover:scale-110 transition-transform">
+                                                    {(index + 1).toString().padStart(2, '0')}
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        {/* Project Info */}
+                                        <div className="p-6 flex flex-col flex-1">
+                                            <h3 className="text-lg font-bold text-gray-900 mb-2 group-hover:text-purple-600 transition-colors">
+                                                {tProject('title')}
+                                            </h3>
+
+                                            <p className="text-xs text-gray-500 mb-3">
+                                                {tProject('location')}
+                                            </p>
+
+                                            <p className="text-sm text-gray-600 mb-4 line-clamp-3 flex-1">
+                                                {tProject('description')}
+                                            </p>
+
+                                            {/* Tech Stack */}
+                                            <div className="flex flex-wrap gap-1.5 mt-auto">
+                                                {(tProject.raw('tech') as string[]).map((tech) => (
+                                                    <Badge
+                                                        key={tech}
+                                                        variant="outline"
+                                                        className="text-[9px] px-2 py-0.5 border-purple-200 text-purple-700 bg-purple-50"
+                                                    >
+                                                        {tech}
+                                                    </Badge>
+                                                ))}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </motion.div>
+                            );
+                        })}
+                    </div>
                 </div>
             </div>
 

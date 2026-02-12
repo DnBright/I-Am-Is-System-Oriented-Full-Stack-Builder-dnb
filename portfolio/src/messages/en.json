@@ -309,6 +309,60 @@
   "ProjectIntro": {
     "text_1": "Specializing in High-Throughput Systems and Scalable Architecture.",
     "text_2": "Transforming visual logic into scalable system architecture.",
-    "button": "View Projects"
+    "button": "View Projects",
+    "projects": {
+      "rfid_attendance": {
+        "title": "RFID Attendance System",
+        "location": "Yogyakarta Indonesia, 2015-2016",
+        "description": "Reengineering of attendance system using RFID card reader for students in Amikom University",
+        "tech": [
+          ".net frameworks",
+          "WinForm",
+          "NID Omnikey RFID Reader",
+          "RestSharp"
+        ]
+      },
+      "sima_pertamina": {
+        "title": "SIMA Pertamina",
+        "location": "Jakarta Indonesia, 2017-2018",
+        "description": "Asset and building management system of Pertamina, Indonesian state-owned oil and natural gas corporation",
+        "tech": [
+          "Asp .Net WebForm",
+          "jQuery",
+          "Gmaps API",
+          "AdminLTE",
+          "Bootstrap",
+          "Sql Server",
+          "T-SQL"
+        ]
+      },
+      "brightgas": {
+        "title": "Brightgas Mobile API & CMS",
+        "location": "Jakarta Indonesia, 2018",
+        "description": "Mobile app for home gas delivery services by Pertamina, Indonesian state-owned oil and natural gas corporation",
+        "tech": [
+          "Asp MVC",
+          "Asp Web API",
+          "Entity Framework",
+          "Hangfire",
+          "Azure Web Service",
+          "Azure SQL"
+        ]
+      },
+      "spop": {
+        "title": "SPOP+",
+        "location": "Jakarta Indonesia, 2018-2020",
+        "description": "A system to manage, accumulate and process data for back office daily operation at Indonesia Stock Exchange",
+        "tech": [
+          "Asp Mvc",
+          "EF",
+          "PostgreSql",
+          "Hangfire",
+          "ActiveMQ",
+          "jQuery",
+          "IIS"
+        ]
+      }
+    }
   }
 }

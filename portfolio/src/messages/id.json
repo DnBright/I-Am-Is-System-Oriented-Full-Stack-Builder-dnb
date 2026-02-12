@@ -308,6 +308,55 @@
     "ProjectIntro": {
         "text_1": "Spesialisasi dalam Sistem Throughput-Tinggi dan Arsitektur Skalabel.",
         "text_2": "Mentransformasi logika visual menjadi arsitektur sistem yang skalabel.",
-        "button": "Lihat Proyek"
+        "button": "Lihat Proyek",
+        "projects": {
+            "lpk_saitama": {
+                "title": "Dashboard LPK Saitama",
+                "location": "PT. Saitama Juara Mendunia",
+                "description": "Sistem manajemen komprehensif untuk mengelola data siswa, penggajian, dan pelaporan lembaga pelatihan kerja",
+                "tech": [
+                    "Laravel",
+                    "React",
+                    "MySQL",
+                    "Redis",
+                    "Tailwind CSS"
+                ]
+            },
+            "lpk_ayaka": {
+                "title": "Website Company LPK Ayaka",
+                "location": "PT. Saitama Juara Mendunia",
+                "description": "Website profil perusahaan dan portal pendaftaran dengan optimasi SEO untuk lembaga pelatihan kerja",
+                "tech": [
+                    "Next.js",
+                    "Tailwind CSS",
+                    "Framer Motion",
+                    "SEO Optimization"
+                ]
+            },
+            "ai_dashboard": {
+                "title": "Dashboard Admin Terintegrasi AI",
+                "location": "Sistem Manajemen Cerdas",
+                "description": "Dashboard admin canggih dengan integrasi AI untuk efisiensi operasional dan manajemen keseharian admin otomatis",
+                "tech": [
+                    "Next.js",
+                    "OpenAI API",
+                    "PostgreSQL",
+                    "tRPC",
+                    "Prisma"
+                ]
+            },
+            "japan_course": {
+                "title": "Kursus Jepang Online Hybrid",
+                "location": "Platform EdTech Modern",
+                "description": "Platform LMS modern untuk pembelajaran bahasa Jepang dengan metodologi hybrid dan bypass learning",
+                "tech": [
+                    "React",
+                    "Node.js",
+                    "WebRTC",
+                    "MongoDB",
+                    "Socket.io"
+                ]
+            }
+        }
     }
 }
