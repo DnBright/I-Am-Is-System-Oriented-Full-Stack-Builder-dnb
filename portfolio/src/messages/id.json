@@ -12,12 +12,12 @@
         "badge": "Sedang push kode...",
         "title_primary": "Anak Ganang Jaya",
         "title_secondary": "System Architect",
-        "subtitle_1": "S1 Sistem Informasi @ Amikom Yogyakarta.",
+        "subtitle_1": "Spesialisasi dalam Sistem Throughput-Tinggi dan Arsitektur Skalabel.",
         "subtitle_2": "Mentransformasi logika visual menjadi arsitektur sistem yang skalabel.",
         "stats": {
             "commits": "Commit",
             "repositories": "Repositori",
-            "experience": "Tahun Pengalaman"
+            "experience": "Logika Kreatif"
         },
         "buttons": {
             "projects": "Lihat Proyek",
@@ -152,7 +152,7 @@
         "quote": "\"Logika adalah fondasi, tetapi sistem adalah eksekusi. Insinyur hebat membangun keduanya.\"",
         "mindset": {
             "title": "Pola Pikir Berorientasi Sistem",
-            "desc1": "Berbasis di Yogyakarta, saya adalah seorang System Architect yang berada di titik temu antara logika visual yang presisi dan teknik yang skalabel. Saat ini saya sedang menempuh pendidikan S1 Sistem Informasi di Universitas Amikom Yogyakarta.",
+            "desc1": "Berbasis di Yogyakarta, saya adalah seorang System Architect yang berada di titik temu antara logika visual yang presisi dan teknik yang skalabel.",
             "desc2": "Perjalanan saya dimulai dari desain grafis berkualitas tinggi, yang kini menjadi bahan bakar metodologi saya dalam <strong>Dekomposisi Atomik</strong>. Saya tidak hanya membangun sistem; saya merancang jembatan antara presisi estetika dan integritas teknis."
         },
         "badges": {
@@ -161,8 +161,8 @@
             "specialist": "Spesialis Data"
         },
         "academic": {
-            "label": "Basis Akademik",
-            "title": "S1 Sistem Informasi"
+            "label": "Fondasi Teknis",
+            "title": "Arsitektur Sistem & Informasi"
         },
         "focus": {
             "label": "Fokus Utama",

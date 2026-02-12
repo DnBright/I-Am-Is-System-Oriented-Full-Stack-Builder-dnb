@@ -84,8 +84,8 @@ export default function Hero() {
                             className="grid grid-cols-1 md:grid-cols-3 gap-1 bg-border/20 border border-border p-1 rounded-lg mb-12 w-full max-w-3xl overflow-hidden"
                         >
                             {[
-                                { label: t('stats.commits'), value: '1,240+', icon: <FaGithub />, color: 'text-primary' },
-                                { label: t('stats.repositories'), value: '28', icon: <FaCode />, color: 'text-info' },
+                                { label: t('stats.commits'), value: '381+', icon: <FaGithub />, color: 'text-primary' },
+                                { label: t('stats.repositories'), value: '6', icon: <FaCode />, color: 'text-info' },
                                 { label: t('stats.experience'), value: '8+', icon: <FaChartLine />, color: 'text-warning' }
                             ].map((stat, i) => (
                                 <div key={i} className="bg-surface p-6 flex flex-col items-center justify-center relative hover:bg-surface-elevated transition-colors">

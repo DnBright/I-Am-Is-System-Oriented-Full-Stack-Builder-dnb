@@ -26,7 +26,6 @@ export default function Navbar() {
         { href: '/about', label: t('about') },
     ];
 
-    // Handle scroll for navbar transparency
     useEffect(() => {
         const handleScroll = () => {
             setIsScrolled(window.scrollY > 20);
@@ -35,12 +34,10 @@ export default function Navbar() {
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
-    // Close mobile menu when route changes
     useEffect(() => {
         setIsOpen(false);
     }, [pathname]);
 
-    // Prevent scroll when mobile menu is open
     useEffect(() => {
         if (isOpen) {
             document.body.style.overflow = 'hidden';
@@ -54,155 +51,237 @@ export default function Navbar() {
         router.replace(pathname, { locale: nextLocale });
     };
 
+    const CornerGuard = ({ position }: { position: 'tl' | 'tr' | 'bl' | 'br' }) => {
+        const styles = {
+            tl: "top-0 left-0 border-t border-l",
+            tr: "top-0 right-0 border-t border-r",
+            bl: "bottom-0 left-0 border-b border-l",
+            br: "bottom-0 right-0 border-b border-r"
+        };
+        return (
+            <div className={cn(
+                "absolute w-1.5 h-1.5 border-primary/40 pointer-events-none z-20",
+                styles[position]
+            )} />
+        );
+    };
+
     return (
-        <nav className={cn(
-            "fixed top-0 w-full z-50 transition-all duration-500",
-            isScrolled
-                ? "glass border-b border-primary/10 py-3 backdrop-blur-xl"
-                : "bg-transparent border-transparent py-8 backdrop-blur-none"
-        )}>
-            <div className="container mx-auto px-4">
-                <div className="flex items-center justify-between">
-                    {/* Logo */}
-                    <Link href="/" className="group flex items-center gap-3">
-                        <div className="relative w-10 h-10 rounded-sm border border-primary/30 flex items-center justify-center overflow-hidden transition-all group-hover:border-primary">
-                            <div className="absolute inset-0 bg-primary/5 group-hover:bg-primary/10 transition-colors" />
-                            <div className="w-2 h-2 bg-primary group-hover:scale-150 transition-transform animate-pulse" />
-                            <div className="absolute top-0 left-0 w-1 h-1 border-t border-l border-primary/60" />
-                            <div className="absolute bottom-0 right-0 w-1 h-1 border-b border-r border-primary/60" />
-                        </div>
-                        <div className="flex flex-col">
-                            <span className="text-primary text-xs leading-none font-mono font-bold tracking-[0.3em] uppercase group-hover:text-white transition-colors">Nexus_OS</span>
-                            <span className="text-text-muted text-[10px] leading-tight font-mono uppercase tracking-widest opacity-60">System_Engineer</span>
-                        </div>
-                    </Link>
+        <>
+            {/* Desktop Vertical Command Sidebar */}
+            <nav className="fixed left-0 top-0 h-screen w-20 xl:w-24 z-50 hidden lg:flex flex-col items-center py-8 pointer-events-none">
+                <div className="flex flex-col h-full w-full items-center justify-between gap-8 pointer-events-auto">
 
-                    {/* Navigation Links (Desktop) */}
-                    <div className="hidden lg:flex items-center gap-1">
-                        {links.map((link) => (
-                            <Link
-                                key={link.href}
-                                href={link.href}
-                                className={cn(
-                                    'px-4 py-2 text-[11px] font-mono uppercase tracking-[0.2em] transition-all relative group',
-                                    pathname === link.href
-                                        ? 'text-primary'
-                                        : 'text-text-muted hover:text-white'
-                                )}
-                            >
-                                {link.label}
-                                {pathname === link.href && (
-                                    <motion.div
-                                        layoutId="nav-active"
-                                        className="absolute -bottom-1 left-4 right-4 h-[1px] bg-primary"
-                                    />
-                                )}
-                                <div className="absolute inset-0 bg-primary/0 group-hover:bg-primary/5 transition-colors rounded-sm -z-10" />
-                            </Link>
-                        ))}
-                    </div>
-
-                    <div className="hidden md:flex items-center gap-6">
-                        <div className="flex flex-col items-end">
-                            <div className="flex items-center gap-2">
-                                <span className="w-1 h-1 rounded-full bg-primary animate-pulse" />
-                                <span className="text-[9px] font-mono text-primary uppercase tracking-tighter">System_Active</span>
-                            </div>
-                            <span className="text-[8px] font-mono text-text-muted uppercase opacity-40">Uptime: 99.9%</span>
-                        </div>
-
-                        {/* Language Switcher */}
-                        <button
-                            onClick={toggleLanguage}
-                            className="flex items-center gap-2 px-3 py-1.5 rounded-sm text-[10px] font-mono font-bold text-text-muted hover:text-primary hover:bg-primary/5 border border-primary/10 transition-all uppercase tracking-[0.2em]"
-                        >
-                            <FaGlobe className="text-[10px]" />
-                            {locale === 'en' ? 'EN' : 'ID'}
-                        </button>
-
-                        {/* CTA Button (Desktop) */}
-                        <Link href="/try">
-                            <Button size="sm" className="font-mono text-[10px] uppercase tracking-[0.2em] px-6 h-9">
-                                {t('cta')}
-                            </Button>
-                        </Link>
-                    </div>
-
-                    {/* Mobile Menu Button */}
-                    <div className="flex items-center gap-4 md:hidden">
-                        <div className="flex flex-col items-end">
-                            <span className="text-[8px] font-mono text-primary uppercase">v4.2.0</span>
-                        </div>
-                        <button
-                            className="text-text-primary p-2 focus:outline-none border border-primary/10 rounded-sm"
-                            onClick={() => setIsOpen(!isOpen)}
-                            aria-label="Toggle Menu"
-                        >
-                            {isOpen ? <HiX size={20} className="text-primary" /> : <HiMenuAlt3 size={20} />}
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            {/* Mobile Menu Overlay */}
-            <AnimatePresence>
-                {isOpen && (
+                    {/* Header Segment: Brand ID */}
                     <motion.div
-                        initial={{ opacity: 0, y: -10 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: -10 }}
-                        transition={{ duration: 0.3, ease: "easeOut" }}
-                        className="fixed inset-0 bg-background/60 backdrop-blur-2xl z-40 md:hidden flex flex-col p-8 pt-32"
+                        animate={{ x: [0, 2, 0] }}
+                        transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+                        className="relative group"
                     >
-                        <div className="absolute inset-0 tech-grid opacity-10 pointer-events-none" />
-                        <div className="relative mb-8 p-4 border border-primary/10 bg-primary/5 rounded-sm">
-                            <div className="flex items-center justify-between mb-4">
-                                <span className="text-[10px] font-mono text-primary uppercase tracking-[0.2em]">User_Access // Authentication_Ready</span>
-                                <div className="flex gap-1">
-                                    {[...Array(4)].map((_, i) => (
-                                        <div key={i} className="w-1 h-3 bg-primary/20" />
-                                    ))}
-                                </div>
+                        <Link href="/" className="flex flex-col items-center gap-4 bg-surface/20 backdrop-blur-xl border border-primary/10 py-5 w-14 xl:w-16 rounded-sm relative overflow-hidden group">
+                            <CornerGuard position="tl" />
+                            <CornerGuard position="br" />
+
+                            <div className="relative w-6 h-6 flex items-center justify-center">
+                                <div className="absolute inset-0 bg-primary/20 animate-pulse rounded-sm" />
+                                <div className="w-1 h-1 bg-primary group-hover:scale-150 transition-transform" />
                             </div>
-                            <div className="flex flex-col gap-1">
-                                {links.map((link) => (
+
+                            <div className="writing-vertical-lr rotate-180 flex items-center gap-2">
+                                <span className="text-primary text-[8px] font-mono font-bold tracking-[0.4em] uppercase">NEXUS_CORE</span>
+                                <span className="text-text-muted text-[6px] font-mono uppercase tracking-widest opacity-40 italic">0xFC_SYS</span>
+                            </div>
+                        </Link>
+                    </motion.div>
+
+                    {/* Middle Segment: Operations Rail */}
+                    <div className="flex-1 flex flex-col justify-center items-center w-full">
+                        <div className="bg-surface/10 backdrop-blur-sm border-x border-primary/5 py-8 flex flex-col items-center gap-1 relative">
+                            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-8 h-[1px] bg-primary/20" />
+                            <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-8 h-[1px] bg-primary/20" />
+
+                            {links.map((link) => {
+                                const isActive = pathname === link.href;
+                                return (
                                     <Link
                                         key={link.href}
                                         href={link.href}
                                         className={cn(
-                                            'px-4 py-3 text-sm font-mono uppercase tracking-[0.2em] transition-all border-l-2',
-                                            pathname === link.href
-                                                ? 'text-primary border-primary bg-primary/5'
-                                                : 'text-text-muted border-transparent hover:text-white'
+                                            'w-14 xl:w-16 aspect-square flex items-center justify-center relative group transition-all',
+                                            isActive ? 'text-white' : 'text-text-muted hover:text-primary'
                                         )}
                                     >
-                                        {link.label}
+                                        <div className="relative z-10 writing-vertical-lr h-full flex items-center justify-center">
+                                            <span className="text-[9px] font-mono uppercase tracking-[0.3em] group-hover:tracking-[0.5em] transition-all duration-300 whitespace-nowrap">
+                                                {link.label}
+                                            </span>
+                                        </div>
+
+                                        {isActive && (
+                                            <motion.div
+                                                layoutId="sidebar-active"
+                                                className="absolute inset-0 bg-primary/10 border-r-2 border-primary z-0"
+                                                transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
+                                            />
+                                        )}
+
+                                        <div className="absolute inset-0 bg-primary/0 group-hover:bg-primary/5 transition-colors z-0" />
+
+                                        {/* Hover Tooltip/Detail Popout */}
+                                        <div className="absolute left-full ml-4 px-3 py-1 bg-primary text-black font-mono text-[8px] uppercase tracking-widest opacity-0 group-hover:opacity-100 translate-x-[-10px] group-hover:translate-x-0 transition-all pointer-events-none whitespace-nowrap">
+                                            Execute_{link.label}
+                                        </div>
                                     </Link>
+                                );
+                            })}
+                        </div>
+                    </div>
+
+                    {/* Bottom Segment: Telemetry & Controls */}
+                    <div className="flex flex-col items-center gap-6">
+                        {/* Status Vertical Bar */}
+                        <div className="flex flex-col items-center gap-2">
+                            <div className="w-[2px] h-12 bg-primary/10 relative overflow-hidden">
+                                <motion.div
+                                    animate={{ y: ["-100%", "100%"] }}
+                                    transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
+                                    className="absolute inset-0 bg-primary/60 shadow-[0_0_8px_rgba(var(--primary-rgb),0.8)]"
+                                />
+                            </div>
+                            <span className="text-[7px] font-mono text-primary uppercase vertical-lr tracking-widest opacity-60">Uptime_Stable</span>
+                        </div>
+
+                        <div className="flex flex-col items-center gap-3">
+                            <button
+                                onClick={toggleLanguage}
+                                className="w-10 xl:w-12 h-10 xl:h-12 border border-primary/20 rounded-full flex items-center justify-center text-[10px] font-mono font-bold text-text-muted hover:text-primary hover:border-primary transition-all group relative overflow-hidden"
+                            >
+                                <span className="relative z-10">{locale === 'en' ? 'EN' : 'ID'}</span>
+                                <div className="absolute inset-0 bg-primary/10 scale-0 group-hover:scale-100 transition-transform" />
+                            </button>
+
+                            <Link href="/try">
+                                <motion.div
+                                    whileHover={{ scale: 1.1 }}
+                                    className="w-10 xl:w-12 h-10 xl:h-12 bg-primary flex items-center justify-center text-black relative group cursor-pointer shadow-lg shadow-primary/20"
+                                >
+                                    <HiMenuAlt3 className="w-5 h-5" />
+                                    <div className="absolute right-full mr-4 px-3 py-1 bg-surface-elevated border border-primary/20 text-primary font-mono text-[8px] uppercase tracking-widest opacity-0 group-hover:opacity-100 translate-x-[10px] group-hover:translate-x-0 transition-all whitespace-nowrap">
+                                        System_Trial
+                                    </div>
+                                </motion.div>
+                            </Link>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+
+            {/* Mobile Header (Floating Mini Console) */}
+            <div className="fixed top-0 left-0 w-full p-6 z-50 lg:hidden flex items-center justify-between pointer-events-none">
+                <Link href="/" className="pointer-events-auto bg-surface/40 backdrop-blur-md border border-primary/10 p-3 rounded-sm flex items-center gap-3 relative overflow-hidden group">
+                    <CornerGuard position="tl" />
+                    <CornerGuard position="br" />
+                    <div className="w-1.5 h-1.5 bg-primary animate-pulse" />
+                    <span className="text-primary text-[10px] font-mono font-bold tracking-[0.2em]">NEXUS.V6</span>
+                </Link>
+
+                <motion.button
+                    whileTap={{ scale: 0.95 }}
+                    className="pointer-events-auto text-primary p-3 border border-primary/30 bg-surface/40 backdrop-blur-md rounded-sm relative"
+                    onClick={() => setIsOpen(!isOpen)}
+                >
+                    <CornerGuard position="tl" />
+                    <CornerGuard position="br" />
+                    {isOpen ? <HiX size={18} /> : <HiMenuAlt3 size={18} />}
+                </motion.button>
+            </div>
+
+            {/* Mobile Overlay (Fullscreen Terminal Mask) */}
+            <AnimatePresence>
+                {isOpen && (
+                    <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        className="fixed inset-0 bg-background/95 backdrop-blur-2xl z-40 lg:hidden flex flex-col pointer-events-auto overflow-y-auto"
+                    >
+                        <div className="absolute inset-0 tech-grid opacity-10 pointer-events-none" />
+
+                        <div className="flex-1 flex flex-col justify-center px-10 relative z-50 pt-32 pb-20">
+                            <div className="flex items-center gap-4 mb-12 opacity-40">
+                                <div className="h-[1px] flex-1 bg-primary/30" />
+                                <span className="text-[10px] font-mono tracking-[0.5em] text-primary lowercase">root_access_authenticated</span>
+                                <div className="h-[1px] flex-1 bg-primary/30" />
+                            </div>
+
+                            <div className="space-y-4">
+                                {links.map((link, i) => (
+                                    <motion.div
+                                        key={link.href}
+                                        initial={{ x: -30, opacity: 0 }}
+                                        animate={{ x: 0, opacity: 1 }}
+                                        transition={{ delay: i * 0.08 }}
+                                    >
+                                        <Link
+                                            href={link.href}
+                                            className={cn(
+                                                'group flex items-center justify-between py-2 relative',
+                                                pathname === link.href ? 'text-primary' : 'text-text-muted hover:text-white'
+                                            )}
+                                        >
+                                            <div className="flex items-baseline gap-4">
+                                                <span className="text-[10px] font-mono opacity-20 group-hover:opacity-100 transition-opacity">0{i + 1}</span>
+                                                <span className="text-4xl md:text-6xl font-sans font-bold uppercase tracking-tighter group-hover:tracking-normal transition-all duration-500">
+                                                    {link.label}
+                                                </span>
+                                            </div>
+                                            {pathname === link.href && (
+                                                <motion.div
+                                                    layoutId="mobile-link-scanner"
+                                                    className="h-1 flex-1 mx-8 bg-primary/20 relative overflow-hidden hidden sm:block"
+                                                >
+                                                    <motion.div
+                                                        animate={{ x: ["-100%", "100%"] }}
+                                                        transition={{ duration: 1.5, repeat: Infinity, ease: "linear" }}
+                                                        className="absolute inset-0 bg-primary/60"
+                                                    />
+                                                </motion.div>
+                                            )}
+                                            <span className="text-[10px] font-mono opacity-0 group-hover:opacity-40 transition-opacity">/EXECUTE</span>
+                                        </Link>
+                                    </motion.div>
                                 ))}
                             </div>
                         </div>
 
-                        <div className="mt-auto space-y-6">
-                            <button
-                                onClick={toggleLanguage}
-                                className="w-full py-3 border border-primary/20 text-primary font-mono text-xs uppercase tracking-[0.3em] flex items-center justify-center gap-3"
-                            >
-                                <FaGlobe />
-                                {locale === 'en' ? 'English_US' : 'Bahasa_ID'}
-                            </button>
-                            <Link href="/try" className="block">
-                                <Button className="w-full py-6 font-mono text-sm uppercase tracking-[0.3em]">
-                                    {t('cta')}
-                                </Button>
-                            </Link>
-                            <div className="flex justify-between items-center px-2">
-                                <span className="text-[8px] font-mono text-text-muted uppercase tracking-[0.3em]">Terminal_Active</span>
-                                <span className="text-[8px] font-mono text-primary uppercase tracking-[0.3em]">0x7F2_READY</span>
+                        <div className="p-10 bg-surface/10 border-t border-primary/5">
+                            <div className="max-w-md mx-auto flex flex-col gap-6">
+                                <div className="grid grid-cols-2 gap-4">
+                                    <button
+                                        onClick={toggleLanguage}
+                                        className="h-12 border border-primary/20 text-primary font-mono text-[9px] uppercase tracking-[0.3em] flex items-center justify-center gap-3 bg-primary/5"
+                                    >
+                                        <FaGlobe />
+                                        {locale === 'en' ? 'LOC_US_EN' : 'LOC_ID_ID'}
+                                    </button>
+                                    <Link href="/try" className="h-12 bg-primary text-black flex items-center justify-center font-mono text-[9px] uppercase tracking-[0.3em] font-bold">
+                                        INIT_TRIAL
+                                    </Link>
+                                </div>
+                                <div className="flex items-center justify-between opacity-20">
+                                    <div className="flex flex-col">
+                                        <span className="text-[7px] font-mono text-white uppercase tracking-[0.4em]">SYSTEM_STABLE</span>
+                                        <span className="text-[7px] font-mono text-white tracking-[0.2em]">02.12.26_15:30</span>
+                                    </div>
+                                    <div className="flex gap-2">
+                                        {[1, 2, 3, 4].map(i => <div key={i} className="w-0.5 h-4 bg-primary" />)}
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </motion.div>
                 )}
             </AnimatePresence>
-        </nav>
+        </>
     );
 }

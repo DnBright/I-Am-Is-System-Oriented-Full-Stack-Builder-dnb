@@ -12,12 +12,12 @@
     "badge": "Pushing code now...",
     "title_primary": "Anak Ganang Jaya",
     "title_secondary": "System Architect",
-    "subtitle_1": "S1 Information Systems @ Amikom Yogyakarta.",
+    "subtitle_1": "Specializing in High-Throughput Systems and Scalable Architecture.",
     "subtitle_2": "Transforming high-fidelity visual logic into scalable system architecture.",
     "stats": {
       "commits": "Commits",
       "repositories": "Repositories",
-      "experience": "Years Experience"
+      "experience": "Creative Logic"
     },
     "buttons": {
       "projects": "View Projects",
@@ -152,7 +152,7 @@
     "quote": "\"Logic is the foundation, but systems are the execution. A great engineer builds both.\"",
     "mindset": {
       "title": "The System-Oriented Mindset",
-      "desc1": "Based in Yogyakarta, I am a System Architect at the crossroads of precise visual logic and scalable engineering. Currently pursuing S1 Information Systems at Universitas Amikom Yogyakarta.",
+      "desc1": "Based in Yogyakarta, I am a System Architect at the crossroads of precise visual logic and scalable engineering.",
       "desc2": "My journey began in high-fidelity Graphic Design, which now fuels my methodology in <strong>Atomic Decomposition</strong>. I don't just build systems; I engineer the bridge between aesthetic precision and technical integrity."
     },
     "badges": {
@@ -161,8 +161,8 @@
       "specialist": "Data Specialist"
     },
     "academic": {
-      "label": "Academic Base",
-      "title": "B.S. Information Systems"
+      "label": "Technical Foundation",
+      "title": "Systems & Information Architecture"
     },
     "focus": {
       "label": "Core Focus",
