@@ -13,14 +13,14 @@ const featuredProjects = [
     },
     {
         id: 'lpk_ayaka',
-        image: '/projects/lpk-ayaka.jpg',
+        image: '/projects/ayaka-screenshots/home.jpg',
         tech: ['Next.js', 'Tailwind CSS', 'Framer Motion', 'SEO Optimization'],
         screenshots: [
-            '/projects/ayaka-screenshots/home.png',
-            '/projects/ayaka-screenshots/program.png',
-            '/projects/ayaka-screenshots/gallery.png',
-            '/projects/ayaka-screenshots/alumni.png',
-            '/projects/ayaka-screenshots/contact.png'
+            '/projects/ayaka-screenshots/home.jpg',
+            '/projects/ayaka-screenshots/program.jpg',
+            '/projects/ayaka-screenshots/gallery.jpg',
+            '/projects/ayaka-screenshots/alumni.jpg',
+            '/projects/ayaka-screenshots/contact.jpg'
         ]
     },
     {

@@ -24,7 +24,7 @@ const projects = [
         description: 'Corporate profile and enrollment portal for PT. Saitama Juara Mendunia with SEO optimization.',
         tech: ['Next.js', 'Tailwind', 'Framing Motion'],
         category: 'Corporate Web',
-        image: '/projects/lpk-ayaka.jpg',
+        image: '/projects/ayaka-screenshots/home.jpg',
         slug: 'lpk-ayaka-website'
     },
     {
