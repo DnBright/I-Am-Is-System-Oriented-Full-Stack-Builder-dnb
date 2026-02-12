@@ -60,52 +60,71 @@ export default function ProjectsShowcase() {
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                        {projects.map((project, index) => (
-                            <Link key={project.id} href={`/projects/${project.slug}`}>
-                                <Card hover className="p-0 overflow-hidden group cursor-pointer h-full border-primary/5 bg-surface/40 flex flex-col">
-                                    {/* Project Image Placeholder */}
-                                    <div className="h-48 bg-surface-elevated relative overflow-hidden flex-shrink-0">
-                                        <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-transparent group-hover:from-primary/30 transition-all duration-300" />
-                                        <div className="absolute inset-0 flex items-center justify-center">
-                                            <div className="text-5xl font-mono font-bold text-primary/10 group-hover:scale-110 transition-transform">
-                                                PRJ_{project.id.toString().padStart(3, '0')}
+                        {projects.map((project, index) => {
+                            // eslint-disable-next-line react-hooks/rules-of-hooks
+                            const tProject = useTranslations(`ProjectDetail.projects.${project.slug}`);
+
+                            return (
+                                <Link key={project.id} href={`/projects/${project.slug}`}>
+                                    <Card hover className="p-0 overflow-hidden group cursor-pointer h-full border-primary/5 bg-surface/40 flex flex-col relative">
+                                        {/* Project Image Placeholder */}
+                                        <div className="h-48 bg-surface-elevated relative overflow-hidden flex-shrink-0">
+                                            <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-transparent group-hover:from-primary/30 transition-all duration-300" />
+                                            <div className="absolute inset-0 flex items-center justify-center">
+                                                <div className="text-5xl font-mono font-bold text-primary/10 group-hover:scale-110 transition-transform">
+                                                    PRJ_{project.id.toString().padStart(3, '0')}
+                                                </div>
+                                            </div>
+
+                                            {/* Verified Badge Overlay */}
+                                            <div className="absolute top-4 left-4 z-20">
+                                                <div className="flex items-center gap-2 px-2 py-1 bg-background/80 backdrop-blur-md border border-primary/30 rounded-sm shadow-sm">
+                                                    <div className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
+                                                    <span className="text-[9px] font-mono font-bold text-primary uppercase tracking-wider">
+                                                        {tProject('legal')}
+                                                    </span>
+                                                </div>
+                                            </div>
+
+                                            <div className="absolute bottom-4 right-4 opacity-40">
+                                                <span className="text-[10px] font-mono text-primary uppercase">ENC_STATUS: OK</span>
                                             </div>
                                         </div>
-                                        <div className="absolute bottom-4 right-4 opacity-40">
-                                            <span className="text-[10px] font-mono text-primary uppercase">ENC_STATUS: OK</span>
-                                        </div>
-                                    </div>
 
-                                    <div className="p-6 flex flex-col flex-1">
-                                        <div className="mb-4">
-                                            <Badge variant="default">
-                                                {project.category}
-                                            </Badge>
-                                        </div>
-
-                                        <h3 className="text-xl font-bold mb-3 text-text-primary group-hover:text-primary transition-colors flex items-center gap-2">
-                                            {project.title}
-                                            <span className="text-[10px] font-mono opacity-0 group-hover:opacity-40 transition-opacity">//0x{project.id}</span>
-                                        </h3>
-
-                                        <p className="text-text-secondary text-sm mb-6 line-clamp-2 leading-relaxed h-10">
-                                            {project.description}
-                                        </p>
-
-                                        <div className="mt-auto flex flex-wrap gap-2">
-                                            {project.tech.map((tech) => (
-                                                <span
-                                                    key={tech}
-                                                    className="text-[9px] font-mono uppercase tracking-wider px-2 py-1 bg-surface-elevated text-text-muted border border-border group-hover:border-primary/20 transition-colors"
-                                                >
-                                                    {tech}
+                                        <div className="p-6 flex flex-col flex-1">
+                                            <div className="mb-4 flex flex-col gap-2">
+                                                <Badge variant="default" className="self-start">
+                                                    {project.category}
+                                                </Badge>
+                                                <span className="text-xs text-text-muted font-mono uppercase tracking-widest opacity-70">
+                                                    Client: <span className="text-text-primary font-bold">{tProject('client')}</span>
                                                 </span>
-                                            ))}
+                                            </div>
+
+                                            <h3 className="text-xl font-bold mb-3 text-text-primary group-hover:text-primary transition-colors flex items-center gap-2">
+                                                {project.title}
+                                                <span className="text-[10px] font-mono opacity-0 group-hover:opacity-40 transition-opacity">//0x{project.id}</span>
+                                            </h3>
+
+                                            <p className="text-text-secondary text-sm mb-6 line-clamp-2 leading-relaxed h-10">
+                                                {project.description}
+                                            </p>
+
+                                            <div className="mt-auto flex flex-wrap gap-2">
+                                                {project.tech.map((tech) => (
+                                                    <span
+                                                        key={tech}
+                                                        className="text-[9px] font-mono uppercase tracking-wider px-2 py-1 bg-surface-elevated text-text-muted border border-border group-hover:border-primary/20 transition-colors"
+                                                    >
+                                                        {tech}
+                                                    </span>
+                                                ))}
+                                            </div>
                                         </div>
-                                    </div>
-                                </Card>
-                            </Link>
-                        ))}
+                                    </Card>
+                                </Link>
+                            );
+                        })}
                     </div>
 
                     <div className="text-center mt-12">

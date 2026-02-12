@@ -53,6 +53,8 @@
     "projects": {
       "lpk-management-system": {
         "title": "LPK Management System",
+        "client": "LPK Bintang Kompetensi Indonesia",
+        "legal": "ACCREDITED INSTITUTION",
         "category": "Web Application",
         "problem": "Vocational training centers (LPK) in Indonesia traditionally face fragmentation in student data, payroll, and government reporting compliance. Manual processes lead to high error rates and delayed certification.",
         "system": "A distributed system architecture designed for multi-tenant LPK management. Features an event-driven payroll engine, atomic student data tracking (from enrollment to placement), and an automated reporting layer that interfaces with regulatory formats.",
@@ -79,6 +81,8 @@
       },
       "crm-system": {
         "title": "Enterprise CRM Architecture",
+        "client": "PT. Global Sinergi Utama",
+        "legal": "VERIFIED LEGAL ENTITY",
         "category": "Enterprise",
         "problem": "Traditional CRM systems often struggle with high-volume lead ingestion and complex multi-tenant partitioning, leading to latency in sales pipelines.",
         "system": "Scale-oriented CRM system with automated lead scoring, multi-tenant database partitioning, and real-time activity tracking using Prisma and tRPC.",
@@ -152,8 +156,8 @@
     "quote": "\"Logic is the foundation, but systems are the execution. A great engineer builds both.\"",
     "mindset": {
       "title": "The System-Oriented Mindset",
-      "desc1": "Based in Yogyakarta, I am a System Architect at the crossroads of precise visual logic and scalable engineering.",
-      "desc2": "My journey began in high-fidelity Graphic Design, which now fuels my methodology in <strong>Atomic Decomposition</strong>. I don't just build systems; I engineer the bridge between aesthetic precision and technical integrity."
+      "desc1": "Based in Yogyakarta, I am a **System Builder** and Architect at the crossroads of precise visual logic and scalable engineering.",
+      "desc2": "I am not just a Problem Solver, I am a **Builder**. I don't just fix code, I create systems from scratch—engineering the bridge between business vision and technical reality."
     },
     "badges": {
       "full_stack": "Full-Stack",
@@ -234,5 +238,10 @@
     "subtitle": "Explore interactive demos, dive into case studies, or check out my live GitHub activity.",
     "button_try": "Try My Work",
     "button_cases": "View Case Studies"
+  },
+  "ProjectIntro": {
+    "text_1": "Specializing in High-Throughput Systems and Scalable Architecture.",
+    "text_2": "Transforming visual logic into scalable system architecture.",
+    "button": "View Projects"
   }
 }

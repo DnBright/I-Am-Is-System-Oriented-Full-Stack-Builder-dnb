@@ -53,6 +53,8 @@
         "projects": {
             "lpk-management-system": {
                 "title": "Sistem Manajemen LPK",
+                "client": "LPK Bintang Kompetensi Indonesia",
+                "legal": "LEMBAGA TERAKREDITASI",
                 "category": "Aplikasi Web",
                 "problem": "Lembaga Pelatihan Kerja (LPK) di Indonesia secara tradisional menghadapi fragmentasi dalam data siswa, penggajian, dan kepatuhan pelaporan pemerintah. Proses manual menyebabkan tingkat kesalahan yang tinggi dan keterlambatan sertifikasi.",
                 "system": "Arsitektur sistem terdistribusi yang dirancang untuk manajemen LPK multi-tenant. Memiliki mesin penggajian berbasis event, pelacakan data siswa atomik (dari pendaftaran hingga penempatan), dan lapisan pelaporan otomatis yang terhubung dengan format regulasi.",
@@ -66,6 +68,8 @@
             },
             "analytics-dashboard": {
                 "title": "Dashboard Analitik Real-time",
+                "client": "CV. Data Nusantara Tech",
+                "legal": "BADAN USAHA TERDAFTAR",
                 "category": "Visualisasi Data",
                 "problem": "Event GitHub berfrekuensi tinggi sulit untuk divisualisasikan dengan cara yang memberikan wawasan teknik yang dapat ditindaklanujuti. Dashboard standar berfokus pada kuantitas aktivitas daripada kualitas dan konsistensi.",
                 "system": "Pipeline penyerapan throughput tinggi menggunakan Go untuk memproses webhook GitHub. Data diagregasi dan disimpan di cache menggunakan Redis, kemudian dikirim ke frontend React menggunakan server-sent events. Bagan SVG khusus memberikan visualisasi intensitas kerja non-standar.",
@@ -79,6 +83,8 @@
             },
             "crm-system": {
                 "title": "Arsitektur CRM Perusahaan",
+                "client": "PT. Global Sinergi Utama",
+                "legal": "BADAN HUKUM TERVERIFIKASI",
                 "category": "Perusahaan",
                 "problem": "Sistem CRM tradisional sering kesulitan dengan penyerapan prospek volume tinggi dan pemisahan multi-tenant yang kompleks, menyebabkan latensi dalam pipeline penjualan.",
                 "system": "Sistem CRM berorientasi skala dengan penilaian prospek otomatis, pemisahan database multi-tenant, dan pelacakan aktivitas real-time menggunakan Prisma dan tRPC.",
@@ -152,8 +158,8 @@
         "quote": "\"Logika adalah fondasi, tetapi sistem adalah eksekusi. Insinyur hebat membangun keduanya.\"",
         "mindset": {
             "title": "Pola Pikir Berorientasi Sistem",
-            "desc1": "Berbasis di Yogyakarta, saya adalah seorang System Architect yang berada di titik temu antara logika visual yang presisi dan teknik yang skalabel.",
-            "desc2": "Perjalanan saya dimulai dari desain grafis berkualitas tinggi, yang kini menjadi bahan bakar metodologi saya dalam <strong>Dekomposisi Atomik</strong>. Saya tidak hanya membangun sistem; saya merancang jembatan antara presisi estetika dan integritas teknis."
+            "desc1": "Berbasis di Yogyakarta, saya adalah seorang **System Builder** dan Arsitek yang berada di titik temu antara logika visual yang presisi dan teknik yang skalabel.",
+            "desc2": "Saya bukan sekadar pemecah masalah (Problem Solver), saya adalah **Pembangun (Builder)**. Saya tidak hanya memperbaiki kode, saya menciptakan sistem dari nol—membangun jembatan antara visi bisnis dan realitas teknis yang kokoh."
         },
         "badges": {
             "full_stack": "Full-Stack",
@@ -234,5 +240,10 @@
         "subtitle": "Jelajahi demo interaktif, pelajari studi kasus, atau cek aktivitas GitHub live saya.",
         "button_try": "Coba Hasil Kerja",
         "button_cases": "Lihat Studi Kasus"
+    },
+    "ProjectIntro": {
+        "text_1": "Spesialisasi dalam Sistem Throughput-Tinggi dan Arsitektur Skalabel.",
+        "text_2": "Mentransformasi logika visual menjadi arsitektur sistem yang skalabel.",
+        "button": "Lihat Proyek"
     }
 }
