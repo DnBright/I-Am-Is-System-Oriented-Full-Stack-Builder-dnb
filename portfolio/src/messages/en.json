@@ -36,7 +36,8 @@
       "title": "Contribution Heatmap",
       "description": "This heatmap visualizes the frequency and intensity of system updates over the last 365 days. Every cell represents a production-ready iteration."
     },
-    "fallback_desc": "System update pushed to {repo}"
+    "fallback_desc": "System update pushed to {repo}",
+    "view_all_link": "View All Activity"
   },
   "ProjectDetail": {
     "back_link": "BACK TO SYSTEMS",
@@ -51,70 +52,64 @@
       "architecture": "Architecture"
     },
     "projects": {
-      "lpk-management-system": {
-        "title": "LPK Management System",
-        "client": "LPK Bintang Kompetensi Indonesia",
-        "legal": "ACCREDITED INSTITUTION",
-        "category": "Web Application",
-        "problem": "Vocational training centers (LPK) in Indonesia traditionally face fragmentation in student data, payroll, and government reporting compliance. Manual processes lead to high error rates and delayed certification.",
-        "system": "A distributed system architecture designed for multi-tenant LPK management. Features an event-driven payroll engine, atomic student data tracking (from enrollment to placement), and an automated reporting layer that interfaces with regulatory formats.",
-        "solution": "Reduced administrative overhead by 65%. Centralized repository for 2,000+ students. Zero-error payroll computation for staff and instructors. 100% compliance with digital certification standards.",
-        "architecture": [
-          "Atomic Data Layer",
-          "Reactive Frontend Orchestration",
-          "Stateless API Layer",
-          "Relational Integrity Guards"
-        ]
-      },
-      "analytics-dashboard": {
-        "title": "Real-time Analytics Dashboard",
-        "category": "Data Visualization",
-        "problem": "High-frequency GitHub events are difficult to visualize in a way that provides actionable engineering insights. Standard dashboards focus on activity quantity rather than quality and consistency.",
-        "system": "A high-throughput ingestion pipeline using Go to process GitHub webhooks. Data is aggregated and cached using Redis, then streamed to a React frontend using server-sent events. Custom SVG charts provide non-standard visualizations of work intensity.",
-        "solution": "Real-time observability of developer velocity. 99.9% accurate coding-hour estimations based on inter-commit temporal analysis. Instant feedback loop for system-wide engineering performance.",
-        "architecture": [
-          "Streaming Ingestion Pipe",
-          "Temporal Analysis Engine",
-          "Vector Chart Rendering",
-          "In-memory Cache Layer"
-        ]
-      },
-      "crm-system": {
-        "title": "Enterprise CRM Architecture",
-        "client": "PT. Global Sinergi Utama",
+      "lpk-saitama-dashboard": {
+        "title": "LPK Saitama Dashboard",
+        "client": "PT. Saitama Juara Mendunia",
         "legal": "VERIFIED LEGAL ENTITY",
-        "category": "Enterprise",
-        "problem": "Traditional CRM systems often struggle with high-volume lead ingestion and complex multi-tenant partitioning, leading to latency in sales pipelines.",
-        "system": "Scale-oriented CRM system with automated lead scoring, multi-tenant database partitioning, and real-time activity tracking using Prisma and tRPC.",
-        "solution": "Optimized lead conversion rates by 40% and removed architectural bottlenecks for 10k+ daily concurrent users.",
+        "category": "Management System",
+        "problem": "Manual management of student data, instructors, and finances led to data duplication and reporting delays.",
+        "system": "Centralized dashboard handling the full student lifecycle from enrollment to deployment. Features automated payroll and real-time reporting modules.",
+        "solution": "Operational efficiency increased by 80%. Automated data validation reduced errors to near zero. Real-time financial transparency for stakeholders.",
         "architecture": [
-          "Lead Scoring Engine",
-          "Partitioned Database",
-          "Real-time Activity Stream",
-          "tRPC Orchestration"
+          "Modern Monolith",
+          "React Frontend",
+          "MySQL Optimization",
+          "Redis Caching"
         ]
       },
-      "cloud-orchestrator": {
-        "title": "Cloud Orchestrator",
-        "category": "System Tool",
-        "problem": "Managing distributed microservices across multiple environments without centralized observability leads to frequent downtime and slow incident response.",
-        "system": "System-level tool for managing distributed microservices. Focuses on observability, container orchestration, and self-healing mechanisms via gRPC.",
-        "solution": "99.99% system availability and 80% faster deployment cycles for cross-regional infrastructure.",
+      "lpk-ayaka-website": {
+        "title": "LPK Ayaka Corporate Website",
+        "client": "PT. Saitama Juara Mendunia",
+        "legal": "VERIFIED LEGAL ENTITY",
+        "category": "Corporate Web",
+        "problem": "Needed a strong digital presence to reach potential students nationwide and build trust with Japanese partners.",
+        "system": "Modern web portal with custom CMS. Optimized for SEO and mobile speed, featuring direct enrollment integration to the admin dashboard.",
+        "solution": "Significant increase in organic traffic and a fully digital enrollment flow.",
         "architecture": [
-          "gRPC Communication",
-          "Self-healing Engine",
-          "Observability Layer",
-          "Resource Manager"
+          "Next.js SSR",
+          "Tailwind CSS",
+          "SEO Schema Markup",
+          "Image Optimization"
         ]
       },
-      "fallback": {
-        "title": "System Prototype",
-        "category": "Full-Stack",
-        "problem": "This system is currently undergoing architectural review.",
-        "system": "Details on the decomposition of this system will be available shortly.",
-        "solution": "Coming soon.",
+      "ai-admin-dashboard": {
+        "title": "AI Integrated Admin Dashboard",
+        "client": "PT. Saitama Juara Mendunia",
+        "legal": "INTERNAL EFFICIENCY SYSTEM",
+        "category": "Enterprise AI",
+        "problem": "High admin workload due to repetitive tasks like daily data recap and initial student data analysis.",
+        "system": "Smart dashboard integrating AI for automated daily recaps, data anomaly detection, and a virtual assistant for task management.",
+        "solution": "Reduced repetitive admin workload by 50%, allowing focus on strategic management.",
         "architecture": [
-          "Pending Review"
+          "OpenAI Integration",
+          "Automated Reporting",
+          "Background Jobs",
+          "React Admin"
+        ]
+      },
+      "japan-online-course": {
+        "title": "Japan Online Course (Hybrid)",
+        "client": "PT. Saitama Juara Mendunia",
+        "legal": "EDTECH PLATFORM",
+        "category": "E-Learning",
+        "problem": "Physical class capacity limits student expansion. Conventional learning methods lack flexibility.",
+        "system": "Hybrid LMS platform supporting 'bypass' and regular systems. Features real-time online exams, progress tracking, and digital material management.",
+        "solution": "Expansion of student reach without geographical limits. Flexible learning methods increase material retention.",
+        "architecture": [
+          "MERN Stack",
+          "Real-time Quiz",
+          "Video Streaming",
+          "Progress Tracking"
         ]
       }
     }

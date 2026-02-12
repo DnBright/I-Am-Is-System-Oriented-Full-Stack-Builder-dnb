@@ -36,7 +36,8 @@
             "title": "Peta Panas Kontribusi",
             "description": "Peta panas ini memvisualisasikan frekuensi dan intensitas pembaruan sistem selama 365 hari terakhir. Setiap sel mewakili iterasi yang siap produksi."
         },
-        "fallback_desc": "Pembaruan sistem dikirim ke {repo}"
+        "fallback_desc": "Pembaruan sistem dikirim ke {repo}",
+        "view_all_link": "Lihat Semua Aktivitas"
     },
     "ProjectDetail": {
         "back_link": "KEMBALI KE SISTEM",
@@ -51,72 +52,64 @@
             "architecture": "Arsitektur"
         },
         "projects": {
-            "lpk-management-system": {
-                "title": "Sistem Manajemen LPK",
-                "client": "LPK Bintang Kompetensi Indonesia",
-                "legal": "LEMBAGA TERAKREDITASI",
-                "category": "Aplikasi Web",
-                "problem": "Lembaga Pelatihan Kerja (LPK) di Indonesia secara tradisional menghadapi fragmentasi dalam data siswa, penggajian, dan kepatuhan pelaporan pemerintah. Proses manual menyebabkan tingkat kesalahan yang tinggi dan keterlambatan sertifikasi.",
-                "system": "Arsitektur sistem terdistribusi yang dirancang untuk manajemen LPK multi-tenant. Memiliki mesin penggajian berbasis event, pelacakan data siswa atomik (dari pendaftaran hingga penempatan), dan lapisan pelaporan otomatis yang terhubung dengan format regulasi.",
-                "solution": "Mengurangi beban administratif sebesar 65%. Repositori terpusat untuk 2.000+ siswa. Perhitungan gaji tanpa kesalahan untuk staf dan instruktur. Kepatuhan 100% dengan standar sertifikasi digital.",
-                "architecture": [
-                    "Lapisan Data Atomik",
-                    "Orkestrasi Frontend Reaktif",
-                    "Lapisan API Tanpa Status",
-                    "Pelindung Integritas Relasional"
-                ]
-            },
-            "analytics-dashboard": {
-                "title": "Dashboard Analitik Real-time",
-                "client": "CV. Data Nusantara Tech",
-                "legal": "BADAN USAHA TERDAFTAR",
-                "category": "Visualisasi Data",
-                "problem": "Event GitHub berfrekuensi tinggi sulit untuk divisualisasikan dengan cara yang memberikan wawasan teknik yang dapat ditindaklanujuti. Dashboard standar berfokus pada kuantitas aktivitas daripada kualitas dan konsistensi.",
-                "system": "Pipeline penyerapan throughput tinggi menggunakan Go untuk memproses webhook GitHub. Data diagregasi dan disimpan di cache menggunakan Redis, kemudian dikirim ke frontend React menggunakan server-sent events. Bagan SVG khusus memberikan visualisasi intensitas kerja non-standar.",
-                "solution": "Observabilitas real-time dari kecepatan pengembang. Estimasi jam kerja 99,9% akurat berdasarkan analisis temporal antar-commit. Loop umpan balik instan untuk kinerja teknik seluruh sistem.",
-                "architecture": [
-                    "Pipa Penyerapan Streaming",
-                    "Mesin Analisis Temporal",
-                    "Perenderan Bagan Vektor",
-                    "Lapisan Cache Dalam Memori"
-                ]
-            },
-            "crm-system": {
-                "title": "Arsitektur CRM Perusahaan",
-                "client": "PT. Global Sinergi Utama",
+            "lpk-saitama-dashboard": {
+                "title": "Dashboard LPK Saitama",
+                "client": "PT. Saitama Juara Mendunia",
                 "legal": "BADAN HUKUM TERVERIFIKASI",
-                "category": "Perusahaan",
-                "problem": "Sistem CRM tradisional sering kesulitan dengan penyerapan prospek volume tinggi dan pemisahan multi-tenant yang kompleks, menyebabkan latensi dalam pipeline penjualan.",
-                "system": "Sistem CRM berorientasi skala dengan penilaian prospek otomatis, pemisahan database multi-tenant, dan pelacakan aktivitas real-time menggunakan Prisma dan tRPC.",
-                "solution": "Mengoptimalkan tingkat konversi prospek sebesar 40% dan menghapus hambatan arsitektur untuk 10rb+ pengguna bersamaan setiap hari.",
+                "category": "Sistem Manajemen",
+                "problem": "Pengelolaan data siswa, instruktur, dan keuangan sebelumnya dilakukan secara manual, menyebabkan duplikasi data dan keterlambatan pelaporan.",
+                "system": "Dashboard terpusat yang menangani seluruh siklus hidup siswa dari pendaftaran hingga keberangkatan. Dilengkapi sistem penggajian otomatis dan modul pelaporan real-time.",
+                "solution": "Efisiensi operasional meningkat 80%. Validasi data otomatis mengurangi kesalahan hingga 0%. Transparansi keuangan real-time bagi pemangku kepentingan.",
                 "architecture": [
-                    "Mesin Penilaian Prospek",
-                    "Database Terpartisi",
-                    "Aliran Aktivitas Real-time",
-                    "Orkestrasi tRPC"
+                    "Monolith Terkini",
+                    "React Frontend",
+                    "MySQL Optimization",
+                    "Redis Caching"
                 ]
             },
-            "cloud-orchestrator": {
-                "title": "Orkestrator Cloud",
-                "category": "Alat Sistem",
-                "problem": "Mengelola microservices terdistribusi di beberapa lingkungan tanpa observabilitas terpusat menyebabkan downtime yang sering dan respons insiden yang lambat.",
-                "system": "Alat tingkat sistem untuk mengelola microservices terdistribusi. Berfokus pada observabilitas, orkestrasi kontainer, dan mekanisme perbaikan mandiri melalui gRPC.",
-                "solution": "99,99% ketersediaan sistem dan siklus penerapan 80% lebih cepat untuk infrastruktur lintas-wilayah.",
+            "lpk-ayaka-website": {
+                "title": "Website Company LPK Ayaka",
+                "client": "PT. Saitama Juara Mendunia",
+                "legal": "BADAN HUKUM TERVERIFIKASI",
+                "category": "Web Perusahaan",
+                "problem": "Dibutuhkan kehadiran digital yang kuat untuk menjangkau calon siswa di seluruh Indonesia dan membangun kepercayaan dengan mitra Jepang.",
+                "system": "Portal web modern dengan CMS kustom. Dioptimalkan untuk SEO dan kecepatan akses mobile, dengan integrasi formulir pendaftaran langsung ke dashboard admin.",
+                "solution": "Peningkatan trafik organik signifikan dan alur pendaftaran yang sepenuhnya digital.",
                 "architecture": [
-                    "Komunikasi gRPC",
-                    "Mesin Perbaikan Mandiri",
-                    "Lapisan Observabilitas",
-                    "Manajer Sumber Daya"
+                    "Next.js SSR",
+                    "Tailwind CSS",
+                    "SEO Schema Markup",
+                    "Image Optimization"
                 ]
             },
-            "fallback": {
-                "title": "Prototipe Sistem",
-                "category": "Full-Stack",
-                "problem": "Sistem ini saat ini sedang menjalani tinjauan arsitektur.",
-                "system": "Detail tentang dekomposisi sistem ini akan segera tersedia.",
-                "solution": "Segera hadir.",
+            "ai-admin-dashboard": {
+                "title": "Dashboard Admin Terintegrasi AI",
+                "client": "PT. Saitama Juara Mendunia",
+                "legal": "SISTEM EFEISIENSI INTERNAL",
+                "category": "Enterprise AI",
+                "problem": "Beban kerja admin tinggi untuk tugas repetitif seperti rekap data harian dan analisis awal data siswa.",
+                "system": "Dashboard cerdas yang mengintegrasikan AI untuk otomatisasi rekap data harian, deteksi anomali data, dan asisten virtual untuk manajemen tugas.",
+                "solution": "Mengurangi beban kerja repetitif admin hingga 50%, memungkinkan fokus pada manajemen strategis.",
                 "architecture": [
-                    "Menunggu Tinjauan"
+                    "OpenAI Integration",
+                    "Automated Reporting",
+                    "Background Jobs",
+                    "React Admin"
+                ]
+            },
+            "japan-online-course": {
+                "title": "Kursus Jepang Online (Hybrid)",
+                "client": "PT. Saitama Juara Mendunia",
+                "legal": "PLATFORM EDTECH",
+                "category": "E-Learning",
+                "problem": "Keterbatasan kapasitas kelas fisik menghambat ekspansi siswa. Metode belajar konvensional kurang fleksibel.",
+                "system": "Platform LMS Hybrid yang mendukung sistem 'bypass' dan reguler. Fitur ujian online real-time, tracking progress belajar, dan manajemen materi digital.",
+                "solution": "Ekspansi jangkauan siswa tanpa batas geografis. Fleksibilitas metode belajar meningkatkan retensi materi.",
+                "architecture": [
+                    "MERN Stack",
+                    "Real-time Quiz",
+                    "Video Streaming",
+                    "Progress Tracking"
                 ]
             }
         }

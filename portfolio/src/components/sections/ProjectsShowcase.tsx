@@ -11,30 +11,39 @@ import { useTranslations } from 'next-intl';
 const projects = [
     {
         id: 1,
-        title: 'LPK Management System',
-        description: 'Full-stack platform for managing vocational training centers with student tracking, certification, and reporting.',
-        tech: ['Laravel', 'React', 'PostgreSQL', 'Tailwind'],
-        category: 'Web Application',
-        image: '/projects/lpk.jpg',
-        slug: 'lpk-management-system'
+        title: 'Dashboard LPK Saitama',
+        description: 'Comprehensive management system for PT. Saitama Juara Mendunia, handling student data, payroll, and reporting.',
+        tech: ['Laravel', 'React', 'MySQL', 'Redis'],
+        category: 'Management System',
+        image: '/projects/lpk-saitama.jpg',
+        slug: 'lpk-saitama-dashboard'
     },
     {
         id: 2,
-        title: 'Real-time Analytics Dashboard',
-        description: 'Interactive dashboard for visualizing GitHub activity and coding patterns with live updates.',
-        tech: ['Next.js', 'TypeScript', 'Recharts', 'GitHub API'],
-        category: 'Data Visualization',
-        image: '/projects/analytics.jpg',
-        slug: 'analytics-dashboard'
+        title: 'Website Company LPK Ayaka',
+        description: 'Corporate profile and enrollment portal for PT. Saitama Juara Mendunia with SEO optimization.',
+        tech: ['Next.js', 'Tailwind', 'Framing Motion'],
+        category: 'Corporate Web',
+        image: '/projects/lpk-ayaka.jpg',
+        slug: 'lpk-ayaka-website'
     },
     {
         id: 3,
-        title: 'CRM System',
-        description: 'Customer relationship management system with pipeline tracking, automation, and reporting.',
-        tech: ['Next.js', 'Prisma', 'PostgreSQL', 'tRPC'],
-        category: 'Enterprise',
-        image: '/projects/crm.jpg',
-        slug: 'crm-system'
+        title: 'AI Integrated Admin Dashboard',
+        description: 'Advanced admin dashboard with AI integration for operational efficiency and automated daily management.',
+        tech: ['Next.js', 'OpenAI API', 'PostgreSQL', 'tRPC'],
+        category: 'Enterprise AI',
+        image: '/projects/ai-dashboard.jpg',
+        slug: 'ai-admin-dashboard'
+    },
+    {
+        id: 4,
+        title: 'Japan Hybrid Course Platform',
+        description: 'Modern LMS for Japanese language learning featuring hybrid and bypass learning methodologies.',
+        tech: ['React', 'Node.js', 'WebRTC', 'MongoDB'],
+        category: 'EdTech Platform',
+        image: '/projects/japan-course.jpg',
+        slug: 'japan-online-course'
     }
 ];
 
