@@ -41,10 +41,10 @@ export default async function RootLayout({
         <NextIntlClientProvider messages={messages}>
           <BackgroundEffects />
           <Navbar />
-          <main className="min-h-screen lg:pl-[340px] transition-all duration-500">
+          <main className="min-h-screen lg:pl-[340px] transition-all duration-500 flex flex-col">
             {children}
+            <Footer />
           </main>
-          <Footer />
         </NextIntlClientProvider>
       </body>
     </html>

@@ -10,15 +10,73 @@
     },
     "Hero": {
         "status": "System Architect",
-        "title": "<span>System-Oriented</span> <br /> Full-Stack Engineer",
+        "title": "<span>System-Oriented</span>\nFull-Stack Engineer",
+        "intro_short": "Seorang pembangun sistem yang mengubah logika bisnis yang kompleks menjadi arsitektur digital yang skalabel, transparan, dan terukur.",
         "subtitle_1": "Spesialisasi dalam Infrastruktur Pendidikan & Operasional.",
         "subtitle_2": "Membangun sistem terstruktur, bukan sekadar kode.",
-        "cta_project": "Lihat Sistem",
+        "cta_bio": "Baca Biodata Lengkap",
+        "cta_project": "Jelajahi Sistem",
         "cta_contact": "Lihat Aktivitas",
         "stats": {
             "experience": "Tahun Pengalaman",
             "projects": "Sistem Dikerahkan",
             "commits": "Commit Kode"
+        }
+    },
+    "BioSection": {
+        "heading_main": "Membangun Pondasi Digital yang Kuat.",
+        "paragraph_1": "Perjalanan saya dimulai bukan hanya dari keinginan menulis kode, tetapi dari obsesi untuk memahami bagaimana sistem bekerja. Dari infrastruktur server hingga antarmuka pengguna, saya melihat setiap elemen sebagai bagian dari satu kesatuan organisme digital.",
+        "paragraph_2": "Dengan latar belakang akademis di bidang Ilmu Komputer dan pengalaman nyata menangani deployment skala besar, saya tidak hanya membangun fitur—saya memastikan reliabilitas, keamanan, dan efisiensi jangka panjang.",
+        "quote": "Kode adalah cara saya berbicara dengan mesin, tetapi Sistem adalah cara saya memberi nilai pada manusia."
+    },
+    "Experience": {
+        "title": "Riwayat Sistem",
+        "subtitle": "Jejak Operasional & Pendidikan",
+        "work_title": "Eksekusi Profesional",
+        "edu_title": "Kompilasi Akademik",
+        "jobs": {
+            "dark_and_bright": {
+                "role": "Social Media Designer",
+                "company": "Dark And Bright",
+                "period": "Jan 2023 - Sekarang",
+                "desc": "Mengelola visual branding dan strategi konten media sosial."
+            },
+            "fairy_queen": {
+                "role": "Graphic Designer",
+                "company": "Fairy Queen Baloon",
+                "period": "Freelance",
+                "desc": "Desain kreatif untuk kebutuhan klien freelance."
+            },
+            "prima_printshop": {
+                "role": "Content Creator",
+                "company": "Prima Printshop",
+                "period": "Des 2022 - Mar 2023",
+                "desc": "Produksi konten digital untuk pemasaran percetakan."
+            },
+            "infra_dirga": {
+                "role": "Admin Project",
+                "company": "PT. Infra Dirga Nusantara",
+                "period": "Jul 2022 - Nov 2022",
+                "desc": "Manajemen administrasi proyek infrastruktur."
+            },
+            "seven_inc": {
+                "role": "Graphic Designer",
+                "company": "Seven.inc",
+                "period": "Jul 2019 - Sep 2019",
+                "desc": "Program Magang: Desain grafis untuk merchandise dan branding."
+            }
+        },
+        "edu": {
+            "amikom": {
+                "degree": "S1 Sistem Informasi",
+                "school": "Universitas Amikom Yogyakarta",
+                "period": "2023 - Sekarang"
+            },
+            "smk2": {
+                "degree": "Teknik Komputer & Jaringan",
+                "school": "SMK Negeri 2 Wonosari",
+                "period": "2019 - 2022"
+            }
         }
     },
     "LiveActivity": {

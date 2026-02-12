@@ -11,15 +11,73 @@
   "Hero": {
     "badge": "Pushing code now...",
     "status": "System Architect",
-    "title": "System-Oriented <br /> Full-Stack Engineer",
+    "title": "System-Oriented\nFull-Stack Engineer",
+    "intro_short": "A system builder transforming complex business logic into scalable, transparent, and measurable digital architecture.",
     "subtitle_1": "Specializing in Education & Operational Infrastructure.",
     "subtitle_2": "Building structured systems, not just code.",
-    "cta_project": "View Systems",
+    "cta_bio": "Read Full Bio",
+    "cta_project": "Explore Systems",
     "cta_contact": "Contact Me",
     "stats": {
       "experience": "Years Experience",
       "projects": "Systems Deployed",
       "commits": "Code Commits"
+    }
+  },
+  "BioSection": {
+    "heading_main": "Building Strong Digital Foundations.",
+    "paragraph_1": "My journey began not just with a desire to write code, but with an obsession to understand how systems work. From server infrastructure to user interfaces, I view every element as part of a single digital organism.",
+    "paragraph_2": "With an academic background in Computer Science and real-world experience handling large-scale deployments, I don't just build features—I ensure long-term reliability, security, and efficiency.",
+    "quote": "Code is how I speak to machines, but Systems are how I deliver value to people."
+  },
+  "Experience": {
+    "title": "System History",
+    "subtitle": "Operational & Academic Logs",
+    "work_title": "Professional Execution",
+    "edu_title": "Academic Compilation",
+    "jobs": {
+      "dark_and_bright": {
+        "role": "Social Media Designer",
+        "company": "Dark And Bright",
+        "period": "Jan 2023 - Present",
+        "desc": "Managing visual branding and social media content strategy."
+      },
+      "fairy_queen": {
+        "role": "Graphic Designer",
+        "company": "Fairy Queen Baloon",
+        "period": "Freelance",
+        "desc": "Creative design for freelance client needs."
+      },
+      "prima_printshop": {
+        "role": "Content Creator",
+        "company": "Prima Printshop",
+        "period": "Dec 2022 - Mar 2023",
+        "desc": "Digital content production for printing marketing."
+      },
+      "infra_dirga": {
+        "role": "Admin Project",
+        "company": "PT. Infra Dirga Nusantara",
+        "period": "Jul 2022 - Nov 2022",
+        "desc": "Infrastructure project administration management."
+      },
+      "seven_inc": {
+        "role": "Graphic Designer",
+        "company": "Seven.inc",
+        "period": "Jul 2019 - Sep 2019",
+        "desc": "Internship Program: Graphic design for merchandise and branding."
+      }
+    },
+    "edu": {
+      "amikom": {
+        "degree": "Bachelor of Information Systems",
+        "school": "Universitas Amikom Yogyakarta",
+        "period": "2023 - Present"
+      },
+      "smk2": {
+        "degree": "Computer & Network Engineering",
+        "school": "SMK Negeri 2 Wonosari",
+        "period": "2019 - 2022"
+      }
     }
   },
   "LiveActivity": {

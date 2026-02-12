@@ -17,6 +17,7 @@ export default function Navbar() {
 
     const links = [
         { href: '/', label: 'Beranda', icon: <FiHome /> },
+        { href: '/experience', label: 'Pengalaman', icon: <FiBriefcase /> },
         { href: '/projects', label: 'Studi Kasus', icon: <FiCpu /> },
         { href: '/live', label: 'Aktivitas', icon: <FiPlay /> },
         { href: '/analytics', label: 'Analitik', icon: <FiBarChart2 /> },
@@ -35,18 +36,18 @@ export default function Navbar() {
 
     return (
         <>
-            {/* Desktop Vertical Pill Navbar */}
-            <nav className="fixed left-6 top-1/2 -translate-y-1/2 z-50 hidden lg:flex flex-col gap-4 p-4 bg-background/40 backdrop-blur-md border border-white/5 rounded-3xl shadow-2xl min-w-[240px]">
+            {/* Desktop Vertical Navbar - Clean & Large */}
+            <nav className="fixed left-0 top-0 h-screen z-50 hidden lg:flex flex-col justify-center gap-12 w-[320px] bg-background/20 backdrop-blur-sm border-r border-white/5">
                 {/* Brand */}
-                <div className="px-4 py-2 mb-2">
-                    <Link href="/" className="text-xl font-bold text-primary tracking-tighter flex items-center gap-2">
+                <div className="px-10 mb-4">
+                    <Link href="/" className="text-3xl font-bold text-primary tracking-tighter flex flex-col">
                         <span>DN.</span>
-                        <span className="text-[10px] text-text-muted font-mono opacity-50 font-normal tracking-widest uppercase">System_OS</span>
+                        <span className="text-[10px] text-text-muted font-mono opacity-50 font-normal tracking-[0.3em] uppercase mt-1">System_OS</span>
                     </Link>
                 </div>
 
                 {/* Navigation Items */}
-                <div className="flex flex-col gap-2">
+                <div className="flex flex-col w-full px-6 gap-3">
                     {links.map((link) => {
                         const isActive = pathname === link.href;
                         return (
@@ -54,42 +55,48 @@ export default function Navbar() {
                                 key={link.href}
                                 href={link.href}
                                 className={cn(
-                                    "px-4 py-3 rounded-xl transition-all duration-300 flex items-center gap-4 group relative overflow-hidden",
-                                    isActive
-                                        ? "text-primary bg-primary/10 shadow-[0_0_20px_-5px_rgba(var(--primary-rgb),0.3)]"
-                                        : "text-text-muted hover:text-white hover:bg-white/5"
+                                    "relative px-6 py-4 flex items-center gap-5 group transition-all duration-300 z-10 w-full",
+                                    isActive ? "text-black" : "text-text-muted hover:text-white"
                                 )}
                             >
+                                {/* Active Background Capsule - Asymmetric Tech Shape */}
+                                {isActive && (
+                                    <motion.div
+                                        layoutId="active-nav-pill"
+                                        className="absolute inset-0 bg-primary shadow-[0_0_20px_-5px_rgba(var(--primary-rgb),0.6)] z-[-1]"
+                                        initial={false}
+                                        transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                                        style={{
+                                            borderRadius: "16px 4px 16px 4px" // Tech/Cyber Shape
+                                        }}
+                                    />
+                                )}
+
                                 <span className={cn(
-                                    "text-lg transition-transform duration-300",
-                                    isActive ? "scale-110" : "group-hover:scale-110"
+                                    "text-2xl transition-transform duration-300 relative z-10",
+                                    isActive ? "scale-110 translate-x-1" : "group-hover:scale-110"
                                 )}>
                                     {link.icon}
                                 </span>
 
                                 <span className={cn(
-                                    "font-medium tracking-wide text-sm uppercase",
-                                    isActive ? "font-bold" : ""
+                                    "text-lg tracking-wide uppercase font-mono font-bold relative z-10",
                                 )}>
                                     {link.label}
                                 </span>
-
-                                {isActive && (
-                                    <div className="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-8 bg-primary rounded-r-full shadow-[0_0_10px_2px_rgba(var(--primary-rgb),0.5)]" />
-                                )}
                             </Link>
                         );
                     })}
                 </div>
 
                 {/* Bottom Controls */}
-                <div className="mt-4 px-4 pt-4 border-t border-white/5 flex items-center justify-between">
+                <div className="px-10 mt-8">
                     <button
                         onClick={toggleLanguage}
-                        className="text-xs font-bold text-text-muted hover:text-primary transition-colors tracking-widest flex items-center gap-2"
+                        className="text-xs font-bold text-text-muted hover:text-primary transition-colors tracking-widest flex items-center gap-3 uppercase font-mono"
                     >
-                        <FiGlobe className="text-sm" />
-                        {locale === 'en' ? 'EN' : 'ID'}
+                        <div className="w-2 h-2 rounded-full bg-primary animate-pulse" />
+                        {locale === 'en' ? 'EN_US' : 'ID_ID'}
                     </button>
                     <div className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse" />
                 </div>
