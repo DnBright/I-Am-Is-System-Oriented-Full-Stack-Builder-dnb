@@ -6,7 +6,7 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { HiMenuAlt3, HiX } from 'react-icons/hi';
 import { useTranslations, useLocale } from 'next-intl';
-import { FiHome, FiCpu, FiPlay, FiBarChart2, FiBox, FiUser, FiGlobe } from 'react-icons/fi';
+import { FiHome, FiCpu, FiPlay, FiBarChart2, FiBox, FiUser, FiGlobe, FiBriefcase, FiAward } from 'react-icons/fi';
 
 export default function Navbar() {
     const t = useTranslations('Navbar');
@@ -18,6 +18,7 @@ export default function Navbar() {
     const links = [
         { href: '/', label: 'Beranda', icon: <FiHome /> },
         { href: '/experience', label: 'Pengalaman', icon: <FiBriefcase /> },
+        { href: '/certificates', label: 'Sertifikat', icon: <FiAward /> },
         { href: '/projects', label: 'Studi Kasus', icon: <FiCpu /> },
         { href: '/live', label: 'Aktivitas', icon: <FiPlay /> },
         { href: '/analytics', label: 'Analitik', icon: <FiBarChart2 /> },

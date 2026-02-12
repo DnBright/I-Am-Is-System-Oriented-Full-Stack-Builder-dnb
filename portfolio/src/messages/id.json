@@ -77,6 +77,12 @@
                 "school": "SMK Negeri 2 Wonosari",
                 "period": "2019 - 2022"
             }
+        },
+        "certificates_title": "Lisensi & Sertifikasi",
+        "certs": {
+            "adobe": "Adobe Creative Competency",
+            "net": "Network Engineering (TKJ)",
+            "design": "Professional Graphic Design"
         }
     },
     "LiveActivity": {

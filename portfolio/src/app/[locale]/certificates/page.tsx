@@ -1,12 +1,12 @@
-import ExperienceTimeline from '@/components/sections/ExperienceTimeline';
 import Certificates from '@/components/sections/Certificates';
 import CallToAction from '@/components/sections/CallToAction';
 
-export default function ExperiencePage() {
+export default function CertificatesPage() {
     return (
         <>
-            <ExperienceTimeline />
-            <Certificates />
+            <div className="pt-20">
+                <Certificates />
+            </div>
             <CallToAction />
         </>
     );
