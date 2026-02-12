@@ -25,9 +25,10 @@ export async function GET() {
         }
 
         // Fetch data from GitHub
-        const [commits, languageStats] = await Promise.all([
+        const [commits, languageStats, contributionCalendar] = await Promise.all([
             githubClient.getAllRecentCommits(365),
-            githubClient.getLanguageStats()
+            githubClient.getLanguageStats(),
+            githubClient.getContributionCalendar()
         ]);
 
         // Calculate analytics
@@ -35,11 +36,29 @@ export async function GET() {
         const commitFrequency = calculateCommitFrequency(commits);
         const consistencyScore = calculateConsistencyScore(commits);
         const focusAreas = calculateLanguageDistribution(languageStats);
-        const contributionHeatmap = calculateContributionHeatmap(commits, 365);
+
+        // Convert GitHub contribution calendar to our format
+        const contributionHeatmap = contributionCalendar.weeks
+            .flatMap((week: any) => week.contributionDays)
+            .map((day: any) => {
+                const count = day.contributionCount;
+                let level: 0 | 1 | 2 | 3 | 4 = 0;
+                if (count > 0) level = 1;
+                if (count >= 3) level = 2;
+                if (count >= 6) level = 3;
+                if (count >= 10) level = 4;
+
+                return {
+                    date: day.date,
+                    count: count,
+                    level: level
+                };
+            });
+
         const { currentStreak, longestStreak } = calculateStreaks(commits);
 
         // Calculate summary stats
-        const totalCommits = commits.length;
+        const totalCommits = contributionCalendar.totalContributions;
         const averageCommitsPerDay = commitFrequency.length > 0
             ? Math.round((totalCommits / commitFrequency.length) * 10) / 10
             : 0;

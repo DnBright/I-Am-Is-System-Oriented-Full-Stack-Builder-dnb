@@ -79,6 +79,45 @@ class GitHubClient {
 
         return languageStats;
     }
+
+    async getContributionCalendar(): Promise<any> {
+        const query = `
+            query($username: String!) {
+                user(login: $username) {
+                    contributionsCollection {
+                        contributionCalendar {
+                            totalContributions
+                            weeks {
+                                contributionDays {
+                                    contributionCount
+                                    date
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        `;
+
+        const response = await fetch('https://api.github.com/graphql', {
+            method: 'POST',
+            headers: {
+                'Authorization': `Bearer ${this.token}`,
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                query,
+                variables: { username: this.username }
+            })
+        });
+
+        if (!response.ok) {
+            throw new Error(`GitHub GraphQL API error: ${response.status}`);
+        }
+
+        const data = await response.json();
+        return data.data.user.contributionsCollection.contributionCalendar;
+    }
 }
 
 export const githubClient = new GitHubClient();

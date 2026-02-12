@@ -32,9 +32,11 @@ export default function AnalyticsPage() {
     const fetchData = useCallback(async (isRefresh = false) => {
         if (isRefresh) setRefreshing(true);
         try {
+            // Add cache-busting parameter to force fresh data
+            const timestamp = new Date().getTime();
             const [analyticsRes, activityRes] = await Promise.all([
-                fetch('/api/analytics'),
-                fetch('/api/github/activity')
+                fetch(`/api/analytics?t=${timestamp}`),
+                fetch(`/api/github/activity?t=${timestamp}`)
             ]);
 
             const aData = await analyticsRes.json();
@@ -43,14 +45,8 @@ export default function AnalyticsPage() {
             setAnalyticsData(aData);
             setHeatmap(aData.contributionHeatmap);
 
-            // Filter out PushEvents with 0 commits
-            const filteredEvents = (actData.events as GitHubEvent[]).filter(event => {
-                if (event.type === 'PushEvent') {
-                    return (event.payload.commits?.length || 0) > 0;
-                }
-                return true;
-            });
-            setEvents(filteredEvents);
+            // Use events directly from API (already filtered server-side)
+            setEvents(actData.events as GitHubEvent[]);
 
             setLastUpdated(new Date().toISOString());
         } catch (error) {
