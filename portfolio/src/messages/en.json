@@ -311,56 +311,51 @@
     "text_2": "Transforming visual logic into scalable system architecture.",
     "button": "View Projects",
     "projects": {
-      "rfid_attendance": {
-        "title": "RFID Attendance System",
-        "location": "Yogyakarta Indonesia, 2015-2016",
-        "description": "Reengineering of attendance system using RFID card reader for students in Amikom University",
+      "lpk_saitama": {
+        "title": "Dashboard LPK Saitama",
+        "location": "PT. Saitama Juara Mendunia",
+        "description": "Comprehensive management system for handling student data, payroll, and reporting for vocational training center",
         "tech": [
-          ".net frameworks",
-          "WinForm",
-          "NID Omnikey RFID Reader",
-          "RestSharp"
+          "Laravel",
+          "React",
+          "MySQL",
+          "Redis",
+          "Tailwind CSS"
         ]
       },
-      "sima_pertamina": {
-        "title": "SIMA Pertamina",
-        "location": "Jakarta Indonesia, 2017-2018",
-        "description": "Asset and building management system of Pertamina, Indonesian state-owned oil and natural gas corporation",
+      "lpk_ayaka": {
+        "title": "Website Company LPK Ayaka",
+        "location": "PT. Saitama Juara Mendunia",
+        "description": "Corporate profile and enrollment portal with SEO optimization for vocational training center",
         "tech": [
-          "Asp .Net WebForm",
-          "jQuery",
-          "Gmaps API",
-          "AdminLTE",
-          "Bootstrap",
-          "Sql Server",
-          "T-SQL"
+          "Next.js",
+          "Tailwind CSS",
+          "Framer Motion",
+          "SEO Optimization"
         ]
       },
-      "brightgas": {
-        "title": "Brightgas Mobile API & CMS",
-        "location": "Jakarta Indonesia, 2018",
-        "description": "Mobile app for home gas delivery services by Pertamina, Indonesian state-owned oil and natural gas corporation",
+      "ai_dashboard": {
+        "title": "AI Integrated Admin Dashboard",
+        "location": "Smart Management System",
+        "description": "Advanced admin dashboard with AI integration for operational efficiency and automated daily management",
         "tech": [
-          "Asp MVC",
-          "Asp Web API",
-          "Entity Framework",
-          "Hangfire",
-          "Azure Web Service",
-          "Azure SQL"
+          "Next.js",
+          "OpenAI API",
+          "PostgreSQL",
+          "tRPC",
+          "Prisma"
         ]
       },
-      "spop": {
-        "title": "SPOP+",
-        "location": "Jakarta Indonesia, 2018-2020",
-        "description": "A system to manage, accumulate and process data for back office daily operation at Indonesia Stock Exchange",
+      "japan_course": {
+        "title": "Japan Hybrid Online Course",
+        "location": "Modern EdTech Platform",
+        "description": "Modern LMS for Japanese language learning featuring hybrid and bypass learning methodologies",
         "tech": [
-          "Asp Mvc",
-          "EF",
-          "PostgreSql",
-          "Hangfire",
-          "ActiveMQ",
-          "jQuery",
-          "IIS"
+          "React",
+          "Node.js",
+          "WebRTC",
+          "MongoDB",
+          "Socket.io"
         ]
       }
     }

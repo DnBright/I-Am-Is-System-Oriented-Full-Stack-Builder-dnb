@@ -3,23 +3,35 @@
 import { motion } from 'framer-motion';
 import { useTranslations } from 'next-intl';
 import Badge from '@/components/ui/Badge';
+import ImageCarousel from '@/components/ui/ImageCarousel';
 
 const featuredProjects = [
     {
-        id: 'rfid_attendance',
-        image: '/projects/rfid-attendance.jpg',
+        id: 'lpk_saitama',
+        image: '/projects/lpk-saitama.jpg',
+        tech: ['Laravel', 'React', 'MySQL', 'Redis', 'Tailwind CSS']
     },
     {
-        id: 'sima_pertamina',
-        image: '/projects/sima-pertamina.jpg',
+        id: 'lpk_ayaka',
+        image: '/projects/lpk-ayaka.jpg',
+        tech: ['Next.js', 'Tailwind CSS', 'Framer Motion', 'SEO Optimization'],
+        screenshots: [
+            '/projects/ayaka-screenshots/home.png',
+            '/projects/ayaka-screenshots/program.png',
+            '/projects/ayaka-screenshots/gallery.png',
+            '/projects/ayaka-screenshots/alumni.png',
+            '/projects/ayaka-screenshots/contact.png'
+        ]
     },
     {
-        id: 'brightgas',
-        image: '/projects/brightgas.jpg',
+        id: 'ai_dashboard',
+        image: '/projects/ai-dashboard.jpg',
+        tech: ['Next.js', 'OpenAI API', 'PostgreSQL', 'tRPC', 'Prisma']
     },
     {
-        id: 'spop',
-        image: '/projects/spop.jpg',
+        id: 'japan_course',
+        image: '/projects/japan-course.jpg',
+        tech: ['React', 'Node.js', 'WebRTC', 'MongoDB', 'Socket.io']
     }
 ];
 
@@ -61,14 +73,23 @@ export default function ProjectIntro() {
                                     className="group"
                                 >
                                     <div className="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 h-full flex flex-col">
-                                        {/* Project Image */}
+                                        {/* Project Image or Carousel */}
                                         <div className="h-48 bg-gradient-to-br from-purple-100 to-blue-100 relative overflow-hidden">
-                                            <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 to-blue-500/10" />
-                                            <div className="absolute inset-0 flex items-center justify-center">
-                                                <div className="text-6xl font-bold text-purple-200/30 group-hover:scale-110 transition-transform">
-                                                    {(index + 1).toString().padStart(2, '0')}
-                                                </div>
-                                            </div>
+                                            {project.id === 'lpk_ayaka' && project.screenshots ? (
+                                                <ImageCarousel
+                                                    images={project.screenshots}
+                                                    alt={tProject('title')}
+                                                />
+                                            ) : (
+                                                <>
+                                                    <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 to-blue-500/10" />
+                                                    <div className="absolute inset-0 flex items-center justify-center">
+                                                        <div className="text-6xl font-bold text-purple-200/30 group-hover:scale-110 transition-transform">
+                                                            {(index + 1).toString().padStart(2, '0')}
+                                                        </div>
+                                                    </div>
+                                                </>
+                                            )}
                                         </div>
 
                                         {/* Project Info */}
@@ -87,7 +108,7 @@ export default function ProjectIntro() {
 
                                             {/* Tech Stack */}
                                             <div className="flex flex-wrap gap-1.5 mt-auto">
-                                                {(tProject.raw('tech') as string[]).map((tech) => (
+                                                {featuredProjects.find(p => p.id === project.id)?.tech?.map((tech: string) => (
                                                     <Badge
                                                         key={tech}
                                                         variant="outline"
@@ -95,7 +116,7 @@ export default function ProjectIntro() {
                                                     >
                                                         {tech}
                                                     </Badge>
-                                                ))}
+                                                )) || null}
                                             </div>
                                         </div>
                                     </div>
