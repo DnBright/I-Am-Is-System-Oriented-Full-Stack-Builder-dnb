@@ -16,12 +16,12 @@ export default function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
 
     const links = [
-        { href: '/', label: t('home'), icon: <FiHome /> },
-        { href: '/projects', label: t('projects'), icon: <FiCpu /> },
-        { href: '/live', label: t('live'), icon: <FiPlay /> },
-        { href: '/analytics', label: t('analytics'), icon: <FiBarChart2 /> },
-        { href: '/try', label: t('try'), icon: <FiBox /> },
-        { href: '/about', label: t('about'), icon: <FiUser /> },
+        { href: '/', label: 'Beranda', icon: <FiHome /> },
+        { href: '/projects', label: 'Studi Kasus', icon: <FiCpu /> },
+        { href: '/live', label: 'Aktivitas', icon: <FiPlay /> },
+        { href: '/analytics', label: 'Analitik', icon: <FiBarChart2 /> },
+        { href: '/try', label: 'Uji Coba', icon: <FiBox /> },
+        { href: '/about', label: 'Tentang', icon: <FiUser /> },
     ];
 
     useEffect(() => {
@@ -35,34 +35,47 @@ export default function Navbar() {
 
     return (
         <>
-            <nav className="fixed left-0 top-0 h-screen w-16 xl:w-20 z-50 hidden lg:flex flex-col items-center py-10 bg-background/20 backdrop-blur-sm">
-                {/* Brand Logo - Plain Text */}
-                <Link href="/" className="mb-12 text-2xl font-bold text-primary tracking-tighter hover:opacity-80 transition-opacity">
-                    DN.
-                </Link>
+            {/* Desktop Vertical Pill Navbar */}
+            <nav className="fixed left-6 top-1/2 -translate-y-1/2 z-50 hidden lg:flex flex-col gap-4 p-4 bg-background/40 backdrop-blur-md border border-white/5 rounded-3xl shadow-2xl min-w-[240px]">
+                {/* Brand */}
+                <div className="px-4 py-2 mb-2">
+                    <Link href="/" className="text-xl font-bold text-primary tracking-tighter flex items-center gap-2">
+                        <span>DN.</span>
+                        <span className="text-[10px] text-text-muted font-mono opacity-50 font-normal tracking-widest uppercase">System_OS</span>
+                    </Link>
+                </div>
 
                 {/* Navigation Items */}
-                <div className="flex-1 flex flex-col items-center gap-6">
+                <div className="flex flex-col gap-2">
                     {links.map((link) => {
                         const isActive = pathname === link.href;
                         return (
                             <Link
                                 key={link.href}
                                 href={link.href}
-                                title={link.label}
                                 className={cn(
-                                    "p-2.5 rounded-full transition-all relative group",
-                                    isActive ? "text-primary bg-primary/5" : "text-text-muted hover:text-white"
+                                    "px-4 py-3 rounded-xl transition-all duration-300 flex items-center gap-4 group relative overflow-hidden",
+                                    isActive
+                                        ? "text-primary bg-primary/10 shadow-[0_0_20px_-5px_rgba(var(--primary-rgb),0.3)]"
+                                        : "text-text-muted hover:text-white hover:bg-white/5"
                                 )}
                             >
-                                <span className="text-xl relative z-10">{link.icon}</span>
+                                <span className={cn(
+                                    "text-lg transition-transform duration-300",
+                                    isActive ? "scale-110" : "group-hover:scale-110"
+                                )}>
+                                    {link.icon}
+                                </span>
+
+                                <span className={cn(
+                                    "font-medium tracking-wide text-sm uppercase",
+                                    isActive ? "font-bold" : ""
+                                )}>
+                                    {link.label}
+                                </span>
 
                                 {isActive && (
-                                    <motion.div
-                                        layoutId="nav-active-bg"
-                                        className="absolute inset-0 bg-primary/10 rounded-full -z-10"
-                                        transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
-                                    />
+                                    <div className="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-8 bg-primary rounded-r-full shadow-[0_0_10px_2px_rgba(var(--primary-rgb),0.5)]" />
                                 )}
                             </Link>
                         );
@@ -70,19 +83,20 @@ export default function Navbar() {
                 </div>
 
                 {/* Bottom Controls */}
-                <div className="flex flex-col items-center gap-6">
+                <div className="mt-4 px-4 pt-4 border-t border-white/5 flex items-center justify-between">
                     <button
                         onClick={toggleLanguage}
-                        className="text-[10px] font-bold text-text-muted hover:text-primary transition-colors tracking-widest"
+                        className="text-xs font-bold text-text-muted hover:text-primary transition-colors tracking-widest flex items-center gap-2"
                     >
+                        <FiGlobe className="text-sm" />
                         {locale === 'en' ? 'EN' : 'ID'}
                     </button>
-                    <div className="w-4 h-[1px] bg-primary/20" />
+                    <div className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse" />
                 </div>
             </nav>
 
             {/* Mobile Header (Clean) */}
-            <div className="fixed top-0 left-0 w-full p-6 z-50 lg:hidden flex items-center justify-between">
+            <div className="fixed top-0 left-0 w-full p-6 z-50 lg:hidden flex items-center justify-between bg-gradient-to-b from-background to-transparent">
                 <Link href="/" className="text-xl font-bold text-primary tracking-tighter">
                     DN.
                 </Link>
@@ -95,7 +109,7 @@ export default function Navbar() {
                 </button>
             </div>
 
-            {/* Mobile Overlay (Minimalist) */}
+            {/* Mobile Overlay */}
             <AnimatePresence>
                 {isOpen && (
                     <motion.div
@@ -115,10 +129,12 @@ export default function Navbar() {
                                     <Link
                                         href={link.href}
                                         className={cn(
-                                            "text-4xl font-bold uppercase tracking-tighter",
+                                            "text-4xl font-bold uppercase tracking-tighter flex items-center gap-4",
                                             pathname === link.href ? "text-primary" : "text-text-muted hover:text-white"
                                         )}
+                                        onClick={() => setIsOpen(false)}
                                     >
+                                        {link.icon}
                                         {link.label}
                                     </Link>
                                 </motion.div>

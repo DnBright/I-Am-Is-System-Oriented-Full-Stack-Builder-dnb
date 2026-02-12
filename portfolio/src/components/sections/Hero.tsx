@@ -23,11 +23,10 @@ export default function Hero() {
                                 transition={{ duration: 0.6, delay: 0.1 }}
                                 className="text-6xl md:text-9xl font-bold leading-tight tracking-tighter"
                             >
-                                <span className="text-primary">{t('title_primary')}</span>
-                                <br />
-                                <span className="text-white">
-                                    {t('title_secondary')}
-                                </span>
+                                {t.rich('title', {
+                                    br: () => <br />,
+                                    span: (chunks) => <span className="text-primary">{chunks}</span>
+                                })}
                             </motion.h1>
                         </div>
 
@@ -38,7 +37,8 @@ export default function Hero() {
                             transition={{ duration: 0.6, delay: 0.2 }}
                             className="text-lg md:text-2xl text-text-secondary mb-16 max-w-2xl leading-relaxed font-light"
                         >
-                            {t('subtitle_1')} {t('subtitle_2')}
+                            <span className="block text-primary/80 mb-2">{t('subtitle_1')}</span>
+                            <span className="block">{t('subtitle_2')}</span>
                         </motion.p>
 
                         {/* CTA Buttons */}
@@ -50,12 +50,12 @@ export default function Hero() {
                         >
                             <Link href="/projects">
                                 <Button size="lg" className="min-w-[220px] bg-primary text-black hover:bg-primary/90 rounded-full font-bold h-14 text-lg">
-                                    {t('buttons.projects')}
+                                    {t('cta_project')}
                                 </Button>
                             </Link>
                             <Link href="/live">
                                 <Button variant="outline" size="lg" className="min-w-[220px] border-border text-white hover:bg-white/5 rounded-full font-bold h-14 text-lg">
-                                    {t('buttons.live')}
+                                    {t('cta_contact')}
                                 </Button>
                             </Link>
                         </motion.div>

@@ -68,7 +68,7 @@ export default function ProjectsShowcase() {
                         </p>
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                         {projects.map((project, index) => {
                             // eslint-disable-next-line react-hooks/rules-of-hooks
                             const tProject = useTranslations(`ProjectDetail.projects.${project.slug}`);
@@ -102,32 +102,38 @@ export default function ProjectsShowcase() {
 
                                         <div className="p-6 flex flex-col flex-1">
                                             <div className="mb-4 flex flex-col gap-2">
-                                                <Badge variant="default" className="self-start">
-                                                    {project.category}
-                                                </Badge>
+                                                <div className="flex justify-between items-start">
+                                                    <Badge variant="default" className="self-start">
+                                                        {tProject('category')}
+                                                    </Badge>
+                                                    <span className="text-[10px] font-mono text-primary/80 bg-primary/5 px-2 py-1 rounded border border-primary/10">
+                                                        {tProject('role')}
+                                                    </span>
+                                                </div>
                                                 <span className="text-xs text-text-muted font-mono uppercase tracking-widest opacity-70">
                                                     Client: <span className="text-text-primary font-bold">{tProject('client')}</span>
                                                 </span>
                                             </div>
 
                                             <h3 className="text-xl font-bold mb-3 text-text-primary group-hover:text-primary transition-colors flex items-center gap-2">
-                                                {project.title}
-                                                <span className="text-[10px] font-mono opacity-0 group-hover:opacity-40 transition-opacity">//0x{project.id}</span>
+                                                {tProject('title')}
                                             </h3>
 
-                                            <p className="text-text-secondary text-sm mb-6 line-clamp-2 leading-relaxed h-10">
-                                                {project.description}
+                                            <p className="text-text-secondary text-sm mb-6 line-clamp-3 leading-relaxed">
+                                                {tProject('system')}
                                             </p>
 
-                                            <div className="mt-auto flex flex-wrap gap-2">
-                                                {project.tech.map((tech) => (
-                                                    <span
-                                                        key={tech}
-                                                        className="text-[9px] font-mono uppercase tracking-wider px-2 py-1 bg-surface-elevated text-text-muted border border-border group-hover:border-primary/20 transition-colors"
-                                                    >
-                                                        {tech}
-                                                    </span>
-                                                ))}
+                                            <div className="mt-auto space-y-3">
+                                                <div className="flex flex-wrap gap-2">
+                                                    {(tProject.raw('architecture') as string[]).map((arch) => (
+                                                        <span
+                                                            key={arch}
+                                                            className="text-[9px] font-mono uppercase tracking-wider px-2 py-1 bg-surface-elevated text-text-muted border border-border group-hover:border-primary/20 transition-colors"
+                                                        >
+                                                            {arch}
+                                                        </span>
+                                                    ))}
+                                                </div>
                                             </div>
                                         </div>
                                     </Card>

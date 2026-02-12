@@ -41,7 +41,7 @@ export default async function RootLayout({
         <NextIntlClientProvider messages={messages}>
           <BackgroundEffects />
           <Navbar />
-          <main className="min-h-screen lg:pl-16 xl:pl-20 transition-all duration-500">
+          <main className="min-h-screen lg:pl-[340px] transition-all duration-500">
             {children}
           </main>
           <Footer />

@@ -9,19 +9,16 @@
         "cta": "Coba Hasil Kerja"
     },
     "Hero": {
-        "badge": "Sedang push kode...",
-        "title_primary": "Anak Ganang Jaya",
-        "title_secondary": "System Architect",
-        "subtitle_1": "Spesialisasi dalam Sistem Throughput-Tinggi dan Arsitektur Skalabel.",
-        "subtitle_2": "Mentransformasi logika visual menjadi arsitektur sistem yang skalabel.",
+        "status": "System Architect",
+        "title": "<span>System-Oriented</span> <br /> Full-Stack Engineer",
+        "subtitle_1": "Spesialisasi dalam Infrastruktur Pendidikan & Operasional.",
+        "subtitle_2": "Membangun sistem terstruktur, bukan sekadar kode.",
+        "cta_project": "Lihat Sistem",
+        "cta_contact": "Lihat Aktivitas",
         "stats": {
-            "commits": "Commit",
-            "repositories": "Repositori",
-            "experience": "Logika Kreatif"
-        },
-        "buttons": {
-            "projects": "Lihat Proyek",
-            "live": "Lihat Aktivitas Live"
+            "experience": "Tahun Pengalaman",
+            "projects": "Sistem Dikerahkan",
+            "commits": "Commit Kode"
         }
     },
     "LiveActivity": {
@@ -56,60 +53,64 @@
                 "title": "Dashboard LPK Saitama",
                 "client": "PT. Saitama Juara Mendunia",
                 "legal": "BADAN HUKUM TERVERIFIKASI",
-                "category": "Sistem Manajemen",
-                "problem": "Pengelolaan data siswa, instruktur, dan keuangan sebelumnya dilakukan secara manual, menyebabkan duplikasi data dan keterlambatan pelaporan.",
-                "system": "Dashboard terpusat yang menangani seluruh siklus hidup siswa dari pendaftaran hingga keberangkatan. Dilengkapi sistem penggajian otomatis dan modul pelaporan real-time.",
-                "solution": "Efisiensi operasional meningkat 80%. Validasi data otomatis mengurangi kesalahan hingga 0%. Transparansi keuangan real-time bagi pemangku kepentingan.",
+                "category": "Education Management System",
+                "problem": "Data siswa tersebar manual, progres belajar tidak transparan, dokumentasi migrasi sulit dipantau, dan komunikasi antar divisi (Admin, Sensei, Siswa) tidak terintegrasi.",
+                "system": "Sistem terpusat yang mengatur seluruh siklus hidup siswa dari pendaftaran hingga keberangkatan kerja ke Jepang.",
+                "role": "System Architect & Backend Lead",
+                "impact": "Operasional lebih terstruktur, risiko human error berkurang signifikan, dan transparansi progres siswa meningkat 100%.",
                 "architecture": [
-                    "Monolith Terkini",
-                    "React Frontend",
-                    "MySQL Optimization",
-                    "Redis Caching"
+                    "Multi-role Authentication",
+                    "Centralized Database",
+                    "Progress Tracking Engine",
+                    "CRM Integration"
                 ]
             },
             "lpk-ayaka-website": {
                 "title": "Website Company LPK Ayaka",
                 "client": "PT. Saitama Juara Mendunia",
                 "legal": "BADAN HUKUM TERVERIFIKASI",
-                "category": "Web Perusahaan",
-                "problem": "Dibutuhkan kehadiran digital yang kuat untuk menjangkau calon siswa di seluruh Indonesia dan membangun kepercayaan dengan mitra Jepang.",
-                "system": "Portal web modern dengan CMS kustom. Dioptimalkan untuk SEO dan kecepatan akses mobile, dengan integrasi formulir pendaftaran langsung ke dashboard admin.",
-                "solution": "Peningkatan trafik organik signifikan dan alur pendaftaran yang sepenuhnya digital.",
+                "category": "Corporate Branding System",
+                "problem": "Branding perusahaan belum terstruktur, informasi jalur kerja tidak sistematis, dan tidak ada kontrol konten mandiri oleh admin internal.",
+                "system": "Portal perusahaan berbasis CMS yang menstrukturisasi segmentasi layanan dan corong informasi calon siswa.",
+                "role": "Information Architect & UI System Design",
+                "impact": "Kredibilitas perusahaan meningkat dan tim internal memiliki kendali penuh atas manajemen konten tanpa ketergantungan teknis.",
                 "architecture": [
-                    "Next.js SSR",
-                    "Tailwind CSS",
-                    "SEO Schema Markup",
-                    "Image Optimization"
+                    "CMS Content Management",
+                    "Structured Segmentation",
+                    "Service Explanation Flow",
+                    "Admin Control Panel"
                 ]
             },
             "ai-admin-dashboard": {
-                "title": "Dashboard Admin Terintegrasi AI",
+                "title": "Dashboard Admin AI Integrated",
                 "client": "PT. Saitama Juara Mendunia",
-                "legal": "SISTEM EFEISIENSI INTERNAL",
-                "category": "Enterprise AI",
-                "problem": "Beban kerja admin tinggi untuk tugas repetitif seperti rekap data harian dan analisis awal data siswa.",
-                "system": "Dashboard cerdas yang mengintegrasikan AI untuk otomatisasi rekap data harian, deteksi anomali data, dan asisten virtual untuk manajemen tugas.",
-                "solution": "Mengurangi beban kerja repetitif admin hingga 50%, memungkinkan fokus pada manajemen strategis.",
+                "legal": "INTERNAL PRODUCTIVITY SYSTEM",
+                "category": "Decision Support System",
+                "problem": "Admin kewalahan dengan manajemen harian, banyak pekerjaan manual repetitif, dan data tidak dimanfaatkan optimal untuk pengambilan keputusan.",
+                "system": "Pusat kendali admin cerdas dengan integrasi AI untuk penanganan dokumen otomatis dan pelaporan logika.",
+                "role": "System Planner & Workflow Designer",
+                "impact": "Efisiensi kerja meningkat drastis, waktu manual berkurang, dan data bertransformasi menjadi alat pendukung keputusan real-time.",
                 "architecture": [
-                    "OpenAI Integration",
+                    "AI Document Handling",
                     "Automated Reporting",
-                    "Background Jobs",
-                    "React Admin"
+                    "Task Prioritization",
+                    "Data Insight Engine"
                 ]
             },
             "japan-online-course": {
                 "title": "Kursus Jepang Online (Hybrid)",
                 "client": "PT. Saitama Juara Mendunia",
-                "legal": "PLATFORM EDTECH",
-                "category": "E-Learning",
-                "problem": "Keterbatasan kapasitas kelas fisik menghambat ekspansi siswa. Metode belajar konvensional kurang fleksibel.",
-                "system": "Platform LMS Hybrid yang mendukung sistem 'bypass' dan reguler. Fitur ujian online real-time, tracking progress belajar, dan manajemen materi digital.",
-                "solution": "Ekspansi jangkauan siswa tanpa batas geografis. Fleksibilitas metode belajar meningkatkan retensi materi.",
+                "legal": "SCALABLE LEARNING PLATFORM",
+                "category": "Hybrid EdTech",
+                "problem": "Model konvensional terbatas lokasi fisik, sulit ditingkatkan (not scalable), dan pemantauan kemajuan siswa tidak terukur.",
+                "system": "Platform pembelajaran hybrid yang mendukung jalur 'bypass' dan reguler dengan validasi milestone otomatis.",
+                "role": "System Model Designer",
+                "impact": "Jangkauan pasar meluas tanpa batas geografis, proses belajar menjadi transparan dan terukur secara digital.",
                 "architecture": [
-                    "MERN Stack",
-                    "Real-time Quiz",
-                    "Video Streaming",
-                    "Progress Tracking"
+                    "Hybrid Tracking System",
+                    "Milestone Validation",
+                    "Certification Tracker",
+                    "Readiness Indicator"
                 ]
             }
         }

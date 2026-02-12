@@ -10,18 +10,16 @@
   },
   "Hero": {
     "badge": "Pushing code now...",
-    "title_primary": "Anak Ganang Jaya",
-    "title_secondary": "System Architect",
-    "subtitle_1": "Specializing in High-Throughput Systems and Scalable Architecture.",
-    "subtitle_2": "Transforming high-fidelity visual logic into scalable system architecture.",
+    "status": "System Architect",
+    "title": "System-Oriented <br /> Full-Stack Engineer",
+    "subtitle_1": "Specializing in Education & Operational Infrastructure.",
+    "subtitle_2": "Building structured systems, not just code.",
+    "cta_project": "View Systems",
+    "cta_contact": "Contact Me",
     "stats": {
-      "commits": "Commits",
-      "repositories": "Repositories",
-      "experience": "Creative Logic"
-    },
-    "buttons": {
-      "projects": "View Projects",
-      "live": "See Live Activity"
+      "experience": "Years Experience",
+      "projects": "Systems Deployed",
+      "commits": "Code Commits"
     }
   },
   "LiveActivity": {
@@ -56,60 +54,64 @@
         "title": "LPK Saitama Dashboard",
         "client": "PT. Saitama Juara Mendunia",
         "legal": "VERIFIED LEGAL ENTITY",
-        "category": "Management System",
-        "problem": "Manual management of student data, instructors, and finances led to data duplication and reporting delays.",
-        "system": "Centralized dashboard handling the full student lifecycle from enrollment to deployment. Features automated payroll and real-time reporting modules.",
-        "solution": "Operational efficiency increased by 80%. Automated data validation reduced errors to near zero. Real-time financial transparency for stakeholders.",
+        "category": "Education Management System",
+        "problem": "Student data was scattered and manual, learning progress lacked transparency, migration documents were hard to monitor, and inter-role communication was disjointed.",
+        "system": "A centralized system managing the entire student lifecycle from enrollment to deployment.",
+        "role": "System Architect & Backend Lead",
+        "impact": "Structured operations, significantly reduced human error, and increased student progress transparency by 100%.",
         "architecture": [
-          "Modern Monolith",
-          "React Frontend",
-          "MySQL Optimization",
-          "Redis Caching"
+          "Multi-role Authentication",
+          "Centralized Database",
+          "Progress Tracking Engine",
+          "CRM Integration"
         ]
       },
       "lpk-ayaka-website": {
         "title": "LPK Ayaka Corporate Website",
         "client": "PT. Saitama Juara Mendunia",
         "legal": "VERIFIED LEGAL ENTITY",
-        "category": "Corporate Web",
-        "problem": "Needed a strong digital presence to reach potential students nationwide and build trust with Japanese partners.",
-        "system": "Modern web portal with custom CMS. Optimized for SEO and mobile speed, featuring direct enrollment integration to the admin dashboard.",
-        "solution": "Significant increase in organic traffic and a fully digital enrollment flow.",
+        "category": "Corporate Branding System",
+        "problem": "Unstructured corporate branding, unsystematic career path information, and no internal admin content control.",
+        "system": "A CMS-based corporate portal structuring service segmentation and the student information funnel.",
+        "role": "Information Architect & UI System Design",
+        "impact": "Increased corporate credibility and gave the internal team full control over content management without technical dependency.",
         "architecture": [
-          "Next.js SSR",
-          "Tailwind CSS",
-          "SEO Schema Markup",
-          "Image Optimization"
+          "CMS Content Management",
+          "Structured Segmentation",
+          "Service Explanation Flow",
+          "Admin Control Panel"
         ]
       },
       "ai-admin-dashboard": {
         "title": "AI Integrated Admin Dashboard",
         "client": "PT. Saitama Juara Mendunia",
-        "legal": "INTERNAL EFFICIENCY SYSTEM",
-        "category": "Enterprise AI",
-        "problem": "High admin workload due to repetitive tasks like daily data recap and initial student data analysis.",
-        "system": "Smart dashboard integrating AI for automated daily recaps, data anomaly detection, and a virtual assistant for task management.",
-        "solution": "Reduced repetitive admin workload by 50%, allowing focus on strategic management.",
+        "legal": "INTERNAL PRODUCTIVITY SYSTEM",
+        "category": "Decision Support System",
+        "problem": "Admins were overwhelmed with daily management, repetitive manual tasks, and underutilized data for decision making.",
+        "system": "Smart admin control center with AI integration for automated document handling and logic reporting.",
+        "role": "System Planner & Workflow Designer",
+        "impact": "Drastically increased work efficiency, reduced manual time, and transformed data into real-time decision support tools.",
         "architecture": [
-          "OpenAI Integration",
+          "AI Document Handling",
           "Automated Reporting",
-          "Background Jobs",
-          "React Admin"
+          "Task Prioritization",
+          "Data Insight Engine"
         ]
       },
       "japan-online-course": {
         "title": "Japan Online Course (Hybrid)",
         "client": "PT. Saitama Juara Mendunia",
-        "legal": "EDTECH PLATFORM",
-        "category": "E-Learning",
-        "problem": "Physical class capacity limits student expansion. Conventional learning methods lack flexibility.",
-        "system": "Hybrid LMS platform supporting 'bypass' and regular systems. Features real-time online exams, progress tracking, and digital material management.",
-        "solution": "Expansion of student reach without geographical limits. Flexible learning methods increase material retention.",
+        "legal": "SCALABLE LEARNING PLATFORM",
+        "category": "Hybrid EdTech",
+        "problem": "Conventional models were limited by physical location, hard to scale, and lacked measurable student monitoring.",
+        "system": "Hybrid learning platform supporting 'bypass' and regular paths with automatic milestone validation.",
+        "role": "System Model Designer",
+        "impact": "Expanded market reach without geographical limits, making the learning process transparent and digitally measurable.",
         "architecture": [
-          "MERN Stack",
-          "Real-time Quiz",
-          "Video Streaming",
-          "Progress Tracking"
+          "Hybrid Tracking System",
+          "Milestone Validation",
+          "Certification Tracker",
+          "Readiness Indicator"
         ]
       }
     }

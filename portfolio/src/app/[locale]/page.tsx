@@ -10,9 +10,9 @@ export default function Home() {
     <>
       <Hero />
       <ProjectIntro />
+      <ProjectsShowcase />
       <LiveActivityPreview />
       <AnalyticsSummary />
-      <ProjectsShowcase />
       <CallToAction />
     </>
   );
