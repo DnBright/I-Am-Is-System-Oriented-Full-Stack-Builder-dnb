@@ -8,6 +8,15 @@ interface ContributionHeatmapProps {
 }
 
 export default function ContributionHeatmap({ data }: ContributionHeatmapProps) {
+    // Safety check for undefined or empty data
+    if (!data || data.length === 0) {
+        return (
+            <div className="flex items-center justify-center h-40 text-text-muted text-sm">
+                No contribution data available
+            </div>
+        );
+    }
+
     // Group by weeks
     const weeks: ContributionDay[][] = [];
     for (let i = 0; i < data.length; i += 7) {

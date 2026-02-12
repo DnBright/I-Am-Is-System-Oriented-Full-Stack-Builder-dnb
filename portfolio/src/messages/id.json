@@ -36,16 +36,22 @@
         "edu_title": "Kompilasi Akademik",
         "jobs": {
             "dark_and_bright": {
-                "role": "Social Media Designer",
+                "role": "Digital Marketing & Creative Agency / Owner",
                 "company": "Dark And Bright",
                 "period": "Jan 2023 - Sekarang",
-                "desc": "Mengelola visual branding dan strategi konten media sosial."
+                "desc": "Mengelola visual branding, strategi konten media sosial, website, dan berbagai project yang dikerjakan berlandaskan perusahaan ini."
             },
-            "fairy_queen": {
-                "role": "Graphic Designer",
-                "company": "Fairy Queen Baloon",
-                "period": "Freelance",
-                "desc": "Desain kreatif untuk kebutuhan klien freelance."
+            "bakmi_proci": {
+                "role": "Digital Marketing & Creative Agency",
+                "company": "Bakmi Proci",
+                "period": "Jan 2024 - Des 2024",
+                "desc": "Mengelola strategi digital marketing dan creative agency untuk brand kuliner."
+            },
+            "infra_dirga": {
+                "role": "Admin Project",
+                "company": "PT. Infra Dirga Nusantara",
+                "period": "Jul 2022 - Nov 2022",
+                "desc": "Manajemen administrasi proyek infrastruktur."
             },
             "prima_printshop": {
                 "role": "Content Creator",
@@ -53,11 +59,11 @@
                 "period": "Des 2022 - Mar 2023",
                 "desc": "Produksi konten digital untuk pemasaran percetakan."
             },
-            "infra_dirga": {
-                "role": "Admin Project",
-                "company": "PT. Infra Dirga Nusantara",
-                "period": "Jul 2022 - Nov 2022",
-                "desc": "Manajemen administrasi proyek infrastruktur."
+            "fairy_queen": {
+                "role": "Graphic Designer",
+                "company": "Fairy Queen Baloon",
+                "period": "Freelance",
+                "desc": "Desain kreatif untuk kebutuhan klien freelance."
             },
             "seven_inc": {
                 "role": "Graphic Designer",

@@ -77,10 +77,30 @@ export default function AnalyticsPage() {
     };
 
     const statsCards = [
-        { label: t('stats.consistency'), value: analyticsData ? `${analyticsData.consistencyScore}%` : '0%', icon: <FaBullseye />, color: 'text-primary' },
-        { label: 'Avg Hours', value: analyticsData ? `${Math.round(analyticsData.totalCommits / 20 * 10) / 10}h` : '0h', icon: <FaClock />, color: 'text-info' },
-        { label: t('stats.streak'), value: analyticsData ? `${analyticsData.currentStreak}d` : '0d', icon: <FaFire />, color: 'text-error' },
-        { label: 'Activity', value: analyticsData ? `${analyticsData.totalCommits}` : '0', icon: <FaCalendarAlt />, color: 'text-warning' },
+        {
+            label: t('stats.consistency'),
+            value: analyticsData ? `${analyticsData.consistencyScore}%` : '0%',
+            icon: <FaBullseye />,
+            color: 'text-primary'
+        },
+        {
+            label: 'Avg/Day',
+            value: analyticsData ? `${analyticsData.averageCommitsPerDay}` : '0',
+            icon: <FaClock />,
+            color: 'text-info'
+        },
+        {
+            label: t('stats.streak'),
+            value: analyticsData ? `${analyticsData.currentStreak}d` : '0d',
+            icon: <FaFire />,
+            color: 'text-error'
+        },
+        {
+            label: 'Total',
+            value: analyticsData ? `${analyticsData.totalCommits}` : '0',
+            icon: <FaCalendarAlt />,
+            color: 'text-warning'
+        },
     ];
 
     return (

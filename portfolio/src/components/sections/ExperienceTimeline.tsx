@@ -10,9 +10,10 @@ export default function ExperienceTimeline() {
 
     const jobs = [
         { key: 'dark_and_bright', icon: <FiBriefcase /> },
-        { key: 'fairy_queen', icon: <FiZap /> },
-        { key: 'prima_printshop', icon: <FiTarget /> },
+        { key: 'bakmi_proci', icon: <FiTarget /> },
         { key: 'infra_dirga', icon: <FiBriefcase /> },
+        { key: 'prima_printshop', icon: <FiZap /> },
+        { key: 'fairy_queen', icon: <FiTarget /> },
         { key: 'seven_inc', icon: <FiAward /> },
     ];
 

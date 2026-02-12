@@ -37,16 +37,22 @@
     "edu_title": "Academic Compilation",
     "jobs": {
       "dark_and_bright": {
-        "role": "Social Media Designer",
+        "role": "Digital Marketing & Creative Agency / Owner",
         "company": "Dark And Bright",
         "period": "Jan 2023 - Present",
-        "desc": "Managing visual branding and social media content strategy."
+        "desc": "Managing visual branding, social media content strategy, website, and various projects based on this company."
       },
-      "fairy_queen": {
-        "role": "Graphic Designer",
-        "company": "Fairy Queen Baloon",
-        "period": "Freelance",
-        "desc": "Creative design for freelance client needs."
+      "bakmi_proci": {
+        "role": "Digital Marketing & Creative Agency",
+        "company": "Bakmi Proci",
+        "period": "Jan 2024 - Dec 2024",
+        "desc": "Managing digital marketing strategy and creative agency for culinary brand."
+      },
+      "infra_dirga": {
+        "role": "Admin Project",
+        "company": "PT. Infra Dirga Nusantara",
+        "period": "Jul 2022 - Nov 2022",
+        "desc": "Infrastructure project administration management."
       },
       "prima_printshop": {
         "role": "Content Creator",
@@ -54,11 +60,11 @@
         "period": "Dec 2022 - Mar 2023",
         "desc": "Digital content production for printing marketing."
       },
-      "infra_dirga": {
-        "role": "Admin Project",
-        "company": "PT. Infra Dirga Nusantara",
-        "period": "Jul 2022 - Nov 2022",
-        "desc": "Infrastructure project administration management."
+      "fairy_queen": {
+        "role": "Graphic Designer",
+        "company": "Fairy Queen Baloon",
+        "period": "Freelance",
+        "desc": "Creative design for freelance client needs."
       },
       "seven_inc": {
         "role": "Graphic Designer",

@@ -102,17 +102,20 @@ export function calculateConsistencyScore(commits: GitHubCommit[]): number {
     }, 0) / days;
     const regularityScore = Math.max(0, 100 - (variance * 5));
 
-    // Factor 3: Recent activity (last 7 days)
+    // Factor 3: Recent activity (last 30 days)
     const recentCommits = commits.filter(c => {
         const commitDate = new Date(c.commit.author.date);
         const daysSince = differenceInHours(new Date(), commitDate) / 24;
-        return daysSince <= 7;
+        return daysSince <= 30;
     });
-    const recentScore = Math.min(100, (recentCommits.length / 7) * 50);
+    const recentScore = Math.min(100, (recentCommits.length / 30) * 100);
 
-    // Weighted average
+    // Factor 4: Days with activity out of 365
+    const activeDaysScore = Math.min(100, (days / 365) * 100);
+
+    // Weighted average - prioritize active days and recent activity
     return Math.round(
-        (spreadScore * 0.4) + (regularityScore * 0.3) + (recentScore * 0.3)
+        (activeDaysScore * 0.4) + (regularityScore * 0.2) + (recentScore * 0.4)
     );
 }
 
