@@ -19,10 +19,25 @@ export async function GET() {
         // Fetch from GitHub API
         const events = await githubClient.getUserEvents(1, 30);
 
-        // Filter relevant events
-        const relevantEvents = events.filter(event =>
-            ['PushEvent', 'PullRequestEvent', 'IssuesEvent', 'CreateEvent'].includes(event.type)
-        );
+        // Filter and prioritize meaningful events
+        // Priority: PushEvent > PullRequestEvent > IssuesEvent > Others
+        const relevantEvents = events.filter(event => {
+            // Exclude repository creation events (not interesting)
+            if (event.type === 'CreateEvent' && event.payload.ref_type === 'repository') {
+                return false;
+            }
+
+            // Include meaningful development activities
+            return [
+                'PushEvent',           // Code commits (highest priority)
+                'PullRequestEvent',    // PR activities
+                'IssuesEvent',         // Issue management
+                'CreateEvent',         // Branch/tag creation (but not repos)
+                'ReleaseEvent',        // Version releases
+                'WatchEvent',          // Stars received
+                'ForkEvent'            // Forks received
+            ].includes(event.type);
+        });
 
         const response = {
             events: relevantEvents,

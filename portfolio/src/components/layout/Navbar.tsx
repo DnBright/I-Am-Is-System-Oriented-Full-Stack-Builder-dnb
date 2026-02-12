@@ -6,23 +6,36 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { HiMenuAlt3, HiX } from 'react-icons/hi';
 import { useTranslations, useLocale } from 'next-intl';
-import { FiHome, FiCpu, FiPlay, FiBarChart2, FiBox, FiUser, FiGlobe, FiBriefcase, FiAward } from 'react-icons/fi';
+import { FiHome, FiCpu, FiPlay, FiBarChart2, FiBox, FiUser, FiGlobe, FiBriefcase, FiAward, FiChevronDown } from 'react-icons/fi';
+
+type MenuItem = {
+    href: string;
+    label: string;
+    icon?: React.ReactNode;
+    subItems?: MenuItem[];
+};
 
 export default function Navbar() {
-    const t = useTranslations('Navbar');
     const locale = useLocale();
     const router = useRouter();
     const pathname = usePathname();
     const [isOpen, setIsOpen] = useState(false);
+    const [openSubMenu, setOpenSubMenu] = useState<string | null>(null);
 
-    const links = [
+    const links: MenuItem[] = [
         { href: '/', label: 'Beranda', icon: <FiHome /> },
+        {
+            href: '#',
+            label: 'Project',
+            icon: <FiCpu />,
+            subItems: [
+                { href: '/analytics', label: 'Analitik & Live', icon: <FiBarChart2 /> },
+                { href: '/try', label: 'Uji Coba', icon: <FiBox /> },
+            ]
+        },
         { href: '/experience', label: 'Pengalaman', icon: <FiBriefcase /> },
-        { href: '/certificates', label: 'Sertifikat', icon: <FiAward /> },
         { href: '/projects', label: 'Studi Kasus', icon: <FiCpu /> },
-        { href: '/live', label: 'Aktivitas', icon: <FiPlay /> },
-        { href: '/analytics', label: 'Analitik', icon: <FiBarChart2 /> },
-        { href: '/try', label: 'Uji Coba', icon: <FiBox /> },
+        { href: '/certificates', label: 'Sertifikat', icon: <FiAward /> },
         { href: '/about', label: 'Tentang', icon: <FiUser /> },
     ];
 
@@ -33,6 +46,14 @@ export default function Navbar() {
     const toggleLanguage = () => {
         const nextLocale = locale === 'en' ? 'id' : 'en';
         router.replace(pathname, { locale: nextLocale });
+    };
+
+    const toggleSubMenu = (label: string) => {
+        if (openSubMenu === label) {
+            setOpenSubMenu(null);
+        } else {
+            setOpenSubMenu(label);
+        }
     };
 
     return (
@@ -50,7 +71,57 @@ export default function Navbar() {
                 {/* Navigation Items */}
                 <div className="flex flex-col w-full px-6 gap-3">
                     {links.map((link) => {
-                        const isActive = pathname === link.href;
+                        const isActive = pathname === link.href || link.subItems?.some(sub => pathname === sub.href);
+                        const isSubMenuOpen = openSubMenu === link.label || isActive;
+
+                        if (link.subItems) {
+                            return (
+                                <div key={link.label} className="flex flex-col">
+                                    <button
+                                        onClick={() => toggleSubMenu(link.label)}
+                                        className={cn(
+                                            "relative px-6 py-4 flex items-center justify-between group transition-all duration-300 z-10 w-full text-left",
+                                            isActive ? "text-primary" : "text-text-muted hover:text-white"
+                                        )}
+                                    >
+                                        <div className="flex items-center gap-5">
+                                            <span className="text-2xl group-hover:scale-110 transition-transform">{link.icon}</span>
+                                            <span className="text-lg tracking-wide uppercase font-mono font-bold">{link.label}</span>
+                                        </div>
+                                        <FiChevronDown className={cn("transition-transform duration-300", isSubMenuOpen ? "rotate-180" : "")} />
+                                    </button>
+
+                                    {/* Submenu */}
+                                    <AnimatePresence>
+                                        {(isSubMenuOpen) && (
+                                            <motion.div
+                                                initial={{ height: 0, opacity: 0 }}
+                                                animate={{ height: 'auto', opacity: 1 }}
+                                                exit={{ height: 0, opacity: 0 }}
+                                                className="overflow-hidden ml-12 border-l border-white/5 pl-4 flex flex-col gap-2"
+                                            >
+                                                {link.subItems.map((sub) => {
+                                                    const isSubActive = pathname === sub.href;
+                                                    return (
+                                                        <Link
+                                                            key={sub.href}
+                                                            href={sub.href}
+                                                            className={cn(
+                                                                "py-2 text-sm font-mono uppercase tracking-wider block transition-colors",
+                                                                isSubActive ? "text-primary font-bold" : "text-text-muted hover:text-white"
+                                                            )}
+                                                        >
+                                                            {sub.label}
+                                                        </Link>
+                                                    );
+                                                })}
+                                            </motion.div>
+                                        )}
+                                    </AnimatePresence>
+                                </div>
+                            );
+                        }
+
                         return (
                             <Link
                                 key={link.href}
@@ -124,32 +195,59 @@ export default function Navbar() {
                         initial={{ opacity: 0, y: -20 }}
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: -20 }}
-                        className="fixed inset-0 bg-background/98 backdrop-blur-3xl z-40 lg:hidden flex flex-col p-10 pt-32"
+                        className="fixed inset-0 bg-background/98 backdrop-blur-3xl z-40 lg:hidden flex flex-col p-10 pt-32 overflow-y-auto"
                     >
-                        <div className="flex flex-col gap-8">
-                            {links.map((link, i) => (
-                                <motion.div
-                                    key={link.href}
-                                    initial={{ opacity: 0, x: -20 }}
-                                    animate={{ opacity: 1, x: 0 }}
-                                    transition={{ delay: i * 0.1 }}
-                                >
-                                    <Link
-                                        href={link.href}
-                                        className={cn(
-                                            "text-4xl font-bold uppercase tracking-tighter flex items-center gap-4",
-                                            pathname === link.href ? "text-primary" : "text-text-muted hover:text-white"
-                                        )}
-                                        onClick={() => setIsOpen(false)}
+                        <div className="flex flex-col gap-6">
+                            {links.map((link, i) => {
+                                if (link.subItems) {
+                                    return (
+                                        <div key={link.href} className="flex flex-col gap-4">
+                                            <div className="text-xl font-bold text-primary uppercase tracking-tighter opacity-70 border-b border-white/10 pb-2">
+                                                {link.label}
+                                            </div>
+                                            <div className="flex flex-col gap-4 pl-4">
+                                                {link.subItems.map((sub) => (
+                                                    <Link
+                                                        key={sub.href}
+                                                        href={sub.href}
+                                                        className={cn(
+                                                            "text-2xl font-bold uppercase tracking-tighter flex items-center gap-4",
+                                                            pathname === sub.href ? "text-primary" : "text-text-muted hover:text-white"
+                                                        )}
+                                                        onClick={() => setIsOpen(false)}
+                                                    >
+                                                        {sub.icon}
+                                                        {sub.label}
+                                                    </Link>
+                                                ))}
+                                            </div>
+                                        </div>
+                                    )
+                                }
+                                return (
+                                    <motion.div
+                                        key={link.href}
+                                        initial={{ opacity: 0, x: -20 }}
+                                        animate={{ opacity: 1, x: 0 }}
+                                        transition={{ delay: i * 0.1 }}
                                     >
-                                        {link.icon}
-                                        {link.label}
-                                    </Link>
-                                </motion.div>
-                            ))}
+                                        <Link
+                                            href={link.href}
+                                            className={cn(
+                                                "text-4xl font-bold uppercase tracking-tighter flex items-center gap-4",
+                                                pathname === link.href ? "text-primary" : "text-text-muted hover:text-white"
+                                            )}
+                                            onClick={() => setIsOpen(false)}
+                                        >
+                                            {link.icon}
+                                            {link.label}
+                                        </Link>
+                                    </motion.div>
+                                )
+                            })}
                         </div>
 
-                        <div className="mt-auto pt-10 border-t border-border flex items-center justify-between">
+                        <div className="mt-auto pt-10 border-t border-border flex items-center justify-between pb-10">
                             <button
                                 onClick={toggleLanguage}
                                 className="flex items-center gap-2 text-primary font-bold text-sm"
