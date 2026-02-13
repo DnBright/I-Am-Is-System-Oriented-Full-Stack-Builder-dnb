@@ -9,7 +9,14 @@ const featuredProjects = [
     {
         id: 'lpk_saitama',
         image: '/projects/lpk-saitama.jpg',
-        tech: ['Laravel', 'React', 'MySQL', 'Redis', 'Tailwind CSS']
+        tech: ['Laravel', 'React', 'MySQL', 'Redis', 'Tailwind CSS'],
+        colors: {
+            primary: 'text-red-700',
+            bg: 'bg-red-50',
+            border: 'border-red-200',
+            hover: 'group-hover:text-red-600',
+            gradient: 'from-red-100 to-white'
+        }
     },
     {
         id: 'lpk_ayaka',
@@ -21,17 +28,42 @@ const featuredProjects = [
             '/projects/ayaka-screenshots/gallery.jpg',
             '/projects/ayaka-screenshots/alumni.jpg',
             '/projects/ayaka-screenshots/contact.jpg'
-        ]
+        ],
+        colors: {
+            primary: 'text-pink-700',
+            bg: 'bg-pink-50',
+            border: 'border-pink-200',
+            hover: 'group-hover:text-pink-600',
+            gradient: 'from-pink-100 to-white'
+        }
     },
     {
         id: 'ai_dashboard',
-        image: '/projects/ai-dashboard.jpg',
-        tech: ['Next.js', 'OpenAI API', 'PostgreSQL', 'tRPC', 'Prisma']
+        image: '/projects/ai-dashboard-screenshots/form-1.png',
+        tech: ['Next.js', 'OpenAI API', 'PostgreSQL', 'tRPC', 'Prisma'],
+        screenshots: [
+            '/projects/ai-dashboard-screenshots/form-1.png',
+            '/projects/ai-dashboard-screenshots/form-2.png'
+        ],
+        colors: {
+            primary: 'text-indigo-700',
+            bg: 'bg-indigo-50',
+            border: 'border-indigo-200',
+            hover: 'group-hover:text-indigo-600',
+            gradient: 'from-indigo-100 to-white'
+        }
     },
     {
         id: 'japan_course',
         image: '/projects/japan-course.jpg',
-        tech: ['React', 'Node.js', 'WebRTC', 'MongoDB', 'Socket.io']
+        tech: ['React', 'Node.js', 'WebRTC', 'MongoDB', 'Socket.io'],
+        colors: {
+            primary: 'text-teal-700',
+            bg: 'bg-teal-50',
+            border: 'border-teal-200',
+            hover: 'group-hover:text-teal-600',
+            gradient: 'from-teal-100 to-white'
+        }
     }
 ];
 
@@ -74,17 +106,17 @@ export default function ProjectIntro() {
                                 >
                                     <div className="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 h-full flex flex-col">
                                         {/* Project Image or Carousel */}
-                                        <div className="h-48 bg-gradient-to-br from-purple-100 to-blue-100 relative overflow-hidden">
-                                            {project.id === 'lpk_ayaka' && project.screenshots ? (
+                                        <div className={`h-48 bg-gradient-to-br ${project.colors.gradient} relative overflow-hidden`}>
+                                            {(project.id === 'lpk_ayaka' || project.id === 'ai_dashboard') && project.screenshots ? (
                                                 <ImageCarousel
                                                     images={project.screenshots}
                                                     alt={tProject('title')}
                                                 />
                                             ) : (
                                                 <>
-                                                    <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 to-blue-500/10" />
+                                                    <div className="absolute inset-0 bg-black/5" />
                                                     <div className="absolute inset-0 flex items-center justify-center">
-                                                        <div className="text-6xl font-bold text-purple-200/30 group-hover:scale-110 transition-transform">
+                                                        <div className={`text-6xl font-bold ${project.colors.primary} opacity-10 group-hover:scale-110 transition-transform`}>
                                                             {(index + 1).toString().padStart(2, '0')}
                                                         </div>
                                                     </div>
@@ -94,7 +126,7 @@ export default function ProjectIntro() {
 
                                         {/* Project Info */}
                                         <div className="p-6 flex flex-col flex-1">
-                                            <h3 className="text-lg font-bold text-gray-900 mb-2 group-hover:text-purple-600 transition-colors">
+                                            <h3 className={`text-lg font-bold text-gray-900 mb-2 ${project.colors.hover} transition-colors`}>
                                                 {tProject('title')}
                                             </h3>
 
@@ -108,15 +140,15 @@ export default function ProjectIntro() {
 
                                             {/* Tech Stack */}
                                             <div className="flex flex-wrap gap-1.5 mt-auto">
-                                                {featuredProjects.find(p => p.id === project.id)?.tech?.map((tech: string) => (
+                                                {project.tech.map((tech: string) => (
                                                     <Badge
                                                         key={tech}
                                                         variant="outline"
-                                                        className="text-[9px] px-2 py-0.5 border-purple-200 text-purple-700 bg-purple-50"
+                                                        className={`text-[9px] px-2 py-0.5 ${project.colors.border} ${project.colors.primary} ${project.colors.bg}`}
                                                     >
                                                         {tech}
                                                     </Badge>
-                                                )) || null}
+                                                ))}
                                             </div>
                                         </div>
                                     </div>
