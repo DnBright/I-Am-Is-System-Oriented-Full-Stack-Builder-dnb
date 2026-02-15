@@ -4,7 +4,7 @@ import Card from '@/components/ui/Card';
 import Badge from '@/components/ui/Badge';
 import Button from '@/components/ui/Button';
 import { Link } from '@/navigation';
-import Image from 'next/image';
+import ImageCarousel from '@/components/ui/ImageCarousel';
 import { motion } from 'framer-motion';
 import { useTranslations } from 'next-intl';
 
@@ -15,8 +15,15 @@ const projects = [
         description: 'Comprehensive management system for PT. Saitama Juara Mendunia, handling student data, payroll, and reporting.',
         tech: ['Laravel', 'React', 'MySQL', 'Redis'],
         category: 'Management System',
-        image: '/projects/saitama-screenshots/penilaian-presensi.png',
-        slug: 'lpk-saitama-dashboard'
+        image: '/projects/saitama-screenshots/Screenshot 2026-02-15 at 22.16.55.png',
+        slug: 'lpk-saitama-dashboard',
+        screenshots: [
+            '/projects/saitama-screenshots/Screenshot 2026-02-15 at 22.14.37.png',
+            '/projects/saitama-screenshots/Screenshot 2026-02-15 at 22.16.55.png',
+            '/projects/saitama-screenshots/Screenshot 2026-02-15 at 22.17.05.png',
+            '/projects/saitama-screenshots/Screenshot 2026-02-15 at 22.17.09.png',
+            '/projects/saitama-screenshots/Screenshot 2026-02-15 at 22.17.12.png'
+        ]
     },
     {
         id: 2,
@@ -25,7 +32,14 @@ const projects = [
         tech: ['Next.js', 'Tailwind', 'Framing Motion'],
         category: 'Corporate Web',
         image: '/projects/ayaka-screenshots/home.jpg',
-        slug: 'lpk-ayaka-website'
+        slug: 'lpk-ayaka-website',
+        screenshots: [
+            '/projects/ayaka-screenshots/home.jpg',
+            '/projects/ayaka-screenshots/program.jpg',
+            '/projects/ayaka-screenshots/gallery.jpg',
+            '/projects/ayaka-screenshots/alumni.jpg',
+            '/projects/ayaka-screenshots/contact.jpg'
+        ]
     },
     {
         id: 3,
@@ -33,8 +47,14 @@ const projects = [
         description: 'Advanced admin dashboard with AI integration for operational efficiency and automated daily management.',
         tech: ['Next.js', 'OpenAI API', 'PostgreSQL', 'tRPC'],
         category: 'Enterprise AI',
-        image: '/projects/ai-dashboard.jpg',
-        slug: 'ai-admin-dashboard'
+        image: '/projects/ai-dashboard-screenshots/form-1.png',
+        slug: 'ai-admin-dashboard',
+        screenshots: [
+            '/projects/ai-dashboard-screenshots/form-1.png',
+            '/projects/ai-dashboard-screenshots/form-2.png',
+            '/projects/ai-dashboard-screenshots/form-3.png',
+            '/projects/ai-dashboard-screenshots/form-4.png'
+        ]
     },
     {
         id: 4,
@@ -42,8 +62,17 @@ const projects = [
         description: 'Modern LMS for Japanese language learning featuring hybrid and bypass learning methodologies.',
         tech: ['React', 'Node.js', 'WebRTC', 'MongoDB'],
         category: 'EdTech Platform',
-        image: '/projects/japan-course.jpg',
-        slug: 'japan-online-course'
+        image: '/projects/kursus-jepang-online-hybrid/1.png',
+        slug: 'japan-online-course',
+        screenshots: [
+            '/projects/kursus-jepang-online-hybrid/1.png',
+            '/projects/kursus-jepang-online-hybrid/2.png',
+            '/projects/kursus-jepang-online-hybrid/3.png',
+            '/projects/kursus-jepang-online-hybrid/4.png',
+            '/projects/kursus-jepang-online-hybrid/5.png',
+            '/projects/kursus-jepang-online-hybrid/6.png',
+            '/projects/kursus-jepang-online-hybrid/7.png'
+        ]
     }
 ];
 
@@ -78,12 +107,21 @@ export default function ProjectsShowcase() {
                                     <Card hover className="p-0 overflow-hidden group cursor-pointer h-full border-primary/5 bg-surface/40 flex flex-col relative">
                                         {/* Project Image Placeholder */}
                                         <div className="h-48 bg-surface-elevated relative overflow-hidden flex-shrink-0">
-                                            <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-transparent group-hover:from-primary/30 transition-all duration-300" />
-                                            <div className="absolute inset-0 flex items-center justify-center">
-                                                <div className="text-5xl font-mono font-bold text-primary/10 group-hover:scale-110 transition-transform">
-                                                    PRJ_{project.id.toString().padStart(3, '0')}
-                                                </div>
-                                            </div>
+                                            {project.screenshots ? (
+                                                <ImageCarousel
+                                                    images={project.screenshots}
+                                                    alt={project.title}
+                                                />
+                                            ) : (
+                                                <>
+                                                    <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-transparent group-hover:from-primary/30 transition-all duration-300" />
+                                                    <div className="absolute inset-0 flex items-center justify-center">
+                                                        <div className="text-5xl font-mono font-bold text-primary/10 group-hover:scale-110 transition-transform">
+                                                            PRJ_{project.id.toString().padStart(3, '0')}
+                                                        </div>
+                                                    </div>
+                                                </>
+                                            )}
 
                                             {/* Verified Badge Overlay */}
                                             <div className="absolute top-4 left-4 z-20">
