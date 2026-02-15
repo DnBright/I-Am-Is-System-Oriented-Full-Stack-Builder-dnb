@@ -8,8 +8,15 @@ import ImageCarousel from '@/components/ui/ImageCarousel';
 const featuredProjects = [
     {
         id: 'lpk_saitama',
-        image: '/projects/lpk-saitama.jpg',
+        image: '/projects/saitama-screenshots/Screenshot 2026-02-15 at 22.16.55.png',
         tech: ['Laravel', 'React', 'MySQL', 'Redis', 'Tailwind CSS'],
+        screenshots: [
+            '/projects/saitama-screenshots/Screenshot 2026-02-15 at 22.14.37.png',
+            '/projects/saitama-screenshots/Screenshot 2026-02-15 at 22.16.55.png',
+            '/projects/saitama-screenshots/Screenshot 2026-02-15 at 22.17.05.png',
+            '/projects/saitama-screenshots/Screenshot 2026-02-15 at 22.17.09.png',
+            '/projects/saitama-screenshots/Screenshot 2026-02-15 at 22.17.12.png'
+        ],
         colors: {
             primary: 'text-red-700',
             bg: 'bg-red-50',
@@ -43,7 +50,9 @@ const featuredProjects = [
         tech: ['Next.js', 'OpenAI API', 'PostgreSQL', 'tRPC', 'Prisma'],
         screenshots: [
             '/projects/ai-dashboard-screenshots/form-1.png',
-            '/projects/ai-dashboard-screenshots/form-2.png'
+            '/projects/ai-dashboard-screenshots/form-2.png',
+            '/projects/ai-dashboard-screenshots/form-3.png',
+            '/projects/ai-dashboard-screenshots/form-4.png'
         ],
         colors: {
             primary: 'text-indigo-700',
@@ -55,8 +64,17 @@ const featuredProjects = [
     },
     {
         id: 'japan_course',
-        image: '/projects/japan-course.jpg',
+        image: '/projects/kursus-jepang-online-hybrid/1.png',
         tech: ['React', 'Node.js', 'WebRTC', 'MongoDB', 'Socket.io'],
+        screenshots: [
+            '/projects/kursus-jepang-online-hybrid/1.png',
+            '/projects/kursus-jepang-online-hybrid/2.png',
+            '/projects/kursus-jepang-online-hybrid/3.png',
+            '/projects/kursus-jepang-online-hybrid/4.png',
+            '/projects/kursus-jepang-online-hybrid/5.png',
+            '/projects/kursus-jepang-online-hybrid/6.png',
+            '/projects/kursus-jepang-online-hybrid/7.png'
+        ],
         colors: {
             primary: 'text-teal-700',
             bg: 'bg-teal-50',
@@ -107,7 +125,7 @@ export default function ProjectIntro() {
                                     <div className="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 h-full flex flex-col">
                                         {/* Project Image or Carousel */}
                                         <div className={`h-48 bg-gradient-to-br ${project.colors.gradient} relative overflow-hidden`}>
-                                            {(project.id === 'lpk_ayaka' || project.id === 'ai_dashboard') && project.screenshots ? (
+                                            {(project.id === 'lpk_saitama' || project.id === 'lpk_ayaka' || project.id === 'ai_dashboard' || project.id === 'japan_course') && project.screenshots ? (
                                                 <ImageCarousel
                                                     images={project.screenshots}
                                                     alt={tProject('title')}

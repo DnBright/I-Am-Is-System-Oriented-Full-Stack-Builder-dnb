@@ -76,15 +76,14 @@ export default function ProjectsShowcase() {
                             return (
                                 <Link key={project.id} href={`/projects/${project.slug}`}>
                                     <Card hover className="p-0 overflow-hidden group cursor-pointer h-full border-primary/5 bg-surface/40 flex flex-col relative">
-                                        {/* Project Image */}
+                                        {/* Project Image Placeholder */}
                                         <div className="h-48 bg-surface-elevated relative overflow-hidden flex-shrink-0">
-                                            <Image
-                                                src={project.image}
-                                                alt={project.title}
-                                                fill
-                                                className="object-cover group-hover:scale-105 transition-transform duration-300"
-                                            />
                                             <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-transparent group-hover:from-primary/30 transition-all duration-300" />
+                                            <div className="absolute inset-0 flex items-center justify-center">
+                                                <div className="text-5xl font-mono font-bold text-primary/10 group-hover:scale-110 transition-transform">
+                                                    PRJ_{project.id.toString().padStart(3, '0')}
+                                                </div>
+                                            </div>
 
                                             {/* Verified Badge Overlay */}
                                             <div className="absolute top-4 left-4 z-20">
@@ -96,8 +95,8 @@ export default function ProjectsShowcase() {
                                                 </div>
                                             </div>
 
-                                            <div className="absolute bottom-4 right-4 opacity-40 z-10">
-                                                <span className="text-[10px] font-mono text-white uppercase">ENC_STATUS: OK</span>
+                                            <div className="absolute bottom-4 right-4 opacity-40">
+                                                <span className="text-[10px] font-mono text-primary uppercase">ENC_STATUS: OK</span>
                                             </div>
                                         </div>
 

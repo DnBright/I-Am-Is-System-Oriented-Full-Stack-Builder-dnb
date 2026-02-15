@@ -17,10 +17,11 @@ export default function ProjectDetailPage({ params }: { params: Promise<{ slug: 
     // Screenshot mapping for each project
     const projectScreenshots: Record<string, string[]> = {
         'lpk-saitama-dashboard': [
-            '/projects/saitama-screenshots/penilaian-presensi.png',
-            '/projects/saitama-screenshots/pengajaran.png',
-            '/projects/saitama-screenshots/evaluasi.png',
-            '/projects/saitama-screenshots/login.png',
+            '/projects/saitama-screenshots/Screenshot 2026-02-15 at 22.14.37.png',
+            '/projects/saitama-screenshots/Screenshot 2026-02-15 at 22.16.55.png',
+            '/projects/saitama-screenshots/Screenshot 2026-02-15 at 22.17.05.png',
+            '/projects/saitama-screenshots/Screenshot 2026-02-15 at 22.17.09.png',
+            '/projects/saitama-screenshots/Screenshot 2026-02-15 at 22.17.12.png',
         ],
         'lpk-ayaka-website': [
             '/projects/ayaka-screenshots/home.jpg',
@@ -28,6 +29,21 @@ export default function ProjectDetailPage({ params }: { params: Promise<{ slug: 
             '/projects/ayaka-screenshots/gallery.jpg',
             '/projects/ayaka-screenshots/contact.jpg',
             '/projects/ayaka-screenshots/alumni.jpg',
+        ],
+        'ai-admin-dashboard': [
+            '/projects/ai-dashboard-screenshots/form-1.png',
+            '/projects/ai-dashboard-screenshots/form-2.png',
+            '/projects/ai-dashboard-screenshots/form-3.png',
+            '/projects/ai-dashboard-screenshots/form-4.png',
+        ],
+        'japan-online-course': [
+            '/projects/kursus-jepang-online-hybrid/1.png',
+            '/projects/kursus-jepang-online-hybrid/2.png',
+            '/projects/kursus-jepang-online-hybrid/3.png',
+            '/projects/kursus-jepang-online-hybrid/4.png',
+            '/projects/kursus-jepang-online-hybrid/5.png',
+            '/projects/kursus-jepang-online-hybrid/6.png',
+            '/projects/kursus-jepang-online-hybrid/7.png',
         ],
     };
 
