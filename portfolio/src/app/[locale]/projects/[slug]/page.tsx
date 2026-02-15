@@ -8,10 +8,30 @@ import Button from '@/components/ui/Button';
 import { Link } from '@/navigation';
 import { FaArrowLeft, FaCogs, FaProjectDiagram, FaCheckCircle, FaExternalLinkAlt } from 'react-icons/fa';
 import { useTranslations } from 'next-intl';
+import ImageCarousel from '@/components/ui/ImageCarousel';
 
 export default function ProjectDetailPage({ params }: { params: Promise<{ slug: string }> }) {
     const { slug } = use(params);
     const t = useTranslations('ProjectDetail');
+
+    // Screenshot mapping for each project
+    const projectScreenshots: Record<string, string[]> = {
+        'lpk-saitama-dashboard': [
+            '/projects/saitama-screenshots/penilaian-presensi.png',
+            '/projects/saitama-screenshots/pengajaran.png',
+            '/projects/saitama-screenshots/evaluasi.png',
+            '/projects/saitama-screenshots/login.png',
+        ],
+        'lpk-ayaka-website': [
+            '/projects/ayaka-screenshots/home.jpg',
+            '/projects/ayaka-screenshots/program.jpg',
+            '/projects/ayaka-screenshots/gallery.jpg',
+            '/projects/ayaka-screenshots/contact.jpg',
+            '/projects/ayaka-screenshots/alumni.jpg',
+        ],
+    };
+
+    const screenshots = projectScreenshots[slug] || [];
 
     // Attempt to get project data from translations, fallback to system prototype
     const hasProject = t.has(`projects.${slug}`);
@@ -55,18 +75,27 @@ export default function ProjectDetailPage({ params }: { params: Promise<{ slug: 
                     </div>
 
                     <div className="grid grid-cols-1 gap-12">
-                        {/* Visual Placeholder */}
+                        {/* Project Screenshots or Visual Placeholder */}
                         <Card className="p-0 overflow-hidden aspect-video relative group">
-                            <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-transparent to-info/20 opacity-50 group-hover:opacity-100 transition-opacity" />
-                            <div className="absolute inset-0 flex items-center justify-center">
-                                <FaCogs className="text-8xl text-primary/10 animate-spin-slow" />
-                            </div>
-                            <div className="absolute bottom-6 right-6">
-                                <Button size="sm" variant="outline" className="gap-2">
-                                    <FaExternalLinkAlt size={12} />
-                                    {t('live_preview')}
-                                </Button>
-                            </div>
+                            {screenshots.length > 0 ? (
+                                <ImageCarousel
+                                    images={screenshots}
+                                    alt={project.title}
+                                />
+                            ) : (
+                                <>
+                                    <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-transparent to-info/20 opacity-50 group-hover:opacity-100 transition-opacity" />
+                                    <div className="absolute inset-0 flex items-center justify-center">
+                                        <FaCogs className="text-8xl text-primary/10 animate-spin-slow" />
+                                    </div>
+                                    <div className="absolute bottom-6 right-6">
+                                        <Button size="sm" variant="outline" className="gap-2">
+                                            <FaExternalLinkAlt size={12} />
+                                            {t('live_preview')}
+                                        </Button>
+                                    </div>
+                                </>
+                            )}
                         </Card>
 
                         {/* Content Decomposition */}
