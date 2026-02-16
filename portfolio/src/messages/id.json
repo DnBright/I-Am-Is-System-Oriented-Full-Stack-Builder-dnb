@@ -133,7 +133,8 @@
                     "Centralized Database",
                     "Progress Tracking Engine",
                     "CRM Integration"
-                ]
+                ],
+                "solution": "Solusi end-to-end yang mengintegrasikan manajemen data siswa, keuangan, dan akademik dalam satu platform terpadu."
             },
             "lpk-ayaka-website": {
                 "title": "Website Company LPK Ayaka",
@@ -149,7 +150,8 @@
                     "Structured Segmentation",
                     "Service Explanation Flow",
                     "Admin Control Panel"
-                ]
+                ],
+                "solution": "Portal perusahaan yang terstruktur dengan CMS untuk pengelolaan konten mandiri dan informasi yang jelas."
             },
             "ai-admin-dashboard": {
                 "title": "Dashboard Admin AI Integrated",
@@ -165,7 +167,8 @@
                     "Automated Reporting",
                     "Task Prioritization",
                     "Data Insight Engine"
-                ]
+                ],
+                "solution": "Automasi cerdas yang memangkas waktu administrasi manual hingga 80% melalui pemrosesan dokumen dan pelaporan otomatis."
             },
             "japan-online-course": {
                 "title": "Kursus Jepang Online (Hybrid)",
@@ -181,7 +184,8 @@
                     "Milestone Validation",
                     "Certification Tracker",
                     "Readiness Indicator"
-                ]
+                ],
+                "solution": "Platform pembelajaran adaptif yang memungkinkan siswa belajar sesuai kecepatan mereka sendiri dengan validasi progres otomatis."
             }
         }
     },
