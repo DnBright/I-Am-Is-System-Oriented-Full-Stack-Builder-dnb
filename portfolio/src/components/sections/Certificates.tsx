@@ -58,10 +58,20 @@ export default function Certificates() {
                             viewport={{ once: true }}
                             transition={{ delay: 0.2 + (index * 0.1) }}
                             onClick={() => setSelectedDoc({ url: doc.file, title: t(`verified_authority.docs.${doc.key}`) })}
-                            className="group relative bg-surface/20 border border-white/5 p-6 rounded-sm hover:bg-surface/40 hover:border-primary/30 transition-all duration-300 cursor-pointer"
+                            className="group relative bg-surface/20 border border-white/5 p-6 rounded-sm hover:bg-surface/40 hover:border-primary/30 transition-all duration-300 cursor-pointer overflow-hidden"
                         >
-                            {/* Hover Effect */}
-                            <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+                            {/* Hover Effect Background */}
+                            <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+
+                            {/* "Click to View" Overlay */}
+                            <div className="absolute inset-0 flex items-center justify-center bg-background/60 backdrop-blur-[2px] opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-4 group-hover:translate-y-0 z-20">
+                                <div className="flex flex-col items-center gap-2">
+                                    <div className="p-2 bg-primary rounded-full text-background">
+                                        <FiShield size={20} />
+                                    </div>
+                                    <span className="text-[10px] font-bold uppercase tracking-widest text-primary">View Credential</span>
+                                </div>
+                            </div>
 
                             <div className="relative z-10 flex flex-col items-center text-center gap-4">
                                 <div className="w-12 h-12 rounded-full bg-surface border border-white/10 flex items-center justify-center text-primary group-hover:scale-110 group-hover:border-primary/40 transition-all">
@@ -72,9 +82,9 @@ export default function Certificates() {
                                     {t(`verified_authority.docs.${doc.key}`)}
                                 </h3>
 
-                                <div className="mt-2 text-[10px] uppercase tracking-widest text-text-muted opacity-60 group-hover:opacity-100 transition-opacity flex items-center gap-1">
-                                    <FiFileText size={10} />
-                                    Verified Document
+                                <div className="mt-2 text-[10px] uppercase tracking-widest text-text-muted opacity-60 group-hover:opacity-100 transition-opacity flex items-center gap-1 bg-white/5 px-2 py-1 rounded-full border border-white/10">
+                                    <FiCheckCircle size={10} className="text-primary animate-pulse" />
+                                    Click to Verify
                                 </div>
                             </div>
                         </motion.div>
