@@ -92,6 +92,7 @@
         },
         "verified_authority": {
             "title": "Otoritas Proyek Terverifikasi",
+            "intro": "Dokumen berikut adalah bukti otentik dari peran dan tanggung jawab yang saya emban dalam berbagai proyek sistem berskala industri. Klik kartu untuk memverifikasi keaslian.",
             "docs": {
                 "work_order": "Work Order Admin Project",
                 "reference": "Surat Referensi Kerja",

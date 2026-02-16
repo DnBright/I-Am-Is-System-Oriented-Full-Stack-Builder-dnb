@@ -93,6 +93,7 @@
     },
     "verified_authority": {
       "title": "Verified Project Authority",
+      "intro": "The following documents are authentic proof of the roles and responsibilities I held in various industrial-scale system projects. Click on each card to verify authenticity.",
       "docs": {
         "work_order": "Project Admin Work Order",
         "reference": "Work Reference Letter",

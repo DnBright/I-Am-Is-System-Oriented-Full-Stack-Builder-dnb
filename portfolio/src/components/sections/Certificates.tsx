@@ -45,6 +45,10 @@ export default function Certificates() {
                     </h2>
                 </div>
 
+                <p className="text-gray-400 max-w-2xl mb-8 leading-relaxed">
+                    {t('verified_authority.intro')}
+                </p>
+
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                     {verifiedDocs.map((doc, index) => (
                         <motion.div
