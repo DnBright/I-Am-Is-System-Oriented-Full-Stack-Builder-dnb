@@ -24,6 +24,23 @@ export async function GET() {
             });
         }
 
+        // Check if configuration is available
+        if (!process.env.GITHUB_TOKEN || !process.env.GITHUB_USERNAME) {
+            console.warn('GitHub configuration is missing. Returning default analytics.');
+            return NextResponse.json({
+                totalCommits: 0,
+                averageCommitsPerDay: 0,
+                consistencyScore: 0,
+                currentStreak: 0,
+                longestStreak: 0,
+                codingHours: [],
+                languageDistribution: [],
+                contributionHeatmap: [],
+                recentActivity: [],
+                configMissing: true
+            });
+        }
+
         // Fetch data from GitHub
         const [commits, languageStats] = await Promise.all([
             githubClient.getAllRecentCommits(365),
@@ -141,10 +158,19 @@ export async function GET() {
 
         return NextResponse.json(
             {
+                totalCommits: 0,
+                averageCommitsPerDay: 0,
+                consistencyScore: 0,
+                currentStreak: 0,
+                longestStreak: 0,
+                codingHours: [],
+                languageDistribution: [],
+                contributionHeatmap: [],
+                recentActivity: [],
                 error: 'Failed to calculate analytics',
                 message: error instanceof Error ? error.message : 'Unknown error'
             },
-            { status: 500 }
+            { status: 200 } // Return 200 with empty data to prevent frontend crash
         );
     }
 }

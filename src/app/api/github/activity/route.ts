@@ -16,6 +16,15 @@ export async function GET() {
             });
         }
 
+        // Check if configuration is available
+        if (!process.env.GITHUB_TOKEN || !process.env.GITHUB_USERNAME) {
+            console.warn('GitHub configuration is missing. Returning default activity.');
+            return NextResponse.json({
+                events: [],
+                configMissing: true
+            });
+        }
+
         // Fetch from GitHub API
         const events = await githubClient.getUserEvents(1, 30);
 
@@ -89,10 +98,11 @@ export async function GET() {
 
         return NextResponse.json(
             {
+                events: [],
                 error: 'Failed to fetch GitHub activity',
                 message: error instanceof Error ? error.message : 'Unknown error'
             },
-            { status: 500 }
+            { status: 200 } // Return 200 with empty data to prevent frontend crash
         );
     }
 }
