@@ -62,10 +62,10 @@ export async function GET() {
             totalCommits = contributionCalendar.totalContributions;
 
             // Calculate consistency from contribution data
-            const activeDays = contributionHeatmap.filter(d => d.count > 0).length;
+            const activeDays = contributionHeatmap.filter((d: any) => d.count > 0).length;
             const totalDays = contributionHeatmap.length;
             const recentDays = contributionHeatmap.slice(-30);
-            const recentActiveDays = recentDays.filter(d => d.count > 0).length;
+            const recentActiveDays = recentDays.filter((d: any) => d.count > 0).length;
 
             // Consistency score based on active days
             const activeDaysScore = Math.min(100, (activeDays / totalDays) * 100);

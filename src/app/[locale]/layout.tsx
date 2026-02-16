@@ -23,6 +23,10 @@ export const metadata: Metadata = {
   keywords: ["full-stack", "engineer", "system architecture", "GitHub", "analytics"],
 };
 
+export function generateStaticParams() {
+  return [{ locale: 'en' }, { locale: 'id' }];
+}
+
 export default async function RootLayout({
   children,
   params

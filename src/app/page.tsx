@@ -1,5 +1,5 @@
 import { redirect } from '@/navigation';
 
 export default function RootPage() {
-    redirect('/');
+    redirect({ href: '/', locale: 'en' });
 }

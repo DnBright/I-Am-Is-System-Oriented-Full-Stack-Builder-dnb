@@ -50,7 +50,7 @@ export default function FocusAreaChart({ data }: FocusAreaChartProps) {
                             borderRadius: '8px',
                             color: 'rgb(229, 229, 229)'
                         }}
-                        formatter={(value: number) => `${value}%`}
+                        formatter={(value: number | undefined) => `${value || 0}%`}
                     />
                 </PieChart>
             </ResponsiveContainer>

@@ -38,7 +38,7 @@ export default function CodingHoursChart({ data }: CodingHoursChartProps) {
                             borderRadius: '8px',
                             color: 'rgb(229, 229, 229)'
                         }}
-                        formatter={(value: number) => [`${value}h`, 'Coding Hours']}
+                        formatter={(value: number | undefined) => [`${value || 0}h`, 'Coding Hours']}
                     />
                     <Bar
                         dataKey="hours"

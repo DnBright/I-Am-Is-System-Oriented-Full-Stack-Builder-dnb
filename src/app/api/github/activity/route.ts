@@ -42,10 +42,10 @@ export async function GET() {
         // Enrich PushEvents with commit details
         const enrichedEvents = await Promise.all(
             relevantEvents.map(async (event) => {
-                if (event.type === 'PushEvent' && event.payload.head) {
+                if (event.type === 'PushEvent' && (event.payload as any).head) {
                     try {
                         // Fetch commits between before and head
-                        const compareUrl = `https://api.github.com/repos/${event.repo.name}/compare/${event.payload.before}...${event.payload.head}`;
+                        const compareUrl = `https://api.github.com/repos/${event.repo.name}/compare/${(event.payload as any).before}...${(event.payload as any).head}`;
                         const compareRes = await fetch(compareUrl, {
                             headers: {
                                 'Authorization': `token ${process.env.GITHUB_TOKEN}`,
