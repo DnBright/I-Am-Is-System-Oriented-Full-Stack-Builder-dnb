@@ -9,42 +9,9 @@ import { Link } from '@/navigation';
 import { FaLayerGroup, FaSearch, FaFilter } from 'react-icons/fa';
 import { useTranslations } from 'next-intl';
 
-const categories = ['All', 'Web Application', 'Data Visualization', 'Enterprise', 'System Tool'];
+import { projectsData } from '@/lib/project-data';
 
-const projectsData = [
-    {
-        id: 1,
-        title: 'LPK Management System',
-        description: 'A comprehensive ERP-style platform for vocational training centers. Orchestrates student lifecycles, payroll, certification, and regulatory reporting.',
-        tech: ['Laravel', 'PostgreSQL', 'Livewire', 'Alpine.js'],
-        category: 'Web Application',
-        slug: 'lpk-management-system'
-    },
-    {
-        id: 2,
-        title: 'Real-time Analytics Dashboard',
-        description: 'High-frequency data ingestion and visualization system. Built to handle massive GitHub event streams and compute engineer performance metrics.',
-        tech: ['Next.js', 'TypeScript', 'Recharts', 'Redis'],
-        category: 'Data Visualization',
-        slug: 'analytics-dashboard'
-    },
-    {
-        id: 3,
-        title: 'Enterprise CRM Architecture',
-        description: 'Scale-oriented CRM system with automated lead scoring, multi-tenant database partitioning, and real-time activity tracking.',
-        tech: ['Next.js', 'Prisma', 'PostgreSQL', 'tRPC'],
-        category: 'Enterprise',
-        slug: 'crm-system'
-    },
-    {
-        id: 4,
-        title: 'Cloud Orchestrator',
-        description: 'System-level tool for managing distributed microservices across multiple environments. Focuses on observability and self-healing mechanisms.',
-        tech: ['Go', 'Docker', 'Kubernetes', 'gRPC'],
-        category: 'System Tool',
-        slug: 'cloud-orchestrator'
-    }
-];
+const categories = ['All', 'App', 'Web', 'AI', 'EdTech'];
 
 
 export default function ProjectsPage() {
@@ -102,10 +69,7 @@ export default function ProjectsPage() {
                                         : "bg-surface/40 border-primary/10 text-text-muted hover:text-primary hover:border-primary/40"
                                 )}
                             >
-                                {cat === 'All' ? t('categories.all') :
-                                    cat === 'Web Application' ? t('categories.web') :
-                                        cat === 'Data Visualization' ? t('categories.data') :
-                                            cat === 'Enterprise' ? t('categories.enterprise') : cat}
+                                {cat === 'All' ? t('categories.all') : cat}
                             </button>
                         ))}
                     </div>

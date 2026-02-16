@@ -10,44 +10,16 @@ import { FaArrowLeft, FaCogs, FaProjectDiagram, FaCheckCircle, FaExternalLinkAlt
 import { useTranslations } from 'next-intl';
 import ImageCarousel from '@/components/ui/ImageCarousel';
 
+import { projectsData } from '@/lib/project-data';
+
 export default function ProjectDetailPage({ params }: { params: Promise<{ slug: string }> }) {
     const { slug } = use(params);
     const t = useTranslations('ProjectDetail');
 
-    // Screenshot mapping for each project
-    const projectScreenshots: Record<string, string[]> = {
-        'lpk-saitama-dashboard': [
-            '/projects/saitama-screenshots/Screenshot 2026-02-15 at 22.14.37.png',
-            '/projects/saitama-screenshots/Screenshot 2026-02-15 at 22.16.55.png',
-            '/projects/saitama-screenshots/Screenshot 2026-02-15 at 22.17.05.png',
-            '/projects/saitama-screenshots/Screenshot 2026-02-15 at 22.17.09.png',
-            '/projects/saitama-screenshots/Screenshot 2026-02-15 at 22.17.12.png',
-        ],
-        'lpk-ayaka-website': [
-            '/projects/ayaka-screenshots/home.jpg',
-            '/projects/ayaka-screenshots/program.jpg',
-            '/projects/ayaka-screenshots/gallery.jpg',
-            '/projects/ayaka-screenshots/contact.jpg',
-            '/projects/ayaka-screenshots/alumni.jpg',
-        ],
-        'ai-admin-dashboard': [
-            '/projects/ai-dashboard-screenshots/form-1.png',
-            '/projects/ai-dashboard-screenshots/form-2.png',
-            '/projects/ai-dashboard-screenshots/form-3.png',
-            '/projects/ai-dashboard-screenshots/form-4.png',
-        ],
-        'japan-online-course': [
-            '/projects/kursus-jepang-online-hybrid/1.png',
-            '/projects/kursus-jepang-online-hybrid/2.png',
-            '/projects/kursus-jepang-online-hybrid/3.png',
-            '/projects/kursus-jepang-online-hybrid/4.png',
-            '/projects/kursus-jepang-online-hybrid/5.png',
-            '/projects/kursus-jepang-online-hybrid/6.png',
-            '/projects/kursus-jepang-online-hybrid/7.png',
-        ],
-    };
 
-    const screenshots = projectScreenshots[slug] || [];
+
+    const projectData = projectsData.find(p => p.slug === slug);
+    const screenshots = projectData?.screenshots || [];
 
     // Attempt to get project data from translations, fallback to system prototype
     const hasProject = t.has(`projects.${slug}`);

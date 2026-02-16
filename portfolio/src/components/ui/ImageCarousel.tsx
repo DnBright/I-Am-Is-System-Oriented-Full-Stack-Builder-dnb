@@ -30,6 +30,7 @@ export default function ImageCarousel({ images, alt }: ImageCarouselProps) {
                     fill
                     className="object-cover"
                     priority={currentIndex === 0}
+                    unoptimized
                 />
             </div>
 
@@ -67,8 +68,8 @@ export default function ImageCarousel({ images, alt }: ImageCarouselProps) {
                                     setCurrentIndex(index);
                                 }}
                                 className={`w-2 h-2 rounded-full transition-all ${index === currentIndex
-                                        ? 'bg-white w-6'
-                                        : 'bg-white/50 hover:bg-white/75'
+                                    ? 'bg-white w-6'
+                                    : 'bg-white/50 hover:bg-white/75'
                                     }`}
                                 aria-label={`Go to image ${index + 1}`}
                             />

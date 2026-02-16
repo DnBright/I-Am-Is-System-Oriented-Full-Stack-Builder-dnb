@@ -27,7 +27,7 @@ export default function Card({ children, className = '', glass = false, hover = 
             {/* Ambient Background Detail */}
             <div className="absolute inset-0 bg-primary/[0.01] opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
 
-            <div className="relative z-10">
+            <div className="relative z-10 h-full">
                 {children}
             </div>
         </div>
