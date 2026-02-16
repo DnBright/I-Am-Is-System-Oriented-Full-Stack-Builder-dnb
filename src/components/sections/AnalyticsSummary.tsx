@@ -26,10 +26,10 @@ export default function AnalyticsSummary() {
                 const response = await fetch('/api/analytics');
                 const data = await response.json();
                 setAnalytics({
-                    totalCommits: data.totalCommits,
-                    averageCommitsPerDay: data.averageCommitsPerDay,
-                    consistencyScore: data.consistencyScore,
-                    currentStreak: data.currentStreak
+                    totalCommits: data?.totalCommits ?? 0,
+                    averageCommitsPerDay: data?.averageCommitsPerDay ?? 0,
+                    consistencyScore: data?.consistencyScore ?? 0,
+                    currentStreak: data?.currentStreak ?? 0
                 });
             } catch (error) {
                 console.error('Failed to fetch analytics:', error);

@@ -25,7 +25,8 @@ export default function LiveActivityPreview() {
             const data = await response.json();
 
             // Filter out PushEvents with 0 commits
-            const filteredEvents = (data.events as GitHubEvent[]).filter(event => {
+            const rawEvents = data?.events || [];
+            const filteredEvents = (rawEvents as GitHubEvent[]).filter(event => {
                 if (event.type === 'PushEvent') {
                     return (event.payload.commits?.length || 0) > 0;
                 }
