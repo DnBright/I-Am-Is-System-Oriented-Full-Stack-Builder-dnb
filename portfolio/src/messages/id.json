@@ -89,6 +89,15 @@
             "adobe": "Adobe Creative Competency",
             "net": "Network Engineering (TKJ)",
             "design": "Professional Graphic Design"
+        },
+        "verified_authority": {
+            "title": "Otoritas Proyek Terverifikasi",
+            "docs": {
+                "work_order": "Work Order Admin Project",
+                "reference": "Surat Referensi Kerja",
+                "competency": "Sertifikat Kompetensi",
+                "committee": "Sertifikat Kepanitiaan"
+            }
         }
     },
     "LiveActivity": {

@@ -90,6 +90,15 @@
       "adobe": "Adobe Creative Competency",
       "net": "Network Engineering (TKJ)",
       "design": "Professional Graphic Design"
+    },
+    "verified_authority": {
+      "title": "Verified Project Authority",
+      "docs": {
+        "work_order": "Project Admin Work Order",
+        "reference": "Work Reference Letter",
+        "competency": "Competency Certificate",
+        "committee": "Committee Certificate"
+      }
     }
   },
   "LiveActivity": {
