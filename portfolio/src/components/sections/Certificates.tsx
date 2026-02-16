@@ -4,7 +4,6 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useTranslations } from 'next-intl';
 import { FiAward, FiCheckCircle, FiShield, FiFileText, FiUserCheck, FiUsers } from 'react-icons/fi';
-import Badge from '@/components/ui/Badge';
 import PDFViewerModal from '@/components/ui/PDFViewerModal';
 
 export default function Certificates() {
@@ -45,11 +44,11 @@ export default function Certificates() {
                     </h2>
                 </div>
 
-                <p className="text-gray-400 max-w-2xl mb-8 leading-relaxed">
+                <p className="text-gray-400 max-w-2xl mb-12 leading-relaxed">
                     {t('verified_authority.intro')}
                 </p>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                     {verifiedDocs.map((doc, index) => (
                         <motion.div
                             key={doc.key}
@@ -58,35 +57,47 @@ export default function Certificates() {
                             viewport={{ once: true }}
                             transition={{ delay: 0.2 + (index * 0.1) }}
                             onClick={() => setSelectedDoc({ url: doc.file, title: t(`verified_authority.docs.${doc.key}`) })}
-                            className="group relative bg-surface/20 border border-white/5 p-6 rounded-sm hover:bg-surface/40 hover:border-primary/30 transition-all duration-300 cursor-pointer overflow-hidden"
+                            className="group relative bg-surface/40 border border-white/20 p-8 rounded-xl hover:bg-surface/60 hover:border-primary/60 transition-all duration-300 cursor-pointer overflow-hidden shadow-2xl shadow-black/40"
                         >
-                            {/* Hover Effect Background */}
-                            <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+                            {/* Hover Status Highlight */}
+                            <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
 
-                            {/* "Click to View" Overlay */}
-                            <div className="absolute inset-0 flex items-center justify-center bg-background/60 backdrop-blur-[2px] opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-4 group-hover:translate-y-0 z-20">
-                                <div className="flex flex-col items-center gap-2">
-                                    <div className="p-2 bg-primary rounded-full text-background">
-                                        <FiShield size={20} />
+                            {/* High Contrast Hover Overlay */}
+                            <div className="absolute inset-0 flex items-center justify-center bg-black/95 backdrop-blur-md opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-full group-hover:translate-y-0 z-20">
+                                <div className="flex flex-col items-center gap-4 p-4 text-center">
+                                    <div className="w-20 h-20 bg-primary rounded-full flex items-center justify-center text-background shadow-[0_0_30px_rgba(var(--primary-rgb),0.5)] scale-75 group-hover:scale-100 transition-transform duration-500 delay-100">
+                                        <FiShield size={40} />
                                     </div>
-                                    <span className="text-[10px] font-bold uppercase tracking-widest text-primary">View Credential</span>
+                                    <div className="space-y-1">
+                                        <div className="text-[10px] font-black uppercase tracking-[0.4em] text-primary">AUTHENTICITY</div>
+                                        <div className="text-white text-sm font-bold">VIEW CERTIFICATE</div>
+                                    </div>
+                                    <div className="px-6 py-2 bg-primary text-background text-[10px] font-black uppercase rounded-full tracking-widest hover:scale-105 active:scale-95 transition-all">
+                                        Open Now
+                                    </div>
                                 </div>
                             </div>
 
-                            <div className="relative z-10 flex flex-col items-center text-center gap-4">
-                                <div className="w-12 h-12 rounded-full bg-surface border border-white/10 flex items-center justify-center text-primary group-hover:scale-110 group-hover:border-primary/40 transition-all">
+                            <div className="relative z-10 flex flex-col items-center text-center gap-6">
+                                {/* Large Prominent Icon */}
+                                <div className="w-16 h-16 rounded-2xl bg-surface-elevated border-2 border-white/5 flex items-center justify-center text-primary group-hover:scale-110 group-hover:border-primary/50 group-hover:shadow-[0_0_20px_rgba(var(--primary-rgb),0.2)] transition-all duration-500">
                                     {doc.icon}
                                 </div>
 
-                                <h3 className="text-sm font-bold text-gray-200 group-hover:text-primary transition-colors">
+                                <h3 className="text-sm font-black text-white group-hover:text-primary transition-colors leading-snug min-h-[40px] flex items-center justify-center uppercase tracking-wider">
                                     {t(`verified_authority.docs.${doc.key}`)}
                                 </h3>
 
-                                <div className="mt-2 text-[10px] uppercase tracking-widest text-text-muted opacity-60 group-hover:opacity-100 transition-opacity flex items-center gap-1 bg-white/5 px-2 py-1 rounded-full border border-white/10">
-                                    <FiCheckCircle size={10} className="text-primary animate-pulse" />
-                                    Click to Verify
+                                {/* High Contrast Primary Badge */}
+                                <div className="w-full mt-2 text-[10px] uppercase font-black tracking-[0.2em] text-background flex items-center justify-center gap-2 bg-primary px-4 py-2.5 rounded-lg shadow-lg group-hover:shadow-primary/40 group-hover:scale-105 transition-all">
+                                    <FiCheckCircle size={14} className="animate-pulse" />
+                                    VERIFY CREDENTIAL
                                 </div>
                             </div>
+
+                            {/* Corner Tech Decor */}
+                            <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-primary/20 opacity-40 group-hover:opacity-100 transition-opacity" />
+                            <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-primary/20 opacity-40 group-hover:opacity-100 transition-opacity" />
                         </motion.div>
                     ))}
                 </div>
