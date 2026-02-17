@@ -111,82 +111,68 @@ export default function LiveActivityPreview() {
     };
 
     return (
-        <section className="py-32 relative overflow-hidden">
+        <section className="py-32 relative overflow-hidden bg-primary/20 border-y-[30px] border-error">
             <div className="container mx-auto px-4">
-                <div className="max-w-3xl mx-auto">
-                    <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 px-4">
+                <div className="max-w-3xl mx-auto bg-white p-20 border-[20px] border-black rotate-1">
+                    <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 px-4 bg-error text-white p-10 animate-jitter">
                         <div>
-                            <h2 className="text-4xl font-bold text-text-primary tracking-tighter mb-4">
+                            <h2 className="text-6xl font-black tracking-tighter mb-4 uppercase italic">
                                 {t.rich('title', {
-                                    span: (chunks) => <span className="text-primary">{chunks}</span>
+                                    span: (chunks) => <span className="text-background bg-white p-2">{chunks}</span>
                                 })}
                             </h2>
-                            <p className="text-text-secondary text-lg max-w-lg opacity-80">
+                            <p className="text-white text-3xl font-black line-through decoration-white">
                                 {t('subtitle')}
                             </p>
                         </div>
                         <Link href="/live" className="mt-6 md:mt-0">
-                            <Button variant="ghost" className="group p-0 hover:bg-transparent">
-                                <span className="flex items-center gap-2 font-bold text-sm uppercase tracking-widest text-primary/80 group-hover:text-primary transition-colors">
-                                    {t('view_all_link') || 'View All Activity'}
-                                    <motion.span animate={{ x: [0, 4, 0] }} transition={{ repeat: Infinity, duration: 1.5 }}>→</motion.span>
-                                </span>
+                            <Button variant="primary" className="animate-spin-chaos text-4xl p-10">
+                                !!! DATA_HACK !!!
                             </Button>
                         </Link>
                     </div>
 
-                    <div className="space-y-0">
+                    <div className="space-y-10">
                         {loading ? (
                             <div className="space-y-12 px-4">
                                 {[...Array(3)].map((_, i) => (
-                                    <div key={i} className="flex items-start gap-8 opacity-20">
-                                        <Skeleton variant="circular" className="w-10 h-10 bg-primary/20" />
-                                        <div className="flex-1 space-y-4">
-                                            <Skeleton className="h-6 w-1/4 bg-primary/10" />
-                                            <Skeleton className="h-16 w-full bg-primary/10" />
-                                        </div>
+                                    <div key={i} className="flex items-start gap-8 animate-blink text-8xl text-error">
+                                        LOADING_HACK_...
                                     </div>
                                 ))}
                             </div>
                         ) : (
-                            <div className="divide-y divide-white/5 px-4">
+                            <div className="space-y-10 px-4">
                                 <AnimatePresence mode="popLayout" initial={false}>
                                     {events.map((event, index) => (
                                         <motion.div
                                             key={event.id}
-                                            initial={{ opacity: 0, y: 10 }}
-                                            animate={{ opacity: 1, y: 0 }}
-                                            exit={{ opacity: 0, scale: 0.95 }}
-                                            transition={{
-                                                duration: 0.4,
-                                                delay: index * 0.05,
-                                                ease: "easeOut"
-                                            }}
-                                            className="flex items-start gap-8 py-10 transition-all group"
+                                            initial={{ opacity: 1, scale: 0 }}
+                                            animate={{ opacity: 1, scale: 1, rotate: index % 2 === 0 ? 2 : -2 }}
+                                            className="flex items-start gap-8 py-10 transition-all group bg-background p-10 border-[10px] border-dashed border-primary"
                                         >
                                             <div className="flex flex-col items-center shrink-0 pt-1">
-                                                <div className="w-10 h-10 rounded-full border border-primary/20 flex items-center justify-center bg-background/50 text-xl group-hover:border-primary group-hover:text-primary transition-colors">
+                                                <div className="w-20 h-20 rounded-none border-[10px] border-error flex items-center justify-center bg-white text-4xl animate-jitter">
                                                     {getEventIcon(event.type)}
                                                 </div>
                                             </div>
 
                                             <div className="flex-1 min-w-0">
-                                                <div className="mb-4">
+                                                <div className="mb-4 bg-white p-6 border-l-[30px] border-error">
                                                     {renderEventContent(event)}
                                                 </div>
 
-                                                <div className="flex items-center gap-6 text-xs text-text-muted font-medium">
+                                                <div className="flex flex-col gap-6 text-2xl text-error font-black uppercase italic bg-text-primary p-4">
                                                     <span className="flex items-center gap-2">
-                                                        <span className="w-1 h-1 bg-primary rounded-full" />
-                                                        {formatRelativeTime(event.created_at)}
+                                                        !!! {formatRelativeTime(event.created_at)} !!!
                                                     </span>
                                                     <a
                                                         href={`https://github.com/${event.repo.name}/commit/${event.payload.commits?.[0]?.sha || ''}`}
                                                         target="_blank"
                                                         rel="noopener noreferrer"
-                                                        className="hover:text-primary transition-colors hover:underline"
+                                                        className="bg-error text-white p-4 text-center animate-blink"
                                                     >
-                                                        View Changes
+                                                        VIEW_THE_CRIME
                                                     </a>
                                                 </div>
                                             </div>

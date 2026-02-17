@@ -15,89 +15,54 @@ export default function BioSection() {
     ];
 
     return (
-        <section className="relative py-24 bg-background overflow-hidden border-y border-white/5">
+        <section className="relative py-24 bg-surface border-y-[20px] border-error overflow-hidden">
             <div className="container mx-auto px-6">
                 {/* Section Header - Terminal Style */}
-                <div className="flex items-center justify-between mb-12 border-b border-primary/20 pb-4">
-                    <div className="flex items-center gap-4">
-                        <div className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-                        <h2 className="text-sm font-mono uppercase tracking-[0.2em] text-primary">
-                            System_Log // detailed_bio.log
+                <div className="flex items-center justify-between mb-12 border-b-[10px] border-text-primary pb-4 bg-white animate-jitter">
+                    <div className="flex items-center gap-4 p-4">
+                        <div className="w-10 h-10 rounded-none bg-error animate-blink" />
+                        <h2 className="text-4xl font-mono uppercase tracking-[0.2em] text-background bg-text-primary p-2">
+                            !!! MY_STORY_HACKED !!!
                         </h2>
-                    </div>
-                    <div className="flex gap-2 text-primary/40">
-                        <FiMinimize2 size={14} />
-                        <FiMaximize2 size={14} />
                     </div>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-12 gap-12">
                     {/* Left: Bio Text */}
                     <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        className="md:col-span-7 space-y-8"
+                        className="md:col-span-12 space-y-8 bg-primary/30 p-10 rotate-1 border-[10px] border-dashed border-error"
                     >
-                        <h3 className="text-3xl md:text-4xl font-bold leading-tight text-white">
+                        <h3 className="text-6xl md:text-8xl font-black leading-tight text-white uppercase italic bg-error inline-block p-4">
                             {t('heading_main')}
                         </h3>
-                        <div className="prose prose-invert max-w-none text-text-secondary leading-relaxed space-y-6">
-                            <p>{t('paragraph_1')}</p>
-                            <p>{t('paragraph_2')}</p>
-                            <p className="pl-4 border-l-2 border-primary/30 italic text-white/80">
+                        <div className="prose prose-invert max-w-none text-background text-3xl font-black leading-relaxed space-y-10">
+                            <p className="bg-white p-6 border-r-[30px] border-text-primary">{t('paragraph_1')}</p>
+                            <p className="bg-text-primary text-white p-6 border-l-[30px] border-error italic">{t('paragraph_2')}</p>
+                            <p className="pl-4 border-l-[30px] border-primary/30 italic text-error bg-background p-10 animate-blink">
                                 "{t('quote')}"
                             </p>
                         </div>
                     </motion.div>
 
-                    {/* Right: Data Card */}
+                    {/* Right: Data Card (Chaos Style) */}
                     <motion.div
-                        initial={{ opacity: 0, x: 20 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: 0.2 }}
-                        className="md:col-span-5"
+                        className="md:col-span-12 bg-white p-20 border-[40px] border-error -rotate-2"
                     >
-                        <div className="bg-surface/30 border border-white/10 p-6 rounded-sm relative overflow-hidden group hover:border-primary/30 transition-colors">
-                            {/* Decorative Grid */}
-                            <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:16px_16px] [mask-image:radial-gradient(ellipse_at_center,black,transparent_70%)]" />
-
-                            <h4 className="text-xs font-mono uppercase text-text-muted mb-6 relative z-10 border-b border-white/5 pb-2">
-                                Operator_Manifesto
+                        <div className="bg-background p-10 border-[10px] border-primary relative overflow-visible flex flex-col items-center">
+                            <h4 className="text-6xl font-black uppercase text-error mb-10 border-b-[10px] border-white pb-2 animate-jitter">
+                                MANIFESTO_CHAOS
                             </h4>
 
-                            <div className="space-y-6 relative z-10">
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-20 w-full relative z-10">
                                 {backgroundData.map((item, index) => (
-                                    <div key={index} className="flex items-center justify-between group/item">
-                                        <div className="flex items-center gap-3">
-                                            <span className="text-primary/60 group-hover/item:text-primary transition-colors">
-                                                {item.icon}
-                                            </span>
-                                            <span className="text-sm font-mono text-text-muted">{item.label}</span>
-                                        </div>
-                                        <span className="text-sm font-bold text-white tracking-wide">{item.value}</span>
+                                    <div key={index} className="flex flex-col items-center p-10 bg-surface-elevated border-[10px] border-text-primary hover:animate-spin-chaos">
+                                        <span className="text-8xl text-primary animate-blink mb-4">
+                                            {item.icon}
+                                        </span>
+                                        <span className="text-2xl font-mono text-white bg-error p-2 mb-4">{item.label}</span>
+                                        <span className="text-4xl font-black text-background bg-white p-4 tracking-tighter uppercase">{item.value}</span>
                                     </div>
                                 ))}
-                            </div>
-
-                            {/* Animated Scanner Bar */}
-                            <div className="absolute top-0 left-0 w-full h-1 bg-primary/20 animate-scanline opacity-0 group-hover:opacity-100 transition-opacity" />
-                        </div>
-
-                        {/* Additional Abstract Data Visual */}
-                        <div className="mt-6 p-4 border border-dashed border-white/10 rounded-sm">
-                            <div className="flex justify-between text-[10px] font-mono text-text-muted mb-2">
-                                <span>SYS_LOAD</span>
-                                <span>98%</span>
-                            </div>
-                            <div className="h-1.5 w-full bg-surface rounded-full overflow-hidden">
-                                <motion.div
-                                    className="h-full bg-primary"
-                                    initial={{ width: "0%" }}
-                                    whileInView={{ width: "98%" }}
-                                    transition={{ duration: 1.5, ease: "circOut" }}
-                                />
                             </div>
                         </div>
                     </motion.div>

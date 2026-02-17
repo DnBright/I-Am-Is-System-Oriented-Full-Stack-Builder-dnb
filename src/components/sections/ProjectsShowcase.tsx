@@ -80,93 +80,80 @@ export default function ProjectsShowcase() {
     const t = useTranslations('Projects');
 
     return (
-        <section className="py-24 relative overflow-hidden">
+        <section className="py-24 relative overflow-hidden bg-error/40">
             <div className="container mx-auto px-4">
-                <div className="max-w-6xl mx-auto">
-                    <div className="flex flex-col items-center text-center mb-16">
-                        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-sm bg-primary/10 border border-primary/20 mb-4">
-                            <span className="text-[10px] font-mono font-bold tracking-[0.2em] text-primary uppercase">Portfolio_Access // v2.4</span>
+                <div className="max-w-6xl mx-auto border-[20px] border-primary p-10 bg-white">
+                    <div className="flex flex-col items-center text-center mb-16 rotate-1">
+                        <div className="inline-flex items-center gap-2 px-10 py-5 rounded-full bg-error border-[10px] border-black mb-4 animate-jitter">
+                            <span className="text-4xl font-mono font-bold tracking-[0.2em] text-white uppercase italic">!!! PROJECTS_ZONE !!!</span>
                         </div>
-                        <h2 className="text-4xl md:text-5xl font-bold text-text-primary tracking-tight mb-4">
+                        <h2 className="text-6xl md:text-[8rem] font-bold text-text-primary tracking-tighter mb-4 uppercase bg-primary p-6 border-4 border-dashed border-error">
                             {t.rich('title', {
-                                span: (chunks) => <span className="text-primary">{chunks}</span>
+                                span: (chunks) => <span className="text-white underline decoration-wavy decoration-error">{chunks}</span>
                             })}
                         </h2>
-                        <p className="text-text-secondary max-w-2xl">
+                        <p className="text-error text-3xl font-black italic bg-text-primary p-4 -rotate-1">
                             {t('subtitle')}
                         </p>
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div className="flex flex-col gap-20">
                         {projects.map((project, index) => {
                             // eslint-disable-next-line react-hooks/rules-of-hooks
                             const tProject = useTranslations(`ProjectDetail.projects.${project.slug}`);
 
                             return (
-                                <Link key={project.id} href={`/projects/${project.slug}`}>
-                                    <Card hover className="p-0 overflow-hidden group cursor-pointer h-full border-primary/5 bg-surface/40 flex flex-col relative">
+                                <Link key={project.id} href={`/projects/${project.slug}`} className={index % 2 === 0 ? "rotate-2" : "-rotate-3"}>
+                                    <Card hover className="p-0 overflow-visible group cursor-crosshair border-black bg-white flex flex-col md:flex-row relative">
                                         {/* Project Image Placeholder */}
-                                        <div className="h-48 bg-surface-elevated relative overflow-hidden flex-shrink-0">
+                                        <div className="w-full md:w-1/2 h-80 bg-error relative overflow-hidden">
                                             {project.screenshots ? (
                                                 <ImageCarousel
                                                     images={project.screenshots}
                                                     alt={project.title}
                                                 />
                                             ) : (
-                                                <>
-                                                    <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-transparent group-hover:from-primary/30 transition-all duration-300" />
-                                                    <div className="absolute inset-0 flex items-center justify-center">
-                                                        <div className="text-5xl font-mono font-bold text-primary/10 group-hover:scale-110 transition-transform">
-                                                            PRJ_{project.id.toString().padStart(3, '0')}
-                                                        </div>
-                                                    </div>
-                                                </>
+                                                <div className="absolute inset-0 flex items-center justify-center bg-primary animate-jitter">
+                                                    <div className="text-8xl font-black text-white">??</div>
+                                                </div>
                                             )}
 
                                             {/* Verified Badge Overlay */}
-                                            <div className="absolute top-4 left-4 z-20">
-                                                <div className="flex items-center gap-2 px-2 py-1 bg-background/80 backdrop-blur-md border border-primary/30 rounded-sm shadow-sm">
-                                                    <div className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
-                                                    <span className="text-[9px] font-mono font-bold text-primary uppercase tracking-wider">
-                                                        {tProject('legal')}
+                                            <div className="absolute -top-10 -left-10 z-20 scale-150 rotate-12">
+                                                <div className="flex items-center gap-2 px-10 py-5 bg-error border-[10px] border-white">
+                                                    <span className="text-4xl font-black text-white uppercase italic">
+                                                        !!! {tProject('legal')} !!!
                                                     </span>
                                                 </div>
-                                            </div>
-
-                                            <div className="absolute bottom-4 right-4 opacity-40">
-                                                <span className="text-[10px] font-mono text-primary uppercase">ENC_STATUS: OK</span>
                                             </div>
                                         </div>
 
-                                        <div className="p-6 flex flex-col flex-1">
+                                        <div className="p-10 flex flex-col flex-1 bg-primary/20">
                                             <div className="mb-4 flex flex-col gap-2">
                                                 <div className="flex justify-between items-start">
-                                                    <Badge variant="default" className="self-start">
+                                                    <Badge variant="default" className="text-3xl bg-error text-white p-4 animate-jitter">
                                                         {tProject('category')}
                                                     </Badge>
-                                                    <span className="text-[10px] font-mono text-primary/80 bg-primary/5 px-2 py-1 rounded border border-primary/10">
-                                                        {tProject('role')}
-                                                    </span>
                                                 </div>
-                                                <span className="text-xs text-text-muted font-mono uppercase tracking-widest opacity-70">
-                                                    Client: <span className="text-text-primary font-bold">{tProject('client')}</span>
+                                                <span className="text-2xl text-text-primary font-black uppercase underline">
+                                                    Client: {tProject('client')}
                                                 </span>
                                             </div>
 
-                                            <h3 className="text-xl font-bold mb-3 text-text-primary group-hover:text-primary transition-colors flex items-center gap-2">
+                                            <h3 className="text-5xl font-black mb-3 text-error uppercase group-hover:animate-jitter">
                                                 {tProject('title')}
                                             </h3>
 
-                                            <p className="text-text-secondary text-sm mb-6 line-clamp-3 leading-relaxed">
+                                            <p className="text-text-primary text-2xl mb-6 bg-white p-6 border-l-[20px] border-error font-bold italic">
                                                 {tProject('system')}
                                             </p>
 
                                             <div className="mt-auto space-y-3">
-                                                <div className="flex flex-wrap gap-2">
+                                                <div className="flex flex-wrap gap-4">
                                                     {(tProject.raw('architecture') as string[]).map((arch) => (
                                                         <span
                                                             key={arch}
-                                                            className="text-[9px] font-mono uppercase tracking-wider px-2 py-1 bg-surface-elevated text-text-muted border border-border group-hover:border-primary/20 transition-colors"
+                                                            className="text-lg font-black uppercase bg-text-primary text-background p-3 border-4 border-white animate-blink"
                                                         >
                                                             {arch}
                                                         </span>
@@ -178,14 +165,6 @@ export default function ProjectsShowcase() {
                                 </Link>
                             );
                         })}
-                    </div>
-
-                    <div className="text-center mt-12">
-                        <Link href="/projects">
-                            <Button size="lg" className="min-w-[200px] font-mono text-xs uppercase tracking-[0.2em]">
-                                {t('view_all')}
-                            </Button>
-                        </Link>
                     </div>
                 </div>
             </div>

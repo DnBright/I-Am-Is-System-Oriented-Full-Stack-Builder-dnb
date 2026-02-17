@@ -1,89 +1,52 @@
 @import "tailwindcss";
 
 @theme {
-  --color-background: rgb(8 15 28);
-  --color-surface: rgb(12 22 41);
-  --color-surface-elevated: rgb(18 32 58);
-  --color-border: rgb(30 46 77);
+  --color-background: #ffff00; /* Bright Yellow */
+  --color-surface: #ff00ff; /* Hot Pink */
+  --color-surface-elevated: #00ffff; /* Cyan */
+  --color-border: #000000; /* Black */
 
-  --color-primary: rgb(249 115 22);
-  --color-primary-hover: rgb(234 88 12);
-  --color-primary-soft: rgba(249, 115, 22, 0.1);
+  --color-primary: #00ff00; /* Lime Green */
+  --color-primary-hover: #ff0000; /* Red */
+  --color-primary-soft: rgba(0, 255, 0, 0.4);
 
-  --color-text-primary: rgb(245 245 245);
-  --color-text-secondary: rgb(148 163 184);
-  --color-text-muted: rgb(71 85 105);
+  --color-text-primary: #0000ff; /* Blue */
+  --color-text-secondary: #ff0000; /* Red */
+  --color-text-muted: #800080; /* Purple */
 
-  --color-success: rgb(34 197 94);
-  --color-warning: rgb(251 191 36);
-  --color-error: rgb(239 68 68);
-  --color-info: rgb(56 189 248);
+  --color-success: #00ff00;
+  --color-warning: #ffa500;
+  --color-error: #ff0000;
+  --color-info: #0000ff;
 
-  --font-sans: var(--font-geist-sans),
-    "Inter",
-    "system-ui",
-    "-apple-system",
-    sans-serif;
-  --font-mono: var(--font-geist-mono),
-    "JetBrains Mono",
-    "Fira Code",
-    monospace;
+  --font-sans: "Comic Sans MS", "Comic Sans", cursive;
+  --font-mono: "Courier New", Courier, monospace;
 
-  @keyframes scanline {
-    from {
-      transform: translateY(-100%);
-    }
-
-    to {
-      transform: translateY(100%);
-    }
+  @keyframes jitter {
+    0% { transform: translate(0, 0) rotate(0); }
+    25% { transform: translate(-2px, 2px) rotate(-1deg); }
+    50% { transform: translate(2px, -2px) rotate(1deg); }
+    75% { transform: translate(-2px, -2px) rotate(-0.5deg); }
+    100% { transform: translate(0, 0) rotate(0); }
   }
 
-  @keyframes grid-pulse {
-
-    0%,
-    100% {
-      opacity: 0.3;
-    }
-
-    50% {
-      opacity: 0.5;
-    }
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
   }
 
-  @keyframes glitch {
-    0% {
-      transform: translate(0);
-    }
-
-    20% {
-      transform: translate(-2px, 2px);
-    }
-
-    40% {
-      transform: translate(-2px, -2px);
-    }
-
-    60% {
-      transform: translate(2px, 2px);
-    }
-
-    80% {
-      transform: translate(2px, -2px);
-    }
-
-    100% {
-      transform: translate(0);
-    }
+  @keyframes spin-chaos {
+    0% { transform: rotate(0); }
+    50% { transform: rotate(180deg) scale(1.2); }
+    100% { transform: rotate(360deg); }
   }
 
-  --animate-scanline: scanline 8s linear infinite;
-  --animate-grid-pulse: grid-pulse 4s ease-in-out infinite;
-  --animate-glitch: glitch 0.3s ease-in-out infinite;
-  --animate-fade-in: fade-in 0.5s ease-in-out;
-  --animate-slide-up: slide-up 0.5s ease-out;
-  --animate-slide-down: slide-down 0.5s ease-out;
-  --animate-pulse-slow: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  --animate-jitter: jitter 0.1s linear infinite;
+  --animate-blink: blink 0.5s step-end infinite;
+  --animate-spin-chaos: spin-chaos 2s linear infinite;
+  --animate-fade-in: fade-in 0.1s ease-in;
+  --animate-slide-up: slide-up 1s bounce;
+  --animate-slide-down: slide-down 1s bounce;
 }
 
 @layer base {

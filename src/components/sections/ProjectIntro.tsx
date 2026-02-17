@@ -11,67 +11,61 @@ export default function ProjectIntro() {
     const t = useTranslations('ProjectIntro');
 
     return (
-        <section className="py-32 relative overflow-hidden bg-background">
-            {/* System Grid Background */}
-            <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:40px_40px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] pointer-events-none" />
+        <section className="py-32 relative overflow-hidden bg-white border-y-[40px] border-primary">
+            {/* System Grid Background REMOVED for chaos */}
+            <div className="absolute inset-0 bg-error/10 animate-jitter" />
 
             <div className="container mx-auto px-6 relative z-10">
                 <div className="max-w-7xl mx-auto">
                     {/* Header */}
-                    <div className="flex flex-col items-center mb-20 text-center">
+                    <div className="flex flex-col items-center mb-20 text-center bg-background p-10 border-[15px] border-dashed border-text-primary rotate-1">
                         <motion.div
-                            initial={{ opacity: 0, scale: 0.9 }}
-                            whileInView={{ opacity: 1, scale: 1 }}
-                            viewport={{ once: true }}
-                            className="mb-4"
+                            className="mb-4 bg-error p-6 animate-spin-chaos"
                         >
-                            <Badge variant="outline" className="text-primary border-primary/30 uppercase tracking-[0.3em] font-mono text-[10px] px-4 py-1.5">
-                                [ System Architect Portfolio ]
+                            <Badge variant="outline" className="text-white border-white border-8 uppercase tracking-[0.5em] font-black text-4xl px-10 py-5">
+                                [ !!! DANGER ZONE !!! ]
                             </Badge>
                         </motion.div>
 
                         <motion.h2
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.6 }}
-                            className="text-4xl md:text-6xl font-black text-white tracking-tighter leading-[1.1]"
+                            className="text-6xl md:text-9xl font-black text-white tracking-widest leading-none bg-error p-8 border-b-[20px] border-white"
                         >
                             {t('text_1')}
                             <br />
-                            <span className="text-primary">{t('text_2')}</span>
+                            <span className="text-primary animate-jitter block bg-background mt-4 p-4 italic underline decoration-white">{t('text_2')}</span>
                         </motion.h2>
 
-                        <div className="mt-8 flex items-center gap-4 text-text-muted font-mono text-[10px] tracking-widest uppercase opacity-60">
-                            <div className="w-12 h-px bg-white/20" />
-                            <span>System Case Studies</span>
-                            <div className="w-12 h-px bg-white/20" />
+                        <div className="mt-8 flex flex-col items-center gap-4 text-primary font-black text-5xl tracking-tighter uppercase">
+                            <div className="w-full h-4 bg-error animate-blink" />
+                            <span>### SYSTEM_CASE_HACKS ###</span>
+                            <div className="w-full h-4 bg-error animate-blink" />
                         </div>
                     </div>
 
-                    {/* Project Cards Grid */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    {/* Project Cards Grid (Misaligned Layout) */}
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-20">
                         {projectsData.map((project, index) => {
                             // eslint-disable-next-line react-hooks/rules-of-hooks
                             const tProject = useTranslations(`ProjectIntro.projects.${project.introKey}`);
 
                             return (
-                                <ProjectCard
-                                    key={project.id}
-                                    project={project}
-                                    index={index}
-                                    title={tProject('title')}
-                                    location={tProject('location')}
-                                    description={tProject('description')}
-                                />
+                                <div key={project.id} className={index % 2 === 0 ? "-rotate-6 scale-110" : "rotate-6 scale-90"}>
+                                    <ProjectCard
+                                        project={project}
+                                        index={index}
+                                        title={tProject('title')}
+                                        location={tProject('location')}
+                                        description={tProject('description')}
+                                    />
+                                </div>
                             );
                         })}
                     </div>
                 </div>
             </div>
 
-            {/* Minimalist divider */}
-            <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-48 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
+            {/* divider */}
+            <div className="w-full h-20 bg-error animate-jitter" />
         </section>
     );
 }

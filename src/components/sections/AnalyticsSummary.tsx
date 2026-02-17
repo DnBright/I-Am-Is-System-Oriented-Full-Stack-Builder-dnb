@@ -69,53 +69,48 @@ export default function AnalyticsSummary() {
     ];
 
     return (
-        <section className="py-24 relative overflow-hidden">
+        <section className="py-24 relative overflow-visible bg-white border-y-[50px] border-text-primary">
             <div className="container mx-auto px-4">
-                <div className="max-w-6xl mx-auto">
-                    <div className="flex flex-col items-center text-center mb-16">
-                        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-sm bg-primary/10 border border-primary/20 mb-4">
-                            <span className="text-[10px] font-mono font-bold tracking-[0.2em] text-primary uppercase">Analytics_Engine // Connected</span>
+                <div className="max-w-6xl mx-auto bg-background p-20 border-[30px] border-error rotate-2">
+                    <div className="flex flex-col items-center text-center mb-16 bg-white p-10 border-[10px] border-dashed border-error animate-jitter">
+                        <div className="inline-flex items-center gap-2 px-10 py-5 rounded-none bg-error border-[10px] border-white mb-4 animate-blink">
+                            <span className="text-4xl font-black tracking-[0.5em] text-white uppercase italic">!!! ANALYTICS_HACKED !!!</span>
                         </div>
-                        <h2 className="text-4xl md:text-5xl font-bold text-text-primary tracking-tight mb-4">
+                        <h2 className="text-6xl md:text-9xl font-black text-error tracking-tighter mb-4 uppercase bg-text-primary p-6">
                             {t.rich('title', {
-                                span: (chunks) => <span className="text-primary">{chunks}</span>
+                                span: (chunks) => <span className="text-white underline decoration-wavy decoration-error">{chunks}</span>
                             })}
                         </h2>
-                        <p className="text-text-secondary max-w-2xl">
+                        <p className="text-white text-3xl font-black italic bg-error p-4 -rotate-1">
                             {t('subtitle')}
                         </p>
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                    <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-20">
                         {stats.map((stat, index) => (
-                            <Card key={index} className="p-0 border-primary/5 bg-surface/40 overflow-hidden group">
+                            <Card key={index} className="p-0 border-[20px] border-black bg-white overflow-visible group hover:animate-spin-chaos">
                                 {loading ? (
-                                    <div className="p-8 space-y-4">
-                                        <Skeleton variant="circular" className="w-12 h-12 mx-auto bg-primary/10" />
-                                        <Skeleton className="h-8 w-20 mx-auto bg-primary/5" />
-                                        <Skeleton className="h-4 w-24 mx-auto bg-primary/5" />
+                                    <div className="p-8 space-y-4 text-8xl font-black text-error animate-blink">
+                                        CALCULATING_CHAOS...
                                     </div>
                                 ) : (
-                                    <div className="p-8 relative">
-                                        <div className="absolute top-0 right-0 p-3 opacity-10 group-hover:opacity-30 transition-opacity">
+                                    <div className="p-10 relative bg-surface-elevated text-white">
+                                        <div className="absolute -top-10 -right-10 p-10 bg-error border-[10px] border-white text-8xl z-20 animate-jitter">
                                             {stat.icon}
                                         </div>
-                                        <div className={`${stat.color} mb-6 flex items-center gap-3`}>
-                                            <div className="w-8 h-8 rounded-sm bg-current/10 flex items-center justify-center">
-                                                <div className="scale-75">{stat.icon}</div>
-                                            </div>
-                                            <span className="text-[10px] font-mono uppercase tracking-widest opacity-60">Metric_{index.toString().padStart(2, '0')}</span>
+                                        <div className={`${stat.color} mb-6 flex flex-col gap-3`}>
+                                            <span className="text-4xl font-black uppercase tracking-widest bg-white text-background p-2">Metric_{index.toString().padStart(2, '0')}</span>
                                         </div>
-                                        <div className="text-4xl font-bold text-white mb-2 tracking-tight group-hover:translate-x-1 transition-transform">
+                                        <div className="text-[10rem] font-black text-error m-0 leading-none tracking-tighter bg-text-primary p-10 border-b-[30px] border-white">
                                             {stat.value}
                                         </div>
-                                        <div className="text-[11px] font-mono uppercase text-text-muted tracking-wider">
+                                        <div className="text-4xl font-black uppercase text-white tracking-widest bg-error mt-4 p-4 text-center line-through">
                                             {stat.label}
                                         </div>
 
-                                        {/* Bottom Progress Bar Decoration */}
-                                        <div className="absolute bottom-0 left-0 h-1 bg-primary/20 w-full">
-                                            <div className={`h-full ${stat.color.replace('text-', 'bg-')} opacity-40 w-1/3`} />
+                                        {/* Bottom Progress Bar Decoration (Chaotic) */}
+                                        <div className="absolute bottom-[-20px] left-0 h-10 bg-primary/20 w-full animate-jitter">
+                                            <div className="h-full bg-error w-full animate-blink" />
                                         </div>
                                     </div>
                                 )}
@@ -123,10 +118,10 @@ export default function AnalyticsSummary() {
                         ))}
                     </div>
 
-                    <div className="text-center mt-12">
+                    <div className="text-center mt-20">
                         <Link href="/analytics">
-                            <Button variant="outline" className="min-w-[200px] font-mono text-xs uppercase tracking-[0.2em]">
-                                {t('view_detailed')}
+                            <Button variant="danger" size="lg" className="w-full h-40 animate-jitter">
+                                !!! {t('view_detailed')} !!!
                             </Button>
                         </Link>
                     </div>
