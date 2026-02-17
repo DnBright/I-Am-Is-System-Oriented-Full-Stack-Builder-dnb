@@ -26,6 +26,7 @@
   },
   "BioSection": {
     "title": "Building Strong Digital Foundations.",
+    "heading_main": "Building Strong Digital Foundations.",
     "paragraph_1": "My journey began not just with a desire to write code, but with an obsession to understand how systems work. From server infrastructure to user interfaces, I view every element as part of a single digital organism.",
     "paragraph_2": "With an academic background in Computer Science and real-world experience handling large-scale deployments, I don't just build features—I ensure long-term reliability, security, and efficiency.",
     "quote": "Code is how I speak to machines, but Systems are how I deliver value to people."
