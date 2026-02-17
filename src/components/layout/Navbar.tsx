@@ -83,7 +83,7 @@ export default function Navbar() {
                                         onClick={() => toggleSubMenu(link.label)}
                                         className={cn(
                                             "relative px-6 py-4 flex items-center justify-between group transition-all duration-300 z-10 w-full text-left",
-                                            isActive ? "text-primary" : "text-text-muted hover:text-white"
+                                            isActive ? "text-primary" : "text-text-muted hover:text-text-primary"
                                         )}
                                     >
                                         <div className="flex items-center gap-5">
@@ -100,7 +100,7 @@ export default function Navbar() {
                                                 initial={{ height: 0, opacity: 0 }}
                                                 animate={{ height: 'auto', opacity: 1 }}
                                                 exit={{ height: 0, opacity: 0 }}
-                                                className="overflow-hidden ml-12 border-l border-white/5 pl-4 flex flex-col gap-2"
+                                                className="overflow-hidden ml-12 border-l border-border pl-4 flex flex-col gap-2"
                                             >
                                                 {link.subItems.map((sub) => {
                                                     const isSubActive = pathname === sub.href;
@@ -110,7 +110,7 @@ export default function Navbar() {
                                                             href={sub.href}
                                                             className={cn(
                                                                 "py-2 text-sm font-mono uppercase tracking-wider block transition-colors",
-                                                                isSubActive ? "text-primary font-bold" : "text-text-muted hover:text-white"
+                                                                isSubActive ? "text-primary font-bold" : "text-text-muted hover:text-text-primary"
                                                             )}
                                                         >
                                                             {sub.label}
@@ -215,7 +215,7 @@ export default function Navbar() {
                                                         href={sub.href}
                                                         className={cn(
                                                             "text-2xl font-bold uppercase tracking-tighter flex items-center gap-4",
-                                                            pathname === sub.href ? "text-primary" : "text-text-muted hover:text-white"
+                                                            pathname === sub.href ? "text-primary" : "text-text-muted hover:text-text-primary"
                                                         )}
                                                         onClick={() => setIsOpen(false)}
                                                     >
@@ -238,7 +238,7 @@ export default function Navbar() {
                                             href={link.href}
                                             className={cn(
                                                 "text-4xl font-bold uppercase tracking-tighter flex items-center gap-4",
-                                                pathname === link.href ? "text-primary" : "text-text-muted hover:text-white"
+                                                pathname === link.href ? "text-primary" : "text-text-muted hover:text-text-primary"
                                             )}
                                             onClick={() => setIsOpen(false)}
                                         >

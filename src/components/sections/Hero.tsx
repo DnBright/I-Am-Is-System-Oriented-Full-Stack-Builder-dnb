@@ -29,7 +29,7 @@ export default function Hero() {
                             <div className="absolute inset-0 bg-primary/10 mix-blend-overlay opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-20" />
 
                             {/* Scanline */}
-                            <div className="absolute top-0 left-0 w-full h-1 bg-primary/40 shadow-[0_0_15px_rgba(99,102,241,0.6)] animate-scanline z-30" />
+                            <div className="absolute top-0 left-0 w-full h-1 bg-primary/40 shadow-[0_0_15px_var(--primary)] animate-scanline z-30 opacity-40 dark:opacity-100" />
 
                             <img
                                 src="/images/profile.png"

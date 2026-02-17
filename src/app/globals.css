@@ -2,20 +2,22 @@
 
 :root {
   --background: #f8fafc;
-  --surface: rgba(255, 255, 255, 0.8);
+  --surface: rgba(255, 255, 255, 0.9);
   --surface-elevated: #ffffff;
-  --border: rgba(0, 0, 0, 0.1);
-  --primary: #6366f1;
-  --primary-hover: #4f46e5;
-  --primary-soft: rgba(99, 102, 241, 0.05);
+  --border: rgba(15, 23, 42, 0.1);
+  --primary: #4f46e5;
+  --primary-hover: #4338ca;
+  --primary-soft: rgba(79, 70, 229, 0.08);
   --text-primary: #0f172a;
-  --text-secondary: #475569;
+  --text-secondary: #334155;
   --text-muted: #64748b;
-  --success: #10b981;
-  --warning: #f59e0b;
-  --error: #ef4444;
-  --info: #06b6d4;
-  --selection: rgba(99, 102, 241, 0.2);
+  --success: #059669;
+  --warning: #d97706;
+  --error: #dc2626;
+  --info: #0891b2;
+  --selection: rgba(79, 70, 229, 0.2);
+  --grid-color: rgba(15, 23, 42, 0.03);
+  --glass-border: rgba(15, 23, 42, 0.08);
 }
 
 .dark {
@@ -30,6 +32,8 @@
   --text-secondary: #94a3b8;
   --text-muted: #64748b;
   --selection: rgba(99, 102, 241, 0.3);
+  --grid-color: rgba(255, 255, 255, 0.03);
+  --glass-border: rgba(255, 255, 255, 0.05);
 }
 
 @theme {
@@ -137,28 +141,28 @@
 }
 
 @utility glass {
-  @apply bg-surface/40 backdrop-blur-xl border border-white/5;
+  @apply bg-surface/40 backdrop-blur-xl border border-[var(--glass-border)];
 }
 
 @utility glow-primary {
-  box-shadow: 0 0 25px rgba(249, 115, 22, 0.2);
+  box-shadow: 0 0 25px var(--primary-soft);
 }
 
 @utility glow-primary-strong {
-  box-shadow: 0 0 50px rgba(249, 115, 22, 0.4);
+  box-shadow: 0 0 50px var(--primary-soft);
 }
 
 @utility tech-grid {
   background-size: 40px 40px;
   background-image:
-    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    linear-gradient(to right, var(--grid-color) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid-color) 1px, transparent 1px);
 }
 
 @utility scanline {
   background: linear-gradient(to bottom,
       transparent 0%,
-      rgba(249, 115, 22, 0.03) 50%,
+      var(--primary-soft) 50%,
       transparent 100%);
 }
 
