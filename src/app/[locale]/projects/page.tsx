@@ -121,11 +121,11 @@ export default function ProjectsPage() {
                                                 <FaLayerGroup className="text-primary/20 group-hover:text-primary transition-all group-hover:rotate-12" />
                                             </div>
 
-                                            <h3 className="text-3xl font-black mb-6 text-text-primary group-hover:text-primary transition-colors tracking-tighter uppercase">
+                                            <h3 className="text-3xl font-black mb-4 text-white group-hover:text-primary transition-colors tracking-tighter uppercase">
                                                 {project.title}
                                             </h3>
 
-                                            <p className="text-text-muted leading-relaxed mb-8 font-mono text-xs uppercase tracking-wider opacity-60 group-hover:opacity-100 transition-opacity">
+                                            <p className="text-text-secondary leading-relaxed mb-8 font-sans text-sm font-light">
                                                 {project.description}
                                             </p>
                                         </div>

@@ -71,16 +71,15 @@ export default function Hero() {
                                 <span className="text-xs font-mono font-bold tracking-[0.2em] text-primary uppercase">Available_for_New_Sprints</span>
                             </motion.div>
 
-                            <div className="space-y-4">
+                            <div className="space-y-6">
                                 <motion.h1
                                     initial={{ opacity: 0, y: 20 }}
                                     animate={{ opacity: 1, y: 0 }}
                                     transition={{ delay: 0.4 }}
-                                    className="text-6xl md:text-8xl lg:text-9xl font-bold leading-[0.9] tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-white via-white to-white/40"
+                                    className="text-6xl md:text-8xl lg:text-9xl font-extrabold leading-[0.85] tracking-tighter text-white"
                                 >
                                     {t.rich('title', {
-                                        br: () => <br />,
-                                        span: (chunks) => <span className="text-primary block">{chunks}</span>
+                                        span: (chunks) => <span className="text-primary">{chunks}</span>
                                     })}
                                 </motion.h1>
 
@@ -88,11 +87,28 @@ export default function Hero() {
                                     initial={{ opacity: 0, y: 20 }}
                                     animate={{ opacity: 1, y: 0 }}
                                     transition={{ delay: 0.6 }}
-                                    className="text-xl md:text-2xl text-text-secondary font-light max-w-xl leading-relaxed"
+                                    className="text-xl md:text-2xl text-text-secondary leading-relaxed max-w-2xl font-sans font-light"
                                 >
                                     {t('intro_short')}
                                 </motion.p>
                             </div>
+
+                            {/* Messaging Anchors */}
+                            <motion.div
+                                initial={{ opacity: 0, y: 20 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ delay: 0.7 }}
+                                className="grid grid-cols-1 md:grid-cols-2 gap-8 pt-4"
+                            >
+                                <div className="space-y-2 border-l border-primary/20 pl-6">
+                                    <p className="text-[10px] font-mono font-bold text-primary uppercase tracking-[0.2em]">Strategy_Focus</p>
+                                    <p className="text-sm font-sans text-text-muted leading-snug">{t('subtitle_1')}</p>
+                                </div>
+                                <div className="space-y-2 border-l border-white/10 pl-6">
+                                    <p className="text-[10px] font-mono font-bold text-text-muted uppercase tracking-[0.2em]">Execution_Identity</p>
+                                    <p className="text-sm font-sans text-text-muted leading-snug">{t('subtitle_2')}</p>
+                                </div>
+                            </motion.div>
 
                             <motion.div
                                 initial={{ opacity: 0, y: 20 }}

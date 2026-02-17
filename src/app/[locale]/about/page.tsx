@@ -77,12 +77,12 @@ export default function AboutPage() {
                             <h3 className="text-xs font-mono font-bold text-primary uppercase tracking-[0.3em]">{t('mindset.title')}</h3>
                         </div>
                         <div className="space-y-6">
-                            <p className="text-lg text-text-muted leading-relaxed font-mono uppercase tracking-wider opacity-80">
+                            <p className="text-xl md:text-2xl text-white leading-relaxed font-sans font-light">
                                 {t('mindset.desc1')}
                             </p>
-                            <p className="text-lg text-text-muted leading-relaxed font-mono uppercase tracking-wider opacity-80">
+                            <p className="text-lg text-text-secondary leading-relaxed font-sans">
                                 {t.rich('mindset.desc2', {
-                                    strong: (children) => <strong className="text-text-primary underline underline-offset-4 decoration-primary/30">{children}</strong>
+                                    strong: (children) => <strong className="text-white font-bold">{children}</strong>
                                 })}
                             </p>
                         </div>

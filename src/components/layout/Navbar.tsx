@@ -59,12 +59,13 @@ export default function Navbar() {
     return (
         <>
             {/* Desktop Vertical Navbar - Clean & Large */}
-            <nav className="fixed left-0 top-0 h-screen z-50 hidden lg:flex flex-col justify-center gap-12 w-[320px] bg-background/20 backdrop-blur-sm border-r border-white/5">
-                {/* Brand */}
-                <div className="px-10 mb-4">
-                    <Link href="/" className="text-3xl font-bold text-primary tracking-tighter flex flex-col">
-                        <span>DN.</span>
-                        <span className="text-[10px] text-text-muted font-mono opacity-50 font-normal tracking-[0.3em] uppercase mt-1">System_OS</span>
+            <nav className="fixed left-0 top-0 h-screen z-50 hidden lg:flex flex-col justify-center gap-12 w-[300px] bg-background/40 backdrop-blur-xl border-r border-white/5">
+                <div className="px-10 mb-8 select-none">
+                    <Link href="/" className="group flex flex-col">
+                        <span className="text-4xl font-extrabold text-white tracking-tighter leading-none group-hover:text-primary transition-colors">
+                            DN<span className="text-primary group-hover:text-white">.</span>
+                        </span>
+                        <span className="text-[9px] text-text-muted font-mono font-bold tracking-[0.4em] uppercase mt-2 opacity-40 group-hover:opacity-100 transition-all">System_Architect</span>
                     </Link>
                 </div>
 
@@ -135,11 +136,11 @@ export default function Navbar() {
                                 {isActive && (
                                     <motion.div
                                         layoutId="active-nav-pill"
-                                        className="absolute inset-0 bg-primary shadow-[0_0_20px_-5px_rgba(var(--primary-rgb),0.6)] z-[-1]"
+                                        className="absolute inset-x-4 inset-y-2 bg-white/[0.03] border border-white/5 shadow-[0_0_20px_rgba(255,255,255,0.02)] z-[-1]"
                                         initial={false}
                                         transition={{ type: "spring", stiffness: 300, damping: 30 }}
                                         style={{
-                                            borderRadius: "16px 4px 16px 4px" // Tech/Cyber Shape
+                                            borderRadius: "12px"
                                         }}
                                     />
                                 )}
@@ -152,7 +153,8 @@ export default function Navbar() {
                                 </span>
 
                                 <span className={cn(
-                                    "text-lg tracking-wide uppercase font-mono font-bold relative z-10",
+                                    "text-lg tracking-wide uppercase font-mono font-bold relative z-10 transition-colors duration-300",
+                                    isActive ? "text-primary" : ""
                                 )}>
                                     {link.label}
                                 </span>
@@ -174,10 +176,9 @@ export default function Navbar() {
                 </div>
             </nav>
 
-            {/* Mobile Header (Clean) */}
-            <div className="fixed top-0 left-0 w-full p-6 z-50 lg:hidden flex items-center justify-between bg-gradient-to-b from-background to-transparent">
-                <Link href="/" className="text-xl font-bold text-primary tracking-tighter">
-                    DN.
+            <div className="fixed top-0 left-0 w-full p-6 z-50 lg:hidden flex items-center justify-between bg-background/80 backdrop-blur-lg border-b border-white/5">
+                <Link href="/" className="text-2xl font-extrabold text-white tracking-tighter">
+                    DN<span className="text-primary">.</span>
                 </Link>
 
                 <button
