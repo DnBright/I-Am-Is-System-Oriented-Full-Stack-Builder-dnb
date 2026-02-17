@@ -5,6 +5,7 @@ import Badge from '@/components/ui/Badge';
 import Button from '@/components/ui/Button';
 import { Link } from '@/navigation';
 import ImageCarousel from '@/components/ui/ImageCarousel';
+import { FaArrowRight } from 'react-icons/fa';
 import { motion } from 'framer-motion';
 import { useTranslations } from 'next-intl';
 
@@ -79,7 +80,6 @@ const projects = [
 export default function ProjectsShowcase() {
     const t = useTranslations('Projects');
 
-    return (
     return (
         <section className="py-32 relative overflow-hidden">
             <div className="container mx-auto px-4">
@@ -158,7 +158,5 @@ export default function ProjectsShowcase() {
                 </div>
             </div>
         </section>
-    );
-}
     );
 }

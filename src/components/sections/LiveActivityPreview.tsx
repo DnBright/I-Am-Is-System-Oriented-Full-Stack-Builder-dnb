@@ -9,7 +9,7 @@ import { formatRelativeTime } from '@/lib/utils';
 import { GitHubEvent } from '@/types/github';
 import { Link } from '@/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FaGithub, FaCodeBranch, FaGitAlt, FaHistory } from 'react-icons/fa';
+import { FaGithub, FaCodeBranch, FaGitAlt, FaHistory, FaArrowRight } from 'react-icons/fa';
 import { useTranslations } from 'next-intl';
 
 export default function LiveActivityPreview() {
@@ -111,76 +111,101 @@ export default function LiveActivityPreview() {
     };
 
     return (
-        <section className="py-32 relative overflow-hidden bg-primary/20 border-y-[30px] border-error">
-            <div className="container mx-auto px-4">
-                <div className="max-w-3xl mx-auto bg-white p-20 border-[20px] border-black rotate-1">
-                    <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 px-4 bg-error text-white p-10 animate-jitter">
-                        <div>
-                            <h2 className="text-6xl font-black tracking-tighter mb-4 uppercase italic">
+        <section className="py-32 relative overflow-hidden">
+            <div className="container mx-auto px-6">
+                <div className="max-w-4xl mx-auto">
+                    <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-8">
+                        <div className="space-y-4">
+                            <div className="flex items-center gap-3">
+                                <div className="h-px w-12 bg-primary/50" />
+                                <span className="text-xs font-mono font-bold tracking-[0.3em] text-primary uppercase">Live_System_Telemetry</span>
+                            </div>
+                            <h2 className="text-5xl md:text-6xl font-bold tracking-tighter text-white">
                                 {t.rich('title', {
-                                    span: (chunks) => <span className="text-background bg-white p-2">{chunks}</span>
+                                    span: (chunks) => <span className="text-primary">{chunks}</span>
                                 })}
                             </h2>
-                            <p className="text-white text-3xl font-black line-through decoration-white">
+                            <p className="text-text-secondary text-lg font-light max-w-xl">
                                 {t('subtitle')}
                             </p>
                         </div>
-                        <Link href="/live" className="mt-6 md:mt-0">
-                            <Button variant="primary" className="animate-spin-chaos text-4xl p-10">
-                                !!! DATA_HACK !!!
-                            </Button>
-                        </Link>
+                        <div className="flex items-center gap-4">
+                            <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10">
+                                <span className={`w-2 h-2 rounded-full ${isPolling ? 'bg-primary animate-pulse' : 'bg-success'}`} />
+                                <span className="text-[10px] font-mono font-bold text-text-muted uppercase tracking-widest leading-none">
+                                    {isPolling ? 'Syncing_Node' : 'System_Stable'}
+                                </span>
+                            </div>
+                            <Link href="/live">
+                                <Button variant="outline" size="sm">
+                                    {t('view_all_activity')}
+                                </Button>
+                            </Link>
+                        </div>
                     </div>
 
-                    <div className="space-y-10">
+                    <div className="space-y-6">
                         {loading ? (
-                            <div className="space-y-12 px-4">
+                            <div className="space-y-4">
                                 {[...Array(3)].map((_, i) => (
-                                    <div key={i} className="flex items-start gap-8 animate-blink text-8xl text-error">
-                                        LOADING_HACK_...
-                                    </div>
+                                    <Skeleton key={i} className="h-40 w-full rounded-2xl" />
                                 ))}
                             </div>
                         ) : (
-                            <div className="space-y-10 px-4">
+                            <div className="space-y-4">
                                 <AnimatePresence mode="popLayout" initial={false}>
                                     {events.map((event, index) => (
                                         <motion.div
                                             key={event.id}
-                                            initial={{ opacity: 1, scale: 0 }}
-                                            animate={{ opacity: 1, scale: 1, rotate: index % 2 === 0 ? 2 : -2 }}
-                                            className="flex items-start gap-8 py-10 transition-all group bg-background p-10 border-[10px] border-dashed border-primary"
+                                            initial={{ opacity: 0, x: -20 }}
+                                            animate={{ opacity: 1, x: 0 }}
+                                            transition={{ delay: index * 0.1 }}
                                         >
-                                            <div className="flex flex-col items-center shrink-0 pt-1">
-                                                <div className="w-20 h-20 rounded-none border-[10px] border-error flex items-center justify-center bg-white text-4xl animate-jitter">
-                                                    {getEventIcon(event.type)}
-                                                </div>
-                                            </div>
+                                            <Card className="p-0 border-white/5 bg-surface/30 group hover:bg-surface/50">
+                                                <div className="flex items-stretch">
+                                                    <div className="w-1.5 bg-primary/20 group-hover:bg-primary transition-colors" />
+                                                    <div className="flex-1 p-8 flex items-start gap-8">
+                                                        <div className="w-14 h-14 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-xl shrink-0 group-hover:border-primary/50 transition-colors">
+                                                            {getEventIcon(event.type)}
+                                                        </div>
 
-                                            <div className="flex-1 min-w-0">
-                                                <div className="mb-4 bg-white p-6 border-l-[30px] border-error">
-                                                    {renderEventContent(event)}
-                                                </div>
+                                                        <div className="flex-1 min-w-0">
+                                                            <div className="mb-4">
+                                                                {renderEventContent(event)}
+                                                            </div>
 
-                                                <div className="flex flex-col gap-6 text-2xl text-error font-black uppercase italic bg-text-primary p-4">
-                                                    <span className="flex items-center gap-2">
-                                                        !!! {formatRelativeTime(event.created_at)} !!!
-                                                    </span>
-                                                    <a
-                                                        href={`https://github.com/${event.repo.name}/commit/${event.payload.commits?.[0]?.sha || ''}`}
-                                                        target="_blank"
-                                                        rel="noopener noreferrer"
-                                                        className="bg-error text-white p-4 text-center animate-blink"
-                                                    >
-                                                        VIEW_THE_CRIME
-                                                    </a>
+                                                            <div className="flex items-center justify-between mt-6 pt-6 border-t border-white/5">
+                                                                <div className="flex items-center gap-4 text-[10px] font-mono text-text-muted uppercase tracking-widest font-bold">
+                                                                    <span className="flex items-center gap-2">
+                                                                        <FaHistory className="text-[12px]" />
+                                                                        {formatRelativeTime(event.created_at)}
+                                                                    </span>
+                                                                </div>
+                                                                <a
+                                                                    href={`https://github.com/${event.repo.name}/commit/${event.payload.commits?.[0]?.sha || ''}`}
+                                                                    target="_blank"
+                                                                    rel="noopener noreferrer"
+                                                                    className="text-primary font-bold text-[10px] font-mono tracking-widest flex items-center gap-2 hover:gap-3 transition-all"
+                                                                >
+                                                                    INSPECT_REVISION_LINK_DATA <FaArrowRight />
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                            </div>
+                                            </Card>
                                         </motion.div>
                                     ))}
                                 </AnimatePresence>
                             </div>
                         )}
+
+                        {/* More Activity Link */}
+                        <div className="mt-12 text-center">
+                            <Link href="/live" className="text-text-muted hover:text-primary transition-colors font-mono text-xs tracking-[0.2em] font-bold">
+                                VIEW_FULL_TRAJECTORY_LOGS_ -&gt;
+                            </Link>
+                        </div>
                     </div>
                 </div>
             </div>

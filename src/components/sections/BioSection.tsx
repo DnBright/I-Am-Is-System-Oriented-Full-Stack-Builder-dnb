@@ -15,54 +15,81 @@ export default function BioSection() {
     ];
 
     return (
-        <section className="relative py-24 bg-surface border-y-[20px] border-error overflow-hidden">
+        <section className="relative py-32 overflow-hidden">
+            {/* Ambient Background Glow */}
+            <div className="absolute top-1/2 left-0 -translate-y-1/2 w-96 h-96 bg-primary/10 blur-[120px] rounded-full pointer-events-none" />
+
             <div className="container mx-auto px-6">
-                {/* Section Header - Terminal Style */}
-                <div className="flex items-center justify-between mb-12 border-b-[10px] border-text-primary pb-4 bg-white animate-jitter">
-                    <div className="flex items-center gap-4 p-4">
-                        <div className="w-10 h-10 rounded-none bg-error animate-blink" />
-                        <h2 className="text-4xl font-mono uppercase tracking-[0.2em] text-background bg-text-primary p-2">
-                            !!! MY_STORY_HACKED !!!
-                        </h2>
-                    </div>
-                </div>
-
-                <div className="grid grid-cols-1 md:grid-cols-12 gap-12">
-                    {/* Left: Bio Text */}
-                    <motion.div
-                        className="md:col-span-12 space-y-8 bg-primary/30 p-10 rotate-1 border-[10px] border-dashed border-error"
-                    >
-                        <h3 className="text-6xl md:text-8xl font-black leading-tight text-white uppercase italic bg-error inline-block p-4">
-                            {t('heading_main')}
-                        </h3>
-                        <div className="prose prose-invert max-w-none text-background text-3xl font-black leading-relaxed space-y-10">
-                            <p className="bg-white p-6 border-r-[30px] border-text-primary">{t('paragraph_1')}</p>
-                            <p className="bg-text-primary text-white p-6 border-l-[30px] border-error italic">{t('paragraph_2')}</p>
-                            <p className="pl-4 border-l-[30px] border-primary/30 italic text-error bg-background p-10 animate-blink">
-                                "{t('quote')}"
-                            </p>
+                <div className="grid grid-cols-1 md:grid-cols-12 gap-16 items-start">
+                    {/* Left: Section Header & Background Cards */}
+                    <div className="md:col-span-5 space-y-12">
+                        <div className="space-y-6">
+                            <div className="flex items-center gap-3">
+                                <div className="h-px w-12 bg-primary/50" />
+                                <span className="text-xs font-mono font-bold tracking-[0.3em] text-primary uppercase">Bio_Manifesto</span>
+                            </div>
+                            <h2 className="text-5xl md:text-6xl font-bold tracking-tighter text-white leading-tight">
+                                {t.rich('title', {
+                                    span: (chunks) => <span className="text-primary">{chunks}</span>
+                                })}
+                            </h2>
                         </div>
-                    </motion.div>
 
-                    {/* Right: Data Card (Chaos Style) */}
-                    <motion.div
-                        className="md:col-span-12 bg-white p-20 border-[40px] border-error -rotate-2"
-                    >
-                        <div className="bg-background p-10 border-[10px] border-primary relative overflow-visible flex flex-col items-center">
-                            <h4 className="text-6xl font-black uppercase text-error mb-10 border-b-[10px] border-white pb-2 animate-jitter">
-                                MANIFESTO_CHAOS
-                            </h4>
-
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-20 w-full relative z-10">
-                                {backgroundData.map((item, index) => (
-                                    <div key={index} className="flex flex-col items-center p-10 bg-surface-elevated border-[10px] border-text-primary hover:animate-spin-chaos">
-                                        <span className="text-8xl text-primary animate-blink mb-4">
-                                            {item.icon}
-                                        </span>
-                                        <span className="text-2xl font-mono text-white bg-error p-2 mb-4">{item.label}</span>
-                                        <span className="text-4xl font-black text-background bg-white p-4 tracking-tighter uppercase">{item.value}</span>
+                        <div className="grid grid-cols-1 gap-6">
+                            {backgroundData.map((item, index) => (
+                                <motion.div
+                                    key={index}
+                                    initial={{ opacity: 0, x: -20 }}
+                                    whileInView={{ opacity: 1, x: 0 }}
+                                    transition={{ delay: index * 0.1 }}
+                                    className="flex items-center gap-6 p-6 rounded-2xl bg-surface/40 border border-white/5 hover:border-primary/30 transition-all group"
+                                >
+                                    <div className="text-3xl text-primary/60 group-hover:text-primary transition-colors">
+                                        {item.icon}
                                     </div>
-                                ))}
+                                    <div className="space-y-1">
+                                        <p className="text-[10px] font-mono font-bold text-text-muted uppercase tracking-widest">{item.label}</p>
+                                        <p className="text-sm font-bold text-white uppercase tracking-tight">{item.value}</p>
+                                    </div>
+                                </motion.div>
+                            ))}
+                        </div>
+                    </div>
+
+                    {/* Right: Bio Text Content */}
+                    <motion.div
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.8 }}
+                        className="md:col-span-7 space-y-10"
+                    >
+                        <div className="relative">
+                            <h3 className="text-4xl md:text-5xl font-bold leading-tight text-white mb-10">
+                                {t('heading_main')}
+                            </h3>
+                            <div className="prose prose-invert max-w-none space-y-8">
+                                <p className="text-xl text-text-secondary leading-relaxed font-light">
+                                    {t('paragraph_1')}
+                                </p>
+                                <p className="text-xl text-text-secondary leading-relaxed font-light">
+                                    {t('paragraph_2')}
+                                </p>
+                            </div>
+                        </div>
+
+                        {/* Quote Box */}
+                        <div className="relative p-10 rounded-2xl bg-primary/5 border border-primary/20 overflow-hidden group">
+                            <div className="absolute top-0 right-0 p-4 opacity-10">
+                                <FiTerminal className="text-6xl text-primary" />
+                            </div>
+                            <div className="relative z-10">
+                                <p className="text-2xl font-light italic text-white/90 leading-relaxed">
+                                    "{t('quote')}"
+                                </p>
+                                <div className="mt-6 flex items-center gap-3">
+                                    <div className="w-8 h-px bg-primary" />
+                                    <span className="text-xs font-mono font-bold text-primary uppercase tracking-[0.2em]">System_Philosophy</span>
+                                </div>
                             </div>
                         </div>
                     </motion.div>
