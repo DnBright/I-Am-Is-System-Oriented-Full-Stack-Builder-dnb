@@ -2,22 +2,23 @@
 
 :root {
   --background: #f8fafc;
-  --surface: rgba(255, 255, 255, 0.9);
+  --surface: rgba(255, 255, 255, 1);
   --surface-elevated: #ffffff;
-  --border: rgba(15, 23, 42, 0.1);
-  --primary: #4f46e5;
-  --primary-hover: #4338ca;
-  --primary-soft: rgba(79, 70, 229, 0.08);
-  --text-primary: #0f172a;
-  --text-secondary: #334155;
-  --text-muted: #64748b;
-  --success: #059669;
-  --warning: #d97706;
-  --error: #dc2626;
-  --info: #0891b2;
+  --border: rgba(15, 23, 42, 0.15);
+  --primary: #4338ca;
+  --primary-hover: #3730a3;
+  --primary-soft: rgba(67, 56, 202, 0.1);
+  --text-primary: #020617;
+  --text-secondary: #1e293b;
+  --text-muted: #475569;
+  --success: #047857;
+  --warning: #b45309;
+  --error: #b91c1c;
+  --info: #0e7490;
   --selection: rgba(79, 70, 229, 0.2);
-  --grid-color: rgba(15, 23, 42, 0.03);
-  --glass-border: rgba(15, 23, 42, 0.08);
+  --grid-color: rgba(15, 23, 42, 0.05);
+  --glass-border: rgba(15, 23, 42, 0.12);
+  --glass-bg: rgba(255, 255, 255, 0.85);
 }
 
 .dark {
@@ -34,6 +35,7 @@
   --selection: rgba(99, 102, 241, 0.3);
   --grid-color: rgba(255, 255, 255, 0.03);
   --glass-border: rgba(255, 255, 255, 0.05);
+  --glass-bg: rgba(15, 23, 42, 0.4);
 }
 
 @theme {
@@ -141,7 +143,7 @@
 }
 
 @utility glass {
-  @apply bg-surface/40 backdrop-blur-xl border border-[var(--glass-border)];
+  @apply bg-[var(--glass-bg)] backdrop-blur-xl border border-[var(--glass-border)];
 }
 
 @utility glow-primary {

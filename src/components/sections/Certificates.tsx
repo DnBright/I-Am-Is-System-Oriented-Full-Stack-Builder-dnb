@@ -39,12 +39,12 @@ export default function Certificates() {
                 {/* Verified Authority Section */}
                 <div className="mb-8 flex items-center gap-4">
                     <div className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
-                    <h2 className="text-xl font-bold font-mono uppercase tracking-wider text-white">
+                    <h2 className="text-xl font-bold font-mono uppercase tracking-wider text-text-primary">
                         {t('verified_authority.title')}
                     </h2>
                 </div>
 
-                <p className="text-gray-400 max-w-2xl mb-12 leading-relaxed">
+                <p className="text-text-secondary max-w-2xl mb-12 leading-relaxed">
                     {t('verified_authority.intro')}
                 </p>
 
@@ -57,7 +57,7 @@ export default function Certificates() {
                             viewport={{ once: true }}
                             transition={{ delay: 0.2 + (index * 0.1) }}
                             onClick={() => setSelectedDoc({ url: doc.file, title: t(`verified_authority.docs.${doc.key}`) })}
-                            className="group relative bg-surface/40 border border-white/20 p-8 rounded-xl hover:bg-surface/60 hover:border-primary/60 transition-all duration-300 cursor-pointer overflow-hidden shadow-2xl shadow-black/40"
+                            className="group relative bg-surface-elevated/40 border border-border p-8 rounded-xl hover:bg-surface-elevated/60 hover:border-primary/60 transition-all duration-300 cursor-pointer overflow-hidden shadow-2xl shadow-black/20"
                         >
                             {/* Hover Status Highlight */}
                             <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
@@ -80,11 +80,11 @@ export default function Certificates() {
 
                             <div className="relative z-10 flex flex-col items-center text-center gap-6">
                                 {/* Large Prominent Icon */}
-                                <div className="w-16 h-16 rounded-2xl bg-surface-elevated border-2 border-white/5 flex items-center justify-center text-primary group-hover:scale-110 group-hover:border-primary/50 group-hover:shadow-[0_0_20px_rgba(var(--primary-rgb),0.2)] transition-all duration-500">
+                                <div className="w-16 h-16 rounded-2xl bg-surface-elevated border-2 border-border flex items-center justify-center text-primary group-hover:scale-110 group-hover:border-primary/50 group-hover:shadow-[0_0_20px_rgba(var(--primary-rgb),0.2)] transition-all duration-500">
                                     {doc.icon}
                                 </div>
 
-                                <h3 className="text-sm font-black text-white group-hover:text-primary transition-colors leading-snug min-h-[40px] flex items-center justify-center uppercase tracking-wider">
+                                <h3 className="text-sm font-black text-text-primary group-hover:text-primary transition-colors leading-snug min-h-[40px] flex items-center justify-center uppercase tracking-wider">
                                     {t(`verified_authority.docs.${doc.key}`)}
                                 </h3>
 
@@ -96,8 +96,8 @@ export default function Certificates() {
                             </div>
 
                             {/* Corner Tech Decor */}
-                            <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-primary/20 opacity-40 group-hover:opacity-100 transition-opacity" />
-                            <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-primary/20 opacity-40 group-hover:opacity-100 transition-opacity" />
+                            <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-primary/40 opacity-40 group-hover:opacity-100 transition-opacity" />
+                            <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-primary/40 opacity-40 group-hover:opacity-100 transition-opacity" />
                         </motion.div>
                     ))}
                 </div>

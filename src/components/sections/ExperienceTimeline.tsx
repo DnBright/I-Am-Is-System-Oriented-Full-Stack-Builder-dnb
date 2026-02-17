@@ -32,7 +32,7 @@ export default function ExperienceTimeline() {
                         <span className="w-2 h-8 bg-primary block" />
                         {t('title')}
                     </h2>
-                    <p className="text-text-muted text-xl font-light pl-6 border-l border-white/10">
+                    <p className="text-text-secondary text-xl font-light pl-6 border-l border-border">
                         {t('subtitle')}
                     </p>
                 </div>
@@ -57,10 +57,10 @@ export default function ExperienceTimeline() {
                                         <div className="absolute inset-0 bg-primary/20 rounded-full animate-ping opacity-0 group-hover:opacity-100" />
                                     </div>
 
-                                    <div className="bg-surface/30 border border-white/5 p-6 rounded-sm hover:border-primary/30 transition-colors">
+                                    <div className="bg-surface/50 border border-border p-6 rounded-sm hover:border-primary/50 transition-colors">
                                         <div className="flex justify-between items-start mb-2">
-                                            <h4 className="text-xl font-bold text-white group-hover:text-primary transition-colors">
-                                                {t(`jobs.${job.key}.role`)}
+                                            <h4 className="text-xl font-bold text-text-primary group-hover:text-primary transition-colors">
+                                                Maryland                                                {t(`jobs.${job.key}.role`)}
                                             </h4>
                                             <Badge variant="outline" className="text-[10px]">
                                                 {t(`jobs.${job.key}.period`)}
@@ -95,9 +95,9 @@ export default function ExperienceTimeline() {
                                     {/* Timeline Dot */}
                                     <div className="absolute -left-[41px] top-0 w-5 h-5 rounded-full bg-background border-2 border-success/50 group-hover:border-success group-hover:scale-125 transition-all z-10" />
 
-                                    <div className="bg-surface/30 border border-white/5 p-6 rounded-sm hover:border-success/30 transition-colors">
+                                    <div className="bg-surface/50 border border-border p-6 rounded-sm hover:border-success/50 transition-colors">
                                         <div className="flex justify-between items-start mb-2">
-                                            <h4 className="text-xl font-bold text-white group-hover:text-success transition-colors">
+                                            <h4 className="text-xl font-bold text-text-primary group-hover:text-success transition-colors">
                                                 {t(`edu.${item.key}.degree`)}
                                             </h4>
                                             <Badge variant="outline" className="text-[10px] text-success border-success/30">

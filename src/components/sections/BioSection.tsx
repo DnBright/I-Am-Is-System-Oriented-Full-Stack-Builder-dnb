@@ -42,7 +42,7 @@ export default function BioSection() {
                                     initial={{ opacity: 0, x: -20 }}
                                     whileInView={{ opacity: 1, x: 0 }}
                                     transition={{ delay: index * 0.1 }}
-                                    className="flex items-center gap-6 p-6 rounded-2xl bg-surface/40 border border-border hover:border-primary/30 transition-all group"
+                                    className="flex items-center gap-6 p-6 rounded-2xl bg-surface-elevated/40 border border-border hover:border-primary/50 transition-all group"
                                 >
                                     <div className="text-3xl text-primary/60 group-hover:text-primary transition-colors">
                                         {item.icon}
@@ -67,7 +67,7 @@ export default function BioSection() {
                             <h3 className="text-4xl md:text-5xl font-bold leading-tight text-text-primary mb-10">
                                 {t('heading_main')}
                             </h3>
-                            <div className="prose prose-invert max-w-none space-y-8">
+                            <div className="prose dark:prose-invert max-w-none space-y-8">
                                 <p className="text-xl text-text-secondary leading-relaxed font-light">
                                     {t('paragraph_1')}
                                 </p>
@@ -83,7 +83,7 @@ export default function BioSection() {
                                 <FiTerminal className="text-6xl text-primary" />
                             </div>
                             <div className="relative z-10">
-                                <p className="text-2xl font-light italic text-text-primary/90 leading-relaxed">
+                                <p className="text-2xl font-light italic text-text-primary leading-relaxed">
                                     "{t('quote')}"
                                 </p>
                                 <div className="mt-6 flex items-center gap-3">
