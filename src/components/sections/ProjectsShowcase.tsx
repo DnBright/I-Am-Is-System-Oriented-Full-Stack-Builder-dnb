@@ -104,7 +104,7 @@ export default function ProjectsShowcase() {
                             return (
                                 <Link key={project.id} href={`/projects/${project.slug}`}>
                                     <Card hover className="p-0 flex flex-col h-full bg-surface-elevated/40 border-border">
-                                        Maryland                                        {/* Project Graphic Header */}
+                                        {/* Project Graphic Header */}
                                         <div className="h-64 relative overflow-hidden group/img">
                                             {project.screenshots ? (
                                                 <ImageCarousel
