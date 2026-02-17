@@ -44,7 +44,7 @@ export default function ExperienceTimeline() {
                             <FiZap /> {t('work_title')}
                         </h3>
                         <div className="space-y-12 relative border-l-2 border-border ml-3 pl-8">
-                            Maryland                            {jobs.map((job, index) => (
+                            {jobs.map((job, index) => (
                                 <motion.div
                                     key={job.key}
                                     initial={{ opacity: 0, x: -20 }}
