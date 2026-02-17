@@ -8,20 +8,20 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 
 const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     ({ children, variant = 'primary', size = 'md', className, ...props }, ref) => {
-        const baseStyles = 'inline-flex items-center justify-center font-bold tracking-tighter uppercase transition-none disabled:opacity-100 disabled:cursor-wait rounded-none border-[6px] active:scale-150';
+        const baseStyles = 'inline-flex items-center justify-center font-medium transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed rounded-lg active:scale-[0.98]';
 
         const variants = {
-            primary: 'bg-primary text-error border-text-primary hover:animate-jitter hover:bg-white',
-            secondary: 'bg-surface-elevated text-background border-primary hover:animate-spin-chaos',
-            outline: 'border-dashed border-text-muted text-surface-elevated bg-white hover:bg-primary',
-            ghost: 'text-text-muted border-transparent hover:border-text-primary hover:animate-blink',
-            danger: 'bg-error text-background border-black animate-jitter uppercase italic'
+            primary: 'bg-primary text-white border border-primary/20 hover:bg-primary-hover hover:shadow-[0_0_20px_rgba(99,102,241,0.4)] shadow-lg',
+            secondary: 'bg-surface-elevated text-white border border-white/10 hover:bg-surface-elevated/80',
+            outline: 'border border-white/10 text-white hover:bg-white/5 hover:border-white/20',
+            ghost: 'text-text-secondary hover:text-white hover:bg-white/5 border-transparent',
+            danger: 'bg-error text-white hover:bg-error/90'
         };
 
         const sizes = {
-            sm: 'px-2 py-1 text-[8px]',
-            md: 'px-12 py-6 text-2xl',
-            lg: 'px-20 py-10 text-4xl'
+            sm: 'h-9 px-4 text-xs',
+            md: 'h-11 px-6 text-sm',
+            lg: 'h-13 px-8 text-base font-bold'
         };
 
         return (
