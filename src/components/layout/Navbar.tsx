@@ -7,6 +7,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { HiMenuAlt3, HiX } from 'react-icons/hi';
 import { useTranslations, useLocale } from 'next-intl';
 import { FiHome, FiCpu, FiPlay, FiBarChart2, FiBox, FiUser, FiGlobe, FiBriefcase, FiAward, FiChevronDown } from 'react-icons/fi';
+import { ThemeToggle } from '@/components/theme/ThemeToggle';
 
 type MenuItem = {
     href: string;
@@ -164,7 +165,8 @@ export default function Navbar() {
                 </div>
 
                 {/* Bottom Controls */}
-                <div className="px-10 mt-8">
+                <div className="px-10 mt-8 flex flex-col gap-6">
+                    <ThemeToggle />
                     <button
                         onClick={toggleLanguage}
                         className="text-xs font-bold text-text-muted hover:text-primary transition-colors tracking-widest flex items-center gap-3 uppercase font-mono"
@@ -249,13 +251,16 @@ export default function Navbar() {
                         </div>
 
                         <div className="mt-auto pt-10 border-t border-border flex items-center justify-between pb-10">
-                            <button
-                                onClick={toggleLanguage}
-                                className="flex items-center gap-2 text-primary font-bold text-sm"
-                            >
-                                <FiGlobe />
-                                {locale === 'en' ? 'ENGLISH' : 'INDONESIA'}
-                            </button>
+                            <div className="flex items-center gap-6">
+                                <ThemeToggle />
+                                <button
+                                    onClick={toggleLanguage}
+                                    className="flex items-center gap-2 text-primary font-bold text-sm"
+                                >
+                                    <FiGlobe />
+                                    {locale === 'en' ? 'ENGLISH' : 'INDONESIA'}
+                                </button>
+                            </div>
                             <span className="text-[10px] font-mono text-text-muted">© 2026 DN.</span>
                         </div>
                     </motion.div>
