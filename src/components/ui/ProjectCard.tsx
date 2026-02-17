@@ -26,7 +26,7 @@ export default function ProjectCard({ project, title, location, description, ind
             className="group relative flex flex-col h-full bg-surface-elevated/40 border border-border rounded-xl overflow-hidden hover:border-primary/50 hover:bg-surface-elevated/60 transition-all duration-500 shadow-2xl shadow-black/20"
         >
             {/* System Diagnostic Header */}
-            <div className="flex items-center justify-between px-4 py-2 bg-background/40 border-b border-border font-mono text-[10px] tracking-widest text-text-muted">
+            <div className="flex items-center justify-between px-4 py-2 bg-surface/40 border-b border-border font-mono text-[10px] tracking-widest text-text-muted">
                 <div className="flex items-center gap-2">
                     <FiCpu className="text-primary animate-pulse" />
                     <span>{systemId}</span>
@@ -115,10 +115,10 @@ export default function ProjectCard({ project, title, location, description, ind
             </div>
 
             {/* Corner Decorative Elements */}
-            <div className="absolute top-0 left-0 w-4 h-4 border-t border-l border-primary/20 pointer-events-none" />
-            <div className="absolute top-0 right-0 w-4 h-4 border-t border-r border-primary/20 pointer-events-none" />
-            <div className="absolute bottom-0 left-0 w-4 h-4 border-b border-l border-primary/20 pointer-events-none" />
-            <div className="absolute bottom-0 right-0 w-4 h-4 border-b border-r border-primary/20 pointer-events-none" />
+            <div className="absolute top-0 left-0 w-4 h-4 border-t border-l border-primary/40 pointer-events-none" />
+            <div className="absolute top-0 right-0 w-4 h-4 border-t border-r border-primary/40 pointer-events-none" />
+            <div className="absolute bottom-0 left-0 w-4 h-4 border-b border-l border-primary/40 pointer-events-none" />
+            <div className="absolute bottom-0 right-0 w-4 h-4 border-b border-r border-primary/40 pointer-events-none" />
         </motion.div>
     );
 }
