@@ -11,11 +11,11 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         const baseStyles = 'inline-flex items-center justify-center font-medium transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed rounded-lg active:scale-[0.98]';
 
         const variants = {
-            primary: 'bg-primary text-white border border-primary/20 hover:bg-primary-hover hover:shadow-[0_0_20px_rgba(99,102,241,0.4)] shadow-lg',
-            secondary: 'bg-surface-elevated text-white border border-white/10 hover:bg-surface-elevated/80',
-            outline: 'border border-white/10 text-white hover:bg-white/5 hover:border-white/20',
-            ghost: 'text-text-secondary hover:text-white hover:bg-white/5 border-transparent',
-            danger: 'bg-error text-white hover:bg-error/90'
+            primary: 'bg-primary text-white border border-primary/20 hover:bg-primary-hover shadow-lg transition-all',
+            secondary: 'bg-surface-elevated text-text-primary border border-border hover:bg-surface-elevated/80 transition-all',
+            outline: 'border border-border text-text-primary hover:bg-primary-soft hover:border-primary/30 transition-all',
+            ghost: 'text-text-secondary hover:text-primary hover:bg-primary-soft border-transparent transition-all',
+            danger: 'bg-error text-white hover:bg-error/90 shadow-lg transition-all'
         };
 
         const sizes = {
