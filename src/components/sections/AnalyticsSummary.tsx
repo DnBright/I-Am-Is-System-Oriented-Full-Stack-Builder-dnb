@@ -78,7 +78,7 @@ export default function AnalyticsSummary() {
                             <div className="h-px w-12 bg-primary/50" />
                             <span className="text-xs font-mono font-bold tracking-[0.3em] text-primary uppercase">System_Analytics</span>
                         </div>
-                        <h2 className="text-5xl md:text-6xl font-bold tracking-tighter text-white">
+                        <h2 className="text-5xl md:text-6xl font-bold tracking-tighter text-text-primary">
                             {t.rich('title', {
                                 span: (chunks) => <span className="text-primary">{chunks}</span>
                             })}
@@ -102,18 +102,18 @@ export default function AnalyticsSummary() {
                                     ) : (
                                         <div className="space-y-6">
                                             <div className="flex items-center justify-between">
-                                                <div className={`p-3 rounded-xl bg-white/5 border border-white/10 group-hover:scale-110 transition-transform ${stat.color}`}>
+                                                <div className={`p-3 rounded-xl bg-primary-soft border border-border group-hover:scale-110 transition-transform ${stat.color}`}>
                                                     {stat.icon}
                                                 </div>
                                                 <span className="text-[10px] font-mono font-bold text-text-muted uppercase tracking-widest">MT_{index.toString().padStart(2, '0')}</span>
                                             </div>
                                             <div className="space-y-1">
                                                 <p className="text-xs font-mono font-bold text-text-muted uppercase tracking-widest">{stat.label}</p>
-                                                <h4 className="text-4xl font-bold text-white tracking-tighter">
+                                                <h4 className="text-4xl font-bold text-text-primary tracking-tighter">
                                                     {stat.value}
                                                 </h4>
                                             </div>
-                                            <div className="h-1 w-full bg-white/5 rounded-full overflow-hidden">
+                                            <div className="h-1 w-full bg-primary-soft rounded-full overflow-hidden">
                                                 <motion.div
                                                     initial={{ width: 0 }}
                                                     whileInView={{ width: '70%' }}

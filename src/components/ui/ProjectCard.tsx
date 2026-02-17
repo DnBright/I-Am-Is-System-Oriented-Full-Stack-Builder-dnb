@@ -23,10 +23,10 @@ export default function ProjectCard({ project, title, location, description, ind
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: index * 0.1, duration: 0.5 }}
-            className="group relative flex flex-col h-full bg-surface-elevated/40 border border-white/10 rounded-xl overflow-hidden hover:border-primary/50 hover:bg-surface-elevated/60 transition-all duration-500 shadow-2xl shadow-black/20"
+            className="group relative flex flex-col h-full bg-surface-elevated/40 border border-border rounded-xl overflow-hidden hover:border-primary/50 hover:bg-surface-elevated/60 transition-all duration-500 shadow-2xl shadow-black/20"
         >
             {/* System Diagnostic Header */}
-            <div className="flex items-center justify-between px-4 py-2 bg-black/40 border-b border-white/5 font-mono text-[10px] tracking-widest text-text-muted">
+            <div className="flex items-center justify-between px-4 py-2 bg-background/40 border-b border-border font-mono text-[10px] tracking-widest text-text-muted">
                 <div className="flex items-center gap-2">
                     <FiCpu className="text-primary animate-pulse" />
                     <span>{systemId}</span>
@@ -71,7 +71,7 @@ export default function ProjectCard({ project, title, location, description, ind
                             ))}
                         </div>
                     </div>
-                    <h3 className="text-xl font-bold text-white group-hover:text-primary transition-colors leading-tight">
+                    <h3 className="text-xl font-bold text-text-primary group-hover:text-primary transition-colors leading-tight">
                         {title}
                     </h3>
                     <p className="text-[10px] font-mono text-text-muted mt-1 uppercase opacity-60">
@@ -79,16 +79,16 @@ export default function ProjectCard({ project, title, location, description, ind
                     </p>
                 </div>
 
-                <p className="text-sm text-gray-400 leading-relaxed mb-6 line-clamp-3">
+                <p className="text-sm text-text-secondary leading-relaxed mb-6 line-clamp-3">
                     {description}
                 </p>
 
                 {/* Tech Stack Tokens */}
-                <div className="mt-auto pt-4 flex flex-wrap gap-2 border-t border-white/5">
+                <div className="mt-auto pt-4 flex flex-wrap gap-2 border-t border-border">
                     {project.tech.slice(0, 4).map((tech: string) => (
                         <div
                             key={tech}
-                            className="px-2 py-0.5 rounded bg-white/5 border border-white/10 text-[9px] font-mono text-gray-300 uppercase letter-tight"
+                            className="px-2 py-0.5 rounded bg-primary-soft border border-border text-[9px] font-mono text-text-secondary uppercase letter-tight"
                         >
                             {tech}
                         </div>
@@ -102,7 +102,7 @@ export default function ProjectCard({ project, title, location, description, ind
 
                 {/* Interactive Action Area */}
                 <Link href={`/projects/${project.slug}`} className="mt-6 block">
-                    <div className="group/btn relative w-full h-10 bg-white/5 border border-white/10 rounded-lg flex items-center justify-center gap-2 overflow-hidden hover:bg-primary transition-all duration-300">
+                    <div className="group/btn relative w-full h-10 bg-primary-soft border border-border rounded-lg flex items-center justify-center gap-2 overflow-hidden hover:bg-primary transition-all duration-300">
                         <span className="text-xs font-bold uppercase tracking-widest group-hover/btn:text-background transition-colors duration-300">
                             Process System
                         </span>

@@ -60,11 +60,11 @@ export default function Navbar() {
     return (
         <>
             {/* Desktop Vertical Navbar - Clean & Large */}
-            <nav className="fixed left-0 top-0 h-screen z-50 hidden lg:flex flex-col justify-center gap-12 w-[300px] bg-background/40 backdrop-blur-xl border-r border-white/5">
+            <nav className="fixed left-0 top-0 h-screen z-50 hidden lg:flex flex-col justify-center gap-12 w-[300px] bg-surface/40 backdrop-blur-xl border-r border-border">
                 <div className="px-10 mb-8 select-none">
                     <Link href="/" className="group flex flex-col">
-                        <span className="text-4xl font-extrabold text-white tracking-tighter leading-none group-hover:text-primary transition-colors">
-                            DN<span className="text-primary group-hover:text-white">.</span>
+                        <span className="text-4xl font-extrabold text-text-primary tracking-tighter leading-none group-hover:text-primary transition-colors">
+                            DN<span className="text-primary group-hover:text-text-primary">.</span>
                         </span>
                         <span className="text-[9px] text-text-muted font-mono font-bold tracking-[0.4em] uppercase mt-2 opacity-40 group-hover:opacity-100 transition-all">System_Architect</span>
                     </Link>
@@ -130,14 +130,14 @@ export default function Navbar() {
                                 href={link.href}
                                 className={cn(
                                     "relative px-6 py-4 flex items-center gap-5 group transition-all duration-300 z-10 w-full",
-                                    isActive ? "text-black" : "text-text-muted hover:text-white"
+                                    isActive ? "text-text-primary" : "text-text-muted hover:text-text-primary"
                                 )}
                             >
                                 {/* Active Background Capsule - Asymmetric Tech Shape */}
                                 {isActive && (
                                     <motion.div
                                         layoutId="active-nav-pill"
-                                        className="absolute inset-x-4 inset-y-2 bg-white/[0.03] border border-white/5 shadow-[0_0_20px_rgba(255,255,255,0.02)] z-[-1]"
+                                        className="absolute inset-x-4 inset-y-2 bg-primary-soft border border-border shadow-[0_0_20px_rgba(255,255,255,0.02)] z-[-1]"
                                         initial={false}
                                         transition={{ type: "spring", stiffness: 300, damping: 30 }}
                                         style={{
@@ -178,13 +178,13 @@ export default function Navbar() {
                 </div>
             </nav>
 
-            <div className="fixed top-0 left-0 w-full p-6 z-50 lg:hidden flex items-center justify-between bg-background/80 backdrop-blur-lg border-b border-white/5">
-                <Link href="/" className="text-2xl font-extrabold text-white tracking-tighter">
+            <div className="fixed top-0 left-0 w-full p-6 z-50 lg:hidden flex items-center justify-between bg-surface/80 backdrop-blur-lg border-b border-border">
+                <Link href="/" className="text-2xl font-extrabold text-text-primary tracking-tighter">
                     DN<span className="text-primary">.</span>
                 </Link>
 
                 <button
-                    className="text-white p-2"
+                    className="text-text-primary p-2"
                     onClick={() => setIsOpen(!isOpen)}
                 >
                     {isOpen ? <HiX size={24} /> : <HiMenuAlt3 size={24} />}
@@ -205,7 +205,7 @@ export default function Navbar() {
                                 if (link.subItems) {
                                     return (
                                         <div key={link.href} className="flex flex-col gap-4">
-                                            <div className="text-xl font-bold text-primary uppercase tracking-tighter opacity-70 border-b border-white/10 pb-2">
+                                            <div className="text-xl font-bold text-primary uppercase tracking-tighter opacity-70 border-b border-border pb-2">
                                                 {link.label}
                                             </div>
                                             <div className="flex flex-col gap-4 pl-4">

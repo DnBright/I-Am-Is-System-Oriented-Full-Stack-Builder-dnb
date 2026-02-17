@@ -89,7 +89,7 @@ export default function ProjectsShowcase() {
                             <div className="h-px w-12 bg-primary/50" />
                             <span className="text-xs font-mono font-bold tracking-[0.3em] text-primary uppercase">Portfolio_V2.0</span>
                         </div>
-                        <h2 className="text-5xl md:text-6xl font-bold tracking-tighter text-white">
+                        <h2 className="text-5xl md:text-6xl font-bold tracking-tighter text-text-primary">
                             {t.rich('title', {
                                 span: (chunks) => <span className="text-primary">{chunks}</span>
                             })}
@@ -119,7 +119,7 @@ export default function ProjectsShowcase() {
 
                                             {/* Category Tag */}
                                             <div className="absolute top-6 left-6 z-20">
-                                                <div className="px-3 py-1 bg-background/80 backdrop-blur-md border border-white/5 rounded-full">
+                                                <div className="px-3 py-1 bg-surface/80 backdrop-blur-md border border-border rounded-full">
                                                     <span className="text-[10px] font-mono font-bold text-primary uppercase tracking-widest">{tProject('category')}</span>
                                                 </div>
                                             </div>
@@ -127,7 +127,7 @@ export default function ProjectsShowcase() {
 
                                         <div className="p-8 flex flex-col flex-1 space-y-6">
                                             <div className="space-y-4">
-                                                <h3 className="text-2xl font-bold text-white group-hover:text-primary transition-colors">
+                                                <h3 className="text-2xl font-bold text-text-primary group-hover:text-primary transition-colors">
                                                     {project.title}
                                                 </h3>
                                                 <p className="text-text-secondary text-sm leading-relaxed line-clamp-2">
@@ -137,13 +137,13 @@ export default function ProjectsShowcase() {
 
                                             <div className="flex flex-wrap gap-2 pt-2">
                                                 {project.tech.map((tech) => (
-                                                    <Badge key={tech} variant="outline" className="bg-white/5 border-white/5 text-[10px] uppercase font-mono tracking-wider">
+                                                    <Badge key={tech} variant="outline" className="bg-primary-soft border-border text-[10px] uppercase font-mono tracking-wider">
                                                         {tech}
                                                     </Badge>
                                                 ))}
                                             </div>
 
-                                            <div className="pt-6 mt-auto flex items-center justify-between border-t border-white/5">
+                                            <div className="pt-6 mt-auto flex items-center justify-between border-t border-border">
                                                 <span className="text-[10px] font-mono text-text-muted uppercase tracking-widest">{tProject('role')}</span>
                                                 <div className="flex items-center gap-2 text-primary font-bold text-xs group-hover:translate-x-1 transition-transform">
                                                     EXPLORE_SYSTEM <FaArrowRight className="text-[10px]" />

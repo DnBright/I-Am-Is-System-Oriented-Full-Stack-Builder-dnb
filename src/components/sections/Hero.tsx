@@ -13,7 +13,7 @@ export default function Hero() {
     return (
         <section className="min-h-[90vh] flex items-center pt-24 pb-20 relative overflow-hidden">
             {/* Background Grid Pattern */}
-            <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] animate-grid-pulse" />
+            <div className="absolute inset-0 tech-grid [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] animate-grid-pulse" />
 
             <div className="container mx-auto px-6 relative z-10">
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
@@ -23,7 +23,7 @@ export default function Hero() {
                         transition={{ duration: 0.8, ease: "easeOut" }}
                         className="col-span-1 lg:col-span-5 relative order-2 lg:order-1"
                     >
-                        <div className="relative w-full max-w-md mx-auto lg:mx-0 aspect-[4/5] rounded-2xl overflow-hidden border border-white/10 bg-white/5 group shadow-2xl">
+                        <div className="relative w-full max-w-md mx-auto lg:mx-0 aspect-[4/5] rounded-2xl overflow-hidden border border-border bg-surface-elevated group shadow-2xl">
                             {/* Glass Overlay */}
                             <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent z-10" />
                             <div className="absolute inset-0 bg-primary/10 mix-blend-overlay opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-20" />
@@ -38,7 +38,7 @@ export default function Hero() {
                             />
 
                             {/* Tech Borders */}
-                            <div className="absolute inset-4 border border-white/10 rounded-xl z-20 pointer-events-none" />
+                            <div className="absolute inset-4 border border-border rounded-xl z-20 pointer-events-none" />
                         </div>
 
                         {/* Status Label */}
@@ -46,13 +46,13 @@ export default function Hero() {
                             initial={{ opacity: 0, scale: 0.8 }}
                             animate={{ opacity: 1, scale: 1 }}
                             transition={{ delay: 1, duration: 0.5 }}
-                            className="absolute -bottom-6 -right-6 lg:-right-10 bg-surface-elevated/90 backdrop-blur-xl border border-white/10 p-6 rounded-2xl shadow-2xl z-40 max-w-[200px]"
+                            className="absolute -bottom-6 -right-6 lg:-right-10 bg-surface-elevated/90 backdrop-blur-xl border border-border p-6 rounded-2xl shadow-2xl z-40 max-w-[200px]"
                         >
                             <div className="flex items-center gap-3 mb-2">
                                 <div className="w-2 h-2 rounded-full bg-success animate-pulse" />
                                 <span className="text-[10px] font-mono font-bold tracking-widest text-text-secondary uppercase">SystemStatus</span>
                             </div>
-                            <p className="text-sm font-bold text-white leading-tight">FULL_STACK_DEV // AI_ENTHUSIAST</p>
+                            <p className="text-sm font-bold text-text-primary leading-tight">FULL_STACK_DEV // AI_ENTHUSIAST</p>
                         </motion.div>
                     </motion.div>
 
@@ -76,7 +76,7 @@ export default function Hero() {
                                     initial={{ opacity: 0, y: 20 }}
                                     animate={{ opacity: 1, y: 0 }}
                                     transition={{ delay: 0.4 }}
-                                    className="text-6xl md:text-8xl lg:text-9xl font-extrabold leading-[0.85] tracking-tighter text-white"
+                                    className="text-6xl md:text-8xl lg:text-9xl font-extrabold leading-[0.85] tracking-tighter text-text-primary"
                                 >
                                     {t.rich('title', {
                                         span: (chunks) => <span className="text-primary">{chunks}</span>
@@ -104,7 +104,7 @@ export default function Hero() {
                                     <p className="text-[10px] font-mono font-bold text-primary uppercase tracking-[0.2em]">Strategy_Focus</p>
                                     <p className="text-sm font-sans text-text-muted leading-snug">{t('subtitle_1')}</p>
                                 </div>
-                                <div className="space-y-2 border-l border-white/10 pl-6">
+                                <div className="space-y-2 border-l border-border pl-6">
                                     <p className="text-[10px] font-mono font-bold text-text-muted uppercase tracking-[0.2em]">Execution_Identity</p>
                                     <p className="text-sm font-sans text-text-muted leading-snug">{t('subtitle_2')}</p>
                                 </div>

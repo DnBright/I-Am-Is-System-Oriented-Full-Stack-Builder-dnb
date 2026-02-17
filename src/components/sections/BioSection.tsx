@@ -28,7 +28,7 @@ export default function BioSection() {
                                 <div className="h-px w-12 bg-primary/50" />
                                 <span className="text-xs font-mono font-bold tracking-[0.3em] text-primary uppercase">Bio_Manifesto</span>
                             </div>
-                            <h2 className="text-5xl md:text-6xl font-bold tracking-tighter text-white leading-tight">
+                            <h2 className="text-5xl md:text-6xl font-bold tracking-tighter text-text-primary leading-tight">
                                 {t.rich('title', {
                                     span: (chunks) => <span className="text-primary">{chunks}</span>
                                 })}
@@ -42,14 +42,14 @@ export default function BioSection() {
                                     initial={{ opacity: 0, x: -20 }}
                                     whileInView={{ opacity: 1, x: 0 }}
                                     transition={{ delay: index * 0.1 }}
-                                    className="flex items-center gap-6 p-6 rounded-2xl bg-surface/40 border border-white/5 hover:border-primary/30 transition-all group"
+                                    className="flex items-center gap-6 p-6 rounded-2xl bg-surface/40 border border-border hover:border-primary/30 transition-all group"
                                 >
                                     <div className="text-3xl text-primary/60 group-hover:text-primary transition-colors">
                                         {item.icon}
                                     </div>
                                     <div className="space-y-1">
                                         <p className="text-[10px] font-mono font-bold text-text-muted uppercase tracking-widest">{item.label}</p>
-                                        <p className="text-sm font-bold text-white uppercase tracking-tight">{item.value}</p>
+                                        <p className="text-sm font-bold text-text-primary uppercase tracking-tight">{item.value}</p>
                                     </div>
                                 </motion.div>
                             ))}
@@ -64,7 +64,7 @@ export default function BioSection() {
                         className="md:col-span-7 space-y-10"
                     >
                         <div className="relative">
-                            <h3 className="text-4xl md:text-5xl font-bold leading-tight text-white mb-10">
+                            <h3 className="text-4xl md:text-5xl font-bold leading-tight text-text-primary mb-10">
                                 {t('heading_main')}
                             </h3>
                             <div className="prose prose-invert max-w-none space-y-8">
@@ -83,7 +83,7 @@ export default function BioSection() {
                                 <FiTerminal className="text-6xl text-primary" />
                             </div>
                             <div className="relative z-10">
-                                <p className="text-2xl font-light italic text-white/90 leading-relaxed">
+                                <p className="text-2xl font-light italic text-text-primary/90 leading-relaxed">
                                     "{t('quote')}"
                                 </p>
                                 <div className="mt-6 flex items-center gap-3">

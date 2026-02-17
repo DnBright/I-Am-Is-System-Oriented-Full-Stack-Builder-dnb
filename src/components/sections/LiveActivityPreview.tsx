@@ -120,7 +120,7 @@ export default function LiveActivityPreview() {
                                 <div className="h-px w-12 bg-primary/50" />
                                 <span className="text-xs font-mono font-bold tracking-[0.3em] text-primary uppercase">Live_System_Telemetry</span>
                             </div>
-                            <h2 className="text-5xl md:text-6xl font-bold tracking-tighter text-white">
+                            <h2 className="text-5xl md:text-6xl font-bold tracking-tighter text-text-primary">
                                 {t.rich('title', {
                                     span: (chunks) => <span className="text-primary">{chunks}</span>
                                 })}
@@ -130,7 +130,7 @@ export default function LiveActivityPreview() {
                             </p>
                         </div>
                         <div className="flex items-center gap-4">
-                            <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10">
+                            <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-primary-soft border border-border">
                                 <span className={`w-2 h-2 rounded-full ${isPolling ? 'bg-primary animate-pulse' : 'bg-success'}`} />
                                 <span className="text-[10px] font-mono font-bold text-text-muted uppercase tracking-widest leading-none">
                                     {isPolling ? 'Syncing_Node' : 'System_Stable'}
@@ -161,11 +161,11 @@ export default function LiveActivityPreview() {
                                             animate={{ opacity: 1, x: 0 }}
                                             transition={{ delay: index * 0.1 }}
                                         >
-                                            <Card className="p-0 border-white/5 bg-surface/30 group hover:bg-surface/50">
+                                            <Card className="p-0 border-border bg-surface/30 group hover:bg-surface/50">
                                                 <div className="flex items-stretch">
                                                     <div className="w-1.5 bg-primary/20 group-hover:bg-primary transition-colors" />
                                                     <div className="flex-1 p-8 flex items-start gap-8">
-                                                        <div className="w-14 h-14 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-xl shrink-0 group-hover:border-primary/50 transition-colors">
+                                                        <div className="w-14 h-14 rounded-xl bg-primary-soft border border-border flex items-center justify-center text-xl shrink-0 group-hover:border-primary/50 transition-colors">
                                                             {getEventIcon(event.type)}
                                                         </div>
 
@@ -174,7 +174,7 @@ export default function LiveActivityPreview() {
                                                                 {renderEventContent(event)}
                                                             </div>
 
-                                                            <div className="flex items-center justify-between mt-6 pt-6 border-t border-white/5">
+                                                            <div className="flex items-center justify-between mt-6 pt-6 border-t border-border">
                                                                 <div className="flex items-center gap-4 text-[10px] font-mono text-text-muted uppercase tracking-widest font-bold">
                                                                     <span className="flex items-center gap-2">
                                                                         <FaHistory className="text-[12px]" />

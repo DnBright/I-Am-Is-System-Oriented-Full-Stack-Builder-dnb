@@ -12,7 +12,7 @@ export default function Card({ children, className = '', glass = false, hover = 
     return (
         <div
             className={cn(
-                'rounded-xl p-8 border border-white/10 transition-all duration-300 relative group overflow-hidden',
+                'rounded-xl p-8 border border-border transition-all duration-300 relative group overflow-hidden',
                 glass ? 'bg-surface/40 backdrop-blur-md' : 'bg-surface/60 backdrop-blur-sm',
                 hover && 'hover:border-primary/50 hover:bg-surface/80 hover:shadow-[0_0_40px_rgba(99,102,241,0.1)] hover:-translate-y-1',
                 className
