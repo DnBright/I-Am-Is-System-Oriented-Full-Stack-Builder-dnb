@@ -103,8 +103,8 @@ export default function ProjectsShowcase() {
 
                             return (
                                 <Link key={project.id} href={`/projects/${project.slug}`}>
-                                    <Card hover className="p-0 flex flex-col h-full bg-surface/30">
-                                        {/* Project Graphic Header */}
+                                    <Card hover className="p-0 flex flex-col h-full bg-surface-elevated/40 border-border">
+                                        Maryland                                        {/* Project Graphic Header */}
                                         <div className="h-64 relative overflow-hidden group/img">
                                             {project.screenshots ? (
                                                 <ImageCarousel
@@ -119,7 +119,7 @@ export default function ProjectsShowcase() {
 
                                             {/* Category Tag */}
                                             <div className="absolute top-6 left-6 z-20">
-                                                <div className="px-3 py-1 bg-surface/80 backdrop-blur-md border border-border rounded-full">
+                                                <div className="px-3 py-1 bg-surface-elevated/80 backdrop-blur-md border border-border rounded-full">
                                                     <span className="text-[10px] font-mono font-bold text-primary uppercase tracking-widest">{tProject('category')}</span>
                                                 </div>
                                             </div>

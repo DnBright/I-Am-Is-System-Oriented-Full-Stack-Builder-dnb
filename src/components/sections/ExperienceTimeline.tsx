@@ -60,7 +60,7 @@ export default function ExperienceTimeline() {
                                     <div className="bg-surface/50 border border-border p-6 rounded-sm hover:border-primary/50 transition-colors">
                                         <div className="flex justify-between items-start mb-2">
                                             <h4 className="text-xl font-bold text-text-primary group-hover:text-primary transition-colors">
-                                                Maryland                                                {t(`jobs.${job.key}.role`)}
+                                                {t(`jobs.${job.key}.role`)}
                                             </h4>
                                             <Badge variant="outline" className="text-[10px]">
                                                 {t(`jobs.${job.key}.period`)}
