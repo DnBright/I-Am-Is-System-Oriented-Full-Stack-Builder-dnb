@@ -16,7 +16,7 @@
     "subtitle_1": "Specializing in Education & Operational Infrastructure.",
     "subtitle_2": "Building structured systems, not just code.",
     "cta_bio": "Read Full Bio",
-    "cta_project": "Explore Systems",
+    "cta_projects": "Explore Systems",
     "cta_contact": "Contact Me",
     "stats": {
       "experience": "Years Experience",
@@ -25,7 +25,7 @@
     }
   },
   "BioSection": {
-    "heading_main": "Building Strong Digital Foundations.",
+    "title": "Building Strong Digital Foundations.",
     "paragraph_1": "My journey began not just with a desire to write code, but with an obsession to understand how systems work. From server infrastructure to user interfaces, I view every element as part of a single digital organism.",
     "paragraph_2": "With an academic background in Computer Science and real-world experience handling large-scale deployments, I don't just build features—I ensure long-term reliability, security, and efficiency.",
     "quote": "Code is how I speak to machines, but Systems are how I deliver value to people."
@@ -115,7 +115,7 @@
       "description": "This heatmap visualizes the frequency and intensity of system updates over the last 365 days. Every cell represents a production-ready iteration."
     },
     "fallback_desc": "System update pushed to {repo}",
-    "view_all_link": "View All Activity"
+    "view_all_activity": "View All Activity"
   },
   "ProjectDetail": {
     "back_link": "BACK TO SYSTEMS",
@@ -135,6 +135,7 @@
         "client": "PT. Saitama Juara Mendunia",
         "legal": "VERIFIED LEGAL ENTITY",
         "category": "Education Management System",
+        "descriptionBrief": "Comprehensive student lifecycle and operational management system.",
         "problem": "Student data was scattered and manual, learning progress lacked transparency, migration documents were hard to monitor, and inter-role communication was disjointed.",
         "system": "A centralized system managing the entire student lifecycle from enrollment to deployment.",
         "role": "System Architect & Backend Lead",
@@ -152,6 +153,7 @@
         "client": "PT. Saitama Juara Mendunia",
         "legal": "VERIFIED LEGAL ENTITY",
         "category": "Corporate Branding System",
+        "descriptionBrief": "CMS-driven corporate portal and student onboarding funnel.",
         "problem": "Unstructured corporate branding, unsystematic career path information, and no internal admin content control.",
         "system": "A CMS-based corporate portal structuring service segmentation and the student information funnel.",
         "role": "Information Architect & UI System Design",
@@ -169,6 +171,7 @@
         "client": "PT. Saitama Juara Mendunia",
         "legal": "INTERNAL PRODUCTIVITY SYSTEM",
         "category": "Decision Support System",
+        "descriptionBrief": "AI-powered administrative tool for automated document reporting.",
         "problem": "Admins were overwhelmed with daily management, repetitive manual tasks, and underutilized data for decision making.",
         "system": "Smart admin control center with AI integration for automated document handling and logic reporting.",
         "role": "System Planner & Workflow Designer",
@@ -186,6 +189,7 @@
         "client": "PT. Saitama Juara Mendunia",
         "legal": "SCALABLE LEARNING PLATFORM",
         "category": "Hybrid EdTech",
+        "descriptionBrief": "Adaptive learning platform with automated milestone validation.",
         "problem": "Conventional models were limited by physical location, hard to scale, and lacked measurable student monitoring.",
         "system": "Hybrid learning platform supporting 'bypass' and regular paths with automatic milestone validation.",
         "role": "System Model Designer",

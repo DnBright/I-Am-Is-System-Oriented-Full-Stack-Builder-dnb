@@ -15,7 +15,7 @@
         "subtitle_1": "Spesialisasi dalam Infrastruktur Pendidikan & Operasional.",
         "subtitle_2": "Membangun sistem terstruktur, bukan sekadar kode.",
         "cta_bio": "Baca Biodata Lengkap",
-        "cta_project": "Jelajahi Sistem",
+        "cta_projects": "Jelajahi Sistem",
         "cta_contact": "Lihat Aktivitas",
         "stats": {
             "experience": "Tahun Pengalaman",
@@ -24,7 +24,7 @@
         }
     },
     "BioSection": {
-        "heading_main": "Membangun Pondasi Digital yang Kuat.",
+        "title": "Membangun Pondasi Digital yang Kuat.",
         "paragraph_1": "Perjalanan saya dimulai bukan hanya dari keinginan menulis kode, tetapi dari obsesi untuk memahami bagaimana sistem bekerja. Dari infrastruktur server hingga antarmuka pengguna, saya melihat setiap elemen sebagai bagian dari satu kesatuan organisme digital.",
         "paragraph_2": "Dengan latar belakang akademis di bidang Ilmu Komputer dan pengalaman nyata menangani deployment skala besar, saya tidak hanya membangun fitur—saya memastikan reliabilitas, keamanan, dan efisiensi jangka panjang.",
         "quote": "Kode adalah cara saya berbicara dengan mesin, tetapi Sistem adalah cara saya memberi nilai pada manusia."
@@ -114,7 +114,7 @@
             "description": "Peta panas ini memvisualisasikan frekuensi dan intensitas pembaruan sistem selama 365 hari terakhir. Setiap sel mewakili iterasi yang siap produksi."
         },
         "fallback_desc": "Pembaruan sistem dikirim ke {repo}",
-        "view_all_link": "Lihat Semua Aktivitas"
+        "view_all_activity": "Lihat Semua Aktivitas"
     },
     "ProjectDetail": {
         "back_link": "KEMBALI KE SISTEM",
@@ -134,6 +134,7 @@
                 "client": "PT. Saitama Juara Mendunia",
                 "legal": "BADAN HUKUM TERVERIFIKASI",
                 "category": "Education Management System",
+                "descriptionBrief": "Sistem manajemen operasional dan siklus hidup siswa yang komprehensif.",
                 "problem": "Data siswa tersebar manual, progres belajar tidak transparan, dokumentasi migrasi sulit dipantau, dan komunikasi antar divisi (Admin, Sensei, Siswa) tidak terintegrasi.",
                 "system": "Sistem terpusat yang mengatur seluruh siklus hidup siswa dari pendaftaran hingga keberangkatan kerja ke Jepang.",
                 "role": "System Architect & Backend Lead",
@@ -151,6 +152,7 @@
                 "client": "PT. Saitama Juara Mendunia",
                 "legal": "BADAN HUKUM TERVERIFIKASI",
                 "category": "Corporate Branding System",
+                "descriptionBrief": "Portal perusahaan berbasis CMS dan corong pendaftaran siswa.",
                 "problem": "Branding perusahaan belum terstruktur, informasi jalur kerja tidak sistematis, dan tidak ada kontrol konten mandiri oleh admin internal.",
                 "system": "Portal perusahaan berbasis CMS yang menstrukturisasi segmentasi layanan dan corong informasi calon siswa.",
                 "role": "Information Architect & UI System Design",
@@ -168,6 +170,7 @@
                 "client": "PT. Saitama Juara Mendunia",
                 "legal": "INTERNAL PRODUCTIVITY SYSTEM",
                 "category": "Decision Support System",
+                "descriptionBrief": "Alat administratif bertenaga AI untuk pelaporan dokumen otomatis.",
                 "problem": "Admin kewalahan dengan manajemen harian, banyak pekerjaan manual repetitif, dan data tidak dimanfaatkan optimal untuk pengambilan keputusan.",
                 "system": "Pusat kendali admin cerdas dengan integrasi AI untuk penanganan dokumen otomatis dan pelaporan logika.",
                 "role": "System Planner & Workflow Designer",
@@ -185,6 +188,7 @@
                 "client": "PT. Saitama Juara Mendunia",
                 "legal": "SCALABLE LEARNING PLATFORM",
                 "category": "Hybrid EdTech",
+                "descriptionBrief": "Platform pembelajaran adaptif dengan validasi milestone otomatis.",
                 "problem": "Model konvensional terbatas lokasi fisik, sulit ditingkatkan (not scalable), dan pemantauan kemajuan siswa tidak terukur.",
                 "system": "Platform pembelajaran hybrid yang mendukung jalur 'bypass' dan reguler dengan validasi milestone otomatis.",
                 "role": "System Model Designer",
