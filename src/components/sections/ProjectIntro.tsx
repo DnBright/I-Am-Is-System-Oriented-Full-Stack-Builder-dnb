@@ -13,7 +13,7 @@ export default function ProjectIntro() {
     return (
         <section className="py-32 relative overflow-hidden">
             {/* Background Grid */}
-            <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:3rem_3rem] [mask-image:radial-gradient(ellipse_50%_50%_at_50%_50%,#000_20%,transparent_100%)]" />
+            <div className="absolute inset-0 bg-[linear-gradient(to_right,var(--grid-color)_1px,transparent_1px),linear-gradient(to_bottom,var(--grid-color)_1px,transparent_1px)] bg-[size:3rem_3rem] [mask-image:radial-gradient(ellipse_50%_50%_at_50%_50%,#000_20%,transparent_100%)]" />
 
             <div className="container mx-auto px-6 relative z-10">
                 <div className="max-w-7xl mx-auto">
@@ -40,9 +40,9 @@ export default function ProjectIntro() {
                         </motion.h2>
 
                         <div className="mt-8 flex items-center gap-4 text-text-muted font-mono text-[10px] tracking-[0.5em] uppercase">
-                            <div className="w-12 h-px bg-white/10" />
+                            <div className="w-12 h-px bg-border" />
                             <span>Selection_Root_Directory</span>
-                            <div className="w-12 h-px bg-white/10" />
+                            <div className="w-12 h-px bg-border" />
                         </div>
                     </div>
 
