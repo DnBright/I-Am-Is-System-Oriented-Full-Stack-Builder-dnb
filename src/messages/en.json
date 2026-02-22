@@ -128,6 +128,29 @@
     "title": "Live <span>Activity</span>",
     "subtitle": "Real-time synchronized data from system repositories.",
     "view_all": "View All",
+    "command_center": "Command Center",
+    "live_stream": "Live Stream Active",
+    "system_clock": "System Clock",
+    "not_synced": "NOT_SYNCED",
+    "auto_log": "AUTO_LOG: ON",
+    "activity_stream": "Activity_Stream",
+    "stamp": "STAMP",
+    "freq_map": "FREQ_MAP",
+    "work_primitives": {
+      "title": "Work_Primitives",
+      "transparency": {
+        "title": "Transparency",
+        "desc": "Every commit is visible activity."
+      },
+      "consistency": {
+        "title": "Consistency",
+        "desc": "Long-term output > Short-term bursts."
+      },
+      "atomicity": {
+        "title": "Atomicity",
+        "desc": "Small, meaningful system updates."
+      }
+    },
     "auto_refresh": {
       "on": "Auto-refreshing",
       "off": "Click to sync"
@@ -242,6 +265,22 @@
       "hours": "Temporal Distribution",
       "focus": "Architectural Focus",
       "impact": "System Reach"
+    },
+    "live_engine": "Analytics Engine",
+    "live_observability": "Live Observability",
+    "syncing": "SYNCING...",
+    "live_connection_active": "LIVE_CONNECTION_ACTIVE",
+    "last_sync": "LAST_SYNC: ",
+    "average_day": "Avg/Day",
+    "total": "Total",
+    "fallbacks": {
+      "pr_updated": "System_Update",
+      "issue_updated": "Issue {action}",
+      "created_branch": "new branch",
+      "released_version": "new release",
+      "starred": "⭐ Repository starred",
+      "forked": "🍴 Repository forked",
+      "system_activity": "System_Activity_Logged"
     }
   },
   "Projects": {
@@ -302,8 +341,12 @@
     }
   },
   "Try": {
-    "title": "System <span>Trial</span>",
-    "subtitle": "Don't take my word for it. Initiate a trial connection to see the architecture in motion. All environments are sandboxed.",
+    "title": "System <span>Access</span>",
+    "subtitle": "Don't just take my word for it. Initiate a test connection to see the architecture in action. All environments are sandboxed.",
+    "simulation_module": "Simulation_Module",
+    "sandbox": "Sandbox_v0.8-Alpha",
+    "station_select": "STATION_SELECT",
+    "auth": "AUTH: SESSION_SYMMETRIC",
     "security_note": {
       "title": "Security Note",
       "desc": "Persistent access requires an authorized PEM key. Contact for administrative credentials if deep structural auditing is required."

@@ -127,6 +127,29 @@
         "title": "Aktivitas <span>Langsung</span>",
         "subtitle": "Data tersinkronisasi secara real-time dari repositori sistem.",
         "view_all": "Lihat Semua",
+        "command_center": "Pusat Komando",
+        "live_stream": "Aliran Langsung Aktif",
+        "system_clock": "Jam Sistem",
+        "not_synced": "TIDAK SINKRON",
+        "auto_log": "LOG OTOMATIS: NYALA",
+        "activity_stream": "Aliran Aktivitas",
+        "stamp": "STEMPEL",
+        "freq_map": "PETA FREKUENSI",
+        "work_primitives": {
+            "title": "Primitif Pekerjaan",
+            "transparency": {
+                "title": "Transparansi",
+                "desc": "Setiap commit adalah aktivitas yang terlihat."
+            },
+            "consistency": {
+                "title": "Konsistensi",
+                "desc": "Hasil jangka panjang > Lonjakan sesaat."
+            },
+            "atomicity": {
+                "title": "Atomisitas",
+                "desc": "Pembaruan sistem yang kecil dan bermakna."
+            }
+        },
         "auto_refresh": {
             "on": "Menyegarkan Otomatis",
             "off": "Klik untuk sinkronisasi"
@@ -241,6 +264,22 @@
             "hours": "Distribus Temporal",
             "focus": "Fokus Arsitektur",
             "impact": "Jangkauan Sistem"
+        },
+        "live_engine": "Mesin Analitik",
+        "live_observability": "Observabilitas Langsung",
+        "syncing": "SINKRONISASI...",
+        "live_connection_active": "KONEKSI_LANGSUNG_AKTIF",
+        "last_sync": "SINKRONISASI TERAKHIR: ",
+        "average_day": "Rata/Hari",
+        "total": "Total",
+        "fallbacks": {
+            "pr_updated": "Pembaruan_Sistem",
+            "issue_updated": "Masalah {action}",
+            "created_branch": "cabang baru",
+            "released_version": "rilis baru",
+            "starred": "⭐ Repositori dibintangi",
+            "forked": "🍴 Repositori di-fork",
+            "system_activity": "Aktivitas_Sistem_Tercatat"
         }
     },
     "Projects": {
@@ -303,6 +342,10 @@
     "Try": {
         "title": "Uji Coba <span>Sistem</span>",
         "subtitle": "Jangan hanya percaya kata-kata saya. Inisiasi koneksi uji coba untuk melihat arsitektur dalam beraksi. Semua lingkungan berada dalam sandbox.",
+        "simulation_module": "Modul Simulasi",
+        "sandbox": "Sandbox v0.8-Alpha",
+        "station_select": "PILIH STASIUN",
+        "auth": "OTOTENTIKASI: SESI_SIMETRIS",
         "security_note": {
             "title": "Catatan Keamanan",
             "desc": "Akses persisten memerlukan kunci PEM resmi. Hubungi untuk kredensial administratif jika audit struktural mendalam diperlukan."
