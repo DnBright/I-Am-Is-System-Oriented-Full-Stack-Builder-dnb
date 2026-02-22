@@ -28,7 +28,27 @@
         "heading_main": "Membangun Pondasi Digital yang Kuat.",
         "paragraph_1": "Perjalanan saya dimulai bukan hanya dari keinginan menulis kode, tetapi dari obsesi untuk memahami bagaimana sistem bekerja. Dari infrastruktur server hingga antarmuka pengguna, saya melihat setiap elemen sebagai bagian dari satu kesatuan organisme digital.",
         "paragraph_2": "Dengan latar belakang akademis di bidang Ilmu Komputer dan pengalaman nyata menangani deployment skala besar, saya tidak hanya membangun fitur—saya memastikan reliabilitas, keamanan, dan efisiensi jangka panjang.",
-        "quote": "Kode adalah cara saya berbicara dengan mesin, tetapi Sistem adalah cara saya memberi nilai pada manusia."
+        "quote": "Kode adalah cara saya berbicara dengan mesin, tetapi Sistem adalah cara saya memberi nilai pada manusia.",
+        "manifesto": "Manifes Bio",
+        "philosophy": "Filosofi Sistem",
+        "background": {
+            "origin": {
+                "label": "Asal",
+                "value": "Yogyakarta"
+            },
+            "education": {
+                "label": "Pendidikan",
+                "value": "Ilmu Komputer"
+            },
+            "focus": {
+                "label": "Fokus",
+                "value": "Arsitektur Sistem"
+            },
+            "status": {
+                "label": "Status",
+                "value": "Aktif / Membangun"
+            }
+        }
     },
     "Experience": {
         "title": "Riwayat Sistem",
