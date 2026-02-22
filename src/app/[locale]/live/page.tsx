@@ -71,7 +71,7 @@ export default function LivePage() {
                 {/* Header */}
                 <div className="flex flex-col items-center text-center mb-16">
                     <div className="inline-flex items-center gap-2 px-3 py-1 rounded-sm bg-primary/10 border border-primary/20 mb-4">
-                        <span className="text-[10px] font-mono font-bold tracking-[0.2em] text-primary uppercase">Command_Center // Live_Stream_Active</span>
+                        <span className="text-[10px] font-mono font-bold tracking-[0.2em] text-primary uppercase">{t('command_center')} // {t('live_stream')}</span>
                     </div>
                     <div className="flex flex-col md:flex-row md:items-end justify-between w-full max-w-6xl gap-8">
                         <div className="text-left">
@@ -98,9 +98,9 @@ export default function LivePage() {
 
                         <div className="flex items-center gap-6">
                             <div className="text-right hidden sm:block">
-                                <p className="text-[10px] text-text-muted uppercase tracking-[0.2em] mb-1 opacity-40">System_Clock</p>
+                                <p className="text-[10px] text-text-muted uppercase tracking-[0.2em] mb-1 opacity-40">{t('system_clock')}</p>
                                 <p className="text-sm font-mono text-primary font-bold">
-                                    {lastUpdated ? formatDate(lastUpdated) : 'NOT_SYNCED'}
+                                    {lastUpdated ? formatDate(lastUpdated) : t('not_synced')}
                                 </p>
                             </div>
                             <button
@@ -125,10 +125,10 @@ export default function LivePage() {
                             <div className="p-6 border-b border-border flex items-center justify-between">
                                 <div className="flex items-center gap-3">
                                     <FaHistory className="text-primary text-sm" />
-                                    <h2 className="text-xs font-mono font-bold uppercase tracking-[0.2em]">Activity_Stream</h2>
+                                    <h2 className="text-xs font-mono font-bold uppercase tracking-[0.2em]">{t('activity_stream')}</h2>
                                 </div>
                                 <div className="flex items-center gap-4">
-                                    <span className="text-[10px] font-mono text-text-muted opacity-40">AUTO_LOG: ON</span>
+                                    <span className="text-[10px] font-mono text-text-muted opacity-40">{t('auto_log')}</span>
                                     <div className="flex gap-1">
                                         {[...Array(3)].map((_, i) => (
                                             <div key={i} className="w-1 h-3 bg-primary/20" />
@@ -194,7 +194,7 @@ export default function LivePage() {
                                                                 {formatRelativeTime(event.created_at)}
                                                             </span>
                                                             <span>//</span>
-                                                            <span>STAMP: {formatDate(event.created_at)}</span>
+                                                            <span>{t('stamp')}: {formatDate(event.created_at)}</span>
                                                         </div>
                                                     </div>
                                                 </motion.div>
@@ -214,7 +214,7 @@ export default function LivePage() {
                                     <div className="w-2 h-2 rounded-full bg-primary animate-pulse" />
                                     <h3 className="text-xs font-mono font-bold uppercase tracking-[0.2em]">{t('heatmap.title')}</h3>
                                 </div>
-                                <span className="text-[9px] font-mono text-text-muted px-2 py-1 bg-background border border-border">FREQ_MAP</span>
+                                <span className="text-[9px] font-mono text-text-muted px-2 py-1 bg-background border border-border">{t('freq_map')}</span>
                             </div>
                             <div className="p-6 overflow-hidden">
                                 {loading ? (
@@ -232,12 +232,12 @@ export default function LivePage() {
                             <div className="absolute top-0 right-0 p-4 opacity-10">
                                 <FaGitAlt className="text-4xl text-primary" />
                             </div>
-                            <h3 className="text-xl font-black mb-8 uppercase tracking-tighter">Work_Primitives</h3>
+                            <h3 className="text-xl font-black mb-8 uppercase tracking-tighter">{t('work_primitives.title')}</h3>
                             <ul className="space-y-6">
                                 {[
-                                    { title: "Transparency", desc: "Every commit is visible activity.", code: "TRP_01" },
-                                    { title: "Consistency", desc: "Long-term output > Short-term bursts.", code: "CNS_02" },
-                                    { title: "Atomicity", desc: "Small, meaningful system updates.", code: "ATM_03" }
+                                    { title: t('work_primitives.transparency.title'), desc: t('work_primitives.transparency.desc'), code: "TRP_01" },
+                                    { title: t('work_primitives.consistency.title'), desc: t('work_primitives.consistency.desc'), code: "CNS_02" },
+                                    { title: t('work_primitives.atomicity.title'), desc: t('work_primitives.atomicity.desc'), code: "ATM_03" }
                                 ].map((p, i) => (
                                     <li key={i} className="flex gap-4 group/item">
                                         <div className="w-1 h-10 bg-primary/10 group-hover/item:bg-primary transition-all flex-shrink-0" />

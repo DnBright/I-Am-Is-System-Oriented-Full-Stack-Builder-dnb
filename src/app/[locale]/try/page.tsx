@@ -34,7 +34,7 @@ export default function TryPage() {
                 {/* Header */}
                 <div className="flex flex-col items-center text-center mb-16">
                     <div className="inline-flex items-center gap-2 px-3 py-1 rounded-sm bg-primary/10 border border-primary/20 mb-4">
-                        <span className="text-[10px] font-mono font-bold tracking-[0.2em] text-primary uppercase">Simulation_Module // Sandbox_v0.8-Alpha</span>
+                        <span className="text-[10px] font-mono font-bold tracking-[0.2em] text-primary uppercase">{t('simulation_module')} // {t('sandbox')}</span>
                     </div>
                     <motion.h1
                         initial={{ opacity: 0, scale: 0.98 }}
@@ -61,7 +61,7 @@ export default function TryPage() {
                     <div className="lg:col-span-1 space-y-6">
                         <div className="flex items-center gap-3 px-2 mb-4">
                             <div className="w-1 h-4 bg-primary" />
-                            <span className="text-[10px] font-mono font-bold uppercase tracking-[0.3em] text-text-muted opacity-40">STATION_SELECT</span>
+                            <span className="text-[10px] font-mono font-bold uppercase tracking-[0.3em] text-text-muted opacity-40">{t('station_select')}</span>
                         </div>
                         {demoStations.map((demo) => {
                             const d = {
@@ -132,7 +132,7 @@ export default function TryPage() {
                                 </div>
                                 <div className="flex items-center gap-4">
                                     <div className="text-[9px] font-mono text-text-muted uppercase tracking-[0.2em] opacity-40">
-                                        AUTH: SESSION_SYMMETRIC
+                                        {t('auth')}
                                     </div>
                                     <div className="text-[10px] font-mono font-bold text-primary group-hover:text-primary transition-colors tracking-tighter uppercase">
                                         {t('terminal.root_at')}:~/{activeDemo.id}

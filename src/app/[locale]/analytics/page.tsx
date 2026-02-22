@@ -84,7 +84,7 @@ export default function AnalyticsPage() {
             color: 'text-primary'
         },
         {
-            label: 'Avg/Day',
+            label: t('average_day'),
             value: analyticsData ? `${analyticsData.averageCommitsPerDay}` : '0',
             icon: <FaClock />,
             color: 'text-info'
@@ -96,7 +96,7 @@ export default function AnalyticsPage() {
             color: 'text-error'
         },
         {
-            label: 'Total',
+            label: t('total'),
             value: analyticsData ? `${analyticsData.totalCommits}` : '0',
             icon: <FaCalendarAlt />,
             color: 'text-warning'
@@ -109,7 +109,7 @@ export default function AnalyticsPage() {
                 {/* Header */}
                 <div className="flex flex-col items-center text-center mb-16">
                     <div className="inline-flex items-center gap-2 px-3 py-1 rounded-sm bg-primary/10 border border-primary/20 mb-4">
-                        <span className="text-[10px] font-mono font-bold tracking-[0.2em] text-primary uppercase">Analytics_Engine // Live_Observability</span>
+                        <span className="text-[10px] font-mono font-bold tracking-[0.2em] text-primary uppercase">{t('live_engine')} // {t('live_observability')}</span>
                     </div>
                     <motion.h1
                         initial={{ opacity: 0, y: 20 }}
@@ -127,10 +127,10 @@ export default function AnalyticsPage() {
                     <div className="flex items-center gap-4 mt-4 text-xs font-mono text-text-muted">
                         <span className="flex items-center gap-2">
                             <div className={`w-2 h-2 rounded-full ${refreshing ? 'bg-yellow-500' : 'bg-green-500'} animate-pulse`} />
-                            {refreshing ? 'SYNCING...' : 'LIVE_CONNECTION_ACTIVE'}
+                            {refreshing ? t('syncing') : t('live_connection_active')}
                         </span>
                         <span className="opacity-30">|</span>
-                        <span>LAST_SYNC: {lastUpdated ? formatRelativeTime(lastUpdated) : '...'}</span>
+                        <span>{t('last_sync')}{lastUpdated ? formatRelativeTime(lastUpdated) : '...'}</span>
                     </div>
                 </div>
 
@@ -259,19 +259,19 @@ export default function AnalyticsPage() {
                                                                             {(() => {
                                                                                 switch (event.type) {
                                                                                     case 'PullRequestEvent':
-                                                                                        return `PR ${event.payload.action || 'updated'}: ${event.payload.ref || 'System_Update'}`;
+                                                                                        return `${t('fallbacks.issue_updated', { action: event.payload.action || 'updated' })}: ${event.payload.ref || t('fallbacks.pr_updated')}`;
                                                                                     case 'IssuesEvent':
-                                                                                        return `Issue ${event.payload.action || 'updated'}`;
+                                                                                        return t('fallbacks.issue_updated', { action: event.payload.action || 'updated' });
                                                                                     case 'CreateEvent':
-                                                                                        return `Created ${event.payload.ref_type}: ${event.payload.ref || 'new branch'}`;
+                                                                                        return `Created ${event.payload.ref_type}: ${event.payload.ref || t('fallbacks.created_branch')}`;
                                                                                     case 'ReleaseEvent':
-                                                                                        return `Released version ${event.payload.ref || 'new release'}`;
+                                                                                        return `Released version ${event.payload.ref || t('fallbacks.released_version')}`;
                                                                                     case 'WatchEvent':
-                                                                                        return `⭐ Repository starred`;
+                                                                                        return t('fallbacks.starred');
                                                                                     case 'ForkEvent':
-                                                                                        return `🍴 Repository forked`;
+                                                                                        return t('fallbacks.forked');
                                                                                     default:
-                                                                                        return 'System_Activity_Logged';
+                                                                                        return t('fallbacks.system_activity');
                                                                                 }
                                                                             })()}
                                                                         </p>

@@ -8,10 +8,10 @@ export default function BioSection() {
     const t = useTranslations('BioSection');
 
     const backgroundData = [
-        { label: 'Origin', value: 'Jakarta, Indonesia', icon: <FiServer /> },
-        { label: 'Education', value: 'Computer Science', icon: <FiCpu /> },
-        { label: 'Focus', value: 'System Architecture', icon: <FiDatabase /> },
-        { label: 'Status', value: 'Active / Building', icon: <FiTerminal /> },
+        { label: t('background.origin.label'), value: t('background.origin.value'), icon: <FiServer /> },
+        { label: t('background.education.label'), value: t('background.education.value'), icon: <FiCpu /> },
+        { label: t('background.focus.label'), value: t('background.focus.value'), icon: <FiDatabase /> },
+        { label: t('background.status.label'), value: t('background.status.value'), icon: <FiTerminal /> },
     ];
 
     return (
@@ -26,7 +26,7 @@ export default function BioSection() {
                         <div className="space-y-6">
                             <div className="flex items-center gap-3">
                                 <div className="h-px w-12 bg-primary/50" />
-                                <span className="text-xs font-mono font-bold tracking-[0.3em] text-primary uppercase">Bio_Manifesto</span>
+                                <span className="text-xs font-mono font-bold tracking-[0.3em] text-primary uppercase">{t('manifesto')}</span>
                             </div>
                             <h2 className="text-5xl md:text-6xl font-bold tracking-tighter text-text-primary leading-tight">
                                 {t.rich('title', {
@@ -88,7 +88,7 @@ export default function BioSection() {
                                 </p>
                                 <div className="mt-6 flex items-center gap-3">
                                     <div className="w-8 h-px bg-primary" />
-                                    <span className="text-xs font-mono font-bold text-primary uppercase tracking-[0.2em]">System_Philosophy</span>
+                                    <span className="text-xs font-mono font-bold text-primary uppercase tracking-[0.2em]">{t('philosophy')}</span>
                                 </div>
                             </div>
                         </div>
