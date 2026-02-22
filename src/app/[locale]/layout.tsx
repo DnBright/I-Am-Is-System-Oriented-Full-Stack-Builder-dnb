@@ -7,6 +7,7 @@ import BackgroundEffects from "@/components/layout/BackgroundEffects";
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
 import { ThemeProvider } from '@/components/theme/ThemeProvider';
+import SplashLoader from '@/components/ui/SplashLoader';
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -43,8 +44,9 @@ export default async function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
+        <ThemeProvider attribute="class" defaultTheme="light">
           <NextIntlClientProvider messages={messages}>
+            <SplashLoader />
             <BackgroundEffects />
             <Navbar />
             <main className="min-h-screen lg:pl-[340px] transition-all duration-500 flex flex-col">
