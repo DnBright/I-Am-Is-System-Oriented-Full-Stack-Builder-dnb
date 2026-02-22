@@ -32,7 +32,7 @@ export default function ProjectIntro() {
                         <motion.h2
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
-                            className="text-5xl md:text-7xl font-bold text-white tracking-tighter leading-tight"
+                            className="text-5xl md:text-7xl font-bold text-text-primary tracking-tighter leading-tight"
                         >
                             {t('text_1')}
                             <br />
