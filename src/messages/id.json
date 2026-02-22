@@ -213,7 +213,7 @@
             "totalCommits": "Aktivitas Total",
             "avgCommits": "Kapasitas Rata-rata",
             "consistency": "Konsistensi",
-            "streak": "Streak Pulse",
+            "streak": "Streak Terpanjang",
             "days": "hari"
         },
         "charts": {

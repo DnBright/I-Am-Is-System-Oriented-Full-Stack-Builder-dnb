@@ -214,7 +214,7 @@
       "totalCommits": "Total Activity",
       "avgCommits": "Avg Capacity",
       "consistency": "Consistency",
-      "streak": "Pulse Streak",
+      "streak": "Longest Streak",
       "days": "days"
     },
     "charts": {

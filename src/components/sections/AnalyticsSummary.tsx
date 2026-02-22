@@ -13,7 +13,7 @@ interface AnalyticsSummary {
     totalCommits: number;
     averageCommitsPerDay: number;
     consistencyScore: number;
-    currentStreak: number;
+    longestStreak: number;
 }
 
 export default function AnalyticsSummary() {
@@ -30,7 +30,7 @@ export default function AnalyticsSummary() {
                     totalCommits: data?.totalCommits ?? 0,
                     averageCommitsPerDay: data?.averageCommitsPerDay ?? 0,
                     consistencyScore: data?.consistencyScore ?? 0,
-                    currentStreak: data?.currentStreak ?? 0
+                    longestStreak: data?.longestStreak ?? 0
                 });
             } catch (error) {
                 console.error('Failed to fetch analytics:', error);
@@ -64,7 +64,7 @@ export default function AnalyticsSummary() {
         {
             icon: <FaFire className="text-2xl" />,
             label: t('stats.streak'),
-            value: `${analytics?.currentStreak || 0} ${t('stats.days')}`,
+            value: `${analytics?.longestStreak || 0} ${t('stats.days')}`,
             color: 'text-error'
         }
     ];
