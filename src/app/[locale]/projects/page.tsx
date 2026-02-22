@@ -103,7 +103,7 @@ export default function ProjectsPage() {
                                 <Link href={`/projects/${project.slug}`}>
                                     <Card hover className="p-0 h-full flex flex-col group overflow-hidden border-primary/5 bg-surface/40">
                                         {/* Status Header */}
-                                        <div className="px-6 py-3 border-b border-white/5 flex items-center justify-between bg-white/[0.02]">
+                                        <div className="px-6 py-3 border-b border-border flex items-center justify-between bg-surface-elevated/40">
                                             <div className="flex items-center gap-2">
                                                 <div className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
                                                 <span className="text-[10px] font-mono font-bold text-primary tracking-widest uppercase">Operational</span>
@@ -121,7 +121,7 @@ export default function ProjectsPage() {
                                                 <FaLayerGroup className="text-primary/20 group-hover:text-primary transition-all group-hover:rotate-12" />
                                             </div>
 
-                                            <h3 className="text-3xl font-black mb-4 text-white group-hover:text-primary transition-colors tracking-tighter uppercase">
+                                            <h3 className="text-3xl font-black mb-4 text-text-primary group-hover:text-primary transition-colors tracking-tighter uppercase">
                                                 {project.title}
                                             </h3>
 
@@ -130,10 +130,10 @@ export default function ProjectsPage() {
                                             </p>
                                         </div>
 
-                                        <div className="p-10 bg-white/[0.02] border-t border-white/5 mt-auto">
+                                        <div className="p-10 bg-surface-elevated/40 border-t border-border mt-auto">
                                             <div className="flex flex-wrap gap-2 mb-8">
                                                 {project.tech.map(t => (
-                                                    <span key={t} className="px-3 py-1 bg-white/5 text-[9px] font-mono font-bold text-text-muted uppercase border border-white/5 group-hover:border-primary/20 transition-colors">
+                                                    <span key={t} className="px-3 py-1 bg-surface-elevated/60 text-[9px] font-mono font-bold text-text-muted uppercase border border-border group-hover:border-primary/20 transition-colors">
                                                         {t}
                                                     </span>
                                                 ))}

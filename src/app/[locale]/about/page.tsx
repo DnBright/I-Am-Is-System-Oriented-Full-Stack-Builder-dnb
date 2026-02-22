@@ -77,18 +77,18 @@ export default function AboutPage() {
                             <h3 className="text-xs font-mono font-bold text-primary uppercase tracking-[0.3em]">{t('mindset.title')}</h3>
                         </div>
                         <div className="space-y-6">
-                            <p className="text-xl md:text-2xl text-white leading-relaxed font-sans font-light">
+                            <p className="text-xl md:text-2xl text-text-primary leading-relaxed font-sans font-light">
                                 {t('mindset.desc1')}
                             </p>
                             <p className="text-lg text-text-secondary leading-relaxed font-sans">
                                 {t.rich('mindset.desc2', {
-                                    strong: (children) => <strong className="text-white font-bold">{children}</strong>
+                                    strong: (children) => <strong className="text-text-primary font-bold">{children}</strong>
                                 })}
                             </p>
                         </div>
                         <div className="pt-6 flex flex-wrap gap-3">
                             {[t('badges.full_stack'), t('badges.architect'), t('badges.specialist')].map(tag => (
-                                <div key={tag} className="px-3 py-1 bg-white/5 border border-white/10 rounded-sm">
+                                <div key={tag} className="px-3 py-1 bg-surface-elevated/60 border border-border rounded-sm">
                                     <span className="text-[10px] font-mono font-bold text-text-muted uppercase tracking-[0.2em]">{tag}</span>
                                 </div>
                             ))}
@@ -113,7 +113,7 @@ export default function AboutPage() {
                                     </div>
                                 </div>
                                 <div className="space-y-6">
-                                    <p className="text-[10px] font-mono font-black uppercase tracking-[0.3em] text-text-muted opacity-40 py-2 border-y border-white/5">{t('focus.label')} // SYSTEM_DOMAIN</p>
+                                    <p className="text-[10px] font-mono font-black uppercase tracking-[0.3em] text-text-muted opacity-40 py-2 border-y border-border">{t('focus.label')} // SYSTEM_DOMAIN</p>
                                     <ul className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4">
                                         {(t.raw('focus.items') as string[]).map(f => (
                                             <li key={f} className="flex items-center gap-3 group/item">
@@ -145,7 +145,7 @@ export default function AboutPage() {
                                 transition={{ delay: i * 0.1 }}
                             >
                                 <Card className="p-10 h-full flex flex-col items-center text-center group border-primary/5 hover:border-primary/20 bg-surface/30">
-                                    <div className="w-20 h-20 rounded-sm bg-white/5 flex items-center justify-center text-3xl text-text-muted group-hover:text-primary group-hover:bg-primary/10 transition-all border border-white/5 group-hover:border-primary/30 mb-8 relative">
+                                    <div className="w-20 h-20 rounded-sm bg-surface-elevated flex items-center justify-center text-3xl text-text-muted group-hover:text-primary group-hover:bg-primary/10 transition-all border border-border group-hover:border-primary/30 mb-8 relative">
                                         {v.icon}
                                         <div className="absolute -top-1 -right-1 w-3 h-3 border-t border-r border-primary/40 opacity-0 group-hover:opacity-100 transition-opacity" />
                                         <div className="absolute -bottom-1 -left-1 w-3 h-3 border-b border-l border-primary/40 opacity-0 group-hover:opacity-100 transition-opacity" />
