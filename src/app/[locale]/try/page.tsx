@@ -124,7 +124,7 @@ export default function TryPage() {
                     <div className="lg:col-span-3">
                         <Card className="p-0 border-primary/10 bg-background overflow-hidden aspect-video flex flex-col relative group">
                             {/* Terminal Header */}
-                            <div className="bg-white/[0.02] px-6 py-4 border-b border-white/5 flex items-center justify-between">
+                            <div className="bg-surface-elevated/40 px-6 py-4 border-b border-border flex items-center justify-between">
                                 <div className="flex gap-2">
                                     <div className="w-2.5 h-2.5 rounded-full bg-error/30 group-hover:bg-error/50 transition-colors" />
                                     <div className="w-2.5 h-2.5 rounded-full bg-warning/30 group-hover:bg-warning/50 transition-colors" />
@@ -195,7 +195,7 @@ export default function TryPage() {
                             </div>
 
                             {/* Status Bar */}
-                            <div className="bg-white/[0.03] px-8 py-3 border-t border-white/5 flex items-center justify-between">
+                            <div className="bg-surface-elevated/40 px-8 py-3 border-t border-border flex items-center justify-between">
                                 <div className="flex items-center gap-8">
                                     <div className="flex items-center gap-3">
                                         <div className="w-1.5 h-1.5 rounded-full bg-success shadow-[0_0_8px_rgba(16,185,129,0.5)]" />

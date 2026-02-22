@@ -91,7 +91,7 @@ export default function AnalyticsPage() {
         },
         {
             label: t('stats.streak'),
-            value: analyticsData ? `${analyticsData.currentStreak}d` : '0d',
+            value: analyticsData ? `${analyticsData.longestStreak}d` : '0d',
             icon: <FaFire />,
             color: 'text-error'
         },
@@ -145,12 +145,12 @@ export default function AnalyticsPage() {
                                 viewport={{ once: true }}
                                 transition={{ delay: 0.1 + i * 0.1 }}
                             >
-                                <Card className="p-6 relative overflow-hidden group border-white/5 bg-surface/40 hover:border-primary/20 transition-colors">
+                                <Card className="p-6 relative overflow-hidden group border-border bg-surface-elevated/40 hover:border-primary/20 transition-colors">
                                     <div className="flex items-center justify-between mb-4">
                                         <div className={`text-2xl ${stat.color}`}>{stat.icon}</div>
                                         <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-text-muted">{stat.label}</span>
                                     </div>
-                                    <div className="text-3xl font-mono font-bold text-white tracking-tighter">
+                                    <div className="text-3xl font-mono font-bold text-text-primary tracking-tighter">
                                         {loading ? <Skeleton className="h-8 w-16" /> : stat.value}
                                     </div>
                                     <div className="absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-primary/50 to-transparent w-full opacity-30" />
@@ -164,7 +164,7 @@ export default function AnalyticsPage() {
                         <div className="lg:col-span-8 space-y-10">
                             {/* Activity Stream */}
                             <Card className="p-0 overflow-hidden border-primary/5 bg-surface/30">
-                                <div className="p-6 border-b border-white/5 flex items-center justify-between bg-black/20">
+                                <div className="p-6 border-b border-border flex items-center justify-between bg-black/5">
                                     <div className="flex items-center gap-3">
                                         <FaHistory className="text-primary text-sm" />
                                         <h2 className="text-xs font-mono font-bold uppercase tracking-[0.2em]">
@@ -196,7 +196,7 @@ export default function AnalyticsPage() {
                                                         <div className="relative z-10 w-8 h-8 rounded-sm bg-background border border-primary/20 flex items-center justify-center flex-shrink-0 group-hover:border-primary transition-colors">
                                                             <div className="text-xs">{getEventIcon(event.type)}</div>
                                                         </div>
-                                                        <div className="flex-1 pb-8 border-b border-white/5 last:border-0 last:pb-0">
+                                                        <div className="flex-1 pb-8 border-b border-border last:border-0 last:pb-0">
                                                             <div className="flex justify-between items-start mb-2">
                                                                 <div className="flex items-center gap-2">
                                                                     <span className="text-[10px] font-bold text-primary uppercase bg-primary/10 px-1.5 py-0.5 rounded-[2px] tracking-widest">
@@ -206,12 +206,12 @@ export default function AnalyticsPage() {
                                                                         href={`https://github.com/${event.repo.name}`}
                                                                         target="_blank"
                                                                         rel="noopener noreferrer"
-                                                                        className="text-xs font-mono text-white/80 hover:text-primary transition-colors hover:underline"
+                                                                        className="text-xs font-mono text-text-primary/80 hover:text-primary transition-colors hover:underline"
                                                                     >
                                                                         {event.repo.name.split('/')[1]}
                                                                     </a>
                                                                     {event.payload.ref && (
-                                                                        <div className="flex items-center gap-1.5 px-2 py-0.5 bg-white/5 rounded-full border border-white/10">
+                                                                        <div className="flex items-center gap-1.5 px-2 py-0.5 bg-background border border-border rounded-full">
                                                                             <FaCodeBranch className="text-[8px] text-text-muted" />
                                                                             <span className="text-[9px] font-mono text-text-muted lowercase">
                                                                                 {event.payload.ref.replace('refs/heads/', '')}
@@ -228,7 +228,7 @@ export default function AnalyticsPage() {
                                                                 {event.type === 'PushEvent' && event.payload.commits ? (
                                                                     <div className="flex flex-col gap-2">
                                                                         {event.payload.commits.slice(0, 3).map((commit) => (
-                                                                            <div key={commit.sha} className="group/commit flex items-start gap-3 p-3 bg-white/[0.02] border border-white/5 rounded-sm hover:bg-white/[0.04] transition-colors">
+                                                                            <div key={commit.sha} className="group/commit flex items-start gap-3 p-3 bg-surface-elevated/40 border border-border rounded-sm hover:bg-surface-elevated/60 transition-colors">
                                                                                 <div className="mt-1 w-1 h-3 bg-primary/20 group-hover/commit:bg-primary transition-colors" />
                                                                                 <div className="flex-1">
                                                                                     <div className="flex items-center justify-between mb-0.5">
@@ -254,7 +254,7 @@ export default function AnalyticsPage() {
                                                                         )}
                                                                     </div>
                                                                 ) : (
-                                                                    <div className="p-3 bg-white/[0.02] border border-white/5 rounded-sm">
+                                                                    <div className="p-3 bg-surface-elevated/40 border border-border rounded-sm">
                                                                         <p className="text-xs text-text-muted font-mono leading-relaxed italic opacity-70 uppercase tracking-widest text-[9px]">
                                                                             {(() => {
                                                                                 switch (event.type) {
@@ -289,7 +289,7 @@ export default function AnalyticsPage() {
 
                             {/* Heatmap */}
                             <Card className="p-0 border-primary/5 bg-surface/30 overflow-hidden">
-                                <div className="p-6 border-b border-white/5 flex items-center justify-between bg-black/20">
+                                <div className="p-6 border-b border-border flex items-center justify-between bg-black/5">
                                     <div className="flex items-center gap-3">
                                         <FaCalendarAlt className="text-primary text-sm" />
                                         <h3 className="text-xs font-mono font-bold uppercase tracking-[0.2em]">Contribution Map</h3>
@@ -305,7 +305,7 @@ export default function AnalyticsPage() {
                         <div className="lg:col-span-4 space-y-8">
                             {/* Intensity Chart */}
                             <Card className="p-0 border-primary/5 bg-surface/30 overflow-hidden">
-                                <div className="p-5 border-b border-white/5 flex items-center justify-between bg-black/20">
+                                <div className="p-5 border-b border-border flex items-center justify-between bg-black/5">
                                     <h3 className="text-xs font-mono font-bold uppercase tracking-widest flex items-center gap-2">
                                         <FaFire className="text-warning" /> {t('charts.commits')}
                                     </h3>
@@ -317,7 +317,7 @@ export default function AnalyticsPage() {
 
                             {/* Hours Chart */}
                             <Card className="p-0 border-primary/5 bg-surface/30 overflow-hidden">
-                                <div className="p-5 border-b border-white/5 flex items-center justify-between bg-black/20">
+                                <div className="p-5 border-b border-border flex items-center justify-between bg-black/5">
                                     <h3 className="text-xs font-mono font-bold uppercase tracking-widest flex items-center gap-2">
                                         <FaClock className="text-info" /> {t('charts.hours')}
                                     </h3>
@@ -329,7 +329,7 @@ export default function AnalyticsPage() {
 
                             {/* Focus Area */}
                             <Card className="p-0 border-primary/5 bg-surface/30 overflow-hidden">
-                                <div className="p-5 border-b border-white/5 flex items-center justify-between bg-black/20">
+                                <div className="p-5 border-b border-border flex items-center justify-between bg-black/5">
                                     <h3 className="text-xs font-mono font-bold uppercase tracking-widest flex items-center gap-2">
                                         <FaBullseye className="text-success" /> {t('charts.focus')}
                                     </h3>

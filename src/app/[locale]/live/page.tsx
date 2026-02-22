@@ -122,7 +122,7 @@ export default function LivePage() {
                     {/* Main Timeline */}
                     <div className="lg:col-span-2 space-y-8">
                         <Card className="p-0 overflow-hidden border-primary/5 bg-surface/40">
-                            <div className="p-6 border-b border-white/5 flex items-center justify-between">
+                            <div className="p-6 border-b border-border flex items-center justify-between">
                                 <div className="flex items-center gap-3">
                                     <FaHistory className="text-primary text-sm" />
                                     <h2 className="text-xs font-mono font-bold uppercase tracking-[0.2em]">Activity_Stream</h2>
@@ -167,7 +167,7 @@ export default function LivePage() {
                                                         <div className="absolute -inset-1 bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity -z-10" />
                                                     </div>
 
-                                                    <div className="flex-1 pb-10 border-b border-white/5 last:border-0 last:pb-0">
+                                                    <div className="flex-1 pb-10 border-b border-border last:border-0 last:pb-0">
                                                         <div className="flex flex-wrap items-center justify-between gap-4 mb-4">
                                                             <div className="flex items-center gap-3">
                                                                 <h3 className="font-mono font-black text-text-primary tracking-tighter uppercase group-hover:text-primary transition-colors">
@@ -180,7 +180,7 @@ export default function LivePage() {
                                                             </div>
                                                         </div>
 
-                                                        <div className="p-4 bg-white/[0.02] border border-white/5 rounded-sm mb-4 group-hover:bg-white/[0.04] transition-colors">
+                                                        <div className="p-4 bg-surface-elevated/40 border border-border rounded-sm mb-4 group-hover:bg-surface-elevated/60 transition-colors">
                                                             <p className="text-text-muted text-sm leading-relaxed font-mono opacity-80 italic">
                                                                 {event.type === 'PushEvent'
                                                                     ? event.payload.commits?.[0]?.message || t('fallback_desc', { repo: event.repo.name.split('/')[1] })
@@ -209,12 +209,12 @@ export default function LivePage() {
                     {/* Sidebar Stats */}
                     <div className="space-y-8">
                         <Card className="p-0 border-primary/5 bg-surface/40 overflow-hidden">
-                            <div className="p-6 border-b border-white/5 flex items-center justify-between">
+                            <div className="p-6 border-b border-border flex items-center justify-between">
                                 <div className="flex items-center gap-3">
                                     <div className="w-2 h-2 rounded-full bg-primary animate-pulse" />
                                     <h3 className="text-xs font-mono font-bold uppercase tracking-[0.2em]">{t('heatmap.title')}</h3>
                                 </div>
-                                <span className="text-[9px] font-mono text-text-muted px-2 py-1 bg-white/5">FREQ_MAP</span>
+                                <span className="text-[9px] font-mono text-text-muted px-2 py-1 bg-background border border-border">FREQ_MAP</span>
                             </div>
                             <div className="p-6 overflow-hidden">
                                 {loading ? (

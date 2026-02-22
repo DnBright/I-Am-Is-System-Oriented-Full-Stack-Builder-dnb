@@ -75,7 +75,7 @@ export default function Certificates() {
                                     </div>
                                     <div className="space-y-1">
                                         <div className="text-[10px] font-black uppercase tracking-[0.4em] text-primary">AUTHENTICITY</div>
-                                        <div className="text-white text-sm font-bold">VIEW CERTIFICATE</div>
+                                        <div className="text-text-primary text-sm font-bold">VIEW CERTIFICATE</div>
                                     </div>
                                     <div className="px-6 py-2 bg-primary text-background text-[10px] font-black uppercase rounded-full tracking-widest hover:scale-105 active:scale-95 transition-all">
                                         Open Now
