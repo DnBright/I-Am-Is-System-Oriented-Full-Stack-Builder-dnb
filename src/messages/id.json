@@ -98,7 +98,8 @@
                 "work_order": "Work Order Admin Project",
                 "reference": "Surat Referensi Kerja",
                 "competency": "Sertifikat Kompetensi",
-                "committee": "Sertifikat Kepanitiaan"
+                "committee": "Sertifikat Kepanitiaan",
+                "design_content": "Surat Keterangan Kerja (Design & Content Creator)"
             }
         }
     },

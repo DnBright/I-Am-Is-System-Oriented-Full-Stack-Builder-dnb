@@ -30,6 +30,11 @@ export default function Certificates() {
             key: 'committee',
             icon: <FiUsers />,
             file: '/documents/committee/Sertifikat Kepanitiaan.pdf'
+        },
+        {
+            key: 'design_content',
+            icon: <FiAward />,
+            file: '/documents/references/Surat Keterangan Kerja Design & Content Creator.pdf'
         }
     ];
 

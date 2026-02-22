@@ -99,7 +99,8 @@
         "work_order": "Project Admin Work Order",
         "reference": "Work Reference Letter",
         "competency": "Competency Certificate",
-        "committee": "Committee Certificate"
+        "committee": "Committee Certificate",
+        "design_content": "Work Experience Letter (Design & Content Creator)"
       }
     }
   },
