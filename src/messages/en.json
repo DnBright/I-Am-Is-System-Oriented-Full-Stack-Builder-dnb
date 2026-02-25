@@ -18,6 +18,7 @@
     "cta_bio": "Read Full Bio",
     "cta_projects": "Explore Systems",
     "cta_contact": "Contact Me",
+    "cta_cv": "Download ATS CV",
     "stats": {
       "experience": "Years Experience",
       "projects": "Systems Deployed",
@@ -299,6 +300,7 @@
   },
   "About": {
     "title": "Engineering <span>Philosophy</span>",
+    "download_cv": "DOWNLOAD_ATS_CV",
     "quote": "\"Logic is the foundation, but systems are the execution. A great engineer builds both.\"",
     "mindset": {
       "title": "The System-Oriented Mindset",

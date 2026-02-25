@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { useTranslations } from 'next-intl';
-import { FiMinimize2, FiMaximize2, FiTerminal, FiCpu, FiDatabase, FiServer } from 'react-icons/fi';
+import { FiMinimize2, FiMaximize2, FiTerminal, FiCpu, FiDatabase, FiServer, FiDownload } from 'react-icons/fi';
 
 export default function BioSection() {
     const t = useTranslations('BioSection');
@@ -86,9 +86,20 @@ export default function BioSection() {
                                 <p className="text-2xl font-light italic text-text-primary leading-relaxed">
                                     "{t('quote')}"
                                 </p>
-                                <div className="mt-6 flex items-center gap-3">
-                                    <div className="w-8 h-px bg-primary" />
-                                    <span className="text-xs font-mono font-bold text-primary uppercase tracking-[0.2em]">{t('philosophy')}</span>
+                                <div className="mt-6 flex items-center justify-between">
+                                    <div className="flex items-center gap-3">
+                                        <div className="w-8 h-px bg-primary" />
+                                        <span className="text-xs font-mono font-bold text-primary uppercase tracking-[0.2em]">{t('philosophy')}</span>
+                                    </div>
+                                    <a
+                                        href="/documents/cv-ats-dn.pdf"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="flex items-center gap-2 text-[10px] font-mono font-bold text-text-muted hover:text-primary transition-colors uppercase tracking-widest"
+                                    >
+                                        <FiDownload className="text-sm" />
+                                        Download_Full_CV
+                                    </a>
                                 </div>
                             </div>
                         </div>

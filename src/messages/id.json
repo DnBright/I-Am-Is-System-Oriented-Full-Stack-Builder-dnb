@@ -16,7 +16,8 @@
         "subtitle_2": "Membangun sistem terstruktur, bukan sekadar kode.",
         "cta_bio": "Baca Biodata Lengkap",
         "cta_projects": "Jelajahi Sistem",
-        "cta_contact": "Lihat Aktivitas",
+        "cta_contact": "Hubungi Saya",
+        "cta_cv": "Unduh CV ATS",
         "stats": {
             "experience": "Tahun Pengalaman",
             "projects": "Sistem Dikerahkan",
@@ -297,12 +298,13 @@
         "explore": "JELAJAHI SISTEM"
     },
     "About": {
-        "title": "Filosofi <span>Teknik</span>",
-        "quote": "\"Logika adalah fondasi, tetapi sistem adalah eksekusi. Insinyur hebat membangun keduanya.\"",
+        "title": "Filosofi <span>Engineering</span>",
+        "download_cv": "UNDUH_CV_ATS",
+        "quote": "\"Logika adalah fondasi, tetapi sistem adalah eksekusinya. Insinyur yang hebat membangun keduanya.\"",
         "mindset": {
             "title": "Pola Pikir Berorientasi Sistem",
             "desc1": "Berbasis di Yogyakarta, saya adalah seorang **System Builder** dan Arsitek yang berada di titik temu antara logika visual yang presisi dan teknik yang skalabel.",
-            "desc2": "Saya bukan sekadar pemecah masalah (Problem Solver), saya adalah **Pembangun (Builder)**. Saya tidak hanya memperbaiki kode, saya menciptakan sistem dari nol—membangun jembatan antara visi bisnis dan realitas teknis yang kokoh."
+            "desc2": "Saya bukan sekadar pemecah masalah (Problem Solver), saya adalah **Pembangun (Builder)**. Saya tidak hanya memperbaiki kode, saya menciptakan sistem dari nol—membuat jembatan antara visi bisnis dan realitas teknis yang kokoh."
         },
         "badges": {
             "full_stack": "Full-Stack",

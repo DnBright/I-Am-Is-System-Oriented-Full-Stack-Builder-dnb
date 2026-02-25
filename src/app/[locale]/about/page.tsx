@@ -3,7 +3,9 @@
 import { motion } from 'framer-motion';
 import Card from '@/components/ui/Card';
 import Badge from '@/components/ui/Badge';
+import Button from '@/components/ui/Button';
 import { FaGraduationCap, FaBrain, FaDraftingCompass, FaTools, FaQuoteLeft } from 'react-icons/fa';
+import { FiDownload } from 'react-icons/fi';
 import { useTranslations } from 'next-intl';
 
 export default function AboutPage() {
@@ -62,6 +64,21 @@ export default function AboutPage() {
                             span: (children) => <span className="text-primary">{children}</span>
                         })}
                     </motion.h1>
+
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: 0.3 }}
+                        className="flex justify-center"
+                    >
+                        <a href="/documents/cv-ats-dn.pdf" target="_blank" rel="noopener noreferrer">
+                            <Button variant="outline" size="lg" className="px-8 border-primary/20 hover:border-primary/50 flex items-center gap-3">
+                                <FiDownload className="text-xl" />
+                                {t('download_cv')}
+                            </Button>
+                        </a>
+                    </motion.div>
                 </div>
 
                 {/* Narrative Section */}

@@ -5,6 +5,7 @@ import Button from '@/components/ui/Button';
 import Badge from '@/components/ui/Badge';
 import { Link } from '@/navigation';
 import { FaGithub, FaCode, FaChartLine } from 'react-icons/fa';
+import { FiDownload } from 'react-icons/fi';
 import { useTranslations } from 'next-intl';
 
 export default function Hero() {
@@ -126,6 +127,12 @@ export default function Hero() {
                                         {t('cta_projects')}
                                     </Button>
                                 </Link>
+                                <a href="/documents/cv-ats-dn.pdf" target="_blank" rel="noopener noreferrer">
+                                    <Button variant="outline" size="lg" className="min-w-[180px] bg-primary/5 border-primary/20 hover:bg-primary/10 flex items-center justify-center gap-2">
+                                        <FiDownload className="text-lg" />
+                                        {t('cta_cv')}
+                                    </Button>
+                                </a>
                             </motion.div>
                         </div>
                     </div>
