@@ -247,6 +247,24 @@
           "Readiness Indicator"
         ],
         "solution": "Adaptive learning platform allowing students to learn at their own pace with automated progress validation."
+      },
+      "gro-visual-branding": {
+        "title": "Gro Visual - Creative Branding",
+        "client": "Gro Visual Clients",
+        "legal": "CREATIVE SERVICES SYSTEM",
+        "category": "Visual Identity System",
+        "descriptionBrief": "Professional representation of creative services focused on building strategic business visual identities.",
+        "problem": "Many businesses have quality services but lack a professional and strategic visual identity, making it difficult to build trust and attraction on social media.",
+        "system": "A clean and communicative portfolio website representing creative services to showcase graphic design and branding capabilities.",
+        "role": "Brand Strategist & Creative Director",
+        "impact": "Enhanced brand value through strong, structured, and modern visual identities.",
+        "architecture": [
+          "Visual Identity Audit",
+          "Strategic Branding",
+          "Content Management Flow",
+          "Social Engagement Plan"
+        ],
+        "solution": "A strategic design approach integrating logo branding, graphic design, and social media management to strengthen brand image."
       }
     }
   },
@@ -441,6 +459,17 @@
           "WebRTC",
           "MongoDB",
           "Socket.io"
+        ]
+      },
+      "gro_visual": {
+        "title": "Gro Visual - Creative Branding",
+        "location": "Creative Branding Agency",
+        "description": "Creative services focusing on building strategic and modern business visual identities",
+        "tech": [
+          "Logo Design",
+          "Branding Strategy",
+          "Social Media Management",
+          "Graphic Design"
         ]
       }
     }

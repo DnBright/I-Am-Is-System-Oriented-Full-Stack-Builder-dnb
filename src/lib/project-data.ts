@@ -114,5 +114,27 @@ export const projectsData: Project[] = [
             hover: 'group-hover:text-teal-600',
             gradient: 'from-teal-100 to-white'
         }
+    },
+    {
+        id: 5,
+        title: 'Gro Visual - Creative Branding',
+        description: 'Layanan kreatif yang berfokus pada pembangunan identitas visual bisnis secara strategis dan modern',
+        tech: ['Logo Design', 'Branding Strategy', 'Social Media Management', 'Graphic Design'],
+        category: 'Branding',
+        slug: 'gro-visual-branding',
+        introKey: 'gro_visual',
+        image: '/projects/Gro Visual/Screenshot 2026-02-27 at 22.18.37.png',
+        screenshots: [
+            '/projects/Gro Visual/Screenshot 2026-02-27 at 22.18.37.png',
+            '/projects/Gro Visual/Screenshot 2026-02-27 at 22.18.42.png',
+            '/projects/Gro Visual/Screenshot 2026-02-27 at 22.18.46.png',
+        ],
+        colors: {
+            primary: 'text-orange-600',
+            bg: 'bg-orange-50',
+            border: 'border-orange-200',
+            hover: 'group-hover:text-orange-500',
+            gradient: 'from-orange-100 to-white'
+        }
     }
 ];

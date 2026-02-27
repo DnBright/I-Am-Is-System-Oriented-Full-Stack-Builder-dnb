@@ -246,6 +246,24 @@
                     "Readiness Indicator"
                 ],
                 "solution": "Platform pembelajaran adaptif yang memungkinkan siswa belajar sesuai kecepatan mereka sendiri dengan validasi progres otomatis."
+            },
+            "gro-visual-branding": {
+                "title": "Gro Visual - Creative Branding",
+                "client": "Gro Visual Clients",
+                "legal": "CREATIVE SERVICES SYSTEM",
+                "category": "Visual Identity System",
+                "descriptionBrief": "Representasi profesional layanan kreatif untuk pembangunan identitas visual bisnis secara strategis.",
+                "problem": "Banyak bisnis memiliki layanan berkualitas tetapi tidak memiliki identitas visual yang profesional dan strategis, sehingga sulit membangun kepercayaan dan daya tarik di media sosial.",
+                "system": "Website portofolio dan representasi layanan yang bersih dan komunikatif untuk menampilkan kapabilitas desain grafis dan branding.",
+                "role": "Brand Strategist & Creative Director",
+                "impact": "Meningkatkan nilai jual brand klien melalui identitas visual yang kuat, terstruktur, dan modern.",
+                "architecture": [
+                    "Visual Identity Audit",
+                    "Strategic Branding",
+                    "Content Management Flow",
+                    "Social Engagement Plan"
+                ],
+                "solution": "Pendekatan desain strategis yang mengintegrasikan branding logo, desain grafis, dan manajemen media sosial untuk memperkuat citra brand."
             }
         }
     },
@@ -440,6 +458,17 @@
                     "WebRTC",
                     "MongoDB",
                     "Socket.io"
+                ]
+            },
+            "gro_visual": {
+                "title": "Gro Visual - Creative Branding",
+                "location": "Creative Branding Agency",
+                "description": "Layanan kreatif yang berfokus pada pembangunan identitas visual bisnis secara strategis dan modern",
+                "tech": [
+                    "Logo Design",
+                    "Branding Strategy",
+                    "Social Media Management",
+                    "Graphic Design"
                 ]
             }
         }
