@@ -48,27 +48,22 @@ export default function ProjectIntro() {
 
                     {/* Project Cards Grid */}
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-10">
-                        {projectsData.map((project, index) => {
-                            // eslint-disable-next-line react-hooks/rules-of-hooks
-                            const tProject = useTranslations(`ProjectIntro.projects.${project.introKey}`);
-
-                            return (
-                                <motion.div
-                                    key={project.id}
-                                    initial={{ opacity: 0, y: 40 }}
-                                    whileInView={{ opacity: 1, y: 0 }}
-                                    transition={{ duration: 0.6, delay: index * 0.1 }}
-                                >
-                                    <ProjectCard
-                                        project={project}
-                                        index={index}
-                                        title={tProject('title')}
-                                        location={tProject('location')}
-                                        description={tProject('description')}
-                                    />
-                                </motion.div>
-                            );
-                        })}
+                        {projectsData.map((project, index) => (
+                            <motion.div
+                                key={project.id}
+                                initial={{ opacity: 0, y: 40 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                transition={{ duration: 0.6, delay: index * 0.1 }}
+                            >
+                                <ProjectCard
+                                    project={project}
+                                    index={index}
+                                    title={t(`projects.${project.introKey}.title`)}
+                                    location={t(`projects.${project.introKey}.location`)}
+                                    description={t(`projects.${project.introKey}.description`)}
+                                />
+                            </motion.div>
+                        ))}
                     </div>
                 </div>
             </div>

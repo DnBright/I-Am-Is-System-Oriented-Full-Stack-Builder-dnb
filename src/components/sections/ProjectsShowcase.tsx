@@ -79,6 +79,7 @@ const projects = [
 
 export default function ProjectsShowcase() {
     const t = useTranslations('Projects');
+    const tDetail = useTranslations('ProjectDetail');
 
     return (
         <section className="py-32 relative overflow-hidden">
@@ -98,9 +99,7 @@ export default function ProjectsShowcase() {
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                         {projects.map((project, index) => {
-                            // eslint-disable-next-line react-hooks/rules-of-hooks
-                            const tProject = useTranslations(`ProjectDetail.projects.${project.slug}`);
-
+                            const projectKey = `projects.${project.slug}`;
                             return (
                                 <Link key={project.id} href={`/projects/${project.slug}`}>
                                     <Card hover className="p-0 flex flex-col h-full bg-surface-elevated/40 border-border">
@@ -120,7 +119,7 @@ export default function ProjectsShowcase() {
                                             {/* Category Tag */}
                                             <div className="absolute top-6 left-6 z-20">
                                                 <div className="px-3 py-1 bg-surface-elevated/80 backdrop-blur-md border border-border rounded-full">
-                                                    <span className="text-[10px] font-mono font-bold text-primary uppercase tracking-widest">{tProject('category')}</span>
+                                                    <span className="text-[10px] font-mono font-bold text-primary uppercase tracking-widest">{tDetail(`${projectKey}.category`)}</span>
                                                 </div>
                                             </div>
                                         </div>
@@ -131,7 +130,7 @@ export default function ProjectsShowcase() {
                                                     {project.title}
                                                 </h3>
                                                 <p className="text-text-secondary text-sm leading-relaxed line-clamp-2">
-                                                    {tProject('descriptionBrief')}
+                                                    {tDetail(`${projectKey}.descriptionBrief`)}
                                                 </p>
                                             </div>
 
@@ -144,7 +143,7 @@ export default function ProjectsShowcase() {
                                             </div>
 
                                             <div className="pt-6 mt-auto flex items-center justify-between border-t border-border">
-                                                <span className="text-[10px] font-mono text-text-muted uppercase tracking-widest">{tProject('role')}</span>
+                                                <span className="text-[10px] font-mono text-text-muted uppercase tracking-widest">{tDetail(`${projectKey}.role`)}</span>
                                                 <div className="flex items-center gap-2 text-primary font-bold text-xs group-hover:translate-x-1 transition-transform">
                                                     EXPLORE_SYSTEM <FaArrowRight className="text-[10px]" />
                                                 </div>

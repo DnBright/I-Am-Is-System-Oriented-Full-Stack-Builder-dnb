@@ -9,6 +9,7 @@
         "cta": "Coba Hasil Kerja"
     },
     "Hero": {
+        "badge": "System Builder",
         "status": "System Architect",
         "title": "<span>System-Oriented</span>\nFull-Stack Engineer",
         "intro_short": "Seorang pembangun sistem yang mengubah logika bisnis yang kompleks menjadi arsitektur digital yang skalabel, transparan, dan terukur.",
@@ -282,6 +283,22 @@
                     "Interactive Data Visualization"
                 ],
                 "solution": "Sistem rekomendasi cerdas yang menggunakan Collaborative Filtering untuk memprediksi minat pengguna dan AI Score untuk mengidentifikasi produk berpotensi tinggi."
+            },
+            "fallback": {
+                "title": "Protokol Proyek",
+                "client": "Sistem Internal",
+                "legal": "RAHASIA",
+                "category": "Cetak Biru Sistem",
+                "descriptionBrief": "Metadata proyek terenkripsi.",
+                "problem": "Akses dibatasi.",
+                "system": "Arsitektur inti aman.",
+                "role": "Arsitek Utama",
+                "impact": "Stabilitas sistem terjaga.",
+                "architecture": [
+                    "Node Terenkripsi",
+                    "Buffer Aman"
+                ],
+                "solution": "Templat sistem standar."
             }
         }
     },

@@ -32,7 +32,7 @@ export default function ProjectDetailPage({ params }: { params: Promise<{ slug: 
         system: t(`${projectKey}.system`),
         solution: t(`${projectKey}.solution`),
         // We'll use the raw architecture list from the translations
-        architecture: t.raw(`${projectKey}.architecture`) as string[]
+        architecture: (t.raw(`${projectKey}.architecture`) as string[]) || []
     };
 
     return (

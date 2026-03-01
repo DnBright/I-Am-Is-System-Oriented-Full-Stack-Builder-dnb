@@ -283,6 +283,22 @@
           "Interactive Data Visualization"
         ],
         "solution": "An intelligent recommendation system using Collaborative Filtering to predict user interests and AI Score to identify high-potential products."
+      },
+      "fallback": {
+        "title": "Project Protocol",
+        "client": "Internal System",
+        "legal": "CLASSIFIED",
+        "category": "System Blueprint",
+        "descriptionBrief": "Encrypted project metadata.",
+        "problem": "Access restricted.",
+        "system": "Secure core architecture.",
+        "role": "Lead Architect",
+        "impact": "System stability maintained.",
+        "architecture": [
+          "Encrypted Node",
+          "Secure Buffer"
+        ],
+        "solution": "Standardized system template."
       }
     }
   },
