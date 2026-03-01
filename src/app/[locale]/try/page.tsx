@@ -122,7 +122,26 @@ export default function TryPage() {
                                 className="h-full"
                             >
                                 {activeId === 'lpk-saitama-dashboard' ? (
-                                    <LPKSaitamaDemo />
+                                    <div className="w-full max-w-6xl mx-auto flex flex-col h-full justify-center">
+                                        <div className="bg-[#1e293b] rounded-t-2xl p-3 flex items-center gap-3 border-x border-t border-slate-800 shadow-2xl">
+                                            <div className="flex gap-2 ml-2">
+                                                <div className="w-2.5 h-2.5 rounded-full bg-red-500/40" />
+                                                <div className="w-2.5 h-2.5 rounded-full bg-yellow-500/40" />
+                                                <div className="w-2.5 h-2.5 rounded-full bg-green-500/40" />
+                                            </div>
+                                            <div className="mx-auto bg-slate-900/50 rounded-md px-16 py-1.5 text-[9px] text-slate-400 font-mono border border-white/5 tracking-[0.2em] uppercase">
+                                                {activeProject?.title} - System Simulation // 16:9
+                                            </div>
+                                        </div>
+                                        <div className="aspect-video w-full bg-[#f8fafc] rounded-b-2xl shadow-2xl border-x border-b border-slate-200 overflow-hidden relative group">
+                                            <div className="absolute inset-0">
+                                                <LPKSaitamaDemo />
+                                            </div>
+                                        </div>
+                                        <div className="mt-6 flex justify-center">
+                                            <div className="w-40 h-2 bg-slate-900/10 rounded-full blur-[1px]" />
+                                        </div>
+                                    </div>
                                 ) : (
                                     <Card className="p-0 border-primary/10 bg-background overflow-hidden h-full flex flex-col relative group shadow-2xl">
                                         <div className="bg-surface-elevated/40 px-6 py-4 border-b border-border flex items-center justify-between">

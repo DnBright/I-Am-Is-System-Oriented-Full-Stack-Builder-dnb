@@ -533,7 +533,7 @@ export default function LPKSaitamaDemo() {
     const [activeTab, setActiveTab] = useState('dashboard');
 
     return (
-        <div className="w-full h-full min-h-[900px] bg-[#f8fafc] text-[#1e293b] flex shadow-2xl font-sans overflow-hidden border border-slate-200">
+        <div className="w-full h-full bg-[#f8fafc] text-[#1e293b] flex shadow-2xl font-sans overflow-hidden border border-slate-200">
             {/* Sidebar replicated from screenshot */}
             <Sidebar activeTab={activeTab} onTabChange={setActiveTab} />
 
