@@ -65,13 +65,12 @@ const evaluasiData = [
     { name: 'Deonte Pouros', bahasa: 65, fisik: 75, mental: 70, status: 'Mengulang' },
 ];
 
-const statusSiswaData = [
-    { name: 'Adonis Pagac IV', phase: 'Jepang', progress: 100, estimate: 'Selesai', icon: FaGlobeAmericas, color: 'text-green-500' },
-    { name: 'Alessandro Effertz', phase: 'Matching', progress: 65, estimate: '2 Minggu', icon: FaClock, color: 'text-blue-500' },
-    { name: 'Anabelle Beahan', phase: 'Learning', progress: 30, estimate: '4 Bulan', icon: FaChalkboardTeacher, color: 'text-orange-500' },
-    { name: 'Annamarie Schulist', phase: 'Jepang', progress: 95, estimate: 'Waiting Visa', icon: FaGlobeAmericas, color: 'text-green-500' },
-    { name: 'Antonia DuBuque', phase: 'Learning', progress: 15, estimate: '6 Bulan', icon: FaChalkboardTeacher, color: 'text-orange-500' },
-    { name: 'Clint Batz', phase: 'Matching', progress: 80, estimate: '1 Minggu', icon: FaClock, color: 'text-blue-500' },
+const statusSiswaListData = [
+    { id: 1, name: 'Delia Brown', angkatan: 'A1', followUp: '24/08/2025', status: 'SELEKSI', statusColor: 'bg-blue-100 text-[#1e3a8a]', initial: 'D' },
+    { id: 2, name: 'Prof. Patrick Stamm', angkatan: 'A1', followUp: '24/09/2025', status: 'ULANG KELAS', statusColor: 'bg-orange-50 text-orange-600', initial: 'P' },
+    { id: 3, name: 'Vickie Daugherty', angkatan: 'A1', followUp: '15/05/2025', status: 'SELEKSI', statusColor: 'bg-blue-100 text-[#1e3a8a]', initial: 'V' },
+    { id: 4, name: 'Prof. Ricky Eichmann', angkatan: 'A1', followUp: '20/05/2025', status: 'BLK', statusColor: 'bg-orange-100 text-orange-700', initial: 'P' },
+    { id: 5, name: 'Mason Luettgen', angkatan: 'A1', followUp: '28/06/2025', status: 'SELEKSI', statusColor: 'bg-blue-100 text-[#1e3a8a]', initial: 'M' },
 ];
 
 // --- Sub-Components ---
@@ -88,7 +87,7 @@ const Sidebar = ({ activeTab, onTabChange }: { activeTab: string, onTabChange: (
     return (
         <div className="w-56 bg-[#0f172a] h-full flex flex-col pt-4">
             <div className="px-5 mb-8 flex items-center gap-3">
-                <div className="w-8 h-8 bg-blue-600 rounded-sm flex items-center justify-center shadow-lg shadow-blue-500/20">
+                <div className="w-8 h-8 bg-blue-600 rounded-sm flex items-center justify-center">
                     <span className="text-white font-black text-xs">S</span>
                 </div>
                 <div>
@@ -103,30 +102,23 @@ const Sidebar = ({ activeTab, onTabChange }: { activeTab: string, onTabChange: (
                         key={item.id}
                         onClick={() => onTabChange(item.id)}
                         className={cn(
-                            "w-full flex items-center gap-3 px-3 py-3 rounded-lg transition-all text-left group",
+                            "w-full flex items-center gap-3 px-3 py-3 rounded-lg transition-all text-left",
                             activeTab === item.id
-                                ? "bg-[#1e293b] text-white shadow-xl"
-                                : "text-slate-400 hover:text-white hover:bg-white/5"
+                                ? "bg-[#1e293b] text-white shadow-lg"
+                                : "text-slate-400 hover:text-white"
                         )}
                     >
-                        <item.icon size={14} className={cn(activeTab === item.id ? "text-blue-500" : "opacity-50 group-hover:opacity-100 transition-opacity")} />
+                        <item.icon size={14} className={cn(activeTab === item.id ? "text-blue-500" : "opacity-50")} />
                         <span className="text-[11px] font-bold">{item.label}</span>
                     </button>
                 ))}
             </nav>
-
-            <div className="p-4 border-t border-white/5">
-                <button className="w-full flex items-center gap-3 px-3 py-2 text-slate-500 hover:text-red-400 text-left transition-colors">
-                    <FaSignOutAlt size={12} />
-                    <span className="text-[10px] font-black uppercase">Sign Out</span>
-                </button>
-            </div>
         </div>
     );
 };
 
 const Topbar = () => (
-    <div className="h-14 bg-[#1e3a8a] flex items-center justify-between px-6 text-white border-b border-white/5 shadow-md z-10">
+    <div className="h-14 bg-[#1e3a8a] flex items-center justify-between px-6 text-white border-b border-white/5">
         <div className="flex items-center gap-3">
             <div className="w-6 h-6 bg-white/20 rounded-sm flex items-center justify-center">
                 <FaThLarge size={10} />
@@ -137,13 +129,14 @@ const Topbar = () => (
             </div>
         </div>
         <div className="flex items-center gap-4">
-            <div className="hidden md:flex items-center gap-4 mr-4 opacity-50">
-                <FaSearch size={12} className="cursor-pointer hover:opacity-100" />
-                <FaBell size={12} className="cursor-pointer hover:opacity-100" />
+            <div className="hidden md:flex items-center gap-4 mr-4 opacity-70">
+                <FaSearch size={12} />
+                <FaBell size={12} />
+                <FaCogs size={12} />
             </div>
-            <div className="flex items-center gap-3 bg-white/5 px-3 py-1.5 rounded-full border border-white/10">
-                <span className="text-[10px] font-black tracking-tight uppercase">KENZIE SENSEI</span>
-                <div className="w-7 h-7 rounded-full border border-white/20 flex items-center justify-center text-[10px] font-black italic bg-white/10 shadow-inner">k</div>
+            <div className="flex items-center gap-2">
+                <span className="text-[10px] font-black tracking-tight uppercase">k</span>
+                <div className="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center text-[10px] font-black italic bg-white/10">k</div>
             </div>
         </div>
     </div>
@@ -152,49 +145,45 @@ const Topbar = () => (
 // --- Views ---
 
 const DashboardView = () => (
-    <div className="p-8 space-y-8 max-w-[1400px] mx-auto animate-fade-in">
+    <div className="p-8 space-y-8 max-w-[1400px] mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
-            <div className="lg:col-span-1 border border-slate-100 bg-white rounded-[2rem] overflow-hidden shadow-sm flex flex-col items-center group hover:shadow-lg transition-all duration-500">
+            <div className="lg:col-span-1 border border-slate-100 bg-white rounded-[2rem] overflow-hidden shadow-sm flex flex-col items-center">
                 <div className="w-full h-32 bg-[#1e293b] p-6 relative">
-                    <div className="absolute top-4 right-4 text-white/10"><FaCogs size={20} /></div>
+                    <div className="absolute top-4 right-4 text-white/20"><FaCogs size={16} /></div>
                 </div>
                 <div className="-mt-16 relative">
-                    <div className="w-32 h-32 rounded-full border-4 border-white overflow-hidden shadow-xl bg-slate-200 group-hover:scale-105 transition-transform">
+                    <div className="w-32 h-32 rounded-full border-4 border-white overflow-hidden shadow-lg bg-slate-200">
                         <div className="w-full h-full bg-slate-200 flex items-center justify-center text-slate-500">
                             <FaUser size={60} />
                         </div>
                     </div>
                 </div>
                 <div className="p-8 flex flex-col items-center gap-2 text-center w-full">
-                    <h2 className="text-xl font-black text-[#1e293b] uppercase tracking-tighter">Kenzie Sensei</h2>
+                    <h2 className="text-xl font-black text-[#1e293b] uppercase tracking-tighter">k</h2>
                     <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">K@GMAIL.COM</p>
                     <div className="flex flex-wrap justify-center gap-2 mt-4">
-                        <span className="px-3 py-1 bg-blue-50 text-blue-600 text-[8px] font-black uppercase tracking-widest rounded-sm border border-blue-100 shadow-sm">SENSEI</span>
-                        <span className="px-3 py-1 bg-blue-600 text-white text-[8px] font-black uppercase tracking-widest rounded-sm shadow-lg shadow-blue-500/20">PENGAJARAN</span>
+                        <span className="px-3 py-1 bg-blue-50 text-blue-600 text-[8px] font-black uppercase tracking-widest rounded-sm border border-blue-100">SENSEI</span>
+                        <span className="px-3 py-1 bg-blue-600 text-white text-[8px] font-black uppercase tracking-widest rounded-sm">PENGAJARAN</span>
                     </div>
-                    <button className="mt-8 text-[9px] font-black text-[#1e3a8a] border-b border-[#1e3a8a] pb-1 uppercase tracking-widest hover:text-blue-800 hover:border-blue-800 transition-all">Edit Profil</button>
                 </div>
             </div>
 
             <div className="lg:col-span-3 space-y-8">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <div className="bg-white p-10 rounded-[2rem] shadow-sm border border-slate-50 flex flex-col gap-2 group hover:shadow-xl transition-all duration-500 overflow-hidden relative">
-                        <div className="absolute top-0 right-0 p-8 opacity-5 group-hover:scale-125 transition-transform"><FaThLarge size={120} /></div>
-                        <span className="text-[10px] font-black text-slate-400 uppercase tracking-[0.2em] relative z-10">Total Kelas</span>
-                        <h2 className="text-7xl font-black text-[#1e293b] relative z-10">6</h2>
+                    <div className="bg-white p-10 rounded-[2rem] shadow-sm border border-slate-50 flex flex-col gap-2 group hover:shadow-md transition-all">
+                        <span className="text-[10px] font-black text-slate-400 uppercase tracking-[0.2em]">Total Kelas</span>
+                        <h2 className="text-6xl font-black text-[#1e293b]">6</h2>
                     </div>
-                    <div className="bg-white p-10 rounded-[2rem] shadow-sm border border-slate-50 flex flex-col gap-2 group hover:shadow-xl transition-all duration-500 overflow-hidden relative">
-                        <div className="absolute top-0 right-0 p-8 opacity-5 group-hover:scale-125 transition-transform"><FaUser size={120} /></div>
-                        <span className="text-[10px] font-black text-slate-400 uppercase tracking-[0.2em] relative z-10">Total Siswa</span>
-                        <h2 className="text-7xl font-black text-[#1e293b] relative z-10">184</h2>
+                    <div className="bg-white p-10 rounded-[2rem] shadow-sm border border-slate-50 flex flex-col gap-2 group hover:shadow-md transition-all">
+                        <span className="text-[10px] font-black text-slate-400 uppercase tracking-[0.2em]">Total Siswa</span>
+                        <h2 className="text-6xl font-black text-[#1e293b]">184</h2>
                     </div>
                 </div>
 
-                <div className="bg-[#1e293b] rounded-[2rem] text-white p-8 overflow-hidden shadow-2xl relative">
-                    <div className="absolute top-0 right-0 p-12 opacity-5 pointer-events-none"><FaCalendarAlt size={200} /></div>
-                    <div className="flex items-center justify-between mb-8 relative z-10">
+                <div className="bg-[#1e293b] rounded-[2rem] text-white p-8 overflow-hidden shadow-xl">
+                    <div className="flex items-center justify-between mb-8">
                         <div className="flex items-center gap-4">
-                            <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center border border-white/5">
+                            <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center">
                                 <FaCalendarAlt className="text-blue-400" />
                             </div>
                             <div>
@@ -204,83 +193,14 @@ const DashboardView = () => (
                         </div>
                     </div>
 
-                    <div className="space-y-4 relative z-10">
-                        <div className="flex items-center justify-between p-6 bg-white/5 rounded-2xl border-l-[6px] border-red-500 hover:bg-white/10 transition-all group/item">
-                            <div className="flex items-center gap-6">
-                                <div className="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse" />
-                                <div>
-                                    <p className="font-black text-sm uppercase group-hover/item:text-red-400 transition-colors">Kanji <span className="text-[10px] text-slate-500 font-bold ml-2">A1</span></p>
-                                    <p className="text-[10px] text-slate-400 font-bold uppercase tracking-wider mt-1">Selasa, 13:00 - 15:00</p>
-                                </div>
-                            </div>
-                            <FaArrowRight className="text-white/10 group-hover/item:text-white/40 transition-all" size={14} />
+                    <div className="space-y-4">
+                        <div className="flex items-center justify-between p-6 bg-white/5 rounded-2xl border-l-[6px] border-red-500 hover:bg-white/10 transition-colors text-[11px] font-black">
+                            KANJI A1 - Selasa, 13:00
+                            <FaArrowRight size={12} className="opacity-20" />
                         </div>
-                        <div className="flex items-center justify-between p-6 bg-white/5 rounded-2xl border-l-[6px] border-blue-500 hover:bg-white/10 transition-all group/item">
-                            <div className="flex items-center gap-6">
-                                <div className="w-1.5 h-1.5 rounded-full bg-blue-500" />
-                                <div>
-                                    <p className="font-black text-sm uppercase group-hover/item:text-blue-400 transition-colors">Kotoba <span className="text-[10px] text-slate-500 font-bold ml-2">B2</span></p>
-                                    <p className="text-[10px] text-slate-400 font-bold uppercase tracking-wider mt-1">Rabu, 09:00 - 11:00</p>
-                                </div>
-                            </div>
-                            <FaArrowRight className="text-white/10 group-hover/item:text-white/40 transition-all" size={14} />
-                        </div>
-                    </div>
-                </div>
-
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <div className="md:col-span-1 bg-white p-8 rounded-[2rem] shadow-sm border border-slate-50 flex flex-col items-center group hover:shadow-lg transition-all">
-                        <h3 className="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-6">KEHADIRAN</h3>
-                        <div className="relative w-40 h-40 flex items-center justify-center">
-                            <svg className="w-full h-full transform -rotate-90">
-                                <circle cx="80" cy="80" r="70" stroke="currentColor" strokeWidth="12" fill="transparent" className="text-slate-50" />
-                                <motion.circle
-                                    cx="80" cy="80" r="70" stroke="currentColor" strokeWidth="12" fill="transparent"
-                                    initial={{ strokeDashoffset: 440 }}
-                                    animate={{ strokeDashoffset: 440 * (1 - 0.85) }}
-                                    strokeDasharray={440}
-                                    className="text-[#1e3a8a]"
-                                    transition={{ duration: 1.5, ease: "easeOut" }}
-                                />
-                            </svg>
-                            <div className="absolute inset-0 flex flex-col items-center justify-center">
-                                <span className="text-4xl font-black text-[#1e293b]">85%</span>
-                                <span className="text-[9px] font-black text-green-500 uppercase tracking-widest mt-1">HADIR</span>
-                            </div>
-                        </div>
-                        <div className="mt-8">
-                            <span className="bg-green-50 text-green-600 text-[8px] font-black px-5 py-1.5 rounded-full uppercase tracking-widest border border-green-100 shadow-sm">KATEGORI: BAIK</span>
-                        </div>
-                    </div>
-
-                    <div className="md:col-span-2 bg-white p-8 rounded-[2rem] shadow-sm border border-slate-50 flex flex-col group hover:shadow-lg transition-all">
-                        <div className="flex items-center justify-between mb-8">
-                            <div>
-                                <h3 className="text-sm font-black text-[#1e293b] uppercase tracking-tighter">Grafik Performa Kelas</h3>
-                                <p className="text-[9px] text-slate-400 font-bold uppercase tracking-widest mt-1">Nilai rata-rata mingguan</p>
-                            </div>
-                            <div className="flex gap-4">
-                                <div className="flex items-center gap-2">
-                                    <div className="w-2 h-2 rounded-full bg-[#1e3a8a] shadow-sm" />
-                                    <span className="text-[8px] font-black text-slate-500 uppercase">BAHASA</span>
-                                </div>
-                                <div className="flex items-center gap-2">
-                                    <div className="w-2 h-2 rounded-full bg-red-400 shadow-sm" />
-                                    <span className="text-[8px] font-black text-slate-500 uppercase">FISIK</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div className="flex-1 h-40 flex items-end justify-between px-4 pb-4 border-l border-b border-slate-100">
-                            {[1, 2, 3, 4, 5, 6, 7, 8].map(i => (
-                                <div key={i} className="flex flex-col items-center gap-2 group/bar flex-1 max-w-[40px]">
-                                    <div className="flex gap-1 items-end w-full justify-center h-full">
-                                        <motion.div initial={{ height: 0 }} animate={{ height: `${65 + Math.random() * 25}%` }} className="w-2 bg-[#1e3a8a] rounded-t-sm shadow-md" transition={{ delay: i * 0.1 }} />
-                                        <motion.div initial={{ height: 0 }} animate={{ height: `${55 + Math.random() * 35}%` }} className="w-2 bg-red-400 rounded-t-sm shadow-md" transition={{ delay: (i + 2) * 0.1 }} />
-                                    </div>
-                                    <span className="text-[8px] font-black text-slate-300 uppercase">W{i}</span>
-                                </div>
-                            ))}
+                        <div className="flex items-center justify-between p-6 bg-white/5 rounded-2xl border-l-[6px] border-blue-500 hover:bg-white/10 transition-colors text-[11px] font-black">
+                            KOTOBA B2 - Rabu, 09:00
+                            <FaArrowRight size={12} className="opacity-20" />
                         </div>
                     </div>
                 </div>
@@ -360,7 +280,6 @@ const AttendanceView = () => {
                                         <td className="px-8 py-5 text-[10px] font-mono font-bold text-slate-400 border-r border-slate-100">{student.phone}</td>
                                         <td className="px-8 py-5">
                                             <div className="grid grid-cols-10 gap-3">
-                                                {/* Re-map to 10 slots for the complete UI look */}
                                                 {[...student.attendance, null, null].map((val, i) => (
                                                     <button
                                                         key={i}
@@ -394,23 +313,6 @@ const AttendanceView = () => {
                                 <div key={i} className={cn("p-4 rounded-xl flex flex-col gap-1 border border-white/5", stat.bg)}>
                                     <span className="text-[9px] font-black uppercase opacity-60">{stat.label}</span>
                                     <span className={cn("text-3xl font-black", stat.color)}>{stat.value}</span>
-                                </div>
-                            ))}
-                        </div>
-                    </div>
-
-                    <div className="bg-white p-8 rounded-2xl shadow-sm border border-slate-100">
-                        <h3 className="text-[10px] font-black uppercase tracking-[0.2em] text-[#1e3a8a] mb-8 border-b border-slate-50 pb-4">INDIKATOR STATUS</h3>
-                        <div className="space-y-5">
-                            {[
-                                { label: 'PESERTA HADIR (H)', color: 'bg-green-500' },
-                                { label: 'TANPA KETERANGAN (A)', color: 'bg-red-500' },
-                                { label: 'BERHALANGAN SAKIT (S)', color: 'bg-orange-500' },
-                                { label: 'IZIN KEPERLUAN (I)', color: 'bg-blue-500' },
-                            ].map((item, i) => (
-                                <div key={i} className="flex items-center justify-between text-[11px] font-black text-slate-500 uppercase">
-                                    <span>{item.label}</span>
-                                    <div className={cn("w-4 h-4 rounded-full shadow-inner", item.color)} />
                                 </div>
                             ))}
                         </div>
@@ -470,104 +372,157 @@ const KotobaView = () => {
 };
 
 const EvaluasiView = () => (
-    <div className="p-8 space-y-6 max-w-[1400px] mx-auto animate-fade-in">
-        <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
+    <div className="p-8 space-y-6 max-w-[1400px] mx-auto animate-fade-in bg-[#f8fafc] min-h-screen">
+        <div className="flex items-center justify-between mb-8">
             <div>
-                <div className="flex items-center gap-3">
-                    <h2 className="text-2xl font-black text-[#1e3a8a] uppercase tracking-tighter">Evaluasi Seleksi</h2>
-                    <span className="bg-blue-600 text-white text-[9px] px-3 py-1 rounded-sm font-black uppercase tracking-widest shadow-lg shadow-blue-500/20">BATCH 12</span>
-                </div>
-                <p className="text-[10px] text-slate-400 font-bold uppercase tracking-widest mt-1">HASIL EVALUASI KOMPREHENSIF CALON PESERTA</p>
+                <h2 className="text-2xl font-black text-[#1e293b] tracking-tighter">Evaluasi Seleksi</h2>
+                <p className="text-[10px] text-slate-400 font-bold uppercase tracking-widest mt-1">MANAJEMEN EVALUASI & NILAI SELEKSI</p>
             </div>
+            <button className="bg-[#1e293b] text-white px-6 py-2.5 rounded-lg flex items-center gap-2 text-[11px] font-black uppercase tracking-widest shadow-lg shadow-slate-900/10">
+                <FaSignOutAlt className="rotate-180" /> EXPORT
+            </button>
         </div>
 
-        <div className="bg-white rounded-2xl shadow-xl border border-slate-100 overflow-hidden">
-            <table className="w-full text-left border-collapse">
-                <thead>
-                    <tr className="bg-[#1e3a8a] text-white text-[10px] font-black uppercase tracking-widest">
-                        <th className="px-8 py-5 border-r border-white/5 w-16 text-center">No</th>
-                        <th className="px-8 py-5 border-r border-white/5">Identitas</th>
-                        <th className="px-8 py-5 border-r border-white/5 text-center">Bahasa</th>
-                        <th className="px-8 py-5 border-r border-white/5 text-center">Fisik</th>
-                        <th className="px-8 py-5 border-r border-white/5 text-center">Mental</th>
-                        <th className="px-8 py-5 text-center">Status Akhir</th>
-                    </tr>
-                </thead>
-                <tbody className="divide-y divide-slate-100">
-                    {evaluasiData.map((item, idx) => (
-                        <tr key={idx} className="hover:bg-blue-50/30 transition-colors">
-                            <td className="px-8 py-5 text-[11px] font-black text-slate-400 border-r border-slate-100 text-center">{idx + 1}</td>
-                            <td className="px-8 py-5 font-black text-[11px] text-[#1e3a8a] uppercase border-r border-slate-100">{item.name}</td>
-                            <td className="px-8 py-5 text-[11px] font-black text-slate-600 border-r border-slate-100 text-center">{item.bahasa}</td>
-                            <td className="px-8 py-5 text-[11px] font-black text-slate-600 border-r border-slate-100 text-center">{item.fisik}</td>
-                            <td className="px-8 py-5 text-[11px] font-black text-slate-600 border-r border-slate-100 text-center">{item.mental}</td>
-                            <td className="px-8 py-5 text-center">
-                                <span className={cn(
-                                    "px-6 py-1.5 rounded-sm text-[10px] font-black shadow-sm uppercase tracking-widest",
-                                    item.status === 'Lulus' ? "bg-green-100 text-green-700" : "bg-red-100 text-red-700"
-                                )}>
-                                    {item.status}
-                                </span>
-                            </td>
+        <div className="bg-white rounded-2xl shadow-sm border border-slate-100 p-6">
+            <div className="flex items-center gap-4 mb-8">
+                <div className="flex-1 relative">
+                    <FaSearch className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400" size={14} />
+                    <input type="text" placeholder="Cari nama atau email siswa..." className="w-full pl-12 pr-4 py-3 bg-slate-50 border border-slate-100 rounded-xl text-[11px] font-bold outline-none focus:border-blue-200 transition-all" />
+                </div>
+                <div className="flex items-center gap-2">
+                    <div className="px-4 py-3 bg-slate-50 border border-slate-100 rounded-xl text-[11px] font-black uppercase tracking-widest text-slate-400 flex items-center gap-4 cursor-pointer">
+                        Status <FaChevronDown size={10} />
+                    </div>
+                    <div className="px-4 py-3 bg-slate-50 border border-slate-100 rounded-xl text-[11px] font-black uppercase tracking-widest text-slate-400 flex items-center gap-4 cursor-pointer">
+                        Kelas <FaChevronDown size={10} />
+                    </div>
+                </div>
+            </div>
+
+            <div className="overflow-x-auto">
+                <table className="w-full text-left border-collapse">
+                    <thead>
+                        <tr className="text-[9px] font-black text-slate-300 uppercase tracking-[0.2em]">
+                            <th className="pb-6 pl-2">Siswa</th>
+                            <th className="pb-6 text-center">Bahasa</th>
+                            <th className="pb-6 text-center">Fisik</th>
+                            <th className="pb-6 text-center">Mental</th>
+                            <th className="pb-6 text-center">Hasil</th>
+                            <th className="pb-6 text-right pr-2">Aksi</th>
                         </tr>
-                    ))}
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody className="divide-y divide-slate-50">
+                        {evaluasiData.map((item, idx) => (
+                            <tr key={idx} className="group hover:bg-slate-50/50 transition-colors">
+                                <td className="py-6">
+                                    <div className="flex items-center gap-4">
+                                        <div className="w-10 h-10 rounded-full bg-blue-50 text-blue-600 flex items-center justify-center text-[11px] font-black border border-blue-100">{item.name[0]}</div>
+                                        <span className="text-[12px] font-black text-[#1e3a8a] uppercase">{item.name}</span>
+                                    </div>
+                                </td>
+                                <td className="py-6 text-center font-black text-slate-600 text-[11px]">{item.bahasa}</td>
+                                <td className="py-6 text-center font-black text-slate-600 text-[11px]">{item.fisik}</td>
+                                <td className="py-6 text-center font-black text-slate-600 text-[11px]">{item.mental}</td>
+                                <td className="py-6 text-center">
+                                    <span className={cn(
+                                        "px-4 py-1.5 rounded-sm text-[9px] font-black uppercase tracking-widest",
+                                        item.status === 'Lulus' ? "bg-green-50 text-green-600" : "bg-red-50 text-red-600"
+                                    )}>
+                                        {item.status}
+                                    </span>
+                                </td>
+                                <td className="py-6 text-right pr-2">
+                                    <div className="w-8 h-8 rounded-lg bg-[#1e293b] inline-flex items-center justify-center shadow-lg" />
+                                </td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 );
 
 const StatusSiswaView = () => (
-    <div className="p-8 space-y-6 max-w-[1400px] mx-auto animate-fade-in">
-        <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
+    <div className="p-8 space-y-6 max-w-[1400px] mx-auto animate-fade-in bg-[#f8fafc] min-h-screen">
+        <div className="flex items-center justify-between mb-8">
             <div>
-                <div className="flex items-center gap-3">
-                    <h2 className="text-2xl font-black text-[#1e3a8a] uppercase tracking-tighter">Status Penyaluran</h2>
-                    <span className="bg-blue-600 text-white text-[9px] px-3 py-1 rounded-sm font-black uppercase tracking-widest shadow-lg shadow-blue-500/20">LIVE TRACKER</span>
-                </div>
-                <p className="text-[10px] text-slate-400 font-bold uppercase tracking-widest mt-1">PROFIL PROGRESS DAN TAHAPAN PENYALURAN KERJA</p>
+                <h2 className="text-2xl font-black text-[#1e293b] tracking-tighter">Daftar Siswa</h2>
+                <p className="text-[10px] text-slate-400 font-bold uppercase tracking-widest mt-1">MANAJEMEN DATA SISWA & KELAS</p>
             </div>
+            <button className="bg-[#1e293b] text-white px-6 py-2.5 rounded-lg flex items-center gap-2 text-[11px] font-black uppercase tracking-widest shadow-lg shadow-slate-900/10">
+                <FaSignOutAlt className="rotate-180" /> EXPORT
+            </button>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {statusSiswaData.map((student, idx) => (
-                <div key={idx} className="bg-white p-7 rounded-3xl shadow-sm border border-slate-100 hover:shadow-xl transition-all group relative overflow-hidden">
-                    <div className="absolute top-0 right-0 p-4 opacity-5 group-hover:scale-110 transition-transform"><student.icon size={60} /></div>
-                    <div className="flex items-center justify-between mb-6 relative z-10">
-                        <div className="w-11 h-11 rounded-full bg-slate-50 text-blue-600 flex items-center justify-center text-xs font-black uppercase shadow-inner border border-slate-100">
-                            {student.name.split(' ').map(n => n[0]).join('')}
-                        </div>
-                        <span className={cn(
-                            "text-[8px] font-black px-3 py-1 rounded-full uppercase tracking-tighter shadow-sm border border-slate-50",
-                            student.phase === 'Jepang' ? "bg-green-50 text-green-600" :
-                                student.phase === 'Matching' ? "bg-blue-50 text-blue-600" :
-                                    "bg-orange-50 text-orange-600"
-                        )}>
-                            {student.phase}
-                        </span>
+        <div className="bg-white rounded-2xl shadow-sm border border-slate-100 p-6">
+            <div className="flex items-center gap-4 mb-8">
+                <div className="flex-1 relative">
+                    <FaSearch className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400" size={14} />
+                    <input type="text" placeholder="Cari nama atau email siswa..." className="w-full pl-12 pr-4 py-3 bg-slate-50 border border-slate-100 rounded-xl text-[11px] font-bold outline-none focus:border-blue-200 transition-all" />
+                </div>
+                <div className="flex items-center gap-2">
+                    <div className="px-4 py-3 bg-slate-50 border border-slate-100 rounded-xl text-[11px] font-black uppercase tracking-widest text-slate-400 flex items-center gap-4 cursor-pointer">
+                        Status <FaChevronDown size={10} />
                     </div>
-                    <h4 className="font-black text-[13px] text-[#1e3a8a] uppercase mb-1 relative z-10">{student.name}</h4>
-                    <p className="text-[9px] text-slate-400 font-bold uppercase tracking-widest mb-6 relative z-10">Estimasi Penyaluran: <span className="text-slate-600">{student.estimate}</span></p>
-
-                    <div className="space-y-2 relative z-10">
-                        <div className="flex justify-between text-[8px] font-black uppercase text-slate-400">
-                            <span>Kesiapan Peserta</span>
-                            <span>{student.progress}%</span>
-                        </div>
-                        <div className="h-2 w-full bg-slate-100 rounded-full overflow-hidden shadow-inner">
-                            <motion.div
-                                initial={{ width: 0 }}
-                                animate={{ width: `${student.progress}%` }}
-                                className={cn(
-                                    "h-full transition-all duration-[1500ms] shadow-lg",
-                                    student.progress === 100 ? "bg-green-500" : "bg-[#1e3a8a]"
-                                )}
-                                transition={{ ease: "circOut" }}
-                            />
-                        </div>
+                    <div className="px-4 py-3 bg-slate-50 border border-slate-100 rounded-xl text-[11px] font-black uppercase tracking-widest text-slate-400 flex items-center gap-4 cursor-pointer">
+                        Kelas <FaChevronDown size={10} />
                     </div>
                 </div>
-            ))}
+            </div>
+
+            <div className="overflow-x-auto">
+                <table className="w-full text-left border-collapse">
+                    <thead>
+                        <tr className="text-[9px] font-black text-slate-300 uppercase tracking-[0.2em]">
+                            <th className="pb-6 pl-2">Siswa</th>
+                            <th className="pb-6 text-center">Angkatan</th>
+                            <th className="pb-6 text-center">Kontak</th>
+                            <th className="pb-6 text-center">Follow Up</th>
+                            <th className="pb-6 text-center">Status</th>
+                            <th className="pb-6 text-right pr-2">Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody className="divide-y divide-slate-50">
+                        {statusSiswaListData.map((item, idx) => (
+                            <tr key={idx} className="group hover:bg-slate-50/50 transition-colors">
+                                <td className="py-6">
+                                    <div className="flex items-center gap-4">
+                                        <div className="w-10 h-10 rounded-full bg-blue-50 text-blue-600 flex items-center justify-center text-[11px] font-black border border-blue-100">{item.initial}</div>
+                                        <span className="text-[12px] font-black text-[#1e3a8a] uppercase">{item.name}</span>
+                                    </div>
+                                </td>
+                                <td className="py-6 text-center">
+                                    <span className="px-6 py-2 bg-slate-50 rounded-lg text-[10px] font-black text-slate-400">A1</span>
+                                </td>
+                                <td className="py-6 text-center">
+                                    <div className="flex items-center justify-center gap-2">
+                                        <div className="w-6 h-6 rounded-lg bg-green-500 shadow-sm" />
+                                        <div className="w-6 h-6 rounded-lg bg-red-400 shadow-sm" />
+                                    </div>
+                                </td>
+                                <td className="py-6 text-center">
+                                    <div className="flex flex-col items-center gap-1">
+                                        <span className="text-[8px] font-black text-slate-300 uppercase">FU 1:</span>
+                                        <span className="text-[10px] font-bold text-[#1e3a8a]">{item.followUp}</span>
+                                    </div>
+                                </td>
+                                <td className="py-6 text-center">
+                                    <div className="flex flex-col items-center gap-2">
+                                        <span className="px-4 py-1 bg-green-50 text-green-600 text-[8px] font-black rounded-full uppercase tracking-widest">RESPON</span>
+                                        <span className={cn("px-4 py-1.5 rounded-sm text-[9px] font-black uppercase tracking-widest shadow-sm", item.statusColor)}>
+                                            {item.status}
+                                        </span>
+                                    </div>
+                                </td>
+                                <td className="py-6 text-right pr-2">
+                                    <div className="w-8 h-8 rounded-lg bg-[#1e293b] inline-flex items-center justify-center shadow-lg" />
+                                </td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 );
@@ -578,22 +533,22 @@ export default function LPKSaitamaDemo() {
     const [activeTab, setActiveTab] = useState('dashboard');
 
     return (
-        <div className="w-full h-full min-h-[900px] bg-[#f8fafc] text-[#1e293b] flex shadow-2xl font-sans overflow-hidden border border-slate-200 rounded-2xl">
+        <div className="w-full h-full min-h-[900px] bg-[#f8fafc] text-[#1e293b] flex shadow-2xl font-sans overflow-hidden border border-slate-200">
             {/* Sidebar replicated from screenshot */}
             <Sidebar activeTab={activeTab} onTabChange={setActiveTab} />
 
             {/* Main Area */}
-            <div className="flex-1 flex flex-col min-w-0 overflow-hidden bg-[#fdfdfd]">
+            <div className="flex-1 flex flex-col min-w-0 overflow-hidden">
                 <Topbar />
 
-                <div className="flex-1 overflow-y-auto">
+                <div className="flex-1 overflow-y-auto bg-[#f8fafc]">
                     <AnimatePresence mode="wait">
                         <motion.div
                             key={activeTab}
-                            initial={{ opacity: 0, scale: 0.99, y: 5 }}
-                            animate={{ opacity: 1, scale: 1, y: 0 }}
-                            exit={{ opacity: 0, scale: 0.99, y: -5 }}
-                            transition={{ duration: 0.2, ease: "easeOut" }}
+                            initial={{ opacity: 0, scale: 0.99 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            exit={{ opacity: 0, scale: 0.99 }}
+                            transition={{ duration: 0.2 }}
                             className="h-full"
                         >
                             {activeTab === 'presensi' && <AttendanceView />}
@@ -603,8 +558,8 @@ export default function LPKSaitamaDemo() {
                             {activeTab === 'dashboard' && <DashboardView />}
                             {(!['presensi', 'pengajaran', 'dashboard', 'evaluasi', 'status'].includes(activeTab)) && (
                                 <div className="h-full flex flex-col items-center justify-center text-slate-300 gap-4 opacity-50">
-                                    <FaCogs size={60} className="animate-pulse" />
-                                    <p className="font-black uppercase tracking-[0.3em] text-xs">Modul Tahap Pengembangan</p>
+                                    <FaCogs size={60} />
+                                    <p className="font-black uppercase tracking-[0.3em] text-xs">Module In Development</p>
                                 </div>
                             )}
                         </motion.div>
