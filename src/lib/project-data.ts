@@ -136,5 +136,27 @@ export const projectsData: Project[] = [
             hover: 'group-hover:text-orange-500',
             gradient: 'from-orange-100 to-white'
         }
+    },
+    {
+        id: 6,
+        title: 'Marketplace Voltase Dashboard',
+        description: 'Platform analisis pasar cerdas dan sistem rekomendasi AI untuk optimasi strategi e-commerce',
+        tech: ['Laravel', 'Python', 'Scraping', 'NLP', 'Chart.js'],
+        category: 'Data Analytics',
+        slug: 'marketplace-voltase-dashboard',
+        introKey: 'marketplace_voltase',
+        image: '/projects/marketplace-voltase/hero.png',
+        screenshots: [
+            '/projects/marketplace-voltase/dashboard.png',
+            '/projects/marketplace-voltase/analytics.png',
+            '/projects/marketplace-voltase/recommendation.png',
+        ],
+        colors: {
+            primary: 'text-violet-700',
+            bg: 'bg-violet-50',
+            border: 'border-violet-200',
+            hover: 'group-hover:text-violet-600',
+            gradient: 'from-violet-100 to-white'
+        }
     }
 ];

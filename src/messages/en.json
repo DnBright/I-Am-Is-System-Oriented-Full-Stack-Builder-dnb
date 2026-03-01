@@ -265,6 +265,24 @@
           "Social Engagement Plan"
         ],
         "solution": "A strategic design approach integrating logo branding, graphic design, and social media management to strengthen brand image."
+      },
+      "marketplace-voltase-dashboard": {
+        "title": "Marketplace Voltase Management Dashboard",
+        "client": "E-commerce Business Owner",
+        "legal": "SMART MARKET ANALYTICS",
+        "category": "Marketplace Strategy Dashboard",
+        "descriptionBrief": "Smart market analysis platform for optimizing e-commerce sales strategies in car accessories.",
+        "problem": "E-commerce businesses often rely on intuition rather than real data to determine winning products, and struggle to extract technical specs from thousands of messy marketplace listings.",
+        "system": "An interactive Command Center dashboard integrating web scraping, NLP for spec extraction, and an AI-driven recommendation engine.",
+        "role": "Lead Developer & AI Architect",
+        "impact": "Transformed raw data into actionable insights, increased 'Hidden Gem' product identification accuracy, and automated 90% of technical extraction tasks.",
+        "architecture": [
+          "User-Based Collaborative Filtering",
+          "Cosine Similarity Algorithm",
+          "NLP Specification Extraction",
+          "Interactive Data Visualization"
+        ],
+        "solution": "An intelligent recommendation system using Collaborative Filtering to predict user interests and AI Score to identify high-potential products."
       }
     }
   },
@@ -470,6 +488,18 @@
           "Branding Strategy",
           "Social Media Management",
           "Graphic Design"
+        ]
+      },
+      "marketplace_voltase": {
+        "title": "Marketplace Voltase Dashboard",
+        "location": "Jakarta, Indonesia",
+        "description": "Smart market analysis platform and AI recommendation system for e-commerce strategy optimization",
+        "tech": [
+          "Laravel",
+          "Python",
+          "Scraping",
+          "NLP",
+          "Chart.js"
         ]
       }
     }

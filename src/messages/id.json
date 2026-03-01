@@ -470,6 +470,18 @@
                     "Social Media Management",
                     "Graphic Design"
                 ]
+            },
+            "marketplace_voltase": {
+                "title": "Marketplace Voltase Dashboard",
+                "location": "Jakarta, Indonesia",
+                "description": "Platform analisis pasar cerdas dan sistem rekomendasi AI untuk optimasi strategi e-commerce",
+                "tech": [
+                    "Laravel",
+                    "Python",
+                    "Scraping",
+                    "NLP",
+                    "Chart.js"
+                ]
             }
         }
     }
