@@ -85,31 +85,31 @@ const Sidebar = ({ activeTab, onTabChange }: { activeTab: string, onTabChange: (
     ];
 
     return (
-        <div className="w-56 bg-[#0f172a] h-full flex flex-col pt-4">
-            <div className="px-5 mb-8 flex items-center gap-3">
-                <div className="w-8 h-8 bg-blue-600 rounded-sm flex items-center justify-center">
-                    <span className="text-white font-black text-xs">S</span>
+        <div className="w-48 bg-[#0f172a] h-full flex flex-col pt-4 border-r border-white/5">
+            <div className="px-5 mb-6 flex items-center gap-3">
+                <div className="w-7 h-7 bg-blue-600 rounded-sm flex items-center justify-center shadow-lg shadow-blue-500/20">
+                    <span className="text-white font-black text-[10px]">S</span>
                 </div>
-                <div>
-                    <h4 className="text-[9px] font-black text-white uppercase leading-none">PT SAITAMA</h4>
-                    <p className="text-[7px] text-slate-400 font-bold uppercase tracking-wider mt-1">JUARA MENDUNIA</p>
+                <div className="overflow-hidden">
+                    <h4 className="text-[8px] font-black text-white uppercase tracking-tighter truncate">PT SAITAMA</h4>
+                    <p className="text-[6px] text-slate-500 font-bold uppercase tracking-wider truncate">JUARA MENDUNIA</p>
                 </div>
             </div>
 
-            <nav className="flex-1 px-2 space-y-1">
+            <nav className="flex-1 px-2 space-y-0.5">
                 {navItems.map((item) => (
                     <button
                         key={item.id}
                         onClick={() => onTabChange(item.id)}
                         className={cn(
-                            "w-full flex items-center gap-3 px-3 py-3 rounded-lg transition-all text-left",
+                            "w-full flex items-center gap-2.5 px-3 py-2.5 rounded-lg transition-all text-left group",
                             activeTab === item.id
-                                ? "bg-[#1e293b] text-white shadow-lg"
-                                : "text-slate-400 hover:text-white"
+                                ? "bg-blue-600/10 text-blue-400 shadow-[inset_0_0_12px_rgba(37,99,235,0.05)]"
+                                : "text-slate-500 hover:text-slate-300 hover:bg-white/5"
                         )}
                     >
-                        <item.icon size={14} className={cn(activeTab === item.id ? "text-blue-500" : "opacity-50")} />
-                        <span className="text-[11px] font-bold">{item.label}</span>
+                        <item.icon size={12} className={cn(activeTab === item.id ? "text-blue-500" : "opacity-40 group-hover:opacity-100 transition-opacity")} />
+                        <span className="text-[10px] font-black uppercase tracking-tight">{item.label}</span>
                     </button>
                 ))}
             </nav>
@@ -118,25 +118,25 @@ const Sidebar = ({ activeTab, onTabChange }: { activeTab: string, onTabChange: (
 };
 
 const Topbar = () => (
-    <div className="h-14 bg-[#1e3a8a] flex items-center justify-between px-6 text-white border-b border-white/5">
-        <div className="flex items-center gap-3">
-            <div className="w-6 h-6 bg-white/20 rounded-sm flex items-center justify-center">
-                <FaThLarge size={10} />
-            </div>
+    <div className="h-12 bg-white flex items-center justify-between px-6 text-[#1e293b] border-b border-slate-100 shadow-sm z-10">
+        <div className="flex items-center gap-2">
             <div className="flex flex-col">
-                <h4 className="text-[10px] font-black uppercase tracking-tighter leading-none">PT SAITAMA</h4>
-                <p className="text-[8px] opacity-70 font-bold uppercase tracking-widest leading-none mt-1">JUARA MENDUNIA</p>
+                <h4 className="text-[9px] font-black uppercase tracking-tighter leading-none text-[#1e3a8a]">System Control</h4>
+                <p className="text-[7px] text-slate-400 font-bold uppercase tracking-widest leading-none mt-1">Session Active</p>
             </div>
         </div>
-        <div className="flex items-center gap-4">
-            <div className="hidden md:flex items-center gap-4 mr-4 opacity-70">
-                <FaSearch size={12} />
-                <FaBell size={12} />
-                <FaCogs size={12} />
+        <div className="flex items-center gap-3">
+            <div className="flex items-center gap-3 mr-3 border-r border-slate-100 pr-3">
+                <FaSearch size={10} className="text-slate-400 cursor-pointer hover:text-blue-600 transition-colors" />
+                <div className="relative cursor-pointer group">
+                    <FaBell size={10} className="text-slate-400 group-hover:text-blue-600 transition-colors" />
+                    <div className="absolute -top-1 -right-1 w-1.5 h-1.5 bg-red-500 rounded-full border border-white" />
+                </div>
+                <FaCogs size={10} className="text-slate-400 cursor-pointer hover:text-blue-600 transition-colors" />
             </div>
-            <div className="flex items-center gap-2">
-                <span className="text-[10px] font-black tracking-tight uppercase">k</span>
-                <div className="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center text-[10px] font-black italic bg-white/10">k</div>
+            <div className="flex items-center gap-2 px-2 py-1 bg-slate-50 rounded-lg border border-slate-100">
+                <span className="text-[9px] font-black text-[#1e3a8a] uppercase">Admin Saitama</span>
+                <div className="w-6 h-6 rounded-full bg-[#1e3a8a] flex items-center justify-center text-[9px] font-black text-white italic ring-2 ring-white">K</div>
             </div>
         </div>
     </div>
@@ -145,62 +145,77 @@ const Topbar = () => (
 // --- Views ---
 
 const DashboardView = () => (
-    <div className="p-8 space-y-8 max-w-[1400px] mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
-            <div className="lg:col-span-1 border border-slate-100 bg-white rounded-[2rem] overflow-hidden shadow-sm flex flex-col items-center">
-                <div className="w-full h-32 bg-[#1e293b] p-6 relative">
-                    <div className="absolute top-4 right-4 text-white/20"><FaCogs size={16} /></div>
+    <div className="p-6 space-y-6 max-w-full mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
+            <div className="lg:col-span-3 border border-slate-100 bg-white rounded-2xl overflow-hidden shadow-sm flex flex-col items-center">
+                <div className="w-full h-24 bg-[#1e293b] p-6 relative">
+                    <div className="absolute top-4 right-4 text-white/10"><FaCogs size={12} /></div>
                 </div>
-                <div className="-mt-16 relative">
-                    <div className="w-32 h-32 rounded-full border-4 border-white overflow-hidden shadow-lg bg-slate-200">
-                        <div className="w-full h-full bg-slate-200 flex items-center justify-center text-slate-500">
-                            <FaUser size={60} />
+                <div className="-mt-12 relative">
+                    <div className="w-24 h-24 rounded-full border-4 border-white overflow-hidden shadow-md bg-slate-50">
+                        <div className="w-full h-full bg-slate-100 flex items-center justify-center text-slate-400">
+                            <FaUser size={40} />
                         </div>
                     </div>
                 </div>
-                <div className="p-8 flex flex-col items-center gap-2 text-center w-full">
-                    <h2 className="text-xl font-black text-[#1e293b] uppercase tracking-tighter">k</h2>
-                    <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">K@GMAIL.COM</p>
-                    <div className="flex flex-wrap justify-center gap-2 mt-4">
-                        <span className="px-3 py-1 bg-blue-50 text-blue-600 text-[8px] font-black uppercase tracking-widest rounded-sm border border-blue-100">SENSEI</span>
-                        <span className="px-3 py-1 bg-blue-600 text-white text-[8px] font-black uppercase tracking-widest rounded-sm">PENGAJARAN</span>
+                <div className="p-6 flex flex-col items-center gap-1 text-center w-full">
+                    <h2 className="text-lg font-black text-[#1e293b] uppercase tracking-tighter">Admin Saitama</h2>
+                    <p className="text-[8px] font-bold text-slate-400 uppercase tracking-[0.2em]">ADMINISTRATOR</p>
+                    <div className="flex gap-1.5 mt-4">
+                        <span className="px-2 py-0.5 bg-blue-50 text-blue-600 text-[7px] font-black uppercase tracking-widest rounded-sm border border-blue-100">ONLINE</span>
+                        <span className="px-2 py-0.5 bg-slate-900 text-white text-[7px] font-black uppercase tracking-widest rounded-sm">SENSEI</span>
                     </div>
                 </div>
             </div>
 
-            <div className="lg:col-span-3 space-y-8">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <div className="bg-white p-10 rounded-[2rem] shadow-sm border border-slate-50 flex flex-col gap-2 group hover:shadow-md transition-all">
-                        <span className="text-[10px] font-black text-slate-400 uppercase tracking-[0.2em]">Total Kelas</span>
-                        <h2 className="text-6xl font-black text-[#1e293b]">6</h2>
+            <div className="lg:col-span-9 space-y-6">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div className="bg-white p-6 rounded-2xl shadow-sm border border-slate-50 flex flex-col gap-1 group hover:border-blue-100 transition-all">
+                        <span className="text-[9px] font-black text-slate-400 uppercase tracking-[0.15em]">Total Kelas</span>
+                        <h2 className="text-4xl font-black text-[#1e3a8a]">06</h2>
+                        <div className="mt-2 h-1 w-8 bg-blue-600 rounded-full" />
                     </div>
-                    <div className="bg-white p-10 rounded-[2rem] shadow-sm border border-slate-50 flex flex-col gap-2 group hover:shadow-md transition-all">
-                        <span className="text-[10px] font-black text-slate-400 uppercase tracking-[0.2em]">Total Siswa</span>
-                        <h2 className="text-6xl font-black text-[#1e293b]">184</h2>
+                    <div className="bg-white p-6 rounded-2xl shadow-sm border border-slate-50 flex flex-col gap-1 group hover:border-blue-100 transition-all">
+                        <span className="text-[9px] font-black text-slate-400 uppercase tracking-[0.15em]">Total Siswa</span>
+                        <h2 className="text-4xl font-black text-[#1e3a8a]">184</h2>
+                        <div className="mt-2 h-1 w-8 bg-blue-600 rounded-full" />
+                    </div>
+                    <div className="bg-[#1e3050] p-6 rounded-2xl shadow-xl flex flex-col gap-1 group overflow-hidden relative">
+                        <div className="absolute top-0 right-0 p-4 opacity-5"><FaThLarge size={60} /></div>
+                        <span className="text-[9px] font-black text-blue-300/60 uppercase tracking-[0.15em] relative z-10">Status System</span>
+                        <h2 className="text-4xl font-black text-white relative z-10">OK</h2>
+                        <div className="mt-2 h-1 w-8 bg-green-500 rounded-full relative z-10" />
                     </div>
                 </div>
 
-                <div className="bg-[#1e293b] rounded-[2rem] text-white p-8 overflow-hidden shadow-xl">
-                    <div className="flex items-center justify-between mb-8">
-                        <div className="flex items-center gap-4">
-                            <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center">
-                                <FaCalendarAlt className="text-blue-400" />
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                    <div className="bg-white rounded-2xl border border-slate-100 p-6 flex flex-col gap-6">
+                        <div className="flex items-center justify-between">
+                            <h3 className="text-[10px] font-black text-[#1e3a8a] uppercase tracking-widest flex items-center gap-2">
+                                <FaCalendarAlt className="text-blue-600" size={10} /> Jadwal Mengajar
+                            </h3>
+                            <span className="text-[8px] font-bold text-slate-400 uppercase tracking-widest">MINGGU INI</span>
+                        </div>
+                        <div className="space-y-2">
+                            <div className="flex items-center justify-between p-4 bg-slate-50 rounded-xl border-l-[3px] border-blue-600 hover:bg-slate-100 transition-colors">
+                                <span className="text-[10px] font-black text-[#1e3a8a] uppercase">KANJI A1 - Selasa, 13:00</span>
+                                <FaArrowRight size={10} className="text-slate-300" />
                             </div>
-                            <div>
-                                <h3 className="text-sm font-black uppercase tracking-tighter">Jadwal Mengajar</h3>
-                                <p className="text-[9px] text-slate-400 font-bold uppercase tracking-widest">MINGGU INI</p>
+                            <div className="flex items-center justify-between p-4 bg-slate-50 rounded-xl border-l-[3px] border-blue-600 hover:bg-slate-100 transition-colors">
+                                <span className="text-[10px] font-black text-[#1e3a8a] uppercase">KOTOBA B2 - Rabu, 09:00</span>
+                                <FaArrowRight size={10} className="text-slate-300" />
                             </div>
                         </div>
                     </div>
 
-                    <div className="space-y-4">
-                        <div className="flex items-center justify-between p-6 bg-white/5 rounded-2xl border-l-[6px] border-red-500 hover:bg-white/10 transition-colors text-[11px] font-black">
-                            KANJI A1 - Selasa, 13:00
-                            <FaArrowRight size={12} className="opacity-20" />
-                        </div>
-                        <div className="flex items-center justify-between p-6 bg-white/5 rounded-2xl border-l-[6px] border-blue-500 hover:bg-white/10 transition-colors text-[11px] font-black">
-                            KOTOBA B2 - Rabu, 09:00
-                            <FaArrowRight size={12} className="opacity-20" />
+                    <div className="bg-[#1e293b] rounded-2xl p-6 text-white flex flex-col gap-4 relative overflow-hidden">
+                        <div className="absolute top-0 right-0 p-4 opacity-10"><FaGlobeAmericas size={80} /></div>
+                        <h3 className="text-[10px] font-black uppercase tracking-widest text-blue-400 relative z-10">Quick Action</h3>
+                        <div className="grid grid-cols-2 gap-3 relative z-10">
+                            <button className="p-4 bg-white/5 rounded-xl border border-white/5 text-[9px] font-black uppercase hover:bg-white/10 transition-all">Input Nilai</button>
+                            <button className="p-4 bg-white/5 rounded-xl border border-white/5 text-[9px] font-black uppercase hover:bg-white/10 transition-all">Cetak Raport</button>
+                            <button className="p-4 bg-white/5 rounded-xl border border-white/5 text-[9px] font-black uppercase hover:bg-white/10 transition-all">Data Alumni</button>
+                            <button className="p-4 bg-white/5 rounded-xl border border-white/5 text-[9px] font-black uppercase hover:bg-white/10 transition-all">Support</button>
                         </div>
                     </div>
                 </div>
@@ -325,43 +340,43 @@ const AttendanceView = () => {
 
 const KotobaView = () => {
     return (
-        <div className="p-8 space-y-6 max-w-[1400px] mx-auto animate-fade-in">
+        <div className="p-6 space-y-6 max-w-full mx-auto animate-fade-in">
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
                 <div>
-                    <div className="flex items-center gap-3">
-                        <h2 className="text-2xl font-black text-[#1e3a8a] uppercase tracking-tighter">Penilaian Kotoba</h2>
-                        <span className="bg-blue-600 text-white text-[9px] px-3 py-1 rounded-sm font-black uppercase tracking-widest shadow-lg shadow-blue-500/20">KAS-K</span>
+                    <div className="flex items-center gap-2">
+                        <h2 className="text-xl font-black text-[#1e3a8a] uppercase tracking-tighter">Penilaian Kotoba</h2>
+                        <span className="bg-blue-600 text-white text-[8px] px-2 py-0.5 rounded-sm font-black uppercase tracking-widest shadow-lg shadow-blue-500/10">KAS-K</span>
                     </div>
-                    <p className="text-[10px] text-slate-400 font-bold uppercase tracking-widest mt-1">DAFTAR NILAI KOSAKATA (KOTOBA) SISWA HARIAN</p>
+                    <p className="text-[9px] text-slate-400 font-bold uppercase tracking-widest mt-0.5">DAFTAR NILAI KOSAKATA (KOTOBA) SISWA HARIAN</p>
                 </div>
             </div>
 
-            <div className="bg-white rounded-2xl shadow-xl border border-slate-100 overflow-hidden">
+            <div className="bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden">
                 <table className="w-full text-left border-collapse">
                     <thead>
-                        <tr className="bg-[#1e3a8a] text-white text-[10px] font-black uppercase tracking-widest">
-                            <th className="px-8 py-5 border-r border-white/5 w-16 text-center">No</th>
-                            <th className="px-8 py-5 border-r border-white/5">Nama Siswa</th>
-                            <th className="px-8 py-5 border-r border-white/5 w-32 text-center">Bener</th>
-                            <th className="px-8 py-5 border-r border-white/5 w-32 text-center">Nilai</th>
-                            <th className="px-8 py-5">Tanggal Penilaian</th>
+                        <tr className="bg-[#1e3a8a] text-white text-[9px] font-black uppercase tracking-widest">
+                            <th className="px-6 py-4 border-r border-white/5 w-12 text-center">No</th>
+                            <th className="px-8 py-4 border-r border-white/5">Nama Siswa</th>
+                            <th className="px-6 py-4 border-r border-white/5 w-24 text-center">Bener</th>
+                            <th className="px-6 py-4 border-r border-white/5 w-24 text-center">Nilai</th>
+                            <th className="px-8 py-4">Tanggal Penilaian</th>
                         </tr>
                     </thead>
-                    <tbody className="divide-y divide-slate-100">
+                    <tbody className="divide-y divide-slate-50">
                         {kotobaData.map((item, idx) => (
-                            <tr key={idx} className="hover:bg-blue-50/30 transition-colors">
-                                <td className="px-8 py-5 text-[11px] font-black text-slate-400 border-r border-slate-100 text-center">{idx + 1}</td>
-                                <td className="px-8 py-5 font-black text-[11px] text-[#1e3a8a] uppercase border-r border-slate-100">{item.name}</td>
-                                <td className="px-8 py-5 text-[11px] font-black text-slate-600 border-r border-slate-100 text-center">{item.bener}</td>
-                                <td className="px-8 py-5 border-r border-slate-100 text-center">
+                            <tr key={idx} className="hover:bg-slate-50 transition-colors">
+                                <td className="px-6 py-4 text-[10px] font-black text-slate-300 border-r border-slate-50 text-center">{idx + 1}</td>
+                                <td className="px-8 py-4 font-black text-[10px] text-[#1e3a8a] uppercase border-r border-slate-50">{item.name}</td>
+                                <td className="px-6 py-4 text-[10px] font-black text-slate-500 border-r border-slate-50 text-center">{item.bener}</td>
+                                <td className="px-6 py-4 border-r border-slate-50 text-center">
                                     <span className={cn(
-                                        "px-6 py-1.5 rounded-sm text-[10px] font-black shadow-sm",
-                                        item.nilai >= 75 ? "bg-green-100 text-green-700" : "bg-red-100 text-red-700"
+                                        "px-4 py-1 rounded-sm text-[9px] font-black",
+                                        item.nilai >= 75 ? "bg-green-50 text-green-600" : "bg-red-50 text-red-600"
                                     )}>
                                         {item.nilai}
                                     </span>
                                 </td>
-                                <td className="px-8 py-5 text-[10px] font-mono font-bold text-slate-400 uppercase">{item.tanggal} // 08:30 AM</td>
+                                <td className="px-8 py-4 text-[9px] font-mono font-bold text-slate-400 uppercase">{item.tanggal} // 08:30 AM</td>
                             </tr>
                         ))}
                     </tbody>
