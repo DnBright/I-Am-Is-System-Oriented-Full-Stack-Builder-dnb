@@ -387,29 +387,29 @@ const KotobaView = () => {
 };
 
 const EvaluasiView = () => (
-    <div className="p-8 space-y-6 max-w-[1400px] mx-auto animate-fade-in bg-[#f8fafc] min-h-screen">
-        <div className="flex items-center justify-between mb-8">
+    <div className="p-6 space-y-6 max-w-full mx-auto animate-fade-in bg-[#f8fafc] min-h-screen">
+        <div className="flex items-center justify-between">
             <div>
-                <h2 className="text-2xl font-black text-[#1e293b] tracking-tighter">Evaluasi Seleksi</h2>
-                <p className="text-[10px] text-slate-400 font-bold uppercase tracking-widest mt-1">MANAJEMEN EVALUASI & NILAI SELEKSI</p>
+                <h2 className="text-xl font-black text-[#1e293b] tracking-tighter uppercase">Evaluasi Seleksi</h2>
+                <p className="text-[9px] text-slate-400 font-bold uppercase tracking-widest mt-0.5">MANAJEMEN EVALUASI & NILAI SELEKSI</p>
             </div>
-            <button className="bg-[#1e293b] text-white px-6 py-2.5 rounded-lg flex items-center gap-2 text-[11px] font-black uppercase tracking-widest shadow-lg shadow-slate-900/10">
-                <FaSignOutAlt className="rotate-180" /> EXPORT
+            <button className="bg-[#1e293b] text-white px-4 py-2 rounded-lg flex items-center gap-2 text-[10px] font-black uppercase tracking-widest shadow-lg shadow-slate-900/5">
+                <FaSignOutAlt className="rotate-180" size={10} /> EXPORT
             </button>
         </div>
 
-        <div className="bg-white rounded-2xl shadow-sm border border-slate-100 p-6">
-            <div className="flex items-center gap-4 mb-8">
+        <div className="bg-white rounded-2xl shadow-sm border border-slate-100 p-5">
+            <div className="flex items-center gap-4 mb-6">
                 <div className="flex-1 relative">
-                    <FaSearch className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400" size={14} />
-                    <input type="text" placeholder="Cari nama atau email siswa..." className="w-full pl-12 pr-4 py-3 bg-slate-50 border border-slate-100 rounded-xl text-[11px] font-bold outline-none focus:border-blue-200 transition-all" />
+                    <FaSearch className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-300" size={10} />
+                    <input type="text" placeholder="Cari nama atau email siswa..." className="w-full pl-10 pr-4 py-2 bg-slate-50 border border-slate-100 rounded-xl text-[10px] font-bold outline-none focus:border-blue-200 transition-all" />
                 </div>
                 <div className="flex items-center gap-2">
-                    <div className="px-4 py-3 bg-slate-50 border border-slate-100 rounded-xl text-[11px] font-black uppercase tracking-widest text-slate-400 flex items-center gap-4 cursor-pointer">
-                        Status <FaChevronDown size={10} />
+                    <div className="px-3 py-2 bg-slate-50 border border-slate-100 rounded-xl text-[9px] font-black uppercase tracking-widest text-slate-400 flex items-center gap-4 cursor-pointer">
+                        Status <FaChevronDown size={8} />
                     </div>
-                    <div className="px-4 py-3 bg-slate-50 border border-slate-100 rounded-xl text-[11px] font-black uppercase tracking-widest text-slate-400 flex items-center gap-4 cursor-pointer">
-                        Kelas <FaChevronDown size={10} />
+                    <div className="px-3 py-2 bg-slate-50 border border-slate-100 rounded-xl text-[9px] font-black uppercase tracking-widest text-slate-400 flex items-center gap-4 cursor-pointer">
+                        Kelas <FaChevronDown size={8} />
                     </div>
                 </div>
             </div>
@@ -417,37 +417,39 @@ const EvaluasiView = () => (
             <div className="overflow-x-auto">
                 <table className="w-full text-left border-collapse">
                     <thead>
-                        <tr className="text-[9px] font-black text-slate-300 uppercase tracking-[0.2em]">
-                            <th className="pb-6 pl-2">Siswa</th>
-                            <th className="pb-6 text-center">Bahasa</th>
-                            <th className="pb-6 text-center">Fisik</th>
-                            <th className="pb-6 text-center">Mental</th>
-                            <th className="pb-6 text-center">Hasil</th>
-                            <th className="pb-6 text-right pr-2">Aksi</th>
+                        <tr className="text-[8px] font-black text-slate-300 uppercase tracking-[0.2em]">
+                            <th className="pb-4 pl-2">Siswa</th>
+                            <th className="pb-4 text-center">Bahasa</th>
+                            <th className="pb-4 text-center">Fisik</th>
+                            <th className="pb-4 text-center">Mental</th>
+                            <th className="pb-4 text-center">Hasil</th>
+                            <th className="pb-4 text-right pr-2">Aksi</th>
                         </tr>
                     </thead>
                     <tbody className="divide-y divide-slate-50">
                         {evaluasiData.map((item, idx) => (
-                            <tr key={idx} className="group hover:bg-slate-50/50 transition-colors">
-                                <td className="py-6">
-                                    <div className="flex items-center gap-4">
-                                        <div className="w-10 h-10 rounded-full bg-blue-50 text-blue-600 flex items-center justify-center text-[11px] font-black border border-blue-100">{item.name[0]}</div>
-                                        <span className="text-[12px] font-black text-[#1e3a8a] uppercase">{item.name}</span>
+                            <tr key={idx} className="group hover:bg-slate-50 transition-colors">
+                                <td className="py-4">
+                                    <div className="flex items-center gap-3">
+                                        <div className="w-8 h-8 rounded-full bg-slate-100 text-slate-400 flex items-center justify-center text-[10px] font-black border border-slate-200">{item.name[0]}</div>
+                                        <span className="text-[11px] font-black text-[#1e3a8a] uppercase">{item.name}</span>
                                     </div>
                                 </td>
-                                <td className="py-6 text-center font-black text-slate-600 text-[11px]">{item.bahasa}</td>
-                                <td className="py-6 text-center font-black text-slate-600 text-[11px]">{item.fisik}</td>
-                                <td className="py-6 text-center font-black text-slate-600 text-[11px]">{item.mental}</td>
-                                <td className="py-6 text-center">
+                                <td className="py-4 text-center font-black text-slate-500 text-[10px]">{item.bahasa}</td>
+                                <td className="py-4 text-center font-black text-slate-500 text-[10px]">{item.fisik}</td>
+                                <td className="py-4 text-center font-black text-slate-500 text-[10px]">{item.mental}</td>
+                                <td className="py-4 text-center">
                                     <span className={cn(
-                                        "px-4 py-1.5 rounded-sm text-[9px] font-black uppercase tracking-widest",
+                                        "px-3 py-1 rounded-sm text-[8px] font-black uppercase tracking-widest",
                                         item.status === 'Lulus' ? "bg-green-50 text-green-600" : "bg-red-50 text-red-600"
                                     )}>
                                         {item.status}
                                     </span>
                                 </td>
-                                <td className="py-6 text-right pr-2">
-                                    <div className="w-8 h-8 rounded-lg bg-[#1e293b] inline-flex items-center justify-center shadow-lg" />
+                                <td className="py-4 text-right pr-2">
+                                    <div className="w-7 h-7 rounded-lg bg-slate-900 inline-flex items-center justify-center shadow-lg shadow-slate-900/10 cursor-pointer hover:scale-105 transition-transform">
+                                        <FaArrowRight size={10} className="text-white opacity-50" />
+                                    </div>
                                 </td>
                             </tr>
                         ))}
@@ -459,29 +461,29 @@ const EvaluasiView = () => (
 );
 
 const StatusSiswaView = () => (
-    <div className="p-8 space-y-6 max-w-[1400px] mx-auto animate-fade-in bg-[#f8fafc] min-h-screen">
-        <div className="flex items-center justify-between mb-8">
+    <div className="p-6 space-y-6 max-w-full mx-auto animate-fade-in bg-[#f8fafc] min-h-screen">
+        <div className="flex items-center justify-between">
             <div>
-                <h2 className="text-2xl font-black text-[#1e293b] tracking-tighter">Daftar Siswa</h2>
-                <p className="text-[10px] text-slate-400 font-bold uppercase tracking-widest mt-1">MANAJEMEN DATA SISWA & KELAS</p>
+                <h2 className="text-xl font-black text-[#1e293b] tracking-tighter uppercase">Daftar Siswa</h2>
+                <p className="text-[9px] text-slate-400 font-bold uppercase tracking-widest mt-0.5">MANAJEMEN DATA SISWA & KELAS</p>
             </div>
-            <button className="bg-[#1e293b] text-white px-6 py-2.5 rounded-lg flex items-center gap-2 text-[11px] font-black uppercase tracking-widest shadow-lg shadow-slate-900/10">
-                <FaSignOutAlt className="rotate-180" /> EXPORT
+            <button className="bg-[#1e293b] text-white px-4 py-2 rounded-lg flex items-center gap-2 text-[10px] font-black uppercase tracking-widest shadow-lg shadow-slate-900/5">
+                <FaSignOutAlt className="rotate-180" size={10} /> EXPORT
             </button>
         </div>
 
-        <div className="bg-white rounded-2xl shadow-sm border border-slate-100 p-6">
-            <div className="flex items-center gap-4 mb-8">
+        <div className="bg-white rounded-2xl shadow-sm border border-slate-100 p-5">
+            <div className="flex items-center gap-4 mb-6">
                 <div className="flex-1 relative">
-                    <FaSearch className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400" size={14} />
-                    <input type="text" placeholder="Cari nama atau email siswa..." className="w-full pl-12 pr-4 py-3 bg-slate-50 border border-slate-100 rounded-xl text-[11px] font-bold outline-none focus:border-blue-200 transition-all" />
+                    <FaSearch className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-300" size={10} />
+                    <input type="text" placeholder="Cari nama atau email siswa..." className="w-full pl-10 pr-4 py-2 bg-slate-50 border border-slate-100 rounded-xl text-[10px] font-bold outline-none focus:border-blue-200 transition-all" />
                 </div>
                 <div className="flex items-center gap-2">
-                    <div className="px-4 py-3 bg-slate-50 border border-slate-100 rounded-xl text-[11px] font-black uppercase tracking-widest text-slate-400 flex items-center gap-4 cursor-pointer">
-                        Status <FaChevronDown size={10} />
+                    <div className="px-3 py-2 bg-slate-50 border border-slate-100 rounded-xl text-[9px] font-black uppercase tracking-widest text-slate-400 flex items-center gap-4 cursor-pointer">
+                        Status <FaChevronDown size={8} />
                     </div>
-                    <div className="px-4 py-3 bg-slate-50 border border-slate-100 rounded-xl text-[11px] font-black uppercase tracking-widest text-slate-400 flex items-center gap-4 cursor-pointer">
-                        Kelas <FaChevronDown size={10} />
+                    <div className="px-3 py-2 bg-slate-50 border border-slate-100 rounded-xl text-[9px] font-black uppercase tracking-widest text-slate-400 flex items-center gap-4 cursor-pointer">
+                        Kelas <FaChevronDown size={8} />
                     </div>
                 </div>
             </div>
@@ -489,49 +491,51 @@ const StatusSiswaView = () => (
             <div className="overflow-x-auto">
                 <table className="w-full text-left border-collapse">
                     <thead>
-                        <tr className="text-[9px] font-black text-slate-300 uppercase tracking-[0.2em]">
-                            <th className="pb-6 pl-2">Siswa</th>
-                            <th className="pb-6 text-center">Angkatan</th>
-                            <th className="pb-6 text-center">Kontak</th>
-                            <th className="pb-6 text-center">Follow Up</th>
-                            <th className="pb-6 text-center">Status</th>
-                            <th className="pb-6 text-right pr-2">Aksi</th>
+                        <tr className="text-[8px] font-black text-slate-300 uppercase tracking-[0.2em]">
+                            <th className="pb-4 pl-2">Siswa</th>
+                            <th className="pb-4 text-center">Angkatan</th>
+                            <th className="pb-4 text-center">Kontak</th>
+                            <th className="pb-4 text-center">Follow Up</th>
+                            <th className="pb-4 text-center">Status</th>
+                            <th className="pb-4 text-right pr-2">Aksi</th>
                         </tr>
                     </thead>
                     <tbody className="divide-y divide-slate-50">
                         {statusSiswaListData.map((item, idx) => (
-                            <tr key={idx} className="group hover:bg-slate-50/50 transition-colors">
-                                <td className="py-6">
-                                    <div className="flex items-center gap-4">
-                                        <div className="w-10 h-10 rounded-full bg-blue-50 text-blue-600 flex items-center justify-center text-[11px] font-black border border-blue-100">{item.initial}</div>
-                                        <span className="text-[12px] font-black text-[#1e3a8a] uppercase">{item.name}</span>
+                            <tr key={idx} className="group hover:bg-slate-50 transition-colors">
+                                <td className="py-4">
+                                    <div className="flex items-center gap-3">
+                                        <div className="w-8 h-8 rounded-full bg-blue-50 text-blue-600 flex items-center justify-center text-[10px] font-black border border-blue-100 shadow-sm">{item.initial}</div>
+                                        <span className="text-[11px] font-black text-[#1e3a8a] uppercase">{item.name}</span>
                                     </div>
                                 </td>
-                                <td className="py-6 text-center">
-                                    <span className="px-6 py-2 bg-slate-50 rounded-lg text-[10px] font-black text-slate-400">A1</span>
+                                <td className="py-4 text-center">
+                                    <span className="px-4 py-1.5 bg-slate-50 rounded-lg text-[9px] font-black text-slate-400">A1</span>
                                 </td>
-                                <td className="py-6 text-center">
-                                    <div className="flex items-center justify-center gap-2">
-                                        <div className="w-6 h-6 rounded-lg bg-green-500 shadow-sm" />
-                                        <div className="w-6 h-6 rounded-lg bg-red-400 shadow-sm" />
+                                <td className="py-4 text-center">
+                                    <div className="flex items-center justify-center gap-1.5">
+                                        <div className="w-5 h-5 rounded-md bg-green-500 shadow-sm" />
+                                        <div className="w-5 h-5 rounded-md bg-red-400 shadow-sm" />
                                     </div>
                                 </td>
-                                <td className="py-6 text-center">
+                                <td className="py-4 text-center">
+                                    <div className="flex flex-col items-center">
+                                        <span className="text-[7px] font-black text-slate-300 uppercase">FU 1:</span>
+                                        <span className="text-[10px] font-bold text-[#1e3a8a] tracking-tight">{item.followUp}</span>
+                                    </div>
+                                </td>
+                                <td className="py-4 text-center">
                                     <div className="flex flex-col items-center gap-1">
-                                        <span className="text-[8px] font-black text-slate-300 uppercase">FU 1:</span>
-                                        <span className="text-[10px] font-bold text-[#1e3a8a]">{item.followUp}</span>
-                                    </div>
-                                </td>
-                                <td className="py-6 text-center">
-                                    <div className="flex flex-col items-center gap-2">
-                                        <span className="px-4 py-1 bg-green-50 text-green-600 text-[8px] font-black rounded-full uppercase tracking-widest">RESPON</span>
-                                        <span className={cn("px-4 py-1.5 rounded-sm text-[9px] font-black uppercase tracking-widest shadow-sm", item.statusColor)}>
+                                        <span className="px-3 py-0.5 bg-green-50 text-green-600 text-[7px] font-black rounded-full uppercase tracking-widest border border-green-100/50">RESPON</span>
+                                        <span className={cn("px-3 py-1 rounded-sm text-[8px] font-black uppercase tracking-widest", item.statusColor)}>
                                             {item.status}
                                         </span>
                                     </div>
                                 </td>
-                                <td className="py-6 text-right pr-2">
-                                    <div className="w-8 h-8 rounded-lg bg-[#1e293b] inline-flex items-center justify-center shadow-lg" />
+                                <td className="py-4 text-right pr-2">
+                                    <div className="w-7 h-7 rounded-lg bg-slate-900 inline-flex items-center justify-center shadow-lg shadow-slate-900/10 cursor-pointer hover:scale-105 transition-transform">
+                                        <FaArrowRight size={10} className="text-white opacity-50" />
+                                    </div>
                                 </td>
                             </tr>
                         ))}
