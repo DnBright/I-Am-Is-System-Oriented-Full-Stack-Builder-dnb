@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import {
-    FaLayout,
+    FaThLarge,
     FaChalkboardTeacher,
     FaUserCheck,
     FaClipboardList,
@@ -12,10 +12,13 @@ import {
     FaCheckCircle,
     FaTimesCircle,
     FaInfoCircle,
-    FaUser
+    FaUser,
+    FaSpinner
 } from 'react-icons/fa';
 import { cn } from '@/lib/utils';
 import Card from '@/components/ui/Card';
+import Button from '@/components/ui/Button';
+import Badge from '@/components/ui/Badge';
 
 interface Student {
     id: number;
@@ -41,6 +44,13 @@ export default function LPKSaitamaDemo() {
         setStudents(prev => prev.map(s => s.id === id ? { ...s, status } : s));
     };
 
+    const handleSave = () => {
+        setIsLoading(true);
+        setTimeout(() => {
+            setIsLoading(false);
+        }, 1500);
+    };
+
     const stats = {
         totalKelas: 6,
         totalSiswa: 184,
@@ -48,7 +58,7 @@ export default function LPKSaitamaDemo() {
     };
 
     const navItems = [
-        { id: 'dashboard', icon: FaLayout, label: 'Dashboard' },
+        { id: 'dashboard', icon: FaThLarge, label: 'Dashboard' },
         { id: 'pengajaran', icon: FaChalkboardTeacher, label: 'Pengajaran' },
         { id: 'presensi', icon: FaUserCheck, label: 'Penilaian Presensi' },
         { id: 'evaluasi', icon: FaClipboardList, label: 'Evaluasi Seleksi' },
@@ -181,7 +191,14 @@ export default function LPKSaitamaDemo() {
                                 </div>
                                 <div className="flex gap-3">
                                     <Button variant="outline" size="sm" className="rounded-sm text-[10px] font-black" onClick={() => setStudents(initialStudents)}>RESET</Button>
-                                    <Button size="sm" className="rounded-sm text-[10px] font-black bg-[#1e3a8a]">SIMPAN DATA</Button>
+                                    <Button
+                                        size="sm"
+                                        className="rounded-sm text-[10px] font-black bg-[#1e3a8a] min-w-[120px]"
+                                        onClick={handleSave}
+                                        disabled={isLoading}
+                                    >
+                                        {isLoading ? <FaSpinner className="animate-spin mr-2" /> : 'SIMPAN DATA'}
+                                    </Button>
                                 </div>
                             </div>
 
