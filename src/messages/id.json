@@ -264,6 +264,24 @@
                     "Social Engagement Plan"
                 ],
                 "solution": "Pendekatan desain strategis yang mengintegrasikan branding logo, desain grafis, dan manajemen media sosial untuk memperkuat citra brand."
+            },
+            "marketplace-voltase-dashboard": {
+                "title": "Marketplace Voltase Management Dashboard",
+                "client": "E-commerce Business Owner",
+                "legal": "SMART MARKET ANALYTICS",
+                "category": "Marketplace Strategy Dashboard",
+                "descriptionBrief": "Platform analisis pasar cerdas untuk optimasi strategi penjualan e-commerce aksesoris mobil.",
+                "problem": "Pelaku bisnis e-commerce seringkali bergantung pada intuisi daripada data nyata dalam menentukan produk unggulan, serta kesulitan mengekstrak spesifikasi teknis dari ribuan data marketplace yang berantakan.",
+                "system": "Dashboard interaktif (Command Center) yang mengintegrasikan web scraping, NLP untuk ekstraksi spesifikasi, dan mesin rekomendasi berbasis AI.",
+                "role": "Lead Developer & AI Architect",
+                "impact": "Transformasi data mentah menjadi actionable insights, meningkatkan akurasi pemilihan produk 'Hidden Gem', dan otomasi ekstraksi teknis hingga 90%.",
+                "architecture": [
+                    "User-Based Collaborative Filtering",
+                    "Cosine Similarity Algorithm",
+                    "NLP Specification Extraction",
+                    "Interactive Data Visualization"
+                ],
+                "solution": "Sistem rekomendasi cerdas yang menggunakan Collaborative Filtering untuk memprediksi minat pengguna dan AI Score untuk mengidentifikasi produk berpotensi tinggi."
             }
         }
     },
