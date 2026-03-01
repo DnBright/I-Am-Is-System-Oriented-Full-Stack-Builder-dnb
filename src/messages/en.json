@@ -395,24 +395,24 @@
     }
   },
   "Try": {
-    "title": "System <span>Simulator</span>",
-    "subtitle": "Experience the architecture in action. Interactive demos for selected system case studies.",
-    "simulation_module": "Simulation Module",
-    "sandbox": "Digital Vision v1.0",
+    "title": "Project <span>Demo</span>",
+    "subtitle": "Explore the system architecture directly through interactive simulation.",
+    "simulation_module": "Demo Module",
+    "sandbox": "Live Simulation v1.0",
     "station_select": "SELECT PROJECT",
     "auth": "CONNECTED: DEMO_MODE",
     "security_note": {
-      "title": "User Note",
-      "desc": "This is an interactive simulation environment. Some backend functionalities may be limited for data security."
+      "title": "User Guide",
+      "desc": "Use the sidebar menu to navigate between dashboards and features in this simulation."
     },
     "terminal": {
       "root_at": "visitor@system",
       "access_rejected": "DEMO_UNAVAILABLE",
-      "connected_ready": "SYSTEM_READY",
-      "pii_warning": "Click launch to explore the interactive project preview.",
-      "request_access": "CONTACT ME",
+      "connected_ready": "READY TO RUN",
+      "pii_warning": "Select a menu on the simulation sidebar to start interacting with the backend.",
+      "request_access": "VIEW CODE",
       "open_preview": "LAUNCH DEMO",
-      "secure_layer": "INTERACTIVE_DEMO",
+      "secure_layer": "INTERACTIVE_MODE",
       "latency": "USER",
       "buffer": "STATUS"
     },

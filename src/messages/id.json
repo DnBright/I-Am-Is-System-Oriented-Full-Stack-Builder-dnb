@@ -395,24 +395,24 @@
         }
     },
     "Try": {
-        "title": "Uji Coba <span>Sistem</span>",
-        "subtitle": "Jangan hanya percaya kata-kata saya. Inisiasi koneksi uji coba untuk melihat arsitektur dalam beraksi. Semua lingkungan berada dalam sandbox.",
-        "simulation_module": "Modul Simulasi",
-        "sandbox": "Visi Digital v1.0",
+        "title": "<span>Demo</span> Project",
+        "subtitle": "Eksplorasi arsitektur sistem secara langsung melalui simulasi interaktif.",
+        "simulation_module": "Modul Demo",
+        "sandbox": "Live Simulation v1.0",
         "station_select": "PILIH PROJECT",
         "auth": "SISTEM TERHUBUNG: MODE_DEMO",
         "security_note": {
-            "title": "Catatan Pengguna",
-            "desc": "Lingkungan ini adalah simulasi interaktif. Beberapa fitur fungsionalitas backend mungkin dibatasi demi keamanan data."
+            "title": "Petunjuk Pengguna",
+            "desc": "Gunakan menu di samping untuk berpindah antar dashboard dan fitur dalam simulasi ini."
         },
         "terminal": {
             "root_at": "visitor@system",
             "access_rejected": "DEMO_TIDAK_TERSEDIA",
-            "connected_ready": "SISTEM_SIAP_DICOBA",
-            "pii_warning": "Tekan tombol di bawah untuk meluncurkan pratinjau interaktif project.",
-            "request_access": "HUBUNGI SAYA",
+            "connected_ready": "SIAP DIJALANKAN",
+            "pii_warning": "Pilih menu pada sidebar simulasi untuk mulai berinteraksi dengan backend.",
+            "request_access": "LIHAT KODE",
             "open_preview": "LUNCURKAN DEMO",
-            "secure_layer": "DEMO_INTERAKTIF",
+            "secure_layer": "MODE_INTERAKTIF",
             "latency": "PENGGUNA",
             "buffer": "STATUS"
         },
