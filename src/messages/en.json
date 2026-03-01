@@ -395,45 +395,57 @@
     }
   },
   "Try": {
-    "title": "System <span>Access</span>",
-    "subtitle": "Don't just take my word for it. Initiate a test connection to see the architecture in action. All environments are sandboxed.",
-    "simulation_module": "Simulation_Module",
-    "sandbox": "Sandbox_v0.8-Alpha",
-    "station_select": "STATION_SELECT",
-    "auth": "AUTH: SESSION_SYMMETRIC",
+    "title": "System <span>Simulator</span>",
+    "subtitle": "Experience the architecture in action. Interactive demos for selected system case studies.",
+    "simulation_module": "Simulation Module",
+    "sandbox": "Digital Vision v1.0",
+    "station_select": "SELECT PROJECT",
+    "auth": "CONNECTED: DEMO_MODE",
     "security_note": {
-      "title": "Security Note",
-      "desc": "Persistent access requires an authorized PEM key. Contact for administrative credentials if deep structural auditing is required."
+      "title": "User Note",
+      "desc": "This is an interactive simulation environment. Some backend functionalities may be limited for data security."
     },
     "terminal": {
-      "root_at": "root@system",
-      "access_rejected": "ACCESS_REJECTED",
-      "connected_ready": "CONNECTED_READY",
-      "pii_warning": "This environment contains sensitive PII data. Direct trial is disabled for public users. Request a personalized walkthrough.",
-      "request_access": "REQUEST ACCESS",
-      "open_preview": "OPEN PREVIEW",
-      "secure_layer": "SECURE_LAYER_V2",
-      "latency": "LATENCY",
-      "buffer": "BUFFER"
+      "root_at": "visitor@system",
+      "access_rejected": "DEMO_UNAVAILABLE",
+      "connected_ready": "SYSTEM_READY",
+      "pii_warning": "Click launch to explore the interactive project preview.",
+      "request_access": "CONTACT ME",
+      "open_preview": "LAUNCH DEMO",
+      "secure_layer": "INTERACTIVE_DEMO",
+      "latency": "USER",
+      "buffer": "STATUS"
     },
-    "stations": {
-      "lpk-demo": {
-        "title": "LPK Engine Console",
-        "desc": "Direct interactive access to the management system core. View how atomic transactions are handled in real-time.",
-        "status": "Restricted",
-        "type": "Management API"
+    "projects": {
+      "lpk-saitama-dashboard": {
+        "title": "Saitama LPK Dashboard",
+        "desc": "Simulated student management and operations dashboard.",
+        "type": "Dashboard App"
       },
-      "analytics-demo": {
-        "title": "Analytics Data Stream",
-        "desc": "Raw WebSocket stream of GitHub events being processed by the system dashboard.",
-        "status": "Live",
-        "type": "WebSocket Stream"
+      "lpk-ayaka-website": {
+        "title": "Ayaka LPK Corporate",
+        "desc": "Exploration of corporate landing and funnel systems.",
+        "type": "Web Portal"
       },
-      "crm-demo": {
-        "title": "CRM Pipeline Sandbox",
-        "desc": "A sandboxed environment to test the multi-tenant CRM orchestration logic.",
-        "status": "Available",
-        "type": "Sandbox UI"
+      "ai-admin-dashboard": {
+        "title": "AI Admin Console",
+        "desc": "Demo of AI-powered document processing flows.",
+        "type": "AI System"
+      },
+      "japan-online-course": {
+        "title": "Japan Online LMS",
+        "desc": "Interactive preview of the adaptive learning platform.",
+        "type": "EdTech"
+      },
+      "gro-visual-branding": {
+        "title": "Gro Visual Experience",
+        "desc": "Visual identity and design showcase simulation.",
+        "type": "Portfolio"
+      },
+      "marketplace-voltase-dashboard": {
+        "title": "Marketplace Command Center",
+        "desc": "Market analytics and AI product recommendation demo.",
+        "type": "Data Engine"
       }
     }
   },

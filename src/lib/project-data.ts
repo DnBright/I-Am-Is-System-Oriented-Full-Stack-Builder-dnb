@@ -8,6 +8,7 @@ export interface Project {
     image: string;
     screenshots: string[];
     introKey: string;
+    demoUrl?: string;
     colors?: {
         primary: string;
         bg: string;
@@ -26,6 +27,7 @@ export const projectsData: Project[] = [
         category: 'App',
         slug: 'lpk-saitama-dashboard',
         introKey: 'lpk_saitama',
+        demoUrl: 'https://lpk-saitama.vercel.app', // Placeholder
         image: '/projects/saitama-screenshots/Screenshot 2026-02-15 at 22.16.55.png',
         screenshots: [
             '/projects/saitama-screenshots/Screenshot 2026-02-15 at 22.14.37.png',
@@ -50,6 +52,7 @@ export const projectsData: Project[] = [
         category: 'Web',
         slug: 'lpk-ayaka-website',
         introKey: 'lpk_ayaka',
+        demoUrl: 'https://lpk-ayaka.vercel.app', // Placeholder
         image: '/projects/ayaka-screenshots/home.jpg',
         screenshots: [
             '/projects/ayaka-screenshots/home.jpg',
@@ -74,6 +77,7 @@ export const projectsData: Project[] = [
         category: 'AI',
         slug: 'ai-admin-dashboard',
         introKey: 'ai_dashboard',
+        demoUrl: 'https://ai-admin.vercel.app', // Placeholder
         image: '/projects/ai-dashboard-screenshots/form-1.png',
         screenshots: [
             '/projects/ai-dashboard-screenshots/form-1.png',
@@ -97,6 +101,7 @@ export const projectsData: Project[] = [
         category: 'EdTech',
         slug: 'japan-online-course',
         introKey: 'japan_course',
+        demoUrl: 'https://japan-course.vercel.app', // Placeholder
         image: '/projects/kursus-jepang-online-hybrid/1.png',
         screenshots: [
             '/projects/kursus-jepang-online-hybrid/1.png',
@@ -123,6 +128,7 @@ export const projectsData: Project[] = [
         category: 'Branding',
         slug: 'gro-visual-branding',
         introKey: 'gro_visual',
+        demoUrl: 'https://gro-visual.id', // Placeholder
         image: '/projects/Gro Visual/Screenshot 2026-02-27 at 22.18.37.png',
         screenshots: [
             '/projects/Gro Visual/Screenshot 2026-02-27 at 22.18.37.png',
@@ -145,6 +151,7 @@ export const projectsData: Project[] = [
         category: 'Data Analytics',
         slug: 'marketplace-voltase-dashboard',
         introKey: 'marketplace_voltase',
+        demoUrl: 'https://marketplace-voltase.vercel.app', // Placeholder
         image: '/projects/G4.20/Screenshot 2026-03-01 at 19.07.18.png',
         screenshots: [
             '/projects/G4.20/Screenshot 2026-03-01 at 19.16.39.png',

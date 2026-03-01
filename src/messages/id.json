@@ -398,42 +398,54 @@
         "title": "Uji Coba <span>Sistem</span>",
         "subtitle": "Jangan hanya percaya kata-kata saya. Inisiasi koneksi uji coba untuk melihat arsitektur dalam beraksi. Semua lingkungan berada dalam sandbox.",
         "simulation_module": "Modul Simulasi",
-        "sandbox": "Sandbox v0.8-Alpha",
-        "station_select": "PILIH STASIUN",
-        "auth": "OTOTENTIKASI: SESI_SIMETRIS",
+        "sandbox": "Visi Digital v1.0",
+        "station_select": "PILIH PROJECT",
+        "auth": "SISTEM TERHUBUNG: MODE_DEMO",
         "security_note": {
-            "title": "Catatan Keamanan",
-            "desc": "Akses persisten memerlukan kunci PEM resmi. Hubungi untuk kredensial administratif jika audit struktural mendalam diperlukan."
+            "title": "Catatan Pengguna",
+            "desc": "Lingkungan ini adalah simulasi interaktif. Beberapa fitur fungsionalitas backend mungkin dibatasi demi keamanan data."
         },
         "terminal": {
-            "root_at": "root@system",
-            "access_rejected": "AKSES_DITOLAK",
-            "connected_ready": "TERHUBUNG_SIAP",
-            "pii_warning": "Lingkungan ini berisi data PII sensitif. Uji coba langsung dinonaktifkan untuk pengguna publik. Minta panduan personal.",
-            "request_access": "MINTA AKSES",
-            "open_preview": "BUKA PRATINJAU",
-            "secure_layer": "LAPISAN_AMAN_V2",
-            "latency": "LATENSI",
-            "buffer": "BUFFER"
+            "root_at": "visitor@system",
+            "access_rejected": "DEMO_TIDAK_TERSEDIA",
+            "connected_ready": "SISTEM_SIAP_DICOBA",
+            "pii_warning": "Tekan tombol di bawah untuk meluncurkan pratinjau interaktif project.",
+            "request_access": "HUBUNGI SAYA",
+            "open_preview": "LUNCURKAN DEMO",
+            "secure_layer": "DEMO_INTERAKTIF",
+            "latency": "PENGGUNA",
+            "buffer": "STATUS"
         },
-        "stations": {
-            "lpk-demo": {
-                "title": "Konsol Mesin LPK",
-                "desc": "Akses interaktif langsung ke inti sistem manajemen. Lihat bagaimana transaksi atomik ditangani secara real-time.",
-                "status": "Dibatasi",
-                "type": "API Manajemen"
+        "projects": {
+            "lpk-saitama-dashboard": {
+                "title": "LPK Saitama Dashboard",
+                "desc": "Simulasi manajemen data siswa dan sistem operasional terpadu.",
+                "type": "Dashboard App"
             },
-            "analytics-demo": {
-                "title": "Aliran Data Analitik",
-                "desc": "Aliran WebSocket mentah dari event GitHub yang sedang diproses oleh dashboard sistem.",
-                "status": "Langsung",
-                "type": "Aliran WebSocket"
+            "lpk-ayaka-website": {
+                "title": "LPK Ayaka Corporate",
+                "desc": "Eksplorasi antarmuka landing page dan sistem pendaftaran.",
+                "type": "Web Portal"
             },
-            "crm-demo": {
-                "title": "Sandbox Pipeline CRM",
-                "desc": "Lingkungan sandbox untuk menguji logika orkestrasi CRM multi-tenant.",
-                "status": "Tersedia",
-                "type": "UI Sandbox"
+            "ai-admin-dashboard": {
+                "title": "AI Admin Console",
+                "desc": "Demo pemrosesan dokumen otomatis bertenaga AI.",
+                "type": "AI System"
+            },
+            "japan-online-course": {
+                "title": "Japan Online LMS",
+                "desc": "Pratinjau platform pembelajaran interaktif.",
+                "type": "EdTech"
+            },
+            "gro-visual-branding": {
+                "title": "Gro Visual Experience",
+                "desc": "Showcase identitas visual dan estetika branding.",
+                "type": "Portfolio"
+            },
+            "marketplace-voltase-dashboard": {
+                "title": "Marketplace Command Center",
+                "desc": "Analisis pasar cerdas dan sistem rekomendasi produk.",
+                "type": "Data Engine"
             }
         }
     },
