@@ -10,6 +10,7 @@ import { cn } from '@/lib/utils';
 import { useTranslations } from 'next-intl';
 import { projectsData } from '@/lib/project-data';
 import LPKSaitamaDemo from '@/components/demos/LPKSaitamaDemo';
+import LPKAyakaDemo from '@/components/demos/LPKAyakaDemo';
 
 export default function TryPage() {
     const t = useTranslations('Try');
@@ -17,6 +18,14 @@ export default function TryPage() {
 
     const activeProject = projectsData.find(p => p.slug === activeId) || projectsData[0];
     const tp = useTranslations(`Try.projects.${activeProject.slug}`);
+
+    const renderDemo = () => {
+        if (activeId === 'lpk-saitama-dashboard') return <LPKSaitamaDemo />;
+        if (activeId === 'lpk-ayaka-website') return <LPKAyakaDemo />;
+        return null;
+    };
+
+    const hasInternalDemo = ['lpk-saitama-dashboard', 'lpk-ayaka-website'].includes(activeId);
 
     return (
         <div className="py-24 relative overflow-hidden bg-background">
@@ -121,7 +130,7 @@ export default function TryPage() {
                                 transition={{ duration: 0.5, ease: "circOut" }}
                                 className="h-full"
                             >
-                                {activeId === 'lpk-saitama-dashboard' ? (
+                                {hasInternalDemo ? (
                                     <div className="w-full max-w-6xl mx-auto flex flex-col h-full justify-center">
                                         <div className="bg-[#1e293b] rounded-t-2xl p-3 flex items-center gap-3 border-x border-t border-slate-800 shadow-2xl">
                                             <div className="flex gap-2 ml-2">
@@ -133,9 +142,9 @@ export default function TryPage() {
                                                 {activeProject?.title} - System Simulation // 16:9
                                             </div>
                                         </div>
-                                        <div className="aspect-video w-full bg-[#f8fafc] rounded-b-2xl shadow-2xl border-x border-b border-slate-200 overflow-hidden relative group">
+                                        <div className="aspect-video w-full bg-white rounded-b-2xl shadow-2xl border-x border-b border-slate-200 overflow-hidden relative group">
                                             <div className="absolute inset-0">
-                                                <LPKSaitamaDemo />
+                                                {renderDemo()}
                                             </div>
                                         </div>
                                         <div className="mt-6 flex justify-center">

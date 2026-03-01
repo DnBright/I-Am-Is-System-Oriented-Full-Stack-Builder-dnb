@@ -6,6 +6,7 @@ import {
     FaPlay,
     FaExternalLinkAlt,
     FaChevronRight,
+    FaChevronDown,
     FaSearch,
     FaClock,
     FaCalendarAlt,
