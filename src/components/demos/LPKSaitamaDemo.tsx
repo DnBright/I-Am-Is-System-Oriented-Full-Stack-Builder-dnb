@@ -240,68 +240,68 @@ const AttendanceView = () => {
     };
 
     return (
-        <div className="p-8 space-y-6 max-w-[1400px] mx-auto animate-fade-in">
+        <div className="p-6 space-y-6 max-w-full mx-auto animate-fade-in">
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
                 <div>
-                    <div className="flex items-center gap-3">
-                        <h2 className="text-2xl font-black text-[#1e3a8a] uppercase tracking-tighter">Penilaian Presensi</h2>
-                        <span className="bg-blue-600 text-white text-[9px] px-3 py-1 rounded-sm font-black uppercase tracking-widest shadow-lg shadow-blue-500/20">A1</span>
+                    <div className="flex items-center gap-2">
+                        <h2 className="text-xl font-black text-[#1e3a8a] uppercase tracking-tighter">Penilaian Presensi</h2>
+                        <span className="bg-blue-600 text-white text-[8px] px-2 py-0.5 rounded-sm font-black uppercase tracking-widest shadow-lg shadow-blue-500/10">A1</span>
                     </div>
-                    <p className="text-[10px] text-slate-400 font-bold uppercase tracking-widest mt-1">SISTEM MONITORING KEHADIRAN HARIAN</p>
+                    <p className="text-[9px] text-slate-400 font-bold uppercase tracking-widest mt-0.5">SISTEM MONITORING KEHADIRAN HARIAN</p>
                 </div>
                 <div className="flex flex-wrap gap-2">
-                    <button className="px-10 py-3 bg-[#1e3a8a] text-white rounded-lg text-[11px] font-black uppercase tracking-widest hover:bg-blue-800 transition-all flex items-center gap-3 min-w-[140px] justify-center shadow-lg shadow-blue-900/10 active:scale-95" onClick={() => { setSaving(true); setTimeout(() => setSaving(false), 1200); }}>
-                        {saving ? <FaSpinner className="animate-spin" /> : <><FaCheckCircle /> Simpan</>}
+                    <button className="px-6 py-2 bg-[#1e3a8a] text-white rounded-lg text-[10px] font-black uppercase tracking-widest hover:bg-blue-800 transition-all flex items-center gap-2 shadow-lg shadow-blue-900/5 active:scale-95" onClick={() => { setSaving(true); setTimeout(() => setSaving(false), 1200); }}>
+                        {saving ? <FaSpinner className="animate-spin" /> : <><FaCheckCircle size={10} /> Simpan</>}
                     </button>
-                    <button className="px-10 py-3 bg-white border border-slate-200 text-slate-500 rounded-lg text-[11px] font-black uppercase tracking-widest hover:bg-slate-50 transition-all active:scale-95" onClick={() => setStudents(initialStudents)}>Reset</button>
-                    <div className="px-6 py-3 bg-blue-50 border border-blue-100 text-blue-600 rounded-lg text-[9px] font-black uppercase tracking-widest flex items-center gap-2">
-                        <FaClock /> 31 HARI AKTIF
+                    <button className="px-6 py-2 bg-white border border-slate-200 text-slate-500 rounded-lg text-[10px] font-black uppercase tracking-widest hover:bg-slate-50 transition-all active:scale-95" onClick={() => setStudents(initialStudents)}>Reset</button>
+                    <div className="px-4 py-2 bg-blue-50 border border-blue-100 text-blue-600 rounded-lg text-[9px] font-black uppercase tracking-widest flex items-center gap-2">
+                        <FaClock size={10} /> 31 HARI AKTIF
                     </div>
                 </div>
             </div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
-                <div className="lg:col-span-3 bg-white rounded-2xl shadow-xl border border-slate-100 overflow-hidden">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
+                <div className="lg:col-span-9 bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden">
                     <div className="overflow-x-auto">
-                        <table className="w-full text-left border-collapse min-w-[900px]">
+                        <table className="w-full text-left border-collapse min-w-[800px]">
                             <thead>
-                                <tr className="bg-[#1e3a8a] text-white text-[10px] font-black uppercase tracking-widest">
-                                    <th className="px-6 py-5 border-r border-white/5 w-16 text-center">No</th>
-                                    <th className="px-8 py-5 border-r border-white/5">Identitas Siswa</th>
-                                    <th className="px-8 py-5 border-r border-white/5 w-48">Kontak</th>
-                                    <th className="px-8 py-5">
+                                <tr className="bg-[#1e3a8a] text-white text-[9px] font-black uppercase tracking-widest">
+                                    <th className="px-4 py-4 border-r border-white/5 w-12 text-center">No</th>
+                                    <th className="px-6 py-4 border-r border-white/5">Identitas Siswa</th>
+                                    <th className="px-6 py-4 border-r border-white/5 w-40">Kontak</th>
+                                    <th className="px-6 py-4">
                                         <div className="flex items-center justify-between mb-2">
                                             <span>REKAPITULASI SESSI (1-10)</span>
-                                            <FaInfoCircle size={10} className="opacity-50" />
+                                            <FaInfoCircle size={8} className="opacity-40" />
                                         </div>
-                                        <div className="grid grid-cols-10 gap-2">
-                                            {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map(i => <div key={i} className="flex items-center justify-center h-6 bg-white/10 rounded-sm text-[8px] font-black">{i}</div>)}
+                                        <div className="grid grid-cols-10 gap-1.5">
+                                            {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map(i => <div key={i} className="flex items-center justify-center h-5 bg-white/10 rounded-sm text-[7px] font-black">{i}</div>)}
                                         </div>
                                     </th>
                                 </tr>
                             </thead>
-                            <tbody className="divide-y divide-slate-100">
+                            <tbody className="divide-y divide-slate-50">
                                 {students.map((student, idx) => (
-                                    <tr key={student.id} className="hover:bg-blue-50/30 transition-colors">
-                                        <td className="px-6 py-5 text-[11px] font-black text-slate-400 border-r border-slate-100 text-center">{idx + 1}</td>
-                                        <td className="px-8 py-5 border-r border-slate-100">
-                                            <div className="flex items-center gap-4">
-                                                <div className="w-9 h-9 rounded-full bg-blue-100 text-blue-700 flex items-center justify-center text-[10px] font-black uppercase shadow-inner">
+                                    <tr key={student.id} className="hover:bg-slate-50 transition-colors">
+                                        <td className="px-4 py-4 text-[10px] font-black text-slate-300 border-r border-slate-50 text-center">{idx + 1}</td>
+                                        <td className="px-6 py-4 border-r border-slate-50">
+                                            <div className="flex items-center gap-3">
+                                                <div className="w-8 h-8 rounded-full bg-slate-100 text-slate-500 flex items-center justify-center text-[9px] font-black uppercase border border-slate-200">
                                                     {student.name.split(' ').map(n => n[0]).join('')}
                                                 </div>
-                                                <p className="font-black text-[11px] text-[#1e3a8a] uppercase leading-none">{student.name}</p>
+                                                <p className="font-black text-[10px] text-[#1e3a8a] uppercase leading-none">{student.name}</p>
                                             </div>
                                         </td>
-                                        <td className="px-8 py-5 text-[10px] font-mono font-bold text-slate-400 border-r border-slate-100">{student.phone}</td>
-                                        <td className="px-8 py-5">
-                                            <div className="grid grid-cols-10 gap-3">
+                                        <td className="px-6 py-4 text-[9px] font-mono font-bold text-slate-400 border-r border-slate-50">{student.phone}</td>
+                                        <td className="px-6 py-4">
+                                            <div className="grid grid-cols-10 gap-2.5">
                                                 {[...student.attendance, null, null].map((val, i) => (
                                                     <button
                                                         key={i}
                                                         onClick={() => toggleDot(student.id, i)}
                                                         className={cn(
-                                                            "w-6 h-6 rounded-full border-2 transition-all shadow-sm",
-                                                            val ? "bg-green-500 border-green-500 scale-110 shadow-green-500/20" : "bg-white border-slate-100 hover:border-blue-200"
+                                                            "w-5 h-5 rounded-full border-[1.5px] transition-all",
+                                                            val ? "bg-blue-600 border-blue-600 shadow-md shadow-blue-500/20" : "bg-white border-slate-200 hover:border-blue-300"
                                                         )}
                                                     />
                                                 ))}
@@ -314,20 +314,19 @@ const AttendanceView = () => {
                     </div>
                 </div>
 
-                <div className="space-y-6">
-                    <div className="bg-[#0f172a] text-white p-8 rounded-2xl shadow-2xl flex flex-col gap-6 relative overflow-hidden">
-                        <div className="absolute top-0 right-0 p-4 opacity-5"><FaClipboardList size={80} /></div>
-                        <h3 className="text-[11px] font-black uppercase tracking-[0.3em] text-blue-400 relative z-10">Statistik Live</h3>
-                        <div className="grid grid-cols-2 gap-4 relative z-10">
+                <div className="lg:col-span-3 space-y-6">
+                    <div className="bg-[#1e293b] text-white p-6 rounded-2xl shadow-xl flex flex-col gap-4 relative overflow-hidden h-full">
+                        <div className="absolute top-0 right-0 p-4 opacity-5"><FaClipboardList size={60} /></div>
+                        <h3 className="text-[9px] font-black uppercase tracking-widest text-blue-400 relative z-10">Live Metrics</h3>
+                        <div className="grid grid-cols-1 gap-3 relative z-10">
                             {[
-                                { label: 'Hadir', value: '142', color: 'text-green-500', bg: 'bg-green-500/10' },
-                                { label: 'Alfa', value: '02', color: 'text-red-500', bg: 'bg-red-500/10' },
-                                { label: 'Sakit', value: '05', color: 'text-orange-500', bg: 'bg-orange-500/10' },
-                                { label: 'Izin', value: '08', color: 'text-blue-500', bg: 'bg-blue-500/10' },
+                                { label: 'Kehadiran', value: '142', color: 'text-blue-400', bg: 'bg-white/5' },
+                                { label: 'Izin Hari Ini', value: '08', color: 'text-orange-400', bg: 'bg-white/5' },
+                                { label: 'Alfa/Tanpa Ket', value: '02', color: 'text-red-400', bg: 'bg-white/5' },
                             ].map((stat, i) => (
-                                <div key={i} className={cn("p-4 rounded-xl flex flex-col gap-1 border border-white/5", stat.bg)}>
-                                    <span className="text-[9px] font-black uppercase opacity-60">{stat.label}</span>
-                                    <span className={cn("text-3xl font-black", stat.color)}>{stat.value}</span>
+                                <div key={i} className={cn("p-4 rounded-xl flex items-center justify-between border border-white/5", stat.bg)}>
+                                    <span className="text-[8px] font-black uppercase opacity-60">{stat.label}</span>
+                                    <span className={cn("text-xl font-black", stat.color)}>{stat.value}</span>
                                 </div>
                             ))}
                         </div>
