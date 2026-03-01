@@ -145,11 +145,13 @@ export const projectsData: Project[] = [
         category: 'Data Analytics',
         slug: 'marketplace-voltase-dashboard',
         introKey: 'marketplace_voltase',
-        image: '/projects/marketplace-voltase/hero.png',
+        image: '/projects/G4.20/Screenshot 2026-03-01 at 19.07.18.png',
         screenshots: [
-            '/projects/marketplace-voltase/dashboard.png',
-            '/projects/marketplace-voltase/analytics.png',
-            '/projects/marketplace-voltase/recommendation.png',
+            '/projects/G4.20/Screenshot 2026-03-01 at 19.16.39.png',
+            '/projects/G4.20/Screenshot 2026-03-01 at 19.16.42.png',
+            '/projects/G4.20/Screenshot 2026-03-01 at 19.16.50.png',
+            '/projects/G4.20/Screenshot 2026-03-01 at 19.16.58.png',
+            '/projects/G4.20/Screenshot 2026-03-01 at 19.17.01.png',
         ],
         colors: {
             primary: 'text-violet-700',
