@@ -19,7 +19,11 @@ import {
     FaInfoCircle,
     FaCheckCircle,
     FaClock,
-    FaGlobeAmericas
+    FaGlobeAmericas,
+    FaBookOpen,
+    FaAward,
+    FaChevronRight,
+    FaEdit
 } from 'react-icons/fa';
 import { cn } from '@/lib/utils';
 
@@ -337,49 +341,143 @@ const AttendanceView = () => {
     );
 };
 
-const KotobaView = () => {
+const PengajaranView = () => {
     return (
-        <div className="p-6 space-y-6 max-w-full mx-auto animate-fade-in">
-            <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
-                <div>
-                    <div className="flex items-center gap-2">
-                        <h2 className="text-xl font-black text-[#1e3a8a] uppercase tracking-tighter">Penilaian Kotoba</h2>
-                        <span className="bg-blue-600 text-white text-[8px] px-2 py-0.5 rounded-sm font-black uppercase tracking-widest shadow-lg shadow-blue-500/10">KAS-K</span>
+        <div className="p-6 space-y-6 max-w-full mx-auto animate-fade-in bg-[#f8fafc] min-h-screen">
+            {/* Top Row: Materials & Profile */}
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
+                <div className="lg:col-span-8 bg-white rounded-3xl border border-slate-100 shadow-sm flex flex-col items-center justify-center p-12 min-h-[300px] gap-4">
+                    <div className="w-16 h-16 bg-slate-50 rounded-2xl flex items-center justify-center text-slate-200">
+                        <FaBookOpen size={32} />
                     </div>
-                    <p className="text-[9px] text-slate-400 font-bold uppercase tracking-widest mt-0.5">DAFTAR NILAI KOSAKATA (KOTOBA) SISWA HARIAN</p>
+                    <div className="text-center">
+                        <h3 className="text-[11px] font-black text-slate-300 uppercase tracking-[0.2em]">Belum Ada Materi</h3>
+                        <p className="text-[9px] text-slate-400 font-bold mt-1">Klik tombol Tambah Materi untuk mengunggah pengajaran Anda</p>
+                    </div>
+                </div>
+
+                <div className="lg:col-span-4 bg-white rounded-3xl border border-slate-100 shadow-sm overflow-hidden relative">
+                    <div className="p-6 pt-12 flex flex-col items-center">
+                        <div className="relative mb-6">
+                            <div className="w-24 h-24 rounded-full overflow-hidden border-4 border-white shadow-xl">
+                                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&h=200&fit=crop" alt="Profile" className="w-full h-full object-cover" />
+                            </div>
+                            <div className="absolute bottom-1 right-1 w-6 h-6 bg-green-500 rounded-full border-2 border-white flex items-center justify-center">
+                                <FaCheckCircle className="text-white" size={10} />
+                            </div>
+                        </div>
+
+                        <div className="w-full space-y-4 px-4">
+                            <div className="flex items-center justify-between py-2 border-b border-slate-50">
+                                <span className="text-[8px] font-black text-slate-300 uppercase">Nama</span>
+                                <span className="text-[10px] font-black text-[#1e293b] uppercase">k</span>
+                            </div>
+                            <div className="flex items-center justify-between py-2 border-b border-slate-50">
+                                <span className="text-[8px] font-black text-slate-300 uppercase">Email</span>
+                                <span className="text-[10px] font-black text-[#1e293b]">k@gmail.com</span>
+                            </div>
+                            <div className="flex items-center justify-between py-2 border-b border-slate-50">
+                                <span className="text-[8px] font-black text-slate-300 uppercase">Role</span>
+                                <span className="text-[10px] font-black text-blue-600 uppercase">Sensei</span>
+                            </div>
+                        </div>
+
+                        <button className="w-full mt-6 bg-[#ff9119] hover:bg-[#ff8000] text-white py-4 rounded-2xl text-[10px] font-black uppercase tracking-widest shadow-lg shadow-orange-500/20 active:scale-[0.98] transition-all">
+                            Presensi Sekarang
+                        </button>
+                    </div>
                 </div>
             </div>
 
-            <div className="bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden">
-                <table className="w-full text-left border-collapse">
-                    <thead>
-                        <tr className="bg-[#1e3a8a] text-white text-[9px] font-black uppercase tracking-widest">
-                            <th className="px-6 py-4 border-r border-white/5 w-12 text-center">No</th>
-                            <th className="px-8 py-4 border-r border-white/5">Nama Siswa</th>
-                            <th className="px-6 py-4 border-r border-white/5 w-24 text-center">Bener</th>
-                            <th className="px-6 py-4 border-r border-white/5 w-24 text-center">Nilai</th>
-                            <th className="px-8 py-4">Tanggal Penilaian</th>
-                        </tr>
-                    </thead>
-                    <tbody className="divide-y divide-slate-50">
-                        {kotobaData.map((item, idx) => (
-                            <tr key={idx} className="hover:bg-slate-50 transition-colors">
-                                <td className="px-6 py-4 text-[10px] font-black text-slate-300 border-r border-slate-50 text-center">{idx + 1}</td>
-                                <td className="px-8 py-4 font-black text-[10px] text-[#1e3a8a] uppercase border-r border-slate-50">{item.name}</td>
-                                <td className="px-6 py-4 text-[10px] font-black text-slate-500 border-r border-slate-50 text-center">{item.bener}</td>
-                                <td className="px-6 py-4 border-r border-slate-50 text-center">
-                                    <span className={cn(
-                                        "px-4 py-1 rounded-sm text-[9px] font-black",
-                                        item.nilai >= 75 ? "bg-green-50 text-green-600" : "bg-red-50 text-red-600"
-                                    )}>
-                                        {item.nilai}
-                                    </span>
-                                </td>
-                                <td className="px-8 py-4 text-[9px] font-mono font-bold text-slate-400 uppercase">{item.tanggal} // 08:30 AM</td>
-                            </tr>
-                        ))}
-                    </tbody>
-                </table>
+            {/* Middle Section: Jadwal Pengajaran */}
+            <div className="bg-white rounded-3xl border border-slate-100 shadow-sm overflow-hidden">
+                <div className="bg-[#1e293b] p-4 px-6 flex items-center justify-between">
+                    <div className="flex items-center gap-3">
+                        <div className="w-8 h-8 rounded-xl bg-white/10 flex items-center justify-center text-white">
+                            <FaCalendarAlt size={14} />
+                        </div>
+                        <h2 className="text-[11px] font-black text-white uppercase tracking-widest">Jadwal Pengajaran</h2>
+                    </div>
+                    <span className="bg-[#e11d48] text-white px-3 py-1 rounded-full text-[8px] font-black uppercase tracking-widest shadow-lg shadow-red-500/20">Minggu I</span>
+                </div>
+
+                <div className="p-6 space-y-4">
+                    {[
+                        { icon: 'K', title: 'Kanji', level: 'KELAS A1', time: 'RABU • 15.00 - 16.00', color: 'bg-blue-50 text-blue-600' },
+                        { icon: 'K', title: 'Kotoba', level: 'KELAS A2', time: 'SELASA • 15.00 - 16.00', color: 'bg-orange-50 text-orange-600' }
+                    ].map((item, idx) => (
+                        <div key={idx} className="bg-slate-50/50 rounded-2xl p-4 flex items-center justify-between group hover:bg-white hover:shadow-xl hover:shadow-slate-200/50 transition-all border border-transparent hover:border-slate-100">
+                            <div className="flex items-center gap-6">
+                                <div className={cn("w-12 h-12 rounded-2xl flex items-center justify-center text-lg font-black shadow-sm", item.color)}>
+                                    {item.icon}
+                                </div>
+                                <div>
+                                    <div className="flex items-center gap-2">
+                                        <h4 className="text-[12px] font-black text-[#1e293b] uppercase tracking-tight">{item.title}</h4>
+                                        <span className={cn("px-2 py-0.5 rounded text-[7px] font-black uppercase tracking-widest", item.color)}>
+                                            {item.level}
+                                        </span>
+                                    </div>
+                                    <div className="flex items-center gap-1 mt-1 text-slate-400">
+                                        <FaClock size={8} />
+                                        <span className="text-[9px] font-bold uppercase tracking-widest">{item.time}</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="flex items-center gap-3">
+                                <div className="w-8 h-8 rounded-full border border-slate-200 flex items-center justify-center text-slate-400 group-hover:bg-blue-50 group-hover:border-blue-100 group-hover:text-blue-500 transition-colors">
+                                    <FaInfoCircle size={14} />
+                                </div>
+                                <button className="bg-[#f43f5e] hover:bg-red-600 text-white px-8 py-3 rounded-xl text-[10px] font-black uppercase tracking-widest shadow-lg shadow-red-500/20 active:scale-95 transition-all">
+                                    Presensi
+                                </button>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            </div>
+
+            {/* Bottom Section: Evaluasi & Event */}
+            <div className="bg-white rounded-3xl border border-slate-100 shadow-sm p-6 pb-8">
+                <div className="flex items-center justify-between mb-8">
+                    <div className="flex items-center gap-4">
+                        <div className="w-10 h-10 rounded-2xl bg-orange-50 text-orange-500 flex items-center justify-center">
+                            <FaAward size={18} />
+                        </div>
+                        <div>
+                            <h2 className="text-[12px] font-black text-[#1e293b] uppercase tracking-widest">Evaluasi & Event</h2>
+                            <p className="text-[8px] text-slate-400 font-bold uppercase tracking-widest mt-0.5">Jadwal Evaluasi Siswa Mendatang</p>
+                        </div>
+                    </div>
+                    <button className="text-[9px] font-black text-[#1e293b] uppercase tracking-widest flex items-center gap-2 group">
+                        Lihat Semua <FaChevronRight className="group-hover:translate-x-0.5 transition-transform" size={8} />
+                    </button>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    {[
+                        { title: 'Bunpou - Seleksi I', date: 'SENIN, 25 AGT 2025 • 15.00 - 16.00' },
+                        { title: 'Kotoba - Seleksi I', date: 'SELASA, 26 AGT 2025 • 15.00 - 16.00' }
+                    ].map((item, idx) => (
+                        <div key={idx} className="bg-slate-50/50 rounded-2xl p-5 flex items-center justify-between border border-transparent hover:border-slate-100 hover:bg-white hover:shadow-xl hover:shadow-slate-200/50 transition-all">
+                            <div className="flex flex-col gap-1.5">
+                                <h4 className="text-[12px] font-black text-[#1e293b] uppercase tracking-tight">{item.title}</h4>
+                                <div className="flex items-center gap-1.5 text-slate-400 uppercase">
+                                    <FaCalendarAlt size={8} />
+                                    <span className="text-[8px] font-bold tracking-widest">{item.date}</span>
+                                </div>
+                            </div>
+                            <div className="flex items-center gap-2">
+                                <div className="w-8 h-8 rounded-xl border border-slate-200 flex items-center justify-center text-slate-400 hover:bg-slate-50 transition-colors">
+                                    <FaEdit size={12} />
+                                </div>
+                                <button className="bg-[#f43f5e] hover:bg-red-600 text-white px-6 py-2.5 rounded-xl text-[9px] font-black uppercase tracking-widest shadow-lg shadow-red-500/20 active:scale-95 transition-all">
+                                    Presensi
+                                </button>
+                            </div>
+                        </div>
+                    ))}
+                </div>
             </div>
         </div>
     );
@@ -570,7 +668,7 @@ export default function LPKSaitamaDemo() {
                             className="h-full"
                         >
                             {activeTab === 'presensi' && <AttendanceView />}
-                            {activeTab === 'pengajaran' && <KotobaView />}
+                            {activeTab === 'pengajaran' && <PengajaranView />}
                             {activeTab === 'evaluasi' && <EvaluasiView />}
                             {activeTab === 'status' && <StatusSiswaView />}
                             {activeTab === 'dashboard' && <DashboardView />}
