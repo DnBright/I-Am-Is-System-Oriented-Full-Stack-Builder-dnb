@@ -232,27 +232,215 @@ const ProfilView = () => (
 
         {/* Visi & Misi Section */}
         <div className="bg-slate-50 py-32">
-            <div className="container mx-auto px-12 grid grid-cols-3 gap-12">
+            <div className="container mx-auto px-12 grid grid-cols-1 lg:grid-cols-3 gap-12">
                 <div className="col-span-1 space-y-6">
-                    <div className="text-red-500 text-[10px] font-black uppercase tracking-[0.3em]">Our Vision</div>
-                    <h2 className="text-6xl font-black text-[#1e293b] tracking-tighter uppercase leading-[0.8]">VISI<br />KAMI</h2>
+                    <div className="text-red-500 text-[10px] font-black uppercase tracking-[0.3em]">Our Values</div>
+                    <h2 className="text-6xl font-black text-[#1e293b] tracking-tighter uppercase leading-[0.8]">VISI &<br />MISI</h2>
                     <p className="text-slate-400 text-xs leading-relaxed uppercase tracking-widest font-bold">
-                        Menjadi lembaga pelatihan kerja terbaik yang mencetak tenaga kerja wanita profesional dan berdikari.
+                        Menjadi lembaga pelatihan kerja terbaik yang mencetak tenaga kerja wanita profesional dan berdikari secara global.
                     </p>
+                    <div className="pt-8">
+                        <div className="w-12 h-12 rounded-2xl bg-white shadow-xl flex items-center justify-center text-red-600 text-xl">
+                            <FaLightbulb />
+                        </div>
+                    </div>
                 </div>
-                <div className="col-span-2 grid grid-cols-2 gap-8">
+                <div className="col-span-2 grid grid-cols-1 md:grid-cols-2 gap-8">
                     {[
-                        { title: 'Integritas', desc: 'Membangun karakter peserta yang jujur, disiplin, dan bertanggung jawab.' },
-                        { title: 'Kompetensi', desc: 'Memberikan pelatihan bahasa dan skill dengan standar tinggi.' },
-                        { title: 'Kepedulian', desc: 'Mendampingi setiap peserta secara personal hingga sukses.' },
-                        { title: 'Inovasi', desc: 'Terus mengembangkan kurikulum yang sesuai dengan kebutuhan industri.' },
+                        { title: 'Integritas', desc: 'Membangun karakter peserta yang jujur, disiplin, dan bertanggung jawab terhadap amanah kerja.', icon: <FaShieldAlt /> },
+                        { title: 'Kompetensi', desc: 'Memberikan pelatihan bahasa dan skill dengan standar industri Jepang yang paling mutakhir.', icon: <FaAward /> },
+                        { title: 'Kepedulian', desc: 'Mendampingi setiap peserta secara personal mulai dari pendaftaran hingga sukses di Jepang.', icon: <FaUsers /> },
+                        { title: 'Inovasi', desc: 'Terus mengembangkan kurikulum yang sesuai dengan kebutuhan industri global yang terus berubah.', icon: <FaLightbulb /> },
                     ].map((misi, i) => (
-                        <div key={i} className="bg-white p-10 rounded-[40px] shadow-sm border border-slate-100 group hover:shadow-xl transition-all">
-                            <div className="text-red-600 font-black text-2xl mb-4">0{i + 1}</div>
+                        <div key={i} className="bg-white p-10 rounded-[40px] shadow-sm border border-slate-100 group hover:shadow-xl hover:-translate-y-1 transition-all duration-500">
+                            <div className="flex justify-between items-start mb-6">
+                                <div className="text-slate-200 font-black text-5xl italic opacity-50 group-hover:text-red-50 group-hover:opacity-100 transition-all duration-500">0{i + 1}</div>
+                                <div className="w-10 h-10 rounded-xl bg-slate-50 text-slate-400 flex items-center justify-center group-hover:bg-red-50 group-hover:text-red-600 transition-all duration-500">
+                                    {misi.icon}
+                                </div>
+                            </div>
                             <h3 className="text-xl font-black text-[#1e293b] uppercase mb-3">{misi.title}</h3>
                             <p className="text-[10px] text-slate-500 font-bold uppercase tracking-wider leading-relaxed">{misi.desc}</p>
                         </div>
                     ))}
+                </div>
+            </div>
+        </div>
+
+        {/* Sejarah Section */}
+        <div className="py-32 container mx-auto px-12">
+            <div className="flex flex-col items-center text-center mb-24 space-y-4">
+                <div className="text-red-600 text-[10px] font-black uppercase tracking-[0.4em]">Milestone Kami</div>
+                <h2 className="text-6xl font-black text-[#1e293b] tracking-tighter uppercase leading-tight">JEJAK LAnGKAH AYAKA</h2>
+            </div>
+
+            <div className="max-w-5xl mx-auto relative">
+                <div className="absolute left-1/2 top-0 bottom-0 w-px bg-slate-100 -translate-x-1/2 hidden lg:block" />
+
+                <div className="space-y-24">
+                    {[
+                        { year: '2021', title: 'Fondasi Awal', desc: 'Pendirian LPK Ayaka Global Indonesia di Yogyakarta dengan fokus pada pemberdayaan perempuan.' },
+                        { year: '2022', title: 'Izin Resmi', desc: 'Mendapatkan izin operasional resmi dari Kementerian Ketenagakerjaan RI sebagai LPK berstandar nasional.' },
+                        { year: '2023', title: 'Akreditasi A', desc: 'Berhasil meraih Akreditasi A dan resmi menjadi Sending Organization (SO) untuk program Ginou Jisshu.' },
+                        { year: '2024', title: 'Ekspansi Global', desc: 'Menandatangani kerjasama dengan 20+ Kumiai dan perusahaan ternama di 10 Prefektur Jepang.' }
+                    ].map((item, i) => (
+                        <div key={i} className={cn("flex flex-col lg:flex-row items-center gap-12 group", i % 2 === 1 ? "lg:flex-row-reverse" : "")}>
+                            <div className="w-full lg:w-1/2 flex flex-col justify-center items-center lg:items-end group-odd:lg:items-end group-even:lg:items-start text-center lg:text-right group-even:lg:text-left">
+                                <div className="text-7xl font-black text-slate-100 group-hover:text-red-600/10 transition-colors duration-500 mb-2">{item.year}</div>
+                                <h3 className="text-2xl font-black text-[#1e293b] uppercase mb-4 tracking-tight">{item.title}</h3>
+                                <p className="text-slate-500 font-medium leading-relaxed max-w-sm">{item.desc}</p>
+                            </div>
+
+                            <div className="relative z-10 hidden lg:block">
+                                <div className="w-12 h-12 rounded-full bg-white border-4 border-slate-50 shadow-xl flex items-center justify-center text-red-600 group-hover:scale-125 group-hover:bg-red-600 group-hover:text-white transition-all duration-500">
+                                    <FaHistory size={14} />
+                                </div>
+                            </div>
+
+                            <div className="w-full lg:w-1/2 flex items-center justify-center lg:justify-start group-odd:lg:justify-start group-even:lg:justify-end">
+                                <div className="w-full max-w-sm aspect-video rounded-[30px] overflow-hidden bg-slate-100 shadow-2xl relative group-hover:scale-105 transition-transform duration-700">
+                                    <img src={`https://images.unsplash.com/photo-${1500000000000 + (i * 1234568)}?w=600&h=400&fit=crop`} alt={item.title} className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" />
+                                </div>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            </div>
+        </div>
+
+        {/* Fasilitas Section */}
+        <div className="bg-slate-900 py-32 text-white overflow-hidden relative">
+            <div className="absolute top-0 right-0 opacity-5 pointer-events-none translate-x-1/4 -translate-y-1/4">
+                <h3 className="text-[200px] font-black uppercase tracking-tighter">FACILITY</h3>
+            </div>
+
+            <div className="container mx-auto px-12 relative z-10">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+                    <div className="space-y-12">
+                        <div className="space-y-4">
+                            <div className="text-red-500 text-[10px] font-black uppercase tracking-[0.4em]">Environment</div>
+                            <h2 className="text-7xl font-black tracking-tighter uppercase leading-[0.8]">RUAnG TUMBuh<br />yAnG nyAMAn</h2>
+                            <p className="text-slate-400 text-lg font-medium leading-relaxed max-w-lg">
+                                Kami menyediakan ekosistem pelatihan yang terintegasi, memastikan setiap peserta dapat fokus belajar dengan fasilitas berstandar tinggi.
+                            </p>
+                        </div>
+
+                        <div className="grid grid-cols-2 gap-8 pt-8">
+                            {[
+                                { title: 'Modern Class', icon: <FaBuilding />, desc: 'Ruang kelas full AC & multimedia.' },
+                                { title: 'Dormitory', icon: <FaBuilding />, desc: 'Asrama putri yang aman & bersih.' },
+                                { title: 'Language Lab', icon: <FaAward />, desc: 'Lab bahasa standar internasional.' },
+                                { title: 'Simulation', icon: <FaCheckCircle />, desc: 'Area praktek kerja nyata.' }
+                            ].map((f, i) => (
+                                <div key={i} className="space-y-4 group">
+                                    <div className="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-red-500 group-hover:bg-red-600 group-hover:text-white transition-all duration-500">
+                                        {f.icon}
+                                    </div>
+                                    <h4 className="text-lg font-black uppercase tracking-tight">{f.title}</h4>
+                                    <p className="text-[10px] text-slate-500 font-bold uppercase tracking-widest">{f.desc}</p>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+
+                    <div className="grid grid-cols-2 gap-6 rotate-3">
+                        <div className="space-y-6 pt-12">
+                            <div className="aspect-[3/4] rounded-[40px] overflow-hidden shadow-2xl">
+                                <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=600&q=80" alt="Fasilitas 1" className="w-full h-full object-cover" />
+                            </div>
+                            <div className="aspect-square rounded-[40px] overflow-hidden shadow-2xl">
+                                <img src="https://images.unsplash.com/photo-1519741497674-611481863552?w=600&q=80" alt="Fasilitas 2" className="w-full h-full object-cover" />
+                            </div>
+                        </div>
+                        <div className="space-y-6">
+                            <div className="aspect-square rounded-[40px] overflow-hidden shadow-2xl">
+                                <img src="https://images.unsplash.com/photo-1517502884422-41eaead166d4?w=600&q=80" alt="Fasilitas 3" className="w-full h-full object-cover" />
+                            </div>
+                            <div className="aspect-[3/4] rounded-[40px] overflow-hidden shadow-2xl">
+                                <img src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=600&q=80" alt="Fasilitas 4" className="w-full h-full object-cover" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        {/* Struktur Organisasi Section */}
+        <div className="py-32 bg-white">
+            <div className="container mx-auto px-12">
+                <div className="flex flex-col items-center text-center mb-24 space-y-4">
+                    <div className="text-red-600 text-[10px] font-black uppercase tracking-[0.4em]">Kepemimpinan</div>
+                    <h2 className="text-6xl font-black text-[#1e293b] tracking-tighter uppercase leading-tight">STRUKTUR ORGAnISASI</h2>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    {[
+                        { name: 'Ibu Ayaka Mori', role: 'Founder & CEO', img: 'https://i.pravatar.cc/300?u=ayaka' },
+                        { name: 'Bp. Budi Santoso', role: 'Direktur Pelaksana', img: 'https://i.pravatar.cc/300?u=budi' },
+                        { name: 'Ibu Siti Aminah', role: 'Kepala Pelatihan', img: 'https://i.pravatar.cc/300?u=siti' },
+                        { name: 'Bp. Kenji Tanaka', role: 'Koordinator Penempatan', img: 'https://i.pravatar.cc/300?u=kenji' }
+                    ].map((person, i) => (
+                        <div key={i} className="group flex flex-col items-center text-center">
+                            <div className="w-full aspect-[4/5] rounded-[40px] overflow-hidden mb-8 relative grayscale hover:grayscale-0 transition-all duration-700">
+                                <img src={person.img} alt={person.name} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+                                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+                            </div>
+                            <h3 className="text-xl font-black text-[#1e293b] uppercase mb-1">{person.name}</h3>
+                            <p className="text-[10px] font-black text-red-600 uppercase tracking-widest">{person.role}</p>
+                        </div>
+                    ))}
+                </div>
+            </div>
+        </div>
+
+        {/* Legalitas Section */}
+        <div className="bg-slate-50 py-32 border-t border-slate-100">
+            <div className="container mx-auto px-12">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+                    <div className="space-y-8">
+                        <div className="inline-flex px-6 py-2 bg-white border border-slate-200 rounded-full text-[10px] font-black uppercase tracking-widest text-[#1e293b] shadow-sm">
+                            Kredibilitas & Legalitas
+                        </div>
+                        <h2 className="text-6xl font-black text-[#1e293b] tracking-tighter uppercase leading-[0.9]">
+                            CERTIFIED & <br />
+                            <span className="text-red-600">TRUSTED</span> LPK
+                        </h2>
+                        <p className="text-lg text-slate-500 font-medium leading-relaxed max-w-lg">
+                            Ayaka Global Indonesia menjamin seluruh proses pelatihan dan penempatan berjalan sesuai dengan regulasi pemerintah Indonesia dan Jepang.
+                        </p>
+                        <div className="flex flex-wrap gap-4 pt-4">
+                            <div className="px-6 py-4 bg-white rounded-2xl shadow-sm border border-slate-100 flex items-center gap-4 group hover:border-red-200 transition-all">
+                                <div className="w-10 h-10 rounded-xl bg-red-50 text-red-600 flex items-center justify-center group-hover:bg-red-600 group-hover:text-white transition-all">
+                                    <FaFileContract />
+                                </div>
+                                <div>
+                                    <div className="text-[9px] font-black text-slate-400 uppercase tracking-widest">Izin Kemenaker</div>
+                                    <div className="text-xs font-black text-[#1e293b] uppercase tracking-tighter">LPK/02/AJC/2023</div>
+                                </div>
+                            </div>
+                            <div className="px-6 py-4 bg-white rounded-2xl shadow-sm border border-slate-100 flex items-center gap-4 group hover:border-red-200 transition-all">
+                                <div className="w-10 h-10 rounded-xl bg-red-50 text-red-600 flex items-center justify-center group-hover:bg-red-600 group-hover:text-white transition-all">
+                                    <FaCertificate />
+                                </div>
+                                <div>
+                                    <div className="text-[9px] font-black text-slate-400 uppercase tracking-widest">Izin SO</div>
+                                    <div className="text-xs font-black text-[#1e293b] uppercase tracking-tighter">SO-252/HK/IX/2023</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className="grid grid-cols-3 gap-6">
+                        {[1, 2, 3].map(i => (
+                            <div key={i} className="aspect-[3/4] bg-white rounded-[30px] shadow-2xl border border-slate-100 p-6 flex flex-col justify-between group hover:-translate-y-4 transition-all duration-500">
+                                <div className="w-12 h-1 bg-red-500 rounded-full" />
+                                <div className="text-[10px] font-black text-slate-300 uppercase leading-[1.2]">Official<br />Certification<br />Document</div>
+                                <div className="aspect-square bg-slate-50 rounded-xl flex items-center justify-center text-slate-200">
+                                    <FaFileContract size={32} />
+                                </div>
+                            </div>
+                        ))}
+                    </div>
                 </div>
             </div>
         </div>
