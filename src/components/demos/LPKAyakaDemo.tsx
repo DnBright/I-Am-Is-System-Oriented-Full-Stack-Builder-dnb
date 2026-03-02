@@ -19,7 +19,15 @@ import {
     FaGlobe,
     FaPhone,
     FaEnvelope,
-    FaMapMarkerAlt
+    FaMapMarkerAlt,
+    FaHistory,
+    FaUsers,
+    FaAward,
+    FaBuilding,
+    FaFileContract,
+    FaCertificate,
+    FaLightbulb,
+    FaShieldAlt
 } from 'react-icons/fa';
 import { cn } from '@/lib/utils';
 
