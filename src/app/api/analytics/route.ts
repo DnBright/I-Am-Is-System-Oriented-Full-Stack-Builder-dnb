@@ -11,7 +11,7 @@ import {
 } from '@/lib/analytics';
 
 const CACHE_KEY = 'github:analytics';
-const CACHE_TTL = 600; // 10 minutes
+const CACHE_TTL = 60; // 60 seconds - faster sync after new commits
 
 export async function GET() {
     try {
