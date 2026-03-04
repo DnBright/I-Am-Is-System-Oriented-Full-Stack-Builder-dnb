@@ -444,6 +444,79 @@ const ProfilView = () => (
                 </div>
             </div>
         </div>
+
+        {/* Mitra Strategis Section */}
+        <div className="py-32 bg-white container mx-auto px-12">
+            <div className="flex flex-col items-center text-center mb-16 space-y-4">
+                <div className="text-red-500 text-[10px] font-black uppercase tracking-[0.4em]">Global Network</div>
+                <h2 className="text-6xl font-black text-[#1e293b] tracking-tighter uppercase leading-tight">MITRA STRATEGIS<br />& KUMIAI</h2>
+                <p className="text-slate-500 max-w-2xl mt-4 leading-relaxed font-medium">Bekerjasama dengan institusi terkemuka (Kumiai) dan perusahaan di berbagai wilayah Jepang untuk memastikan penempatan kerja yang aman, terjamin, dan profesional.</p>
+            </div>
+
+            <div className="flex flex-wrap justify-center gap-8 opacity-60">
+                {[1, 2, 3, 4, 5, 6, 7, 8].map(i => (
+                    <div key={i} className="w-48 h-24 bg-slate-50 rounded-2xl flex items-center justify-center grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-500 border border-slate-100 cursor-pointer shadow-sm hover:shadow-xl hover:-translate-y-1">
+                        <div className="text-xl font-black text-slate-300 tracking-widest">PARTNER 0{i}</div>
+                    </div>
+                ))}
+            </div>
+        </div>
+
+        {/* CTA Section */}
+        <div className="bg-red-600 py-24 relative overflow-hidden">
+            <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-red-500 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3" />
+            <div className="container mx-auto px-12 relative z-10 flex flex-col md:flex-row items-center justify-between gap-12">
+                <div className="space-y-6 max-w-2xl text-white">
+                    <h2 className="text-5xl font-black tracking-tighter uppercase leading-[0.9]">Siap Memulai <br />Perjalanan Anda?</h2>
+                    <p className="text-red-100 text-lg">Bergabunglah dengan alumni kami yang telah sukses meniti karir di Jepang. Tim kami siap memandu Anda dari langkah pertama hingga keberangkatan.</p>
+                </div>
+                <div className="flex gap-4">
+                    <button className="px-10 py-5 bg-white text-red-600 rounded-full text-[12px] font-black uppercase tracking-widest shadow-2xl hover:scale-105 active:scale-95 transition-all">Konsultasi Gratis</button>
+                    <button className="px-10 py-5 bg-red-700 text-white border border-red-500 rounded-full text-[12px] font-black uppercase tracking-widest hover:bg-white hover:text-red-600 transition-all">Lihat Program</button>
+                </div>
+            </div>
+        </div>
+
+        {/* Footer */}
+        <div className="bg-[#1e293b] py-20 px-12 text-white">
+            <div className="container mx-auto grid grid-cols-4 gap-16">
+                <div className="col-span-2 space-y-8">
+                    <div className="flex items-center gap-4">
+                        <div className="w-12 h-12 rounded-full bg-white p-2">
+                            <img src="https://lpk-ayaka.vercel.app/logo.png" alt="Logo" className="w-full h-full object-contain" />
+                        </div>
+                        <h2 className="text-3xl font-black tracking-tighter uppercase">AYAKA JOSEI CENTER</h2>
+                    </div>
+                    <p className="text-slate-400 max-w-md leading-relaxed">
+                        Membangun masa depan wanita Indonesia yang mandiri, kompeten, dan memiliki daya saing global di kancah internasional khususnya di Jepang.
+                    </p>
+                    <div className="flex gap-4">
+                        <div className="w-10 h-10 rounded-full border border-slate-700 flex items-center justify-center hover:bg-white hover:text-slate-900 transition-all cursor-pointer"><FaPhone size={14} /></div>
+                        <div className="w-10 h-10 rounded-full border border-slate-700 flex items-center justify-center hover:bg-white hover:text-slate-900 transition-all cursor-pointer"><FaEnvelope size={14} /></div>
+                        <div className="w-10 h-10 rounded-full border border-slate-700 flex items-center justify-center hover:bg-white hover:text-slate-900 transition-all cursor-pointer"><FaMapMarkerAlt size={14} /></div>
+                    </div>
+                </div>
+                <div className="space-y-6">
+                    <h4 className="text-[10px] font-black uppercase tracking-[0.3em] text-red-500">Navigasi</h4>
+                    <ul className="space-y-4 text-slate-400 text-xs font-bold uppercase tracking-widest">
+                        <li className="hover:text-white cursor-pointer transition-colors">Beranda</li>
+                        <li className="hover:text-white cursor-pointer transition-colors">Tentang Kami</li>
+                        <li className="hover:text-white cursor-pointer transition-colors">Program Kerja</li>
+                        <li className="hover:text-white cursor-pointer transition-colors">Galeri Kegiatan</li>
+                    </ul>
+                </div>
+                <div className="space-y-6">
+                    <h4 className="text-[10px] font-black uppercase tracking-[0.3em] text-red-500">Legalitas</h4>
+                    <p className="text-xs text-slate-400 leading-loose uppercase tracking-widest font-bold">
+                        Akreditasi A<br />
+                        KEMENAKER RI NO: 2/252/HK.01.03/IX/2023
+                    </p>
+                </div>
+            </div>
+            <div className="mt-20 pt-8 border-t border-slate-800 text-center text-[8px] font-black text-slate-500 uppercase tracking-[0.4em]">
+                &copy; 2026 LPK Ayaka Josei Center. All Rights Reserved.
+            </div>
+        </div>
     </div>
 );
 
