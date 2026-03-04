@@ -11,6 +11,7 @@ import { useTranslations } from 'next-intl';
 import { projectsData } from '@/lib/project-data';
 import LPKSaitamaDemo from '@/components/demos/LPKSaitamaDemo';
 import LPKAyakaDemo from '@/components/demos/LPKAyakaDemo';
+import AIAdminDemo from '@/components/demos/AIAdminDemo';
 
 export default function TryPage() {
     const t = useTranslations('Try');
@@ -22,10 +23,11 @@ export default function TryPage() {
     const renderDemo = () => {
         if (activeId === 'lpk-saitama-dashboard') return <LPKSaitamaDemo />;
         if (activeId === 'lpk-ayaka-website') return <LPKAyakaDemo />;
+        if (activeId === 'ai-admin-dashboard') return <AIAdminDemo />;
         return null;
     };
 
-    const hasInternalDemo = ['lpk-saitama-dashboard', 'lpk-ayaka-website'].includes(activeId);
+    const hasInternalDemo = ['lpk-saitama-dashboard', 'lpk-ayaka-website', 'ai-admin-dashboard'].includes(activeId);
 
     return (
         <div className="py-24 relative overflow-hidden bg-background">
