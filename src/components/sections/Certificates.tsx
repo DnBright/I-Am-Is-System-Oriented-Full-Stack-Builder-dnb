@@ -35,6 +35,11 @@ export default function Certificates() {
             key: 'design_content',
             icon: <FiAward />,
             file: '/documents/references/Surat Keterangan Kerja Design & Content Creator.pdf'
+        },
+        {
+            key: 'asisten_dosen',
+            icon: <FiAward />,
+            file: '/documents/Asisten Dosen/Sertifikat Asisten ANAK GANANG JAYA-Desain Komunikasi Visual.pdf'
         }
     ];
 
