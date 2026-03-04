@@ -28,12 +28,12 @@ export default function TryPage() {
         if (activeId === 'lpk-ayaka-website') return <LPKAyakaDemo />;
         if (activeId === 'ai-admin-dashboard') return <AIAdminDemo />;
         if (activeId === 'japan-online-course') return <JapanLMSDemo />;
-        if (activeId === 'gro-visual-studio') return <GROVisualDemo />;
+        if (activeId === 'gro-visual-branding') return <GROVisualDemo />;
         if (activeId === 'marketplace-voltase-dashboard') return <VoltaseDemo />;
         return null;
     };
 
-    const hasInternalDemo = ['lpk-saitama-dashboard', 'lpk-ayaka-website', 'ai-admin-dashboard', 'japan-online-course', 'gro-visual-studio', 'marketplace-voltase-dashboard'].includes(activeId);
+    const hasInternalDemo = ['lpk-saitama-dashboard', 'lpk-ayaka-website', 'ai-admin-dashboard', 'japan-online-course', 'gro-visual-branding', 'marketplace-voltase-dashboard'].includes(activeId);
 
     return (
         <div className="py-24 relative overflow-hidden bg-background">
