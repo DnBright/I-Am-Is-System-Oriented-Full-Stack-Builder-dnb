@@ -12,6 +12,7 @@ import { projectsData } from '@/lib/project-data';
 import LPKSaitamaDemo from '@/components/demos/LPKSaitamaDemo';
 import LPKAyakaDemo from '@/components/demos/LPKAyakaDemo';
 import AIAdminDemo from '@/components/demos/AIAdminDemo';
+import JapanLMSDemo from '@/components/demos/JapanLMSDemo';
 
 export default function TryPage() {
     const t = useTranslations('Try');
@@ -24,10 +25,11 @@ export default function TryPage() {
         if (activeId === 'lpk-saitama-dashboard') return <LPKSaitamaDemo />;
         if (activeId === 'lpk-ayaka-website') return <LPKAyakaDemo />;
         if (activeId === 'ai-admin-dashboard') return <AIAdminDemo />;
+        if (activeId === 'japan-online-course') return <JapanLMSDemo />;
         return null;
     };
 
-    const hasInternalDemo = ['lpk-saitama-dashboard', 'lpk-ayaka-website', 'ai-admin-dashboard'].includes(activeId);
+    const hasInternalDemo = ['lpk-saitama-dashboard', 'lpk-ayaka-website', 'ai-admin-dashboard', 'japan-online-course'].includes(activeId);
 
     return (
         <div className="py-24 relative overflow-hidden bg-background">
